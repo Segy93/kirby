@@ -4,20 +4,18 @@
 
 namespace Composer\Autoload;
 
-class ComposerStaticInitdb71ffc43471d69e4fd8f50c154c3460
+class ComposerStaticInit1f931b0390a63ed852a2d83cb7419714
 {
     public static $files = array (
         'a4a119a56e50fbb293281d9a48007e0e' => __DIR__ . '/..' . '/symfony/polyfill-php80/bootstrap.php',
         '0e6d7bf4a5811bfa5cf40c5ccd6fae6a' => __DIR__ . '/..' . '/symfony/polyfill-mbstring/bootstrap.php',
-        '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
-        '6e3fae29631ef280660b3cdad06f25a8' => __DIR__ . '/..' . '/symfony/deprecation-contracts/function.php',
+        '72579e7bd17821bb1321b87411366eae' => __DIR__ . '/..' . '/illuminate/support/helpers.php',
         '25072dd6e2470089de65ae7bf11d3109' => __DIR__ . '/..' . '/symfony/polyfill-php72/bootstrap.php',
-        '1d1b89d124cc9cb8219922c9d5569199' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest.php',
+        '6e3fae29631ef280660b3cdad06f25a8' => __DIR__ . '/..' . '/symfony/deprecation-contracts/function.php',
         'e69f7f6ee287b969198c3c9d6777bd38' => __DIR__ . '/..' . '/symfony/polyfill-intl-normalizer/bootstrap.php',
         'f598d06aa772fa33d905e87be6398fb1' => __DIR__ . '/..' . '/symfony/polyfill-intl-idn/bootstrap.php',
         '0d59ee240a4cd96ddbb4ff164fccea4d' => __DIR__ . '/..' . '/symfony/polyfill-php73/bootstrap.php',
         '320cde22f66dd4f5d3fd621d3e88b98f' => __DIR__ . '/..' . '/symfony/polyfill-ctype/bootstrap.php',
-        '72579e7bd17821bb1321b87411366eae' => __DIR__ . '/..' . '/illuminate/support/helpers.php',
         '667aeda72477189d0494fecd327c3641' => __DIR__ . '/..' . '/symfony/var-dumper/Resources/functions/dump.php',
         '538ca81a9a966a6716601ecf48f4eaef' => __DIR__ . '/..' . '/opis/closure/functions.php',
         '7b11c4dc42b3b3023073cb14e519683c' => __DIR__ . '/..' . '/ralouphie/getallheaders/src/getallheaders.php',
@@ -25,7 +23,9 @@ class ComposerStaticInitdb71ffc43471d69e4fd8f50c154c3460
         'c964ee0ededf28c96ebd9db5099ef910' => __DIR__ . '/..' . '/guzzlehttp/promises/src/functions_include.php',
         '3109cb1a231dcd04bee1f9f620d46975' => __DIR__ . '/..' . '/paragonie/sodium_compat/autoload.php',
         '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
+        '1d1b89d124cc9cb8219922c9d5569199' => __DIR__ . '/..' . '/hamcrest/hamcrest-php/hamcrest/Hamcrest.php',
         '04c6c5c2f7095ccf6c481d3e53e1776f' => __DIR__ . '/..' . '/mustangostang/spyc/Spyc.php',
+        '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
         '253c157292f75eb38082b5acb06f3f01' => __DIR__ . '/..' . '/nikic/fast-route/src/functions.php',
         '3375eb69ad3c4d68490f1e205fa24798' => __DIR__ . '/..' . '/laravel-doctrine/orm/src/helpers.php',
         'bee9632da3ca00a99623b9c35d0c4f8b' => __DIR__ . '/..' . '/laravel/lumen-framework/src/helpers.php',
@@ -626,6 +626,7 @@ class ComposerStaticInitdb71ffc43471d69e4fd8f50c154c3460
         'AlterTableProductsChangeArtidToUnique' => __DIR__ . '/../..' . '/database/migrations/2020_09_14_152958_alter_table_products_change_artid_to_unique.php',
         'Attribute' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
         'ChangeStoImportName' => __DIR__ . '/../..' . '/database/migrations/2020_09_04_135407_change_sto_import_name.php',
+        'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
         'CreateAddressesMainTable' => __DIR__ . '/../..' . '/database/migrations/2018_10_03_114330_create_Addresses__Main_table.php',
         'CreateAddressesShopTable' => __DIR__ . '/../..' . '/database/migrations/2018_10_03_114330_create_Addresses__Shop_table.php',
         'CreateAddressesUserTable' => __DIR__ . '/../..' . '/database/migrations/2018_10_03_114330_create_Addresses__User_table.php',
@@ -1318,11 +1319,11 @@ class ComposerStaticInitdb71ffc43471d69e4fd8f50c154c3460
     public static function getInitializer(ClassLoader $loader)
     {
         return \Closure::bind(function () use ($loader) {
-            $loader->prefixLengthsPsr4 = ComposerStaticInitdb71ffc43471d69e4fd8f50c154c3460::$prefixLengthsPsr4;
-            $loader->prefixDirsPsr4 = ComposerStaticInitdb71ffc43471d69e4fd8f50c154c3460::$prefixDirsPsr4;
-            $loader->fallbackDirsPsr4 = ComposerStaticInitdb71ffc43471d69e4fd8f50c154c3460::$fallbackDirsPsr4;
-            $loader->prefixesPsr0 = ComposerStaticInitdb71ffc43471d69e4fd8f50c154c3460::$prefixesPsr0;
-            $loader->classMap = ComposerStaticInitdb71ffc43471d69e4fd8f50c154c3460::$classMap;
+            $loader->prefixLengthsPsr4 = ComposerStaticInit1f931b0390a63ed852a2d83cb7419714::$prefixLengthsPsr4;
+            $loader->prefixDirsPsr4 = ComposerStaticInit1f931b0390a63ed852a2d83cb7419714::$prefixDirsPsr4;
+            $loader->fallbackDirsPsr4 = ComposerStaticInit1f931b0390a63ed852a2d83cb7419714::$fallbackDirsPsr4;
+            $loader->prefixesPsr0 = ComposerStaticInit1f931b0390a63ed852a2d83cb7419714::$prefixesPsr0;
+            $loader->classMap = ComposerStaticInit1f931b0390a63ed852a2d83cb7419714::$classMap;
 
         }, null, ClassLoader::class);
     }
