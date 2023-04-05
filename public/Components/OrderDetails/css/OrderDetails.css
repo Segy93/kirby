@@ -1,0 +1,310 @@
+.order_details {
+    background-color: #fff;
+    padding-bottom: 30px;
+    padding-top: 30px;
+}
+
+.order_details__title {
+    color: #0454a8;
+    font-size: 1.2em;
+    font-weight: 600;
+    margin: 0 auto;
+    margin-bottom: 50px;
+    text-transform: uppercase;
+    width: 90%;
+}
+
+.order_details__info_title {
+    color: #0454a8;
+    font-size: 1em;
+    font-weight: 600;
+    margin: 0 auto;
+    padding-top: 50px;
+    text-transform: uppercase;
+    width: 90%;
+}
+
+
+.order_details__product_image {
+    display: inline-block;
+    padding: 10px 10px 10px 0;
+    vertical-align: middle;
+    width: 50px;
+}
+
+.order_details__product_name {
+    display: inline-block;
+    font-weight: 600;
+    vertical-align: middle;
+}
+
+.order_details__product_link {
+    color: #28282e;
+    text-decoration: none;
+}
+
+.order_details__product_link:hover {
+    color: #0454a8;
+}
+
+.order_details__products_table {
+    border-collapse: collapse;
+    margin: 0 auto;
+    width: 90%;
+}
+
+.order_details__table_heading {
+    font-size: 1em;
+    padding: 0 0 10px 0;
+    text-align: left;
+}
+
+/* Poravnanje iznosa na desno */
+
+.order_details__table_heading--price {
+    text-align: right;
+}
+
+.order_details__table_row {
+    border-top: 1px solid #a7aabd;
+}
+
+.order_details__table_cell {
+    font-size: 1em;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+/* Poravnanje iznosa na desno */
+
+.order_details__table_cell--price {
+    text-align: right;
+}
+
+.order_details__price {
+    color: #0454a8;
+    font-weight: 600;
+}
+
+.order_details__table_row--shipping {
+    border: none;
+}
+
+.order_details__total .order_details__table_row {
+    font-weight: bold;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+.order_details__total_price {
+    color: #b1003f;
+}
+
+.order_details__table_cell--prices {
+    text-align: right;
+}
+
+.order_details__info_table {
+    /* align-self: center; */
+    border-collapse: collapse;
+    margin: 0 auto;
+    margin-top: 30px;
+    width: 90%;
+}
+
+.order_details__info_table,
+.order_details__info_table_cell,
+.order_details__info_table_header {
+    border: 1px solid rgb(207, 213, 214);
+}
+
+.order_details__info_table_header {
+    background-color: rgb(236, 236, 237);
+    width: 30%;
+}
+
+.order_details__info_table_header,
+.order_details__info_table_cell {
+    color: #4d4d4d;
+    font-weight: normal;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    padding-left: 2.5%;
+    text-align: left;
+}
+
+.order_details__info_product_link {
+    word-break: break-all;
+}
+
+.order_details__note {
+    border: 1px solid rgb(207, 213, 214);
+    margin: 0 auto;
+    margin-top: 20px;
+    min-height: 30px;
+    padding: 2.5%;
+    vertical-align: middle;
+    width: 85%;
+}
+
+.order_details__info_table_header--status {
+    background-color:#696969;
+    color: white;
+    text-align: center;
+}
+
+.order_details__info_link {
+    color: #0454a8;
+    text-decoration: none;
+}
+
+.order_details__info_link:hover {
+    text-decoration: underline;
+}
+
+.order_details__confirm_item, .order_details__return_item, .order_details__delete_item {
+    background-color: #28282e;
+    border-radius: 4px;
+    color: #fff;
+    cursor: pointer;
+    padding: 8px 10px;
+}
+
+.order_details__confirm_item:hover, .order_details__return_item:hover, .order_details__delete_item:hover {
+    background-color: #0454a8;
+}
+
+@media (max-width: 1024px) {
+    .order_details__product_image {
+        display: none;
+    }
+
+    .order_details__table_heading--image {
+        display: none;
+    }
+
+    .order_details__table_cell--image {
+        display: none;
+    }
+}
+
+@media (max-width: 800px) {
+    .order_details__table_heading--artid, .order_details__table_cell--artid {
+        display: none;
+    }
+
+    .order_details__table_heading--quantity, .order_details__table_cell--quantity {
+        text-align: center;
+    }
+
+    .order_details__confirm_item,
+    .order_details__return_item,
+    .order_details__delete_item {
+        display: block;
+        text-align: center;
+        width: 60%;
+    }
+}
+
+@media (max-width: 600px) {
+    .order_details__table_heading, .order_details__table_cell {
+        font-size: 0.8em;
+    }
+
+    .order_details__confirm_item,
+    .order_details__return_item,
+    .order_details__delete_item {
+        display: block;
+        text-align: center;
+        width: 80%;
+    }
+}
+
+@media (max-width: 360px) {
+    .order_details__table_heading, .order_details__table_cell {
+        font-size: 0.75em;
+    }
+    
+    .order_details__confirm_item,
+    .order_details__return_item,
+    .order_details__delete_item {
+        width: 95%;
+    }
+}
+
+@media (max-width: 320px) {
+    .order_details__info_table_header,
+    .order_details__info_table_row,
+    .order_details__info_table_cell {
+        background-color: white;
+        border: none;
+        display: block;
+        padding-left: 0;
+        text-align: center;
+        width: 100%;
+    }
+
+    .order_details__confirm_item,
+    .order_details__return_item,
+    .order_details__delete_item {
+        margin: auto;
+    }
+
+    .order_details__info_table_row:nth-child(odd) .order_details__info_table_header {
+        background-color: rgb(236, 236, 237);
+    }
+
+    .order_details__info_table_row:nth-child(odd) .order_details__info_table_cell {
+        background-color: rgb(236, 236, 237);
+    }
+
+    .order_details__info_table_header--status {
+        color: black;
+        font-weight: 600;
+    }
+}
+
+@media print {
+    .order_details__product_link::after {
+        color: #0950aa;
+        content: attr(href);
+        display: block;
+        font-size: 0.8em;
+    }
+
+    .order_details__info_table_row--buttons {
+        display: none;
+    }
+
+    .order_details__title {
+        margin-bottom: 2rem;
+    }
+
+    .order_details__info_title {
+        padding-top: 1rem;
+    }
+
+    .order_details__table_cell {
+        padding: 0;
+    }
+
+    .order_details__info_table_header,
+    .order_details__info_table_cell {
+        padding: 0.1rem;
+    }
+
+    .order_details__info_table {
+        margin-top: 0.5rem;
+    }
+
+    .order_details__total .order_details__table_row .order_details__table_cell {
+        padding-bottom: 0.5rem;
+        padding-top: 0.5rem;
+    }
+
+    .order_details__page_break {
+        page-break-before: always;
+        page-break-inside: avoid;
+        -webkit-region-break-inside: avoid;
+    }
+}

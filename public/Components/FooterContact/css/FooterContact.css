@@ -1,0 +1,71 @@
+.footer_contact__list {
+    padding: 0;
+}
+
+.footer_contact__svg {
+    height: 0;
+    overflow: hidden;
+    position: absolute;
+    width: 0;
+}
+
+.footer_contact__item {
+    color: #fff;
+    font-size: 1em;
+    text-decoration: none;
+}
+
+.footer_contact__item_info {
+    color: #fff;
+    display: block;
+    text-decoration: none;
+    vertical-align: middle;
+}
+
+.footer_contact__item_open_hours {
+    color: #fff;
+    font-size: 1em;
+    text-decoration: none;
+}
+
+.footer_contact__item:hover,
+.footer_contact__item:focus {
+    text-decoration: underline;
+}
+
+.footer_contact__cell a {
+    color: #fff;
+    display: block;
+    text-decoration: none;
+}
+
+.footer_contact__cell {
+    vertical-align: sub;
+}
+
+.footer_contact__row {
+    height: 35px;
+}
+
+.footer_contact__image_mail {
+    height: 17px;
+    vertical-align: super;
+}
+
+.footer_contact__item_phone_text {
+    visibility: hidden;
+}
+
+.footer_contact__item_phone_text--first {
+    visibility: visible;
+}
+
+@media (max-width: 360px) {
+    .footer_contact__item_info {
+        font-size: 0.8em;
+    }
+
+    .footer_contact__icon {
+        display: none;
+    }
+}

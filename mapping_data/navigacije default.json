@@ -1,0 +1,142 @@
+{
+  "name": "Navigacije",
+  "name_import": "GPS",
+  "url": "navigacije/",
+  "attributes": [
+    {
+      "machine_name": "field_gps_proizvodjac",
+      "name_import": "Proizvođač",
+      "label": "Proizvođač",
+      "type": "checkbox",
+      "order_category": "null",
+      "order_filter": "null",
+      "order_product": "null"
+    },
+    {
+      "machine_name": "field_gps_dijagonala_ekrana",
+      "name_import": "Dijagonala ekrana",
+      "label": "Dijagonala ekrana",
+      "type": "checkbox",
+      "order_category": "null",
+      "order_filter": "null",
+      "order_product": "null"
+    },
+    {
+      "machine_name": "field_navigacije_rezolucija_ekra",
+      "name_import": "Rezolucija ekrana",
+      "label": "Rezolucija ekrana",
+      "type": "checkbox",
+      "order_category": "null",
+      "order_filter": "null",
+      "order_product": "null"
+    },
+    {
+      "machine_name": "field_navigacije_unutrasnja_memo",
+      "name_import": "Unutrašnja memorija",
+      "label": "Unutrašnja memorija",
+      "type": "checkbox",
+      "order_category": "null",
+      "order_filter": "null",
+      "order_product": "null"
+    },
+    {
+      "machine_name": "field_navigacije_kartica",
+      "name_import": "Slot za karticu",
+      "label": "Slot za karticu",
+      "type": "checkbox",
+      "order_category": "null",
+      "order_filter": "null",
+      "order_product": "null"
+    },
+    {
+      "machine_name": "field_bluetooth_boolean",
+      "name_import": "Bluetooth",
+      "label": "Bluetooth",
+      "type": "checkbox",
+      "order_category": "null",
+      "order_filter": "null",
+      "order_product": "null"
+    },
+    {
+      "machine_name": "field_navigacije_mape",
+      "name_import": "Mape",
+      "label": "Mape",
+      "type": "checkbox",
+      "order_category": "null",
+      "order_filter": "null",
+      "order_product": "null"
+    },
+    {
+      "machine_name": "field_navigacije_kamera",
+      "name_import": "Kamera",
+      "label": "Kamera",
+      "type": "checkbox",
+      "order_category": "null",
+      "order_filter": "null",
+      "order_product": "null"
+    },
+    {
+      "machine_name": "field_gps_touchscreean",
+      "name_import": "Touchscreen",
+      "label": "Touchscreen",
+      "type": "checkbox",
+      "order_category": "null",
+      "order_filter": "null",
+      "order_product": "null"
+    },
+    {
+      "machine_name": "field_garantni_rok",
+      "name_import": "Garantni rok",
+      "label": "Garantni rok",
+      "type": "checkbox",
+      "order_category": "null",
+      "order_filter": "null",
+      "order_product": "null"
+    },
+    {
+      "machine_name": "field_boja",
+      "name_import": "Boja",
+      "label": "Boja",
+      "type": "checkbox",
+      "order_category": "null",
+      "order_filter": "null",
+      "order_product": "null"
+    },
+    {
+      "machine_name": "field_dodatne_opcije",
+      "name_import": "Dodatne opcije",
+      "label": "Dodatne opcije",
+      "type": "checkbox",
+      "order_category": "null",
+      "order_filter": "null",
+      "order_product": "null"
+    },
+    {
+      "machine_name": "field_link_proizvodjaca",
+      "name_import": "Link proizvođača",
+      "label": "Link proizvođača",
+      "type": "checkbox",
+      "order_category": "null",
+      "order_filter": "null",
+      "order_product": "null"
+    },
+    {
+      "machine_name": "field_youtube",
+      "name_import": "Youtube code",
+      "label": "Youtube code",
+      "type": "checkbox",
+      "order_category": "null",
+      "order_filter": "null",
+      "order_product": "null"
+    },
+    {
+      "machine_name": "field_ean_kod",
+      "name_import": "EAN kod",
+      "label": "EAN kod",
+      "type": "checkbox",
+      "order_category": "null",
+      "order_filter": "null",
+      "order_product": "null"
+    }
+  ]
+}

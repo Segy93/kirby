@@ -1,0 +1,17 @@
+.footer_basic__information_item {
+    color: #fff;
+    display: block;
+    font-size: 1em;
+    text-decoration: none;
+}
+
+.footer_basic__information_item:hover,
+.footer_basic__information_item:focus {
+    text-decoration: underline;
+}
+
+@media (max-width: 320px) {
+    .footer_basic__information_item {
+        font-size: 0.8em;
+    }
+}

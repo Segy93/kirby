@@ -1,0 +1,13 @@
+.parent_category__category_single {
+    display: inline-block;
+    width: 33.3%;
+    width: calc(100% / 3);
+}
+
+.parent_category__section {
+    text-align: center;
+}
+
+.parent_category__category_single img {
+    max-width: 100%;
+}

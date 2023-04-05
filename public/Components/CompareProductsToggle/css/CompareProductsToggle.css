@@ -1,0 +1,97 @@
+.compare_toggle__change,
+.compare_toggle__in_compare_already {
+    background-color: #e9e9e9;
+    border: solid 1px #d5d5d5;
+    border-radius: 10px;
+    box-shadow: 0 1px #fff inset;
+    color: #4e4b4b;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 0.9em;
+    font-weight: bold;
+    margin: 3px 0 3px;
+    padding: 10px 0;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.3s;
+    width: 90%;
+}
+
+.compare_toggle__in_compare {
+    display: none;
+}
+
+.compare_products__toggle_toggle {
+    fill: #4e4b4b;
+    float: left;
+    height: 20px;
+    margin: 0;
+    padding-left: 10px;
+    vertical-align: middle;
+    width: 1.5em;
+}
+
+.compare_products__toggle_text {
+    margin: 0;
+    padding: 0;
+    vertical-align: middle;
+}
+
+.compare_toggle__change:focus, .compare_toggle__in_compare_already:focus {
+    box-shadow: 0 0 2pt 2pt #4e4b4b;
+    font-weight: bolder;
+    outline: 0;
+}
+
+.compare_toggle__change:hover, .compare_toggle__in_compare_already:hover {
+    background: #d1d1d1;
+}
+
+.compare_toggle__in_compare:checked ~ .compare_toggle__in_compare_already {
+    display: inline-block;
+}
+
+.compare_toggle__in_compare:checked ~ .compare_toggle__change {
+    display: none;
+}
+.compare_toggle__in_compare_already {
+    box-shadow: 0 0 0 1pt #4e4b4b;
+    display: none;
+}
+
+
+.compare_toggle__in_compare:checked + .atom_compare_toggle__in_compare__label .atom_compare_toggle__in_compare__text {
+    display: block;
+}
+
+.compare_toggle__in_compare:checked + .atom_compare_toggle__in_compare__label .atom_compare_toggle__not_in__compare_text {
+    display: none;
+}
+
+.compare_toggle__in_compare:not(:checked) + .atom_compare_toggle__in_compare__label .atom_compare_toggle__in_compare__text {
+    display: none;
+}
+
+.compare_toggle__in_compare:not(:checked) + .atom_compare_toggle__in_compare__label .atom_compare_toggle__not_in__compare_text {
+    display: block;
+}
+
+@media (max-width: 480px) {
+    .compare_toggle__change {
+        font-size: 0.8em;
+        min-width: 0;
+        width: 80%;
+    }
+
+    .compare_toggle__in_compare_already {
+        font-size: 0.8em;
+        min-width: 0;
+        width: 80%;
+    }
+}
+
+@media (max-width: 320px) {
+    .compare_products__toggle_toggle {
+        display: none;
+    }
+}

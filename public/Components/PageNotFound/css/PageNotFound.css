@@ -1,0 +1,9 @@
+.page_not__found_container {
+    background-color: #fff;
+    text-align: center;
+}
+
+.page_not__found_image {
+    margin: 0 auto;
+    width: 70%;
+}

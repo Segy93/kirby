@@ -1,0 +1,88 @@
+.header_search__bar {
+    display: inline-block;
+    display: inline-flex;
+    flex-grow: 1;
+    margin: 0 1em;
+    position: relative;
+}
+
+.header_search__bar_input {
+    border: none;
+    border-radius: 0;
+    box-sizing: border-box;
+    flex-grow: 1;
+    font-size: 1em;
+    padding: 0.6rem;
+    padding-right: 4em;
+    padding-right: calc(0.6em);
+    vertical-align: top;
+    /* width: 100%; */
+    /* width: calc(100% - 100px); */
+}
+
+.header_search__submit {
+    background-color: #0950aa;
+    border: none;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    font-size: 1em;
+    margin-left: 0;
+    /* height: 100%; */
+    padding: 0.7rem 1em;
+    transition: background-color 0.3s;
+    vertical-align: top;
+    /* width: calc(100px); */
+}
+
+.header_search__submit:hover {
+    background-color: #0b60d0;
+}
+
+.header_search__bar_input::placeholder {
+    text-transform: uppercase;
+}
+
+.auto_complete__anchor {
+    color: #333;
+    display: block;
+    font-size: 1.02em;
+    /* Nije moj css, kad sam ubacio link uzeo sam iz biblioteke da bi isto izgledao */
+    line-height: 23px;
+    text-decoration: none;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+@media print {
+    .header_search__bar {
+        display: none;
+    }
+}
+
+@media (max-width: 640px) {
+    .header_search__bar {
+        font-size: 0.75em;
+        /* padding: 0.2rem; */
+    }
+
+    .header_search__submit {
+        padding: 0.56rem 1em;
+    }
+}
+
+@media (max-width: 320px) {
+    .header_search__bar {
+        display: block;
+    }
+
+    .header_search__bar_input {
+        display: block;
+        width: 100%;
+    }
+
+    .header_search__submit {
+        display: block;
+        width: 100%;
+    }
+}

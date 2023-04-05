@@ -1,0 +1,115 @@
+{
+  "name": "Auto player-i",
+  "name_import": "Auto Playe",
+  "url": "auto-player/",
+  "attributes": [
+    {
+      "machine_name": "field_auto_player_proizvodjac",
+      "name_import": "Proizvođač",
+      "label": "Proizvođač",
+      "type": "checkbox",
+      "order_category": "null",
+      "order_filter": "null",
+      "order_product": "null"
+    },
+    {
+      "machine_name": "field_auto_player_tuner",
+      "name_import": "Tuner",
+      "label": "Tuner",
+      "type": "checkbox",
+      "order_category": "null",
+      "order_filter": "null",
+      "order_product": "null"
+    },
+    {
+      "machine_name": "field_usb",
+      "name_import": "USB priključak",
+      "label": "USB priključak",
+      "type": "checkbox",
+      "order_category": "null",
+      "order_filter": "null",
+      "order_product": "null"
+    },
+    {
+      "machine_name": "field_bluetooth_boolean",
+      "name_import": "Bluetooth",
+      "label": "Bluetooth",
+      "type": "checkbox",
+      "order_category": "null",
+      "order_filter": "null",
+      "order_product": "null"
+    },
+    {
+      "machine_name": "field_auto_player_podrzani_forma",
+      "name_import": "Podržani formati",
+      "label": "Podržani formati",
+      "type": "checkbox",
+      "order_category": "null",
+      "order_filter": "null",
+      "order_product": "null"
+    },
+    {
+      "machine_name": "field_displej",
+      "name_import": "Displej",
+      "label": "Displej",
+      "type": "checkbox",
+      "order_category": "null",
+      "order_filter": "null",
+      "order_product": "null"
+    },
+    {
+      "machine_name": "field_auto_player_maks_snaga",
+      "name_import": "Maksimalna snaga",
+      "label": "Maksimalna snaga",
+      "type": "checkbox",
+      "order_category": "null",
+      "order_filter": "null",
+      "order_product": "null"
+    },
+    {
+      "machine_name": "field_garantni_rok",
+      "name_import": "Garantni rok",
+      "label": "Garantni rok",
+      "type": "checkbox",
+      "order_category": "null",
+      "order_filter": "null",
+      "order_product": "null"
+    },
+    {
+      "machine_name": "field_boja",
+      "name_import": "Boja",
+      "label": "Boja",
+      "type": "checkbox",
+      "order_category": "null",
+      "order_filter": "null",
+      "order_product": "null"
+    },
+    {
+      "machine_name": "field_dodatne_opcije",
+      "name_import": "Dodatne opcije",
+      "label": "Dodatne opcije",
+      "type": "checkbox",
+      "order_category": "null",
+      "order_filter": "null",
+      "order_product": "null"
+    },
+    {
+      "machine_name": "field_youtube",
+      "name_import": "Youtube code",
+      "label": "Youtube code",
+      "type": "checkbox",
+      "order_category": "null",
+      "order_filter": "null",
+      "order_product": "null"
+    },
+    {
+      "machine_name": "field_ean_kod",
+      "name_import": "EAN kod",
+      "label": "EAN kod",
+      "type": "checkbox",
+      "order_category": "null",
+      "order_filter": "null",
+      "order_product": "null"
+    }
+  ]
+}

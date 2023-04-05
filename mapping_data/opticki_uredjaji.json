@@ -1,0 +1,115 @@
+{
+  "name": "Optički uređaji",
+  "name_import": "OPTIKA",
+  "url": "opticki-uredjaji/",
+  "attributes": [
+    {
+      "machine_name": "field_opticki_proizvodjac",
+      "name_import": "Proizvođač",
+      "label": "Proizvođač",
+      "type": "checkbox",
+      "order_category": "1",
+      "order_filter": "1",
+      "order_product": "1"
+    },
+    {
+      "machine_name": "field_opticki_namena",
+      "name_import": "Namena",
+      "label": "Namena",
+      "type": "checkbox",
+      "order_category": "2",
+      "order_filter": "2",
+      "order_product": "2"
+    },
+    {
+      "machine_name": "field_opticki_tip",
+      "name_import": "Tip",
+      "label": "Tip",
+      "type": "checkbox",
+      "order_category": "3",
+      "order_filter": "3",
+      "order_product": "3"
+    },
+    {
+      "machine_name": "field_opticki_vrsta_prikljucka",
+      "name_import": "Vrsta priključka",
+      "label": "Vrsta priključka",
+      "type": "checkbox",
+      "order_category": "4",
+      "order_filter": "4",
+      "order_product": "4"
+    },
+    {
+      "machine_name": "field_opticki_citanje_pisanje",
+      "name_import": "Čitanje / Pisanje",
+      "label": "Čitanje / Pisanje",
+      "type": "checkbox",
+      "order_category": "null",
+      "order_filter": "null",
+      "order_product": "5"
+    },
+    {
+      "machine_name": "field_opticki_kes_memorija",
+      "name_import": "Keš memorija",
+      "label": "Keš memorija",
+      "type": "checkbox",
+      "order_category": "null",
+      "order_filter": "null",
+      "order_product": "6"
+    },
+    {
+      "machine_name": "field_garantni_rok",
+      "name_import": "Garantni rok",
+      "label": "Garantni rok",
+      "type": "checkbox",
+      "order_category": "6",
+      "order_filter": "null",
+      "order_product": "8"
+    },
+    {
+      "machine_name": "field_boja",
+      "name_import": "Boja",
+      "label": "Boja",
+      "type": "checkbox",
+      "order_category": "5",
+      "order_filter": "null",
+      "order_product": "7"
+    },
+    {
+      "machine_name": "field_dodatne_opcije",
+      "name_import": "Dodatne opcije",
+      "label": "Dodatne opcije",
+      "type": "checkbox",
+      "order_category": "null",
+      "order_filter": "null",
+      "order_product": "null"
+    },
+    {
+      "machine_name": "field_link_proizvodjaca",
+      "name_import": "Link proizvođača",
+      "label": "Link proizvođača",
+      "type": "checkbox",
+      "order_category": "null",
+      "order_filter": "null",
+      "order_product": "9"
+    },
+    {
+      "machine_name": "field_youtube",
+      "name_import": "Youtube code",
+      "label": "Youtube code",
+      "type": "checkbox",
+      "order_category": "null",
+      "order_filter": "null",
+      "order_product": "10"
+    },
+    {
+      "machine_name": "field_ean_kod",
+      "name_import": "EAN kod",
+      "label": "EAN kod",
+      "type": "checkbox",
+      "order_category": "null",
+      "order_filter": "null",
+      "order_product": "null"
+    }
+  ]
+}

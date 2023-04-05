@@ -1,0 +1,64 @@
+.product_page__wrapper {
+    background-color: #fff;
+    padding: 0.5em;
+}
+
+.product_page__share {
+    text-align: center;
+}
+
+.product_page__stock {
+    background-color: #e9e9e9;
+    display: inline-block;
+}
+
+@media (min-width: 1281px) {
+    .product_page__share {
+        display: inline-block;
+        vertical-align: top;
+    }
+
+    .product_page__experts {
+        width: 39%;
+    }
+
+    .product_page__stock {
+        margin-right: 1%;
+        margin-right: calc(0.5em);
+        width: 29%;
+        width: calc(30% - 0.5em);
+    }
+}
+
+@media (max-width: 1280px) {
+    .product_page__share {
+        margin-top: 0.5em;
+    }
+}
+
+@media (min-width: 801px) {
+    .product_page__experts {
+        display: inline-block;
+        vertical-align: top;
+    }
+
+    .product_page__experts {
+        margin-right: 1%;
+        margin-right: calc(0.5em);
+    }
+
+    .product_page__stock {
+        text-align: right;
+    }
+}
+
+@media (min-width: 801px) and (max-width: 1280px) {
+    .product_page__experts {
+        width: 64%;
+        width: calc(65% - 0.5em)
+    }
+
+    .product_page__stock {
+        width: 35%;
+    }
+}

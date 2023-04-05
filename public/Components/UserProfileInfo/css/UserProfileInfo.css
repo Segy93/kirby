@@ -1,0 +1,188 @@
+.user_profile {
+    margin: 0 auto;
+    padding-bottom: 2em;
+    width: 90%;
+}
+
+.user_profile__title {
+    color: #0454a8;
+    font-size: 1em;
+    font-weight: 600;
+    margin: 0 auto;
+    padding-bottom: 1em;
+    padding-top: 2em;
+    text-transform: uppercase;
+}
+
+.user_profile__info_mail, 
+.user_profile__info_view {
+    margin: 0;
+}
+
+.user_profile__fieldset_edit {
+    border: none;
+    list-style-type: none;
+    padding: 0;
+    width: 50%;
+}
+
+.user_profile__info_edit li,
+.user_profile__edit_password li {
+    display: inline-block;
+    width: 50%;
+}
+
+.user_profile__edit_password, 
+.user_profile__info_mail, 
+.user_profile__info_edit,
+.user_profile__info_password,
+.user_profile__info_view {
+    padding: 0;
+    list-style-type: none;
+}
+
+.user_profile__fieldset, 
+.user_profile__edit_password {
+    border: none;
+    list-style-type: none;
+    padding-left: 0;
+    padding: 0;
+    width: 50%;
+}
+
+.user_profile__fieldset li {
+    display: inline-block;
+    padding-top: 1.5em;
+    width: 50%;
+}
+
+.user_profile__email_activation_spinner,
+.user_profile__email_activation_message,
+.user_profile__change_password_message {
+    display: none;
+}
+
+.user_profile__email_activation_spinner.active,
+.user_profile__email_activation_message.active,
+.user_profile__change_password_message.active {
+    display: block;
+}
+
+.user_profile__info_edit_text {
+    border-color: #000;
+    border-style: solid;
+    border-width: 1px;
+    height: 2.5em;
+    padding: 1%;
+    width: 40%;
+}
+
+.user_profile__edit_password_text {
+    border-color: #000;
+    border-style: solid;
+    border-width: 1px;
+    margin-bottom: 1%;
+    padding: 1%;
+    width: 50%;
+}
+
+.user_profile__fieldset_data {
+    display: inline-block;
+    white-space: nowrap;
+    font-weight: bold;
+}
+
+.user_profile__fieldset_data li {
+    display: inline-block;
+}
+
+.user_profile__edit_password_button,
+.user_profile__email_activation,
+.user_profile__info_edit_button,
+.user_profile__password_view {
+    background-color: #0454a8;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    margin-right: 0.1em;
+    padding: 8px 10px;
+    text-decoration: none;
+}
+
+.user_profile__edit_password_button:hover,
+.user_profile__email_activation:hover,
+.user_profile__info_edit_button:hover,
+.user_profile__password_view:hover {
+    background-color:#19426d;
+}
+
+.user_profile__fieldset legend {
+    padding-left: 2px;
+    font-weight: bold;
+}
+
+.user_profile_icon {
+    display: inline-block;
+    margin-left: 2px;
+    width: 1em;
+    height: 1em;
+    stroke-width: 0;
+    stroke: #b3b3b3;
+    fill: #b3b3b3;
+}
+
+.user_profile_icon:hover {
+    stroke: #28282e;
+    fill: #28282e;
+}
+
+.user_profile__info_edit_text,
+.user_profile__edit_password_text {
+    border-color: #29416d;
+    border-style: solid;
+    border-width: 1px;
+    height: 2.5em;
+    margin-bottom: 1em;
+    padding: 1%;
+    text-indent: 0.5em;
+    width: 97%;
+    width: calc(98% - 2px);
+}
+
+@media (max-width: 800px) {
+    .user_profile__fieldset_edit,
+    .user_profile__fieldset, 
+    .user_profile__edit_password  {
+        width: 100%;
+    }
+}
+
+@media (max-width: 640px) {
+    .user_profile__info_edit li,
+    .user_profile__edit_password li,
+    .user_profile__fieldset li,
+    .user_profile__fieldset_data li {
+        display: block;
+    }
+}
+
+@media (max-width: 360px) {
+    .user_profile__fieldset_edit,
+    .user_profile__info_edit li,
+    .user_profile__edit_password li,
+    .user_profile__fieldset, 
+    .user_profile__edit_password, 
+    .user_profile__fieldset li,
+    .user_profile__edit_password_text {
+        font-size: 0.9em;
+        width: 100%;
+    }
+}
+
+@media (max-width: 240px) {
+    .user_profile__edit_password_button,
+    .user_profile__info_edit_button {
+        margin-top: 0.1em;
+    }
+}

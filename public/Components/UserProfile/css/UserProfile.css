@@ -1,0 +1,51 @@
+.user_profile__hidden {
+    display: none;
+}
+
+.user_profile__div_row {
+    display: inline-flex;
+    width: 100%;
+}
+
+
+.user_profile__body {
+    background-color: #fff;
+}
+
+.user_profile__div_row_cart,
+.user_profile__div_row_order,
+.user_profile__div_row_profile,
+.user_profile__div_row_whishlist {
+    margin-right: 40px;
+    width: 30%;
+}
+
+.user_profile__div_row_profile_label {
+    border-color: #000;
+    border-style: solid;
+    border-width: 1px;
+    cursor: pointer;
+    display: block;
+    height: 30px;
+    padding-top: 0;
+    text-align: center;
+    width: 100px;
+}
+
+.user_profile__div_row_profile_label:hover {
+    background-color: #28282e;
+    box-shadow: 2px 4px 3px #000;
+    color: #fff;
+}
+
+.user_profile__div_row_profile_label h1 {
+    margin: 2px 0 2px 0;
+}
+
+.user_profile__error_box {
+    color: red;
+}
+
+.user_profile__success_box {
+    color: green;
+}

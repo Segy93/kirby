@@ -1,0 +1,34 @@
+{
+    "name": "Akcione kamere I dronovi",
+    "name_import": "A.cam-dron",
+    "url": "akcione kamere i dronovi\/",
+    "attributes": [
+    {
+        "machine_name": "field_link_proizvodjaca",
+        "name_import": "Link proizvo\u0111a\u010Da",
+        "label": "Link proizvo\u0111a\u010Da",
+        "type": "checkbox",
+        "order_category": "null",
+        "order_filter": "null",
+        "order_product": "2"
+    },
+    {
+        "machine_name": "field_akcione_kamere_i_dronovi_proizvodjac",
+        "name_import": "Proizvo\u0111a\u010D",
+        "label": "Proizvo\u0111a\u010D",
+        "type": "checkbox",
+        "order_category": "1",
+        "order_filter": "1",
+        "order_product": "1"
+    },
+    {
+        "machine_name": "field_youtube",
+        "name_import": "Youtube code",
+        "label": "Youtube code",
+        "type": "checkbox",
+        "order_category": "null",
+        "order_filter": "null",
+        "order_product": "null"
+    }
+    ]
+}

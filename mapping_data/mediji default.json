@@ -1,0 +1,106 @@
+{
+  "name": "Mediji",
+  "name_import": "MEDIA",
+  "url": "mediji/",
+  "attributes": [
+    {
+      "machine_name": "field_mediji_proizvodjac",
+      "name_import": "Proizvođač",
+      "label": "Proizvođač",
+      "type": "checkbox",
+      "order_category": "null",
+      "order_filter": "null",
+      "order_product": "null"
+    },
+    {
+      "machine_name": "field_mediji_tip",
+      "name_import": "Tip",
+      "label": "Tip",
+      "type": "checkbox",
+      "order_category": "null",
+      "order_filter": "null",
+      "order_product": "null"
+    },
+    {
+      "machine_name": "field_mediji_vrsta",
+      "name_import": "Vrsta",
+      "label": "Vrsta",
+      "type": "checkbox",
+      "order_category": "null",
+      "order_filter": "null",
+      "order_product": "null"
+    },
+    {
+      "machine_name": "field_mediji_pakovanje",
+      "name_import": "Pakovanje",
+      "label": "Pakovanje",
+      "type": "checkbox",
+      "order_category": "null",
+      "order_filter": "null",
+      "order_product": "null"
+    },
+    {
+      "machine_name": "field_mediji_br_komada_u_pakovan",
+      "name_import": "Broj kom. u pakovanju",
+      "label": "Broj kom. u pakovanju",
+      "type": "checkbox",
+      "order_category": "null",
+      "order_filter": "null",
+      "order_product": "null"
+    },
+    {
+      "machine_name": "field_garantni_rok",
+      "name_import": "Garantni rok",
+      "label": "Garantni rok",
+      "type": "checkbox",
+      "order_category": "null",
+      "order_filter": "null",
+      "order_product": "null"
+    },
+    {
+      "machine_name": "field_boja",
+      "name_import": "Boja",
+      "label": "Boja",
+      "type": "checkbox",
+      "order_category": "null",
+      "order_filter": "null",
+      "order_product": "null"
+    },
+    {
+      "machine_name": "field_dodatne_opcije",
+      "name_import": "Dodatne opcije",
+      "label": "Dodatne opcije",
+      "type": "checkbox",
+      "order_category": "null",
+      "order_filter": "null",
+      "order_product": "null"
+    },
+    {
+      "machine_name": "field_link_proizvodjaca",
+      "name_import": "Link proizvođača",
+      "label": "Link proizvođača",
+      "type": "checkbox",
+      "order_category": "null",
+      "order_filter": "null",
+      "order_product": "null"
+    },
+    {
+      "machine_name": "field_youtube",
+      "name_import": "Youtube code",
+      "label": "Youtube code",
+      "type": "checkbox",
+      "order_category": "null",
+      "order_filter": "null",
+      "order_product": "null"
+    },
+    {
+      "machine_name": "field_ean_kod",
+      "name_import": "EAN kod",
+      "label": "EAN kod",
+      "type": "checkbox",
+      "order_category": "null",
+      "order_filter": "null",
+      "order_product": "null"
+    }
+  ]
+}

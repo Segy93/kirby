@@ -1,0 +1,111 @@
+.comments {
+}
+
+.comments__heading {
+    color: #29416d;
+    font-size: 1.5em;
+    font-weight: normal;
+    margin-bottom: 0.2em;
+}
+
+.comments__count {
+    color: #a3a3a3;
+    font-size: 1.125em;
+    font-weight: normal;
+    margin: 0;
+}
+
+.comments_list__login_notification {
+    text-align: center;
+}
+
+.comments__count_number {
+    background-color: #002943;
+    color: #e700b2;
+    font-size: 1.5em;
+    padding: 0.185em;
+}
+
+.comments__list {
+    border-bottom: solid 1px #293f6e;
+    color: #303030;
+    font-size: 1.125em;
+    margin: 0;
+    padding: 0;
+}
+
+.comments__list:empty::after {
+    content: "Nema komentara!";
+    display: block;
+    padding: 10vh 0;
+    text-align: center;
+    width: 100%;
+}
+
+.comments__create {margin-bottom: 1rem;padding: 0 1rem;}
+
+.comments__post_text {
+    background-color: #fff;
+    border: 1px #dfdfdf solid;
+    box-sizing: border-box;
+    height: 12em;
+    max-width: 100%;
+    padding: 0.75em 0.9375em;
+    width: 100%;
+}
+
+.comments__post {
+    background-color: #e9e9e9;
+    border-radius: 10px;
+    box-shadow: 0 1px #fff inset;
+    color: #0454a8;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 0.9em;
+    font-weight: bold;
+    margin: 3px 0 3px;
+    padding: 10px 0;
+    text-align: center;
+    vertical-align: middle;
+    width: 33%;
+}
+
+.comments__post_text_button {
+    margin: 0;
+    padding: 0 2em 0 0;
+    vertical-align: middle;
+}
+
+.comments__post:focus {
+    background-color: #d1d1d1;
+    outline: none;
+}
+
+.comments__post:hover {
+    background: #d1d1d1;
+}
+
+.comments__post_icon {
+    display: block;
+    fill: currentColor;
+    float: left;
+    height: 1.5em;
+    margin-left: 1em;
+    width: 2em;
+}
+
+.comments_form__error {
+    background-color: #ad000a;
+    color: white;
+    margin: 0;
+    padding: 1em;
+    text-align: center;
+}
+
+@media (max-width: 480px) {
+    .comments__post {
+        font-size: 0.8em;
+        min-width: 0;
+        width: 100%;
+    }
+}

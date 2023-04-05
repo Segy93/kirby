@@ -1,0 +1,31 @@
+.box_wrap {
+    background-image:   url('../img/z-dg.png'),
+                        url('../img/z-lg.png'),
+                        url('../img/z-g.png'),
+                        url('../img/z-dd.png'),
+                        url('../img/z-ld.png'),
+                        url('../img/z-d.png'),
+                        url('../img/z-l.png'),
+                        url('../img/z-r.png');
+    background-repeat: no-repeat, no-repeat, repeat-x, no-repeat, no-repeat, repeat-x, repeat-y, repeat-y;
+    background-position: top left, top right, center top, bottom left, bottom right, center bottom, left, right;
+    border-radius: 20px;
+    margin: 15px 2%;
+}
+
+.box_wrap__header {
+    border-radius: 20px;
+    height: 37px;
+    overflow: hidden;
+    width: 100%;
+}
+
+
+.box_wrap__content {
+    width: 100%;
+}
+
+.box_wrap__footer {
+    height: 37px;
+    width: 100%;
+}

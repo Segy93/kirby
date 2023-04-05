@@ -1,0 +1,78 @@
+.tabs {
+    margin-bottom: 1.875em;
+}
+
+.tabs__radio {
+    position: absolute;
+    z-index: -2;
+}
+
+.tabs__heading {
+    background-color: #fff;
+    border: solid 1px #29416d;
+    border-bottom: none;
+    cursor: pointer;
+    font-size: 1.25em;
+    font-weight: normal;
+    margin: 0;
+    text-align: center;
+    text-transform: uppercase;
+    transition: background-color 0.3s, border-color 0.3s, color 0.3s;
+    vertical-align: middle;
+    width: auto;
+}
+
+.tabs__radio:focus + .tabs__heading,
+.tabs__heading:hover {
+    background-color: #2151a4;
+    border-color: #214da6;
+    color: #fff;
+}
+.tabs__radio:checked + .tabs__heading {
+    background-color: #22436f;
+    border-color: #22436f;
+    color: #fff;
+}
+
+.tabs__label {
+    cursor: pointer;
+    display: block;
+    height: 100%;
+    padding: 0.3em 1rem;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.tabs__content {
+    background-color: #fff;
+    border: solid 1px #22436f;
+    margin: 0 auto 1.25em;
+}
+
+.tabs__single {
+    display: none;
+}
+
+.tabs__notification {
+    background-color: #b1003f;
+    border-radius: 50%;
+    display: inline-block;
+    height: 5px;
+    margin-top: 2px;
+    vertical-align: top;
+    width: 5px;
+}
+
+@media (min-width: 1025px) {
+    .tabs__heading {
+        border-radius: 0;
+        display: inline-block;
+    }
+    .tabs__heading:last-of-type {
+        border-top-right-radius: 10px;
+    }
+
+    .tabs__heading ~ .tabs__heading {
+        border-left: none;
+    }
+}

@@ -1,0 +1,259 @@
+.wishlist__page {
+    background-color: #fff;
+    padding-bottom: 30px;
+    padding-top: 30px;
+}
+
+
+.wishlist__wrapper {
+    border-collapse: collapse;
+    margin: 0 auto;
+    padding-top: 20px;
+    width: 90%;
+}
+
+.wishlist__wrapper:empty::after {
+    content: "Lista želja je prazna!";
+    display: block;
+    font-size: 1.5em;
+    margin-bottom: 50px;
+    margin-top: 50px;
+    text-align: center;
+    text-transform: uppercase;
+    width: 100%;
+}
+
+.wishlist__table_heading {
+    font-size: 1em;
+    padding: 0 0 10px 0;
+    text-align: left;
+}
+
+.wishlist__table_cell {
+    font-size: 1em;
+}
+
+.wishlist__table_heading--delete, .wishlist__table_cell--delete, 
+.wishlist__table_heading--price, .wishlist__table_cell--price {
+    text-align: right;
+}
+
+.wishlist__table_heading--add, .wishlist__table_cell--add {
+    text-align: center
+}
+
+.wishlist__single_wrapper {
+    border-top: 1px solid #a7aabd;
+}
+
+.wishlist__product_image {
+    display: inline-block;
+    padding: 10px 10px 10px 0;
+    vertical-align: middle;
+    width: 50px;
+}
+
+.wishlist__single__wrapper {
+    border-top: 1px solid #a7aabd;
+}
+
+.wishlist__product_link {
+    color: #28282e;
+    display: inline-block;
+    text-decoration: none;
+    vertical-align: middle;
+}
+
+.wishlist__product_link:hover {
+    border-color:#0454a8;
+    color: #0454a8;
+}
+
+.wishlist__single_price {
+    color: #0454a8;
+    font-weight: 600;
+}
+
+.wishlist__product_name {
+    display: inline-block;
+    font-weight: 600;
+    vertical-align: middle;
+}
+
+.wishlist__cart_add {
+    background-color: #e9e9e9;
+    border-radius: 4px;
+    border: solid 1px #d5d5d5;
+    color: #0454a8;
+    cursor: pointer;
+    display: inline-block;
+    font-weight: bold;
+    padding: 0.14em 1.4em 0.1em 1.4em;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.wishlist__cart {
+    fill: white;
+    height: 25px;
+    margin: auto;
+    stroke: #0454a8;
+    width: 1.6em;
+}
+
+.wishlist__cart_add:hover {
+    background-color:#19426d;
+}
+
+.wishlist_stock {
+    border-radius: 50%;
+    display: inline-block;
+    height: 5px;
+    margin-right: 5px;
+    position: relative;
+    vertical-align: middle;
+    width: 5px;
+}
+
+.wishlist__in_stock {
+    background-color: #47d147;
+}
+
+.wishlist__in_warehouse {
+    background-color: #ffff80;
+}
+
+.wishlist__on_demand {
+    background-color: #ff1a1a;
+}
+
+.wishlist_stock .wishlist_tooltip {
+    background-color: rgba(40, 40, 46, 1);
+    border-radius: 6px;
+    bottom: 10px;
+    color: #fff;
+    left: 50%;
+    margin-left: -60px;
+    padding: 5px 0;
+    position: absolute;
+    text-align: center;
+    visibility: hidden;
+    width: 120px;
+    z-index: 1;
+}
+
+.wishlist_stock:focus .wishlist_tooltip {
+    visibility: visible;
+}
+
+.wishlist_stock:hover .wishlist_tooltip {
+    visibility: visible;
+}
+
+@media (max-width: 1024px) {
+    .wishlist__product_image {
+        display: none;
+    }
+
+    .wishlist__table_heading--image {
+        display: none;
+    }
+
+    .wishlist__table_cell--image {
+        display: none;
+    }
+}
+
+@media (max-width: 800px) {
+    .wishlist__table_heading--price, .wishlist__table_cell--price {
+        display: none;
+    }
+}
+
+@media (max-width: 600px) {
+    .wishlist__table_heading, .wishlist__table_cell {
+        font-size: 0.8em;
+    }
+}
+
+@media (max-width: 480px) {
+    .wishlist_stock {
+        display: none;
+    }
+}
+
+@media (max-width: 320px) {
+    .wishlist__page {
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+
+    .wishlist__table_heading {
+        display: none;
+    }
+
+    .wishlist__single_wrapper {
+        border-bottom: 1px solid #a7aabd;
+        border-top: none;
+        display: block;
+        margin: 0 auto;
+        padding: 5vh 0;
+        text-align: center;
+    }
+
+    .wishlist__single_wrapper:last-child {
+        border-bottom: none;
+    }
+
+    .wishlist__table_cell {
+        display: block;
+    }
+
+    .wishlist__table_cell {
+        font-size: 1em;
+        padding: 0;
+        text-align: center;
+    }
+
+    .wishlist__product_image {
+        display: block;
+        margin: 0 auto;
+        padding: 0;
+        width: 50%;
+    }
+
+    .wishlist__cart_add {
+        margin-bottom: 0.5em;
+    }
+}
+
+@media print {
+    .wishlist__table_heading--add,
+    .wishlist__table_cell--add,
+    .wishlist__table_heading--delete,
+    .wishlist__table_cell--delete {
+        display: none;
+    }
+
+    .wishlist_stock {
+        border-radius: inherit;
+        display: inline-block;
+        height: auto;
+        padding: 0.2em;
+        vertical-align: middle;
+        width: auto;
+    }
+
+    .wishlist__in_stock::after {
+        content: "Raspoloživo u radnji";
+    }
+
+    .wishlist__in_warehouse::after {
+        content: "Raspoloživo u magacinu";
+    }
+
+    .wishlist__on_demand::after {
+        content: "Nije na stanju. Pozvati za dostupnost";
+    }
+}

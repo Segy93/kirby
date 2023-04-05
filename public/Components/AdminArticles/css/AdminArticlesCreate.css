@@ -1,0 +1,14 @@
+/*.admin_articles__create_tag {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 10px;
+    position: absolute;
+    width: 1px;
+}
+.admin_articles__create_tag__label{
+    padding: 10px;
+}
+input[type=checkbox]:checked + .admin_articles__create_tag__label { color: blue; }*/

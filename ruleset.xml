@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<ruleset name="Monitor">
+    <rule ref="PSR12">
+        <exclude name="Squiz.Functions.MultiLineFunctionDeclaration.BraceOnSameLine" />
+        <exclude name="PSR2.Classes.ClassDeclaration.OpenBraceNewLine" />
+    </rule>
+    <rule ref="Generic.Functions.OpeningFunctionBraceKernighanRitchie" />
+</ruleset>

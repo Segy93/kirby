@@ -1,0 +1,15 @@
+.product_stock {
+    border-collapse: collapse;
+    table-layout: fixed;
+    width: 100%;
+}
+
+.product_stock__key,
+.product_stock__value {
+    border: solid 1px #d5d5d5;
+}
+
+.product_stock__key {
+    padding: 0.25em 0.2em;
+    text-align: left;
+}

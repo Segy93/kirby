@@ -1,0 +1,422 @@
+.checkout_page {
+    background-color: #fff;
+    padding-bottom: 30px;
+    padding-top: 30px;
+}
+
+.checkout_page__order_error_list {
+    color: #f00;
+}
+
+.checkout_page__title {
+    color: #0454a8;
+    font-size: 1.2em;
+    font-weight: 600;
+    margin: 0 auto;
+    margin-bottom: 40px;
+    text-transform: uppercase;
+    width: 90%;
+}
+
+.checkout_page__shop_pickup:checked ~ .checkout_page__shipping_info,
+.checkout_page__shop_pickup:checked ~ .checkout_page__charging_info,
+.checkout_page__shop_pickup:checked ~ .checkout_page__nocharging_info_label,
+.checkout_page__shop_pickup:checked ~ .checkout_page__nocharging_info,
+.checkout_page__shop_pickup:checked ~ .checkout_page__address_info {
+    display: none;
+}
+
+.checkout_page__shop_pickup:not(:checked) ~ .checkout_page__store {
+    display: none;
+}
+
+#checkout_page__nocharging_info:checked ~ .checkout_page__charging_info {
+    display: none;
+}
+
+.checkout_page__visibility_hidden {
+    display: none;
+}
+
+.checkout_page__cart_preview {
+    border-collapse: collapse;
+    margin: 0 auto;
+    padding: 20px;
+    padding-top: 20px;
+    width: 90%;
+}
+
+.checkout_page__table_heading {
+    border-bottom: 1px solid #a7aabd;
+    font-size: 1em;
+    padding: 10px 0 10px 0;
+    text-align: left;
+}
+
+.checkout_page__table_cell {
+    font-size: 1em;
+    padding-bottom: 10px;
+    padding-top: 10px;
+}
+
+.checkout_page__table_cell--main {
+    border-bottom: 1px solid #a7aabd;
+}
+
+.checkout_page__table_heading--quantity,
+.checkout_page__product_quantity {
+    text-align: center;
+}
+
+.checkout_page__table_heading--price,
+.checkout_page__product_price,
+.checkout_page__product_price__retail,
+.checkout_page__table_cell--price,
+.checkout_page__table_cell--shipping_fee,
+.checkout_page__table_cell--price_all {
+    text-align: right;
+}
+
+.checkout_page__table_cell--foot {
+    border-top: 1px solid #a7aabd;
+}
+
+.checkout_page__product_image {
+    display: inline-block;
+    padding: 10px 10px 10px 0;
+    vertical-align: middle;
+    width: 50px;
+}
+
+.checkout_page__product_name {
+    color: #28282e;
+    display: inline-block;
+    font-weight: 600;
+    text-decoration: none;
+    vertical-align: middle;
+}
+
+.checkout_page__product_name:hover {
+    color: #0454a8;
+}
+
+.checkout_page__price_discount,
+.checkout_page__price_all_discount,
+.checkout_page__shipping_cost {
+    color: #0454a8;
+    font-weight: 600;
+}
+
+.checkout_page__price_retail,
+.checkout_page__price_all_retail {
+    color: #b1003f;
+    font-weight: 600;
+}
+
+.checkout_page__price_all_discount {
+    color: #0454a8;
+    font-weight: 600;
+}
+
+.checkout_page__box {
+    margin: 0 auto;
+    width: 90%;
+}
+
+.checkout_page__address_info {
+    margin: 0 auto;
+    width: 90%;
+}
+
+.checkout_page__address_info__heading {
+    text-align: left;
+}
+
+.checkout_page__add_address {
+    padding-left: 5%;
+    max-width: 300px;
+}
+
+.checkout_page__list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.checkout_page__error_list {
+    color: #f00;
+}
+
+.checkout_page__address_field {
+    box-sizing: border-box;
+    display: inline-block;
+    padding: 10px 0;
+    width: 100%;
+}
+
+.checkout_page__add_address__required::after,
+.checkout_page__user_label::after {
+    color: #f00;
+    content: "*";
+}
+
+.checkout_page__error_list {
+    color: #f00;
+}
+
+.checkout_page__address_created {
+    color: #28c195;
+    text-align: center;
+}
+
+.checkout_page__add_address__input {
+    padding: 0.625em 0.313em;
+    width: 96%;
+    /*
+    * Sirina bordera je 2px sto znaci u zbiru 4
+    * ali je idalje preveliko tako da na ovoj
+    * sirini radi lepo ne razumem sto bas.
+    */
+    width: calc(100% - 4px - 0.616em);
+}
+
+.checkout_page__add_address__label {
+    width: 100%;
+}
+
+.checkout_page__button {
+    background-color: #28282e;
+    border-color: #000;
+    border-style: solid;
+    border-width: 1px;
+    color: #fff;
+    cursor: pointer;
+    margin: 5px 5px 5px 0;
+    padding: 10px 5px;
+    text-align: center;
+}
+
+.checkout_page__button:hover {
+    background-color: #000;
+}
+
+.checkout_page__temporary_email {
+    margin: 0 auto;
+    padding-bottom: 1em;
+    width: 90%;
+}
+
+.checkout_page__temporary_email_link {
+    color: #0454a8;
+    display: inline-block;
+    font-weight: bold;
+    margin-right: 1em;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.checkout_page__temporary_email_link:hover {
+    color: black;
+}
+
+.checkout_page__label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 0.5em;
+    margin-top: 0.5em;
+}
+
+.checkout_page__table_cell--total_label,
+.checkout_page__table_cell--shipping_label,
+.checkout_page__table_cell--price_all_label {
+    font-weight: 600;
+}
+
+.checkout_page__subtitle {
+    color: #0454a8;
+    font-size: 1em;
+    font-weight: 600;
+    margin: 0 auto;
+    padding-bottom: 15px;
+    padding-top: 30px;
+    text-transform: uppercase;
+    width: 90%;
+}
+
+.checkout_page__text {
+    margin: 0 auto;
+    padding-bottom: 10px;
+    width: 90%;
+}
+
+.checkout_page__table_info {
+    margin: 0 auto;
+    width: 90%;
+}
+
+.checkout_page__table_info_heading,
+.checkout_page__table_info_cell {
+    text-align: left;
+}
+
+.checkout_page__note_field {
+    max-width: 100%;
+    width: 100%;
+}
+
+.checkout_page__button_order {
+    background-color: #0454a8;
+    border: none;
+    border-color: #0454a8;
+    border-radius: 4px;
+    color: #fff;
+    cursor: pointer;
+    display: block;
+    margin-left: 5%;
+    padding: 8px 10px;
+    text-decoration: none;
+}
+
+.checkout_page__button_order:hover {
+    background-color: #19426d;
+}
+
+.checkout_page__table_contract {
+    width: 100%;
+}
+
+.checkout_page__terms_ofuse__input {
+    margin: 0;
+    padding: 0;
+}
+
+.checkout_page__delivery_shop:checked ~ select > .checkout_page__info_addresses,
+.checkout_page__delivery_home:checked ~ select > .checkout_page__info_shop {
+    display: none;
+}
+
+.checkout_page__shipping_info,
+.checkout_page__billing_info {
+    padding: 0.5em;
+    width: 100%;
+}
+
+.checkout_page__user_data_fields {
+    padding: 0.625em 0.313em;
+}
+
+.checkout_page__captcha {
+    margin: auto;
+    width: 90%;
+}
+
+@media (max-width: 1024px) {
+    .checkout_page__product_image {
+        display: none;
+    }
+
+    .checkout_page__table_heading:first-child {
+        display: none;
+    }
+
+    .checkout_page__product_picture {
+        display: none;
+    }
+}
+
+@media (max-width: 800px) {
+    .checkout_page__table_heading--price_unit,
+    .checkout_page__table_cell--price_unit {
+        display: none;
+    }
+}
+
+@media (max-width: 360px) {
+    .checkout_page__table_info {
+        display: block
+    }
+
+    .checkout_page__table_info_heading {
+        display: block;
+    }
+
+    .checkout_page__table_info_cell {
+        display: block;
+    }
+}
+
+@media (max-width: 320px) {
+    .checkout_page__table_heading,
+    .checkout_page__table_cell {
+        font-size: 0.8em;
+    }
+}
+
+@media (max-width: 240px) {
+    .checkout_page__table_heading,
+    .checkout_page__table_cell {
+        font-size: 0.7em;
+    }
+}
+
+@media print {
+    .checkout_page {
+        padding: 0;
+    }
+
+    .checkout_page__title {
+        margin-bottom: 1.5em;
+    }
+
+    .checkout_page__table_row--button {
+        display: none;
+    }
+
+    .checkout_page__note_field,
+    .checkout_page__shipping_info,
+    .checkout_page__billing_info,
+    .checkout_page__payment_type,
+    .checkout_page__date,
+    .checkout_page__temporary_email_input {
+        appearance: none;
+        -webkit-appearance: none;
+    }
+
+    .checkout_page__note,
+    .checkout_page__button_order,
+    .checkout_page__text,
+    .checkout_page__temporary_email--print {
+        display: none;
+    }
+
+    .checkout_page__cart_preview,
+    .checkout_page__table_heading,
+    .checkout_page__table_cell{
+        padding: 0;
+    }
+
+    .checkout_page__subtitle {
+        padding-top: 1em;
+        padding-bottom: 0.5em;
+    }
+
+    .checkout_page__product_name::after {
+        color: #0950aa;
+        content: attr(href);
+        display: block;
+        font-size: 0.8em;
+    }
+
+    .checkout_page__note_field {
+        height: 7em;
+    }
+
+    .checkout_page__break {
+        page-break-before: always;
+    }
+
+    .checkout_page__dropdown_delivery,
+    .checkout_page__delivery_home,
+    .checkout_page__delivery_shop {
+        display: none;
+    }
+}

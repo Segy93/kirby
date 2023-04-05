@@ -1,0 +1,319 @@
+.configurator_product_list__page {
+  background-color: #fff;
+  width: 100%;
+}
+
+.configurator_product_list__wrapper {
+  border-collapse: collapse;
+  margin: 0 auto;
+  padding-top: 20px;
+  width: 100%;
+}
+
+.configurator_product_list__wrapper:empty::after {
+  content: "Lista želja je prazna!";
+  display: block;
+  font-size: 1.5em;
+  margin-bottom: 50px;
+  margin-top: 50px;
+  text-align: center;
+  text-transform: uppercase;
+  width: 100%;
+}
+
+.configurator_product_list__table_cell {
+  font-size: 1em;
+}
+
+.configurator_product_list__table_cell--delete,
+.configurator_product_list__table_cell--price {
+  text-align: right;
+}
+
+.configurator_product_list__table_cell--add {
+  text-align: center;
+}
+
+.configurator_product_list__product_image {
+  display: block;
+  width: 75px;
+}
+
+.configurator_product_list__single__wrapper {
+  border-top: 1px solid #a7aabd;
+}
+
+.configurator_product_list__product_link {
+  color: #28282e;
+  display: inline-block;
+  text-decoration: none;
+  vertical-align: middle;
+  width: calc(100% - 10px); /* Element pored ima marginu 5px i sirok je 5px sto je ukupno 10 */
+}
+
+.configurator_product_list__product_link:hover {
+  border-color: #0454a8;
+  color: #0454a8;
+}
+
+.configurator_product_list__single_price {
+  color: #0454a8;
+  font-weight: 600;
+  margin: 0 10px;
+  white-space: nowrap;
+}
+
+.configurator_product_list__product_name {
+  display: inline-block;
+  font-weight: 600;
+  vertical-align: middle;
+}
+
+.configurator_product_list__cart_add {
+  background-color: #e9e9e9;
+  border-radius: 4px;
+  border: solid 1px #d5d5d5;
+  color: #0454a8;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: bold;
+  padding: 0.14em 1.4em 0.1em 1.4em;
+  text-align: center;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.configurator_product_list__cart {
+  fill: white;
+  height: 25px;
+  margin: auto;
+  stroke: #0454a8;
+  width: 1.6em;
+}
+
+.configurator_product_list__cart_add:hover {
+  background-color: #19426d;
+}
+
+.configurator_product_list_stock {
+  border-radius: 50%;
+  display: inline-block;
+  height: 5px;
+  margin-right: 5px;
+  position: relative;
+  vertical-align: middle;
+  width: 5px;
+}
+
+.configurator_product_list__in_stock {
+  background-color: #47d147;
+}
+
+.configurator_product_list__in_warehouse {
+  background-color: #ffff80;
+}
+
+.configurator_product_list__on_demand {
+  background-color: #ff1a1a;
+}
+
+.configurator_product_list_stock .configurator_product_list_tooltip {
+  background-color: rgba(40, 40, 46, 1);
+  border-radius: 6px;
+  bottom: 10px;
+  color: #fff;
+  left: 50%;
+  margin-left: -60px;
+  padding: 5px 0;
+  position: absolute;
+  text-align: center;
+  visibility: hidden;
+  width: 120px;
+  z-index: 1;
+}
+
+.configurator_product_list_stock:focus .configurator_product_list_tooltip {
+  visibility: visible;
+}
+
+.configurator_product_list_stock:hover .configurator_product_list_tooltip {
+  visibility: visible;
+}
+
+.configurator_product_list__specs_label {
+  color: #22436f;
+  border: 1px solid #22436f;
+  border-radius: 20px;
+  cursor: pointer;
+  display: inline-block;
+  font-weight: bold;
+  padding: 5px 10px;
+  vertical-align: middle;
+}
+
+.configurator_product_list__specs_show {
+  margin-bottom: 10px;
+  vertical-align: middle;
+}
+
+.configurator_product_list__specs_show:checked ~ .configurator_product_list__table_specs {
+  display: table;
+}
+
+.configurator_product_list__specs_show:checked ~ .configurator_product_list__specs_label {
+  background-color: #22436f;
+  color: #fff;
+}
+
+.configurator_product_list__table_specs {
+  border-collapse: collapse;
+  display: none;
+  table-layout: fixed;
+  width: 100%;
+}
+
+.configurator_product_list__table_specs_row:nth-child(odd) {
+  background-color: rgb(236, 236, 237);
+}
+
+.configurator_product_list__table_specs,
+.configurator_product_list__table_specs_cell,
+.configurator_product_list__table_specs_header {
+  border: 1px solid rgb(207, 213, 214);
+}
+
+.configurator_product_list__table_specs_header {
+  width: 30%;
+}
+
+.configurator_product_list__table_specs_header,
+.configurator_product_list__table_specs_cell {
+  color: #4d4d4d;
+  font-weight: normal;
+  padding: 0.5rem;
+  text-align: left;
+}
+
+.configurator_product_list__table_product_link,
+.configurator_product_list__link {
+  word-break: break-all;
+}
+
+@media (max-width: 1024px) {
+  .configurator_product_list__product_image {
+    display: none;
+  }
+
+  .configurator_product_list__table_cell--image {
+    display: none;
+  }
+}
+
+@media (max-width: 600px) {
+  .configurator_product_list__table_cell {
+    font-size: 0.8em;
+  }
+}
+
+@media (max-width: 480px) {
+  .configurator_product_list_stock {
+    display: none;
+  }
+
+  .configurator_product_list__table_specs_header,
+  .configurator_product_list__table_specs_cell {
+    display: block;
+    padding-left: 0;
+    width: 100%;
+  }
+
+  .configurator_product_list__table_specs_header {
+    border-bottom: none;
+  }
+
+  .configurator_product_list__table_specs_cell {
+    border-top: none;
+  }
+
+  .configurator_product_list__single_price {
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 360px) {
+  .configurator_product_list__page {
+    padding-top: 0;
+    padding-bottom: 0;
+  }
+
+  .configurator_product_list__single_price {
+    margin-bottom: 15px;
+  }
+
+  .configurator_product_list__single_wrapper {
+    align-items: center;
+    border-bottom: 1px solid #0950aa;
+    border-top: none;
+    display: block;
+    margin: 0 auto;
+    padding: 10px 0;
+    text-align: center;
+  }
+
+  .configurator_product_list__single_wrapper:last-child {
+    border-bottom: none;
+  }
+
+  .configurator_product_list__single_wrapper_cell_specs {
+    display: block;
+  }
+
+  .configurator_product_list__table_cell {
+    display: block;
+  }
+
+  .configurator_product_list__table_cell {
+    font-size: 1em;
+    padding: 0;
+    text-align: center;
+  }
+
+  .configurator_product_list__product_image {
+    display: block;
+    margin: 0 auto;
+    padding: 0;
+    width: 50%;
+  }
+
+  .configurator_product_list__cart_add {
+    margin-bottom: 0.5em;
+  }
+}
+
+@media print {
+  .configurator_product_list__table_cell--add,
+  .configurator_product_list__table_cell--delete {
+    display: none;
+  }
+
+  .configurator_product_list_stock {
+    border-radius: inherit;
+    display: inline-block;
+    height: auto;
+    padding: 0.2em;
+    vertical-align: middle;
+    width: auto;
+  }
+
+  .configurator_product_list__in_stock::after {
+    content: "Raspoloživo u radnji";
+  }
+
+  .configurator_product_list__in_warehouse::after {
+    content: "Raspoloživo u magacinu";
+  }
+
+  .configurator_product_list__on_demand::after {
+    content: "Nije raspoloživo. Pozvati za dostupnost";
+  }
+}

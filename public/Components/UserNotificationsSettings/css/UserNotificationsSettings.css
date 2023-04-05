@@ -1,0 +1,111 @@
+.notifications_settings {
+    margin: 0 auto;
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
+    width: 90%;
+}
+
+.notifications_settings__table {
+    margin-top: 1em;
+    width: 100%;
+}
+
+.notifications_settings__table_head {
+    text-align: left;
+    width: 50%;
+}
+
+.notification_settings__subscription_checkbox {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    cursor: pointer;
+    display: inline-block;
+    margin: 0;
+    position: relative;
+    text-align: right;
+}
+
+.notification_settings__subscription_checkbox::after {
+    background-color: #dadee1;
+    border-radius: 7px/50%;
+    color: #b3b7b8;
+    content: "Ne";
+    display: inline-block;
+    font-size: 0.81em;
+    font-weight: bold;
+    padding-bottom: 2px;
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 2px;
+    text-align: right;
+    text-indent: 3px;
+    transition: color 0.3s, background-color 0.3s;
+    width: 35px;
+} 
+
+.notification_settings__subscription_checkbox::before {
+    background-color: #3b4453;
+    border-radius: 50%;
+    content: "";
+    display: block;
+    height: 12px;
+    left: 1px;
+    margin-left: 2px;
+    margin-top: 2px;
+    position: absolute;
+    top: 0;
+    transition: left 0.3s, background-color 0.3s;
+    width: 12px;
+} 
+
+.notification_settings__subscription_checkbox:checked::before {
+    background-color: #4f83bf;
+    left: 60%;
+    left: calc(100% - 17px);
+} 
+
+.notification_settings__subscription_checkbox:checked::after {
+    color: currentColor;
+    content: "Da";
+    text-align: left;
+}
+
+.notification_settings__subscription_checkbox:hover::after {
+    background-color: #caced1;
+}
+
+.notification_settings__delete_device {
+    background-color: #28282e;
+    border-radius: 4px;
+    color: #fff;
+    cursor: pointer;
+    padding: 8px 10px;
+}
+
+.notification_settings__delete_device:hover {
+    background-color: #0454a8;
+}
+
+@media (max-width: 640px) {
+    .notifications_settings__table_head--right,
+    .notifications_settings__table_cell--right {
+        text-align: right;
+        width: 40%;
+    }
+
+    .notifications_settings__table_head {
+        width: 60%;
+    }
+}
+
+@media (max-width: 480px) {
+    .notifications_settings__table {
+        font-size: 0.8em;
+    }
+
+    .notifications_settings__table_head,
+    .notifications_settings__table_cell {
+        padding-top: 1em;
+    }
+}

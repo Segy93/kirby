@@ -1,0 +1,31 @@
+.product_gallery__wrapper {
+    list-style-type: none;
+    margin: 0.5em 0;
+    padding: 0;
+}
+
+.product_gallery__item {
+    display: inline-block;
+    margin-right: 1em;
+    width: 10%;
+}
+
+.product_gallery__thumbnail {
+    border-radius: 4px;
+    border: 1px solid #ddd;
+    display: block;
+    height: 10%;
+    padding: 5px;
+    transition: opacity 0.3s;
+    width: 100%;
+}
+
+.product_gallery__thumbnail:hover {
+    box-shadow: 0 0 2px 1px rgba(0, 140, 186, 0.5);
+    cursor: pointer;
+    opacity: 0.8;
+}
+
+.product_gallery__arrow {
+    fill: #fff;
+}

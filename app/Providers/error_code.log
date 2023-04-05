@@ -1,0 +1,313 @@
+001. AddressService
+	001. Nemate dozvolu za kreiranje adrese radnje
+	002. Nemate dozvolu za kreiranje adrese korisnika
+	003. Grad sa tim id-om nije pronađen
+	004. Adresa nije odgovarajućeg formata
+	005. Poštanski broj nije odgovarajućeg formata
+	006. Email nije odgovarajućeg formata
+	007. Fax nije odgovarajućeg formata
+	008. Radni sati nisu odgovarajućeg formata
+	009. Ime nije odgovarajućeg formata
+	010. Prezime nije odgovarajućeg formata
+	011. Kompanija nije odgovarajućeg formata
+	012. Broj telefona nije odgovarajućeg formata
+	013. Nemate dozvolu za dohvatanje adrese korisnika
+	014. Nemate dozvolu za dohvatanje adresa korisnika
+	015. Adresa sa tim id-om nije pronađena
+	016. Nemate dozvolu za izmenu adrese korisnika
+	017. Nemate dozvolu za izmenu adrese radnje
+	018. Grad pod tim id-om nije pronađen
+	019. Ime nije odgovarajućeg formata
+	020. Prezime nije odgovarajućeg formata
+	021. Adresa nije odgovarajućeg formata
+	022. Poštanski broj nije odgovarajućeg formata
+	023. Telefonski broj nije odgovarajućeg formata
+	024. Email adresa nije odgovarajućeg formata
+	025. Fax nije odgovarajućeg formata
+	026. Radno vreme nije odgovarajućeg formata
+	027. Nemate dozvolu za brisanje adrese korisnika
+	028. Nemate dozvolu za brisanje adrese radnje
+	029. Naziv kompanije nije odgovarajućeg formata
+
+002. AdminService
+	001. Nemate dozvolu za kreiranje administratora
+	002. Id uloge nije odgovarajućeg formata
+	003. Korisničko ime nije odgovarajućeg formata
+	004. Email nije odgovarajućeg formata
+	005. Lozinka nije odgovarajućeg formata
+	006. Administrator sa tim korisničkim imenom ili email adresom nije pronađen
+	007. Pogrešna lozinka
+	008. Nemate dozvolu za dohvatanje trenutno prijavljenog administratora
+	009. Nemate dozvolu za pretragu administratora
+	010. Nemate dozvolu za dohvatanje administratora po id-u
+	011. Nemate dozvolu za kreiranje administratora
+	012. Administrator pod tim id-om nije pronađen
+	013. Id uloge nije odgovarajućeg formata
+	014. Uloga pod tim id-om nije pronađena
+	015. Korsničko ime nije odgovarajućeg formata
+	016. Email nije odgovarajućeg formata
+	017. Lozinka nije odgovarajućeg formata
+	018. Nemate dozvolu za brisanje administrator
+	019. Administrator pod tim id-om nije pronađen
+
+003. ArticleCategoryService
+	001. Nemate dozvolu za kreiranje kategorija članaka
+	002. Ime kategorije nije odgovarajućeg formata
+	003. Nemate dozvolu za izmenu kategorije članaka
+	004. Ime kategorije nije odgovarajućeg formata
+	005. Nemate dozvolu za izmenu redosleda kategorije članaka
+	006. Nemate dozvolu za brisanje kategorije članaka
+	007. Ime kategorije već postoji
+
+004. ArticleService
+	001. Nemate dozvolu za kreiranje članka
+	002. Naslov članka nije odgovarajućeg formata
+	003. Tekst članka nije odgovarajućeg formata
+	004. Isečak nije odgovarajućeg formata
+	005. Datum nije odgovarajućeg formata
+	006. Id članka nije odgovarajućeg formata
+	007. Nemate dozvolu za dohvatanje članka
+	008. Člank nije pronađen
+	009. Nemate dozvolu za izmenu članka
+	010. Kategorija nije pronađena
+	011. Nemate dozvolu za izmenu autora
+	012. Autor nije pronađen
+	013. Naslov nije odgovarajućeg formata
+	014. Tekst nije odgovarajućeg formata
+	015. Isečak nije odgovarajućeg formata
+	016. Datum nije odgovarajućeg formata
+	017. Status nije odgovarajućeg formata
+	018. Nemate dozvolu za postavljanje taga
+	019. Nemate dozvolu za brisanje članka
+
+005. BannerService
+	001. Nemate dozvolu za kreiranje banera
+	002. Id pozicije nije odgovarajućeg formata
+	003. Naslov nije odgovarajućeg formata
+	004. Ime slike nije odgovarajućeg formata
+	005. Link nije odgovarajućeg formata
+	006. Linkovi gde te baner da se pojavljuje nisu odgovarajućeg formata
+	007. Nemate dozvolu za kreiranje pozicija banera
+	008. Id tipa stranice nije odgovarajućeg formata
+	009. Naziv pozicije nije odgovarajućeg formata
+	010. Širina slike nije odgovarajućeg formata
+	011. Visina slike nije odgovarajućeg formata
+	012. Nemate dozvolu za kreiranje tipova strana
+	013. Tip strane nije odgovarajućeg formata
+	014. Nemate dozvolu za izmenu banera
+	015. Baner sa tim id-om nije pronađen
+	016. Id pozicije nije odgovarajućeg fomrata
+	017. Pozicija sa tim id-om ne postoji
+	018. Naslov nije odgovarajućeg formata
+	019. Ime slike nije odgovarajućeg formata
+	020. Link nije odgovarajućeg formata
+	021. Linkovi na kojima treba da se pojavljuje baner nije odgovarajućeg formata
+	022. Baner sa tim id-om nije pronađen
+	023. Nemate dozvolu za izmenu pozicije za banere
+	024. Pozicija sa tim id-om nije pronađena
+	025. Id tipa stane nije odgovarajućeg formata
+	026. Tip strane sa tim id-om nije pronađen
+	027. Naziv pozicije nije odgovarajućeg formata
+	028. Širina slike nije odgovarajućeg formata
+	029. Visina slike nije odgovarajućeg formata
+	030. Nemate dozvolu za izmenu tipe strane
+	031. Tip stranice sa tim id-om nije pronađen
+	032. Tip stranice nije odgovarajućeg formata
+	033. Nemate dozvolu za brisanje banera
+	034. Banner sa tim id-om nije pronađen
+	035. Nemate dozvolu za brisanje pozicija
+	036. Pozicija sa tim id-om nije pronađen
+	037. Nemate dozvolu za brisanje tipova strana
+	038. PageType sa tim id-om nije pronađen
+
+006. BaseService
+
+007. CategoryService
+
+008. CommentService
+	001. Tekst komentara nije odgovarajućeg formata
+	002. Ne odgovoriti na odgovor
+	003. Nemate dozvolu za izmenu komentara
+	004. Tekst komentara nije odgovarajućeg formata
+	005. Nemate dozvolu za odobravanje komentara
+	006. Nemate dozvolu za izmenu komentara
+
+009. EmailService
+
+010. FolderService
+
+011. ImageService
+	001. Greška pri upisu slike
+
+012. ImportService
+	001. Nemate dozvolu za unos proizvoda
+	002. Nemate dozvolu za unos proizvoda
+	003. Proizvod nije pronađen
+	004. --Poruka greške se kreira iz ProductService--
+	005. --Poruka se generiše u drugoj metodi--
+	006. Nemate dozvolu za dohvatanje kategorije
+	007. Nemate dozvolu za dohvatanje kategorije
+	008. Kategorija nije pronađena
+	009. Nemate dozvolu za izmenu proizvoda
+	010. Nemate dozvolu za izmenu proizvoda
+	011. Proizvod nije pronađen
+	012. Izmene za proizvod nisu pronađene
+	013. Prouzvod pod id-om je obrisan
+	014. --Poruka greške se generiše u Productservice--
+	015. --Poruka se generiše u drugoj metodi--
+
+013. PermissionService
+	001. Nemate dozvolu za dodeljivanje dozvole
+	002. Nemate dozvolu za dodavanje dozvola drugim ulogama
+	003. Nemate dozvolu za pretragu dozvola
+	004. Nemate dozvolu za dohvatanje dozvole po id-u
+
+014. ProductService
+	001. Proizvod sa tim id-om nije pronađen
+	002. Picture type nije pronadjen sa velcinama $widthx$height
+
+015. RoleService
+	001. Nemate dozvolu za kreiranje uloga
+	002. Nemate dozvolu za čitanje uloga
+	003. Nemate dozvolu za dohvatanje uloge po id-u
+	004. Nemate dozvolu za izmenu uloge
+	005. Uloga sa tim id-om nije pronađena
+	006. Opis kategorije nije odgovarajućeg formata
+	007. Nemate dozvolu za brisanje uloge
+
+016. SearchService
+
+017. SEOService
+	001. Nemate dozvolu da menjate SEO
+	002. Ključne reči nisu odgovarajućeg formata
+	003. Opis nije odgovarajućeg formata
+	004. Naslov nije odgovarajućeg formata
+	005. Url nije odgovarajućeg formata
+	006. Url je zauzet
+	007. emate dozvolu za brisanje SEO-a
+	008. SEO nije pronađen
+
+018. ShippingService
+
+019. ShopService
+	001. Nemate dozvolu za dohvatanje korpe korisnika
+	002. Korisnik sa tim id-om nije pronađen
+	003. Način plaćanja nije pronađen
+	004. Adresa dostave sa tim id-om nije pronađena
+	005. Adresa plaćanja sa tim id-om nije pronađena
+	006. Token nije odgovarajućeg formata
+	007. Datum dostave nije odgovarajućeg formata
+	008. Napomena nije odgovarajućeg formata
+	009. Korpa je prazna
+	010. Korisnik sa tim id-om nije pronađen
+	011. Proizvod pod tim id-om nije pronađen
+	012. Količina nije odgovarajućeg formata
+	013. Porudžbenica sa tim id-om nije pronađena
+	014. Nemate dozvolu za pretragu narudžbina po id-u
+	015. Proizvod iz korpe sa tim id-om nije pronađen
+	016. Nemate dozvolu za dohvatanje proizvoda iz korpe po id-u
+	017. Nemate dozvolu za pretragu narudžbina
+	018. Nemate dozvolu za pretragu narudžbina po id-u korisnika
+	019. Nemate dozvolu za dohvatanje korpe
+	020. Nemate dozvolu za dohvatanje ukupne cene korpe
+	021. Nemate dozvolu za izmenu narudžbine
+	022. Način plaćanja pod tim id-om nije pronađen
+	023. Adresa dostave sa tim id-om nije pronađena
+	024. Adresa naplate sa tim id-om nije pronađena
+	025. Datum dostave nije odgovarajućeg formata
+	026. Napomena nije odgovarajućeg formata
+	027. Poštarina nije odgovarajućeg formata
+	028. Nemate dozvolu za izmenu statusa porudđbenice
+	029. Korpa sa tim id-om nije pronađena
+	030. Nemate dozvolu za izmenu korpe
+	031. Porudžbenica sa tim id-om nije pronađena
+	032. Nemate dozvolu za brisanje porudžbenice
+	033. Proizvod iz korpe sa tim id-om nije pronađena
+	034. Nemate dozvolu za brisanje proizvoda iz korpe
+	035. Nemate dozvolu da kreirate promenu statusa
+	036. Admin nije pronađen
+	037. Status nije odgovarajućeg formata
+	038. Komentar interni nije odgovarajućeg formata
+	039. Komentar korisniku nije odgovarajućeg formata
+	040. Nemate dozvolu za promenu stanja proizvoda u porudžbenici
+	041. Stavka iz narudžbenice pod tim id-om nije pronađena
+	042. Količina nije odgovataućeg formata
+	043. Nemate dozvolu za brisanje stavke iz porudžbenice
+	044. Nemate dozvolu da vidite statuse porudžbenice
+	045. Nemate dozvolu za poništavanje porudžbenice
+
+020. StaticPageService
+	001. Nemate dozvolu za kreiranje kategorija statičkih strana
+	002. Naziv kategorije nije odgovarajućeg formata
+	003. Nemate dozvolu za kreiranje statičke strane
+	004. Naslov strane nije odgovarajućeg formata
+	005. Sadržaj nije odgovarajućeg fomrata
+	006. Nemate dozvolu za izmene kategorije statičkih strana
+	007. Ime kategorije nije odgovarajućeg formata
+	008. Nemate dozvolu za izmenu statičkih strana
+	009. Kategorija sa tim id-om nije pronađena
+	010. Naslov stranice nije odgovarajućeg formata
+	011. Tekst nije odgovarajućeg formata
+	012. Nemate dozvolu za izmenu redosleda statičkih stranica
+	013. Nemate dozvolu za brisanje kategorija statičkih stranica
+	014. Nemate dozvolu za brisanje statičkih stranica
+
+021. TagService
+	001. Nemate dozvolu za kreiranje taga
+	002. Ime taga nije odgovarajućeg formata
+	003. Nemate dozvolu za izmenu taga
+	004. Ime taga nije odgovarajućeg formata
+	005. Nemate dozvolu za brisanje taga
+
+022. UserService
+	001. Korisničko ime nije odgovarajućeg formata
+	002. Email nije odgovarajućeg formata
+	003. Ime nije odgovarajućeg formata
+	004. Prezime nije odgovarajućeg formata
+	005. Broj telefona nije odgovarajućeg formata
+	006. Profilna slika nije odgovarajućeg formata
+	007. Email nije odgovarajućeg formata
+	008. Nemate dozvolu za dohvatanje korisnika po id-u
+	009. Nemate dozvolu za dohvatanje korisnika
+	010. Nemate dozvolu za dohvatanje broj korisnika
+	011. Korisnik sa tim korisničkim imenom ili email-om nije pronađe
+	012. Pogrešna lozinka
+	013. Nemate dozvolu za izmenu korisnika
+	014. Korisnik sa tim id-om nije pronađen
+	015. Korisničko ime nije odgovarajućeg formata
+	016. Email nije odgovarajućeg formata
+	017. Lozinka nije odgovarajućeg formata
+	018. Ime nije odgovarajućeg formata
+	019. Prezime nije odgovarajućeg formata
+	020. Kućna adresa nije odgovarajućeg formata
+	021. Adresa dostave nije odgovarajućeg formata
+	022. Broj telefona nije odgovarajućeg formata
+	023. Profilna slika nije odgovarajućeg formata
+	024. Korisnik sa tim email-om nije pronađen
+	025. Korisnik sa tim tokenom nije pronađen
+	026. Token je istekao, ponovo pošaljite zahtev za reset lozinke
+	027. Lozinke se ne podudaraju
+	028. Korisnik sa tim tokenom nije pronađen
+	029. Token je istekao, ponovo pošalji te zahtev za aktivaciju email-a
+	030. Korisnik sa tim email-om nije pronađen
+	031. Email neuspešno poslat
+	032. Nemate dozvolu da banujete korisnika
+	033. Korisnik sa tim id-om nepostoji
+	034. Nemate dozvolu za brisanje korisnika
+	035. Korisnik pod tim id-om nije pronađen
+	036. Ne može se obrisati korisnik koji ima narudžbinu
+
+023. ValidationService
+	001. Lozinka je prekratka
+	002. Lozinka ne sadrži nijedan broj
+	003. Lozinka ne sadrži nijedno malo slovo
+	004. Lozinka ne sadrži nijedno veliko slovo
+	005. Lozinka je predugačka
+
+024. WishListService
+	001. Proizvod sa tim id-om nije pronađen
+	002. Korisnik sa tim id-om nije pronađen
+	003. Element u listi sa tim id-om nije pronađen
+	004. Element u listi nije pronađen
+025. NotificationService
+	001. Morate se prijaviti da bi mogli da koristite notifikacije

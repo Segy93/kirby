@@ -1,0 +1,1 @@
+Upoređivanje (<span id = "menu_compare__number">{{ $compare }}</span>)

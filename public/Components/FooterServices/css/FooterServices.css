@@ -1,0 +1,11 @@
+.footer_services__item {
+    color: #fff;
+    display: block;
+    font-size: 1em;
+    text-decoration: none;
+}
+
+.footer_services__item:hover,
+.footer_services__item:focus {
+    text-decoration: underline;
+}

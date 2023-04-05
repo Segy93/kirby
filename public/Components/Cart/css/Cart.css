@@ -1,0 +1,212 @@
+.cart {
+    background-color: #fff;
+    padding-bottom: 30px;
+    padding-top: 30px;
+}
+
+.cart__list:empty::after {
+    content: "Korpa je prazna!";
+    display: block;
+    font-size: 1.5em;
+    margin-bottom: 50px;
+    margin-top: 50px;
+    text-align: center; 
+    text-transform: uppercase;
+    width: 100%;
+}
+
+.cart__list:empty ~ .cart__total,
+.cart__list:empty ~ .cart__link_order {
+    display: none;
+}
+
+.cart_single__product_image {
+    display: inline-block;
+    padding: 10px 10px 10px 0;
+    vertical-align: middle;
+    width: 50px;
+}
+
+.cart_single__product_name {
+    display: inline-block;
+    font-weight: 600;
+    vertical-align: middle;
+}
+
+.cart_single__product_link {
+    color: #28282e;
+    text-decoration: none;
+}
+
+.cart_single__product_link:hover {
+    color: #0454a8;
+}
+
+.cart__list {
+    border-collapse: collapse;
+    margin: 0 auto;
+    padding-top: 20px;
+    width: 90%;
+}
+
+.cart_single__wrapper {
+    border-top: 1px solid #a7aabd;
+}
+
+.cart_single__table_heading {
+    padding: 0 0 10px 0;
+    text-align: left;
+}
+
+.cart_single__table_heading--price, .cart_single__table_cell--price {
+    text-align: right;
+}
+
+.cart_single__table_heading--delete, .cart_single__table_cell--delete {
+    text-align: right;
+}
+
+.cart__change_quantity {
+    height: 20px;
+    text-align: center;
+    width: 40px;
+}
+
+.cart_single__price {
+    color: #0454a8;
+    font-weight: 600;
+}
+
+.cart__total {
+    color: #28282e;
+    font-weight: 600;
+    padding-top: 10px;
+}
+
+.cart__total_price {
+    color: #b1003f;
+    font-size: 1.2em;
+    margin: 0;
+    margin-right: 10px;
+}
+
+.cart__link_order {
+    background-color: #0454a8;
+    border-radius: 4px;
+    color: #fff;
+    display: inline-block;
+    margin-top: 10px;
+    padding: 8px 10px;
+    text-decoration: none;
+}
+
+.cart__link_order:hover {
+    background-color: #19426d;
+}
+
+.cart__order {
+    /* padding: 0 10px; */
+    text-align: right;
+}
+
+.cart_single__table_heading--quantity, .cart_single__table_cell--quantity {
+    text-align: center;
+}
+
+@media (max-width: 1024px) {
+    .cart_single__table_heading--image, .cart_single__table_cell--image {
+        display: none;
+    }
+}
+
+
+@media (max-width: 800px) {
+    .cart_single__table_heading, .cart_single__table_cell {
+        font-size: 0.9em;
+    }
+}
+
+@media (max-width: 600px) {
+    .cart_single__table_heading, .cart_single__table_cell {
+        font-size: 0.8em;
+    }
+
+    .cart_single__table_cell--price {
+        padding-left: 1em;
+    }
+}
+
+@media (max-width: 360px) {
+    .cart_single__table_heading, .cart_single__table_cell {
+        font-size: 0.7em;
+    }
+
+    .cart__total, .cart__total_price {
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 320px) {
+    .cart {
+        padding-top: 0;
+        padding-bottom: 0;
+    }
+
+    .cart__list thead {
+        display: none;
+    }
+
+    .cart_single__wrapper {
+        border-bottom: 1px solid #a7aabd;
+        border-top: none;
+        display: block;
+        margin: 0 auto;
+        padding: 5vh 0;
+        text-align: center;
+    }
+
+    .cart_single__wrapper:last-child {
+        border-bottom: none;
+    }
+
+    .cart_single__table_cell {
+        display: block;
+    }
+
+    .cart_single__table_cell {
+        font-size: 1em;
+        padding: 0;
+        text-align: center;
+    }
+
+    .cart_single__product_image {
+        margin: 0;
+        padding: 0;
+        width: 50%;
+    }
+
+    .cart__form_update::before {
+        content: "Količina:";
+        margin-right: 1em;
+    }
+}
+
+@media print {
+    .cart_single__table_heading--delete,
+    .cart_single__table_cell--delete,
+    .cart__order {
+        display: none;
+    }
+
+    .cart_single__product_link::after {
+        color: #0950aa;
+        content: attr(href);
+        display: block;
+        font-size: 0.8em;
+    }
+
+    .cart__change_quantity {
+        border: none;
+        text-align: center;
+    }
+}

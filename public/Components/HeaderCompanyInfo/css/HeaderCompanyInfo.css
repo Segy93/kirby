@@ -1,0 +1,12 @@
+.header_company_info__list {
+    display: none;
+    font-size: 0.9em;
+    list-style-type: none;
+    right: 0;
+}
+
+@media print {
+    .header_company_info__list {
+        display: inline-block;
+    }
+}

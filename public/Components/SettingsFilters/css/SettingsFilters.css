@@ -1,0 +1,189 @@
+.settings_filters {
+    background-color: #fff;
+    border-radius: 5px 5px 0 0;
+    border-bottom: solid 2px #f2f3ee;
+    padding-right: 10px;
+    text-align: right;
+}
+
+.settings_filters_order {
+    display: inline-block;
+}
+
+.settings_filters_sort {
+    background-color: #fff;
+    /* border: none; */
+    max-width: 100%;
+    padding: 0.2rem;
+    vertical-align: middle;
+}
+
+.settings_filters__limit {
+    display: inline-block;
+    margin-left: 25px;
+    padding: 5px;
+    vertical-align: middle;
+}
+
+.settings_filters__limit_radio:checked + .settings_filters__limit_radio_label {
+    box-shadow: 0 0 3px black;
+}
+
+.settings_filters__limit_radio:focus + .settings_filters__limit_radio_label,
+.settings_filters__limit_radio_label:hover {
+    background-color: #28282e;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+}
+
+.settings_filters__limit_radio_label {
+    background-color: #fff;
+    border-radius: 5px;
+    color: #28282e;
+    display: inline-block;
+    margin-right: 2px;
+    padding: 2px 5px 4px 5px;
+    text-align: center;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.settings_filters__search {
+    display: inline-block;
+    display: inline-flex;
+    margin: 0 1em;
+    vertical-align: middle;
+}
+
+.settings_filters__search_field {
+    border: none;
+    border: 1px solid rgb(169, 169, 169);
+    border-right: none;
+    border-top-left-radius: 0.3rem;
+    border-bottom-left-radius: 0.3rem;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    display: inline-block;
+    font-size: 0.9rem;
+    padding: 0.17rem;
+    vertical-align: top;
+    -webkit-appearance: none;
+}
+
+.settings_filters__search_submit {
+    background-color: #0950aa;
+    border: none;
+    box-sizing: border-box;
+    border-top-right-radius: 0.3rem;
+    border-bottom-right-radius: 0.3rem;
+    font-size: 0.9rem;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    padding: 0.3rem 0.7rem;
+    text-transform: uppercase;
+    transition: background-color 0.3s;
+    vertical-align: top;
+}
+
+.settings_filters__search_submit:hover {
+    background-color: #292b2e;
+    color: #fff;
+}
+
+.settings_filters__view {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+
+.settings_filters__view_type_radio_label_icon {
+    border-radius: 5px;
+    display: inline-block;
+    fill: #292b2e;
+    height: 1em;
+    margin-right: 2px;
+    padding: 5px;
+    stroke-width: 0;
+    transition: background-color 0.3s, fill 0.3s;
+    vertical-align: middle;
+    width: 1em;
+}
+.settings_filters__view_type_radio:checked + .settings_filters__view_type_radio_label .settings_filters__view_type_radio_label_icon {
+    box-shadow: 0 0 3px black;
+}
+
+.settings_filters__view_type_radio:focus + .settings_filters__view_type_radio_label .settings_filters__view_type_radio_label_icon,
+.settings_filters__view_type_radio_label_icon:hover {
+    background-color: #292b2e;
+    fill: #fff;
+}
+
+.settings_filters__view_type_radio_label {
+    cursor: pointer;
+    display: inline-block;
+}
+
+.settings_filters__search_field::placeholder {
+    font-size: 0.8em;
+    padding-left: 5px;
+    text-transform: uppercase;
+}
+
+
+@media (max-width: 1200px) {
+    .settings_filters {
+        padding-right: 0;
+        text-align: center;
+    }
+}
+
+@media (max-width: 800px) {
+    .settings_filters__search {
+        display: block;
+        margin: 0 0 0.6em;
+    }
+
+    .settings_filters {
+        padding: 0.5em;
+    }
+
+    .settings_filters__limit {
+        margin-left: 0;
+    }
+
+    .settings_filters_sort {
+        padding: 0;
+    }
+}
+
+@media (max-width: 320px) {
+    .settings_filters__search {
+        margin-bottom: 0.5em;
+    }
+
+    .settings_filters__search_field {
+        display: block;
+        border-right: 1px solid rgb(169, 169, 169);
+        border-radius: 0;
+        margin: 0 auto;
+        width: 100%;
+    }
+
+    .settings_filters__search_submit {
+        border-radius: 0;
+        display: block;
+        margin: 0 auto;
+        width: 100%;
+    }
+
+    .settings_filters_sort {
+        display: block;
+        margin: 0 auto;
+    }
+
+    .settings_filters__limit {
+        display: block;
+        margin: 0 auto;
+    }
+}

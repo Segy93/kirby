@@ -1,0 +1,150 @@
+.checkout_table__page {
+    background-color: white;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.checkout_table__title {
+    color: #0454a8;
+    font-size: 1.2em;
+    font-weight: 600;
+    margin: 0 auto;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    width: 90%;
+}
+
+.checkout_table__headnote {
+    margin: 0 auto;
+    text-align: left;
+    width: 90%;
+}
+
+.checkout_table {
+    border:  1px solid #a7aabd;
+    margin: 0 auto;
+    margin-top: 40px;
+    width: 70%;
+    background: white;
+}
+
+.checkout_table__heading {
+    background-color: rgb(236, 236, 237);
+    border: 1px solid #a7aabd;
+}
+
+.checkout_table__headers {
+    text-align: left;
+}
+
+.checkout_table__row {
+    border: 1px solid #a7aabd;
+}
+
+.checkout_table__heading, .checkout_table__headers, .checkout_table__cell {
+    padding: 5px;
+}
+
+.checkout_table__cell--price, .checkout_table__headers--price {
+    text-align: right;
+}
+
+.checkout_table__button {
+    background-color: #28282e;
+    border-radius: 4px;
+    color: #fff;
+    cursor: pointer;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    padding: 8px 10px;
+}
+
+.checkout_table__button:hover {
+    background-color: #0454a8;
+}
+
+.checkout_table__cell--price {
+    white-space: nowrap;
+}
+
+.checkout_table__quantity_print {
+    display: none;
+    font-weight: bold;
+}
+
+@media (max-width: 1024px) {
+    .checkout_table {
+        width: 90%;
+    }
+}
+
+@media (max-width: 800px) {
+    .checkout_table {
+        font-size: 0.9em;
+    }
+
+    .checkout_table__heading, .checkout_table__headers, .checkout_table__cell {
+        padding: 0;
+        padding-top: 0.3em;
+        padding-bottom: 0.3em;
+    }
+}
+
+@media (max-width: 360px) {
+    .checkout_table {
+        font-size: 0.8em;
+    }
+}
+
+@media (max-width: 320px) {
+    .checkout_table {
+        font-size: 0.75em;
+    }
+
+    .checkout_table__cell {
+        text-align: right;
+    }
+
+    .checkout_table__quantity_print {
+        display: block;
+    }
+
+    .checkout_table__cell--name {
+        text-align: left;
+    }
+
+    .checkout_table__headers--quantity, .checkout_table__cell--quantity {
+        display: none;
+    }
+}
+
+@media print {
+    .checkout_table__page {
+        padding: 0;
+    }
+
+    .checkout_table {
+        margin-top: 0;
+        width: 90%;
+    }
+
+    .checkout_table__heading, .checkout_table__headers, .checkout_table__cell {
+        padding: 0;
+    }
+
+    .checkout_table__headnote {
+        display: none;
+    }
+
+    .checkout_table__row--buttons {
+        display: none;
+    }
+
+    .checkout_table__title {
+        margin-bottom: 1.5em;
+    }
+
+    .checkout_table__row--shipping {
+        display: none;
+    }
+}

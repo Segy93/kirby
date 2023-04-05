@@ -1,0 +1,13 @@
+.ssk {
+    transition: all 0.3s;
+}
+
+.ssk:focus {
+    opacity: 0.8;
+    outline: none;
+    transform: translateY(-3px);
+}
+
+.ssk-group {
+    padding: 0;
+}

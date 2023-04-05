@@ -1,0 +1,1 @@
+Lista želja (<span id = "menu_wishlist__number">{{ $wishList }}</span>)

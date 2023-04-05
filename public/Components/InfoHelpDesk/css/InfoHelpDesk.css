@@ -1,0 +1,76 @@
+.info_help_desk__wrapper {
+    background-color: #154571;
+    box-sizing: border-box;
+    display: inline-block;
+    font-weight: bold;
+    padding: 1.15em;
+    text-align: center;
+    text-transform: uppercase;
+    width: 100%;
+}
+
+.info_help_desk__heading {
+    color: white;
+    font-size: 1.5em;
+    padding: 0;
+    margin: 0;
+}
+
+.info_help_desk__content {
+    color: white;
+    font-size: 1.25em;
+    padding: 0;
+    margin: 0;
+}
+
+.info_help_desk__phone {
+    color: #62bbff;
+    text-decoration: none;
+}
+.info_help_desk__phone:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 800px) {
+    .info_help_desk__wrapper {
+        display: block;
+        width: 100%;
+    }
+}
+
+@media (max-width: 480px) {
+    .info_help_desk__heading {
+        font-size: 1em;
+    }
+
+    .info_help_desk__content {
+        font-size: 0.9em;
+    }
+
+    .info_help_desk__wrapper {
+        display: block;
+    }
+
+    .info_help_desk__phone {
+        display: block;
+    }
+}
+
+@media (max-width: 320px) {
+    .info_help_desk__heading {
+        font-size: 0.8em;
+    }
+
+    .info_help_desk__content {
+        font-size: 0.8em;
+        margin: 0;
+    }
+
+    .info_help_desk__wrapper {
+        display: block;
+    }
+
+    .info_help_desk__phone {
+        display: block;
+    }
+}

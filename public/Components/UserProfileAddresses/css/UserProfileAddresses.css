@@ -1,0 +1,196 @@
+.user_profile__addresses {
+    background-color: white;
+    margin: 0 auto;
+    padding-top: 1em;
+    padding-bottom: 1em;
+    width: 90%;
+}
+
+#user_profile__addresses__list ul,
+.user_profile__address_create {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.user_profile__address_create {
+    width: 32%;
+}
+
+.user_profile__unordered_list {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.user_profile__address_list {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    display: inline-block;
+    font-size: 1em;
+    overflow: hidden;
+    padding-bottom: 1em;
+    margin-right: 1.33%;
+    padding-top: 1.5%;
+    margin-top: 1em;
+    vertical-align: top;
+    width: 32%;
+}
+
+.user_profile__address_create {
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    overflow: hidden;
+    padding-bottom: 1em;
+    padding-top: 1em;
+}
+
+.user_profile__address_view_list {
+    min-height: 2.6em;
+    padding-left: 5%;
+    padding-right: 5%;
+    word-break: break-all;
+}
+
+.user_profile__address_view_list--buttons {
+    min-height: 3em;
+    text-align: center;
+    vertical-align: bottom;
+}
+
+.user_profile__address_button {
+    margin-top: 1em;
+}
+
+.user_profile__address_view_list:nth-child(odd) {
+    font-weight: bold;
+    min-height: 1em;
+}
+
+.user_profile__unordered_list:empty::after {
+    content: "Nemate nijednu adresu! Ukoliko želite da dodate adresu kliknite na 'Dodaj adresu'!";
+    display: block;
+}
+
+.user_profile__address_create_form {
+    display: block;
+    width: 100%;
+}
+
+.user_profile__address_create_field,
+.user_profile__address_edit_field {
+    border-color: #29416d;
+    border-style: solid;
+    border-width: 1px;
+    padding: 3%;
+    width: 90%;
+}
+
+.user_profile__address_create_field--phone:valid {
+    color: #28C195;
+}
+
+.user_profile__address_edit_field--phone:valid {
+    color: #28C195;
+}
+
+.user_profile__address_create_field--phone:invalid {
+    color: #b1003f;
+}
+
+.user_profile__address_edit_field--phone:invalid {
+    color: #b1003f;
+}
+
+.user_profile__add_address,
+.user_profile__address_button,
+.user_profile__address_create_button {
+    background-color: #0454a8;
+    border: none;
+    border-radius: 4px;
+    color: #fff;
+    cursor: pointer;
+    margin-right: 0.1em;
+    padding: 8px 10px;
+    text-decoration: none;
+}
+
+.user_profile__address_button--cancel:hover,
+.user_profile__address_button--save:hover,
+.user_profile__address_create_button:hover,
+.user_profile__address_button:hover,
+.user_profile__add_address:hover {
+    background-color:#19426d;
+}
+
+.user_profile__add_address {
+    background-color: #28282e;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    padding: 8px 10px;
+    text-align: center;
+}
+.user_profile__add_address:hover {
+    background-color:#19426d;
+}
+
+.user_profile__address_create--city,
+.user_profile__address_edit_city {
+    margin-bottom: 4px;
+}
+.user_profile__address_create--city,
+.user_profile__address_edit_city {
+    margin-bottom: 4px;
+}
+
+.user_profile__address_create--city #user_profile__address_create_city_option,
+.user_profile__address_edit_city #user_profile__address_edit_city_option {
+    background-color: #fff;
+    color: #000;
+}
+
+.user_profile__addresses_fieldset {
+    margin-bottom: 2%;
+    max-width: 700px;
+    padding: 2%;
+}
+
+.user_profile__addresses_fieldset legend {
+    font-weight: bold;
+    padding-left: 2px;
+}
+
+.user_profile__addresses_error {
+    color: #b1003f;
+}
+
+@media (max-width: 1024px) {
+    .user_profile__address_list {
+        width: 47.5%;
+        padding-right: 1%;
+    }
+
+    .user_profile__address_create {
+        width: 47.5%;
+    }
+}
+
+@media (max-width: 640px) {
+    .user_profile__address_list,
+    .user_profile__address_create {
+        width: 100%;
+    }
+
+    .user_profile__address_view,
+    .user_profile__address_edit {
+        margin-top: 1em;
+    }
+
+    .user_profile__address_view_list {
+        min-height: 2em;
+    }
+}
+
+@media (max-width: 320px) {
+    .user_profile__address_view_list {
+        font-size: 0.9em;
+    }
+}

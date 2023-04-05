@@ -1,0 +1,303 @@
+/**
+*   VARS
+**/
+/* IE8 Stuff */
+.jslghtbx-ie8.jslghtbx {
+    background-image: url("../img/trans-bck.png");
+    display: none;
+}
+
+.jslghtbx-ie8.jslghtbx.jslghtbx-active {
+    display: block;
+}
+
+.jslghtbx-ie8.jslghtbx .jslghtbx-contentwrapper > img {
+    display: block;
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+}
+
+.jslghtbx-ie8.jslghtbx .jslghtbx-contentwrapper.jslghtbx-wrapper-active > img {
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+}
+
+/* Main wrapper */
+.jslghtbx {
+    background-color: transparent;
+    font-family: sans-serif;
+    height: 100%;
+    left: 0;
+    overflow: auto;
+    position: fixed;
+    top: 0;
+    visibility: hidden;
+    width: 100%;
+    z-index: 2;
+}
+
+.jslghtbx.jslghtbx-active {
+    background-color: rgba(0, 0, 0, 0.85);
+    visibility: visible;
+}
+
+/* loading-animation */
+.jslghtbx-loading-animation {
+    display: none;
+    height: 120px;
+    left: 50%;
+    margin-left: -60px;
+    margin-top: -60px;
+    position: absolute;
+    top: 50%;
+    width: 120px;
+    z-index: -1;
+}
+
+.jslghtbx-loading-animation > span {
+    background-color: #fff;
+    border-radius: 20px;
+    display: inline-block;
+    height: 20px;
+    margin: 5px;
+    -webkit-transition: all 0.3s ease-in-out;
+       -moz-transition: all 0.3s ease-in-out;
+        -ms-transition: all 0.3s ease-in-out;
+         -o-transition: all 0.3s ease-in-out;
+    width: 20px;
+}
+
+.jslghtbx-loading-animation > span.jslghtbx-active {
+    margin-bottom: 60px;
+}
+
+.jslghtbx.jslghtbx-loading .jslghtbx-loading-animation {
+    display: block;
+}
+
+.jslghtbx-nooverflow {
+    overflow: hidden !important;
+}
+
+.jslghtbx-contentwrapper {
+    margin: auto;
+    visibility: hidden;
+}
+
+.jslghtbx-contentwrapper > img {
+    background: #fff;
+    display: none;
+    height: auto;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 0;
+    padding: 0.5em;
+}
+
+.jslghtbx-contentwrapper.jslghtbx-wrapper-active {
+    visibility: visible;
+}
+
+.jslghtbx-contentwrapper.jslghtbx-wrapper-active > img {
+    display: block;
+    opacity: 1;
+}
+
+/* Caption */
+.jslghtbx-caption {
+    color: #fff;
+    display: none;
+    font-size: 0.9em;
+    margin-bottom: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 5px;
+    max-width: 450px;
+    text-align: center;
+}
+
+.jslghtbx-active .jslghtbx-caption {
+    display: block;
+}
+
+/* Animation Stuff */
+.jslghtbx-contentwrapper.jslghtbx-animate > img {
+    opacity: 0;
+}
+
+.jslghtbx-contentwrapper > img.jslghtbx-animate-transition {
+    -webkit-transition: opacity 0.2s ease-in-out;
+       -moz-transition: opacity 0.2s ease-in-out;
+        -ms-transition: opacity 0.2s ease-in-out;
+         -o-transition: opacity 0.2s ease-in-out;
+}
+
+.jslghtbx-contentwrapper > img.jslghtbx-animating-next {
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+    opacity: 1;
+}
+
+.jslghtbx-contentwrapper > img.jslghtbx-animating-prev {
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+    opacity: 1;
+}
+
+.jslghtbx-contentwrapper > img.jslghtbx-animate-init {
+    -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
+    opacity: 1;
+}
+
+.jslghtbx-contentwrapper > img.jslghtbx-animate-transition {
+    cursor: pointer;
+}
+
+/* Controls */
+.jslghtbx-close {
+    color: #fff;
+    cursor: pointer;
+    font-size: 2em;
+    margin-top: -4px;
+    position: fixed;
+    right: 23px;
+    top: 23px;
+    -webkit-transition: all 0.3s ease-in-out;
+       -moz-transition: all 0.3s ease-in-out;
+        -ms-transition: all 0.3s ease-in-out;
+         -o-transition: all 0.3s ease-in-out;
+}
+
+.jslghtbx-close:hover {
+    text-shadow: 0 0 10px #fff;
+}
+
+@media screen and (max-width: 1060px) {
+    .jslghtbx-close {
+        font-size: 1.5em;
+    }
+}
+
+.jslghtbx-next,
+.jslghtbx-prev {
+    cursor: pointer;
+    display: none;
+    max-height: 250px;
+    max-width: 6%;
+    position: fixed;
+    top: 50%;
+    -webkit-transition: all 0.2s ease-in-out;
+       -moz-transition: all 0.2s ease-in-out;
+        -ms-transition: all 0.2s ease-in-out;
+         -o-transition: all 0.2s ease-in-out;
+}
+
+.jslghtbx-next.jslghtbx-active,
+.jslghtbx-prev.jslghtbx-active {
+    display: block;
+}
+
+.jslghtbx-next > img,
+.jslghtbx-prev > img {
+    width: 100%;
+}
+
+.jslghtbx-next {
+    right: 0.6em;
+}
+
+.jslghtbx-next.jslghtbx-no-img:hover {
+    border-left-color: #787878;
+}
+
+@media screen and (min-width: 451px) {
+    .jslghtbx-next {
+        right: 0.6em;
+    }
+
+    .jslghtbx-next.jslghtbx-no-img {
+        border-bottom: 110px solid transparent;
+        border-left: 40px solid #fff;
+        border-top: 110px solid transparent;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .jslghtbx-next.jslghtbx-no-img {
+        border-bottom: 60px solid transparent;
+        border-left: 15px solid #fff;
+        border-top: 60px solid transparent;
+        padding-left: 0;
+        right: 5px;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .jslghtbx-next {
+        padding-left: 20px;
+        right: 0.2em;
+    }
+}
+
+.jslghtbx-prev {
+    left: 0.6em;
+}
+
+.jslghtbx-prev.jslghtbx-no-img:hover {
+    border-right-color: #787878;
+}
+
+@media screen and (min-width: 451px) {
+    .jslghtbx-prev {
+        left: 0.6em;
+    }
+
+    .jslghtbx-prev.jslghtbx-no-img {
+        border-bottom: 110px solid transparent;
+        border-right: 40px solid #fff;
+        border-top: 110px solid transparent;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .jslghtbx-prev.jslghtbx-no-img {
+        border-bottom: 60px solid transparent;
+        border-right: 15px solid #fff;
+        border-top: 60px solid transparent;
+        left: 5px;
+        padding-right: 0;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .jslghtbx-prev {
+        left: 0.2em;
+        padding-right: 20px;
+    }
+}
+
+.jslghtbx-thmb {
+    box-shadow: 0 0 3px 0 #000;
+    cursor: pointer;
+    max-height: 140px;
+    max-width: 100%;
+    padding: 2px;
+    -webkit-transition: all 0.3s ease-in-out;
+       -moz-transition: all 0.3s ease-in-out;
+        -ms-transition: all 0.3s ease-in-out;
+         -o-transition: all 0.3s ease-in-out;
+}
+
+@media screen and (min-width: 451px) {
+    .jslghtbx-thmb {
+        margin: 1em;
+    }
+}
+
+@media screen and (max-width: 450px) {
+    .jslghtbx-thmb {
+        margin: 1em 0;
+    }
+}
+
+.jslghtbx-thmb:hover {
+    box-shadow: 0 0 14px 0 #000;
+}
+
+/*# sourceMappingURL=lightbox.css.map */

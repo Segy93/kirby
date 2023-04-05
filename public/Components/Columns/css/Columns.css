@@ -1,0 +1,23 @@
+.columns {
+    background-color: #fff;
+}
+
+.columns__child {
+}
+
+@media (min-width: 1201px) {
+    .columns__single {
+        display: inline-block;
+        vertical-align: top;
+    }
+
+    .columns__single {
+        padding-right: 0;
+        width: 30%;
+    }
+
+    .columns__single--bigger {
+        width: 70%;
+        /* padding-left: 3%; */
+    }
+}

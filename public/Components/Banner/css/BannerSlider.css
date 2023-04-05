@@ -1,0 +1,127 @@
+
+.main_slider {
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+    max-height: 350px;
+}
+
+.slider_slides {
+    display: flex;
+    list-style-type: none;
+    margin: 0;
+    overflow: auto;
+    padding: 0;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+}
+
+.slider_slides::-webkit-scrollbar {
+    display: none;
+}
+
+.slider_slide__container {
+    flex: none;
+    scroll-snap-align: center;
+    width: 100%;
+    overflow: auto;
+}
+
+.slider_slide {
+    height: 100%;
+}
+
+.slider_slide__container a {
+    display: block;
+    height: 100%;
+}
+
+.slider_slide__container img {
+    display: block;
+    height: 100%;
+    object-fit: cover;
+    width: 100%;
+}
+
+.slider_slide__nav {
+    position: absolute;
+    width: 100%;
+}
+
+.slider_nav__dots {
+    bottom: 9px;
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+}
+
+.slider_nav__dot_container {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.slider_nav__dot {
+    background-color: #a7aabd;
+    border: 0;
+    border-radius: 50%;
+    display: block;
+    height: 11px;
+    margin: 0 4px;
+    padding: 0;
+    width: 11px;
+}
+
+.slider_nav__dot:hover {
+    background-color: #737687;
+    cursor: pointer;
+}
+
+.slider_nav__dot:focus {
+    outline: none;
+}
+
+.slider_nav__dot_label_marked {
+    background-color: #737687;
+}
+
+.slider_nav__prev,
+.slider_nav__next {
+    color: #fff;
+    cursor: pointer;
+    display: block;
+    font-family: "Varela Round", sans-serif;
+    font-size: 8em;
+    opacity: 0.7;
+    position: absolute;
+    text-align: center;
+    text-shadow: 0 0 15px rgb(119, 119, 119);
+    top: calc(50% - 0.5em);
+    transition: opacity 0.2s;
+    width: 100px;
+    z-index: 1;
+}
+
+.slider_nav__prev:hover,
+.slider_nav__next:hover {
+    opacity: 1;
+}
+
+.slider_nav__next {
+    right: 0;
+}
+
+@media (min-width: 801px) and (max-width: 1680px) {
+    .slider_slide__container img {
+        height: 350px;
+    }
+}
+
+@media (max-width: 800px) {
+    .slider_nav__prev,
+    .slider_nav__next {
+        display: none;
+    }
+}

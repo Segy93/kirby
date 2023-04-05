@@ -1,0 +1,36 @@
+.search_list {
+    background-color: #fff;
+    padding: 15px;
+}
+
+.search_list__banner {
+    display: block;
+    margin-bottom: 30px;
+    width: 100%;
+}
+
+.search_list:empty:after {
+    color: #0065a9;
+    content: "Nema rezultata!";
+    font-size: 1.2em;
+    text-transform: uppercase;
+}
+
+.search_list__load_more {
+    background-color: #292b2e;
+    border: 1px solid #202124;
+    box-sizing: border-box;
+    color: #fff;
+    cursor: pointer;
+    display: block;
+    font-size: 1em;
+    margin: 1em auto 0;
+    padding: 0.5em 1em;
+    text-align: center;
+    text-transform: uppercase;
+    transition: background-color 0.3s;
+}
+
+.search_list__load_more:hover {
+    background-color: #004386;
+}

@@ -1,0 +1,98 @@
+.footer {
+    background-color: #292b2e;
+    margin-top: 3vh;
+    page-break-before: always;
+}
+
+.footer_container {
+    margin: 0 auto;
+    max-width: 1200px;
+    width: 80%;
+}
+
+.footer_item {
+    display: inline-block;
+    /*margin-left: 30px;
+    margin-top:30px; */
+    margin-left: 0.5em;
+    /* min-height: 150px; */
+    vertical-align: top;
+    width: 16.6%;
+    /*Da bi se desno poravnalo lepo mora 0.4 umesto 0.5*/
+    width: calc(100% / 5 - 0.4em);
+}
+
+.footer_item__list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.footer_heading {
+    color: #fff;
+    font-size: 1.55em;
+    font-weight: 500;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.footer_item:first-child {
+    margin-left: 0;
+}
+
+.footer_social {
+    margin-top: 2em;
+    text-align: right;
+    vertical-align: top;
+}
+
+@media (max-width: 1280px) {
+    .footer_item {
+        margin-left: 1%;
+        margin-left: calc(30px);
+    }
+    .footer_item {
+        width: 49%;
+        width: calc(100%/2 - 30px);
+    }
+
+    .footer_item:first-child,
+    .footer_item:nth-child(3),
+    .footer_item:nth-child(5) {
+        margin-left: 0;
+    }
+
+    .footer_social {
+        text-align: center;
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .footer_container {
+        width: 90%;
+    }
+}
+
+@media (max-width: 640px) {
+    .footer_item {
+        margin-left: 0;
+        width: 100%;
+    }
+
+    .footer_social .ssk-group {
+        padding-left: 0;
+    }
+}
+
+@media (max-width: 320px) {
+    .footer_heading {
+        font-size: 1.2em;
+    }
+}
+
+@media print {
+    .footer {
+        display: none;
+    }
+}

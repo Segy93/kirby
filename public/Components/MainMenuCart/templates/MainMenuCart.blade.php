@@ -1,0 +1,1 @@
+Korpa (<span id = "menu_cart__number">{{ $cart }}</span>)

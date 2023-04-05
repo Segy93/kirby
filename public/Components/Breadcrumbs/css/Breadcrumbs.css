@@ -1,0 +1,45 @@
+.breadcrumbs {
+    list-style-type: none;
+    margin: 0;
+    padding: 1em 0;
+}
+
+.breadcrumbs_single {display: inline-block;}
+
+.breadcrumbs_item {
+    color: #313131;
+    display: inline-block;
+    margin: 0;
+    text-decoration: none;
+}
+
+.breadcrumbs_single + .breadcrumbs_single::before {
+    content: ">";
+    display: inline-block;
+    margin: 0 0.3em 0 0.3em;
+}
+
+.breadcrumbs_item--link:hover {
+    text-decoration: underline;
+}
+
+.breadcrumbs_item--link:hover::before {
+    text-decoration: none;
+}
+
+@media (max-width: 480px) {
+    .breadcrumbs {
+        padding: 0;
+    }
+
+    .breadcrumbs_single {
+        display: block;
+    }
+
+    /* Dodaje strelicu ispred prve mrvice gde na vecim velicinama nemamo strelicu da bi mrvice bile poravnate*/
+    .breadcrumbs_single:first-child::before {
+        content: ">";
+        display: inline-block;
+        margin: 0 0.3em 0 0.3em;
+    }
+}

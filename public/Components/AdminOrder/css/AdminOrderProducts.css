@@ -1,0 +1,36 @@
+.admin_order_products__price,
+.admin_order_products__table_heading_price {
+    text-align: right;
+}
+
+@media print {
+    .admin_order__products_product__url::after {
+        content: attr(href);
+        display: block;
+        margin-bottom: 1em;
+        text-align: center;
+    }
+
+    .admin_order__status_heading,
+    .admin_order__status_label {
+        display: none;
+    }
+
+    .admin_order__product_quantity {
+        width: 30px;
+    }
+
+    .admin_order_products__table_heading,
+    .admin_order_products__table_cell {
+        font-size: 0.9em;
+    }
+
+    .admin_order__note {
+        display: none;
+    }
+
+    .admin_order_products__table_heading--link,
+    .admin_order_products__table_cell--link {
+        display: none;
+    }
+}

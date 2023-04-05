@@ -1,0 +1,38 @@
+.panes {
+    border-top: solid #0166ff;
+    border-bottom: solid #0166ff;
+}
+
+.panes__single {
+    border-width: 3px 1px 3px 3px;
+    box-sizing: border-box;
+    display: inline-block;
+    padding: 5%;
+    padding: 5vw;
+    vertical-align: top;
+}
+
+@media (min-width: 640px) {
+    .panes {
+        border: solid #0166ff;
+        border-radius: 5px;
+        margin: 30px;
+    }
+
+    .panes__single {
+        padding: 1.7%;
+    }
+    .panes__single:nth-child(2) {/* first-child je inline <style> */
+        border-right: solid 1px #0166ff;
+    }
+    .panes__single:nth-child(2):last-child {
+        border-right: none;
+        margin-right: 0;
+    }
+
+    .panes__single+.panes__single {
+        border-left: solid 1px #0166ff;
+        border-top-left-radius: 0;
+        margin-left: -1px;
+    }
+}

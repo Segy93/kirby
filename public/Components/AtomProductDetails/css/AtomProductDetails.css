@@ -1,0 +1,48 @@
+.atom_product_details__table {
+    /* align-self: center; */
+    border-collapse: collapse;
+    width: 100%;
+}
+
+.atom_product_details__table_row:nth-child(odd) {
+    background-color: rgb(236, 236, 237);
+}
+
+.atom_product_details__table,
+.atom_product_details__table_cell,
+.atom_product_details__table_header {
+    border: 1px solid rgb(207, 213, 214);
+}
+
+.atom_product_details__table_header {
+    width: 30%;
+}
+
+.atom_product_details__table_header,
+.atom_product_details__table_cell {
+    color: #4d4d4d;
+    font-weight: normal;
+    padding: 0.5rem;
+    text-align: left;
+}
+
+.atom_product_details__product_link {
+    word-break: break-all;
+}
+
+@media (max-width: 320px) {
+    .atom_product_details__table_header,
+    .atom_product_details__table_cell {
+        display: block;
+        padding-left: 0;
+        width: 100%;
+    }
+
+    .atom_product_details__table_header {
+        border-bottom: none;
+    }
+
+    .atom_product_details__table_cell {
+        border-top: none;
+    }
+}

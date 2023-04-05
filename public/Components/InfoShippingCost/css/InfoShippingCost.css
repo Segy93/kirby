@@ -1,0 +1,12 @@
+.info_shipping_cost__content {
+    background-color: #6eb136;
+    border: solid 1px #6eb136;
+    color: #fff;
+    font-size: 1.5em;
+    font-weight: bold;
+    margin-bottom: 5px;
+    margin-top: 5px;
+    padding: 7px 0 6px;
+    text-align: center;
+    text-transform: uppercase;
+}

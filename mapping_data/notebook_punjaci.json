@@ -1,0 +1,97 @@
+{
+  "name": "Notebook punjači",
+  "name_import": "PUNJACI",
+  "url": "notebook-punjaci/",
+  "attributes": [
+    {
+      "machine_name": "field_lap_punjaci_proizvodjac",
+      "name_import": "Proizvođač",
+      "label": "Proizvođač",
+      "type": "checkbox",
+      "order_category": "1",
+      "order_filter": "1",
+      "order_product": "1"
+    },
+    {
+      "machine_name": "field_punjaci_preporuceno_za_mod",
+      "name_import": "Preporučeno za modele",
+      "label": "Preporučeno za modele",
+      "type": "checkbox",
+      "order_category": "2",
+      "order_filter": "2",
+      "order_product": "2"
+    },
+    {
+      "machine_name": "field_punjaci_podesavanje_izlazn",
+      "name_import": "Podešavanje izlazne snage",
+      "label": "Podešavanje izlazne snage",
+      "type": "checkbox",
+      "order_category": "null",
+      "order_filter": "null",
+      "order_product": "3"
+    },
+    {
+      "machine_name": "field_punjaci_maksimalna_snaga",
+      "name_import": "Maksimalna snaga",
+      "label": "Maksimalna snaga",
+      "type": "checkbox",
+      "order_category": "null",
+      "order_filter": "null",
+      "order_product": "4"
+    },
+    {
+      "machine_name": "field_garantni_rok",
+      "name_import": "Garantni rok",
+      "label": "Garantni rok",
+      "type": "checkbox",
+      "order_category": "null",
+      "order_filter": "null",
+      "order_product": "6"
+    },
+    {
+      "machine_name": "field_boja",
+      "name_import": "Boja",
+      "label": "Boja",
+      "type": "checkbox",
+      "order_category": "null",
+      "order_filter": "null",
+      "order_product": "5"
+    },
+    {
+      "machine_name": "field_dodatne_opcije",
+      "name_import": "Dodatne opcije",
+      "label": "Dodatne opcije",
+      "type": "checkbox",
+      "order_category": "null",
+      "order_filter": "null",
+      "order_product": "null"
+    },
+    {
+      "machine_name": "field_link_proizvodjaca",
+      "name_import": "Link proizvođača",
+      "label": "Link proizvođača",
+      "type": "checkbox",
+      "order_category": "null",
+      "order_filter": "null",
+      "order_product": "7"
+    },
+    {
+      "machine_name": "field_youtube",
+      "name_import": "Youtube code",
+      "label": "Youtube code",
+      "type": "checkbox",
+      "order_category": "null",
+      "order_filter": "null",
+      "order_product": "8"
+    },
+    {
+      "machine_name": "field_ean_kod",
+      "name_import": "EAN kod",
+      "label": "EAN kod",
+      "type": "checkbox",
+      "order_category": "null",
+      "order_filter": "null",
+      "order_product": "null"
+    }
+  ]
+}

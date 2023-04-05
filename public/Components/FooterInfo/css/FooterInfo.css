@@ -1,0 +1,14 @@
+.footer_info {
+    color: #fff;
+    font-size: 0.8em;
+    margin: 0 auto;
+    margin-top: 20px;
+    min-height: 50px;
+    padding-bottom: 10px;
+    text-align: center;
+    width: 70%;
+}
+
+.footer_info__text {
+    margin: 0;
+}

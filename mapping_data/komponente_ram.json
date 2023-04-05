@@ -1,0 +1,178 @@
+{
+  "name": "RAM",
+  "name_import": "ram",
+  "url": "ram-memorija/",
+  "attributes": [
+    {
+      "machine_name": "field_boja",
+      "name_import": "Boja",
+      "label": "Boja",
+      "type": "checkbox",
+      "order_category": "null",
+      "order_filter": "null",
+      "order_product": "13"
+    },
+    {
+      "machine_name": "field_dodatne_opcije",
+      "name_import": "Dodatne opcije",
+      "label": "Dodatne opcije",
+      "type": "checkbox",
+      "order_category": "null",
+      "order_filter": "null",
+      "order_product": "null"
+    },
+    {
+      "machine_name": "field_ram_ecc_podrska",
+      "name_import": "ECC Podrška",
+      "label": "ECC Podrška",
+      "type": "checkbox",
+      "order_category": "null",
+      "order_filter": "null",
+      "order_product": "11"
+    },
+    {
+      "machine_name": "field_garantni_rok",
+      "name_import": "Garantni rok",
+      "label": "Garantni rok",
+      "type": "checkbox",
+      "order_category": "6",
+      "order_filter": "null",
+      "order_product": "14"
+    },
+    {
+      "machine_name": "field_ean_kod",
+      "name_import": "EAN kod",
+      "label": "EAN kod",
+      "type": "checkbox",
+      "order_category": "null",
+      "order_filter": "null",
+      "order_product": "null"
+    },
+    {
+      "machine_name": "field_ram_hladnjaci",
+      "name_import": "Hladnjaci",
+      "label": "Hladnjaci",
+      "type": "checkbox",
+      "order_category": "null",
+      "order_filter": "null",
+      "order_product": "6"
+    },
+    {
+      "machine_name": "field_ram_kapacitet",
+      "name_import": "Količina memorije",
+      "label": "Količina memorije",
+      "type": "checkbox",
+      "order_category": "5",
+      "order_filter": "4",
+      "order_product": "4"
+    },
+    {
+      "machine_name": "field_ram_latencija",
+      "name_import": "Latencija",
+      "label": "Latencija",
+      "type": "checkbox",
+      "order_category": "null",
+      "order_filter": "null",
+      "order_product": "10"
+    },
+    {
+      "machine_name": "field_link_proizvodjaca",
+      "name_import": "Link proizvođača",
+      "label": "Link proizvođača",
+      "type": "checkbox",
+      "order_category": "null",
+      "order_filter": "null",
+      "order_product": "15"
+    },
+    {
+      "machine_name": "field_ram_potrosnja",
+      "name_import": "Maks. Potrošnja u W",
+      "label": "Maks. Potrošnja u W",
+      "type": "checkbox",
+      "order_category": "null",
+      "order_filter": "null",
+      "order_product": "null"
+    },
+    {
+      "machine_name": "field_ram_namena",
+      "name_import": "Namena",
+      "label": "Namena",
+      "type": "checkbox",
+      "order_category": "2",
+      "order_filter": "2",
+      "order_product": "2"
+    },
+    {
+      "machine_name": "field_ram_paket_za",
+      "name_import": "Paket za",
+      "label": "Paket za",
+      "type": "checkbox",
+      "order_category": "null",
+      "order_filter": "6",
+      "order_product": "8"
+    },
+    {
+      "machine_name": "field_ram_pakovanje",
+      "name_import": "Pakovanje",
+      "label": "Pakovanje",
+      "type": "checkbox",
+      "order_category": "null",
+      "order_filter": "7",
+      "order_product": "7"
+    },
+    {
+      "machine_name": "field_preporuceno",
+      "name_import": "Preporučeno za",
+      "label": "Preporučeno za",
+      "type": "checkbox",
+      "order_category": "null",
+      "order_filter": "null",
+      "order_product": "12"
+    },
+    {
+      "machine_name": "field_ram_proizvodjac",
+      "name_import": "Proizvođač",
+      "label": "Proizvođač",
+      "type": "checkbox",
+      "order_category": "1",
+      "order_filter": "1",
+      "order_product": "1"
+    },
+    {
+      "machine_name": "field_ram_brzina",
+      "name_import": "Radni takt",
+      "label": "Radni takt",
+      "type": "checkbox",
+      "order_category": "4",
+      "order_filter": "5",
+      "order_product": "5"
+    },
+    {
+      "machine_name": "field_tip_memorije",
+      "name_import": "Tip memorije",
+      "label": "Tip memorije",
+      "type": "checkbox",
+      "order_category": "3",
+      "order_filter": "3",
+      "order_product": "3"
+    },
+    {
+      "machine_name": "field_ram_voltaza",
+      "name_import": "Voltaža",
+      "label": "Voltaža",
+      "type": "checkbox",
+      "order_category": "null",
+      "order_filter": "null",
+      "order_product": "9"
+    },
+    {
+      "machine_name": "field_youtube",
+      "name_import": "Youtube code",
+      "label": "Youtube code",
+      "type": "checkbox",
+      "order_category": "null",
+      "order_filter": "null",
+      "order_product": "16"
+    }
+  ]
+}

@@ -1,0 +1,122 @@
+.static_page__wrapper,
+.static_page__menu {
+    background-color: #fff;
+    margin-bottom: 20px;
+    padding: 1em;
+}
+
+.static_page__menu {
+    text-align: center;
+}
+
+.static_page__list {
+    margin: 0;
+    padding: 0;
+}
+
+.static_page__list_element {
+    display: inline-block;
+    margin-bottom: 10px;
+    margin-right: 10px;
+    list-style-type: none;
+}
+
+.static_page__link {
+    background-color: #0950aa;
+    color: #fff;
+    display: block;
+    padding: 10px;
+    text-decoration: none;
+}
+
+.static_page__link--selected {
+    background-color: #17253d;
+}
+
+.static_page__link:hover {
+    text-decoration: underline;
+}
+
+.static_page__wrapper div {
+    text-align: center;
+    width: 100%;
+}
+
+.static_page__wrapper #broj-komentara,
+.static_page__wrapper .product-info {
+    display: none;
+}
+
+.static_page__wrapper h1,
+.static_page__wrapper h2 {
+    border-bottom: solid 2px #67a633;
+    color: #144776;
+    margin: 0 0 10px;
+    padding: 0 0 5px;
+}
+
+.static_page__wrapper h1 {
+    font-size: 2rem;
+    margin-bottom: 3rem;
+}
+
+.static_page__wrapper p {
+    margin: 0 0 1rem;
+}
+
+.static_page__wrapper table {
+    display: inline-block;
+    margin: 0 1%;
+}
+
+.static_page__wrapper img {
+    margin: 0 auto;
+    max-width: 100%;
+    transition: transform 0.3s;
+}
+
+.static_page__wrapper .rtecenter {
+    text-align: center;
+}
+
+.static_page__wrapper .rtejustify {
+    text-align: justify;
+}
+
+@media (min-width: 1024px) {
+    .static_page__wrapper img:hover {
+        transform: scale(1.1);
+    }
+}
+
+.static_page__wrapper hr {
+    border-color: #6cb035;
+}
+
+.static_page__wrapper iframe {
+    max-height: 80vh;
+    min-height: 480px;
+    width: 100%;
+}
+
+@media	only screen and (max-width: 480px) {
+    .static_page__wrapper table {
+        display: table;
+        margin: 20px 0;
+        width: 100% !important;
+    }
+
+    .static_page__wrapper table td {
+        padding: 10px 0;
+    }
+
+    .static_page__wrapper table td a {
+        display: block;
+    }
+
+    .static_page__wrapper table td a > img {
+        display: block;
+        height: auto !important;
+        width: 70% !important;
+    }
+}

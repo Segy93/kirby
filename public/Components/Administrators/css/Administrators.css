@@ -1,0 +1,10 @@
+.table { /* Tabela u kojoj su izlistani admini*/
+	table-layout: fixed;
+	word-wrap: break-word;
+}
+
+.admin_admins__edit__button_reset,
+.admin_admins__edit__button_delete,
+.admin_admins__edit__button_change { /* Dugme za resetovanje sifre, brisanje i promenu imena admina*/
+	white-space: normal;
+}

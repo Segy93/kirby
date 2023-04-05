@@ -1,0 +1,203 @@
+.order__wrapper:empty::after {
+    content: "Nemate narudžbina!";
+    display: block;
+    font-size: 1.5em;
+    padding-bottom: 80px;
+    padding-top: 80px;
+    text-align: center;
+    text-transform: uppercase;
+    width: 100%;
+}
+
+.order__page {
+    background-color: #fff;
+    padding-bottom: 30px;
+    padding-top: 30px;
+}
+
+
+.order__wrapper {
+    border-collapse: collapse;
+    margin: 0 auto;
+    padding-top: 20px;
+    width: 90%;
+}
+
+.order__wrapper:empty::after {
+    content: "Nemate nijednu narudžbinu!";
+    display: block;
+    font-size: 1.5em;
+    margin-bottom: 50px;
+    margin-top: 50px;
+    text-align: center;
+    text-transform: uppercase;
+    width: 100%;
+}
+
+.order__table_heading {
+    font-size: 1em;
+    padding: 0 0 10px 0;
+    text-align: left;
+}
+
+.order__table_cell {
+    font-size: 1em;
+}
+
+.order__table_heading--controls {
+    text-align: right;
+}
+
+.order__table_heading--price {
+    text-align: right;
+}
+
+.order__table_heading--details {
+    text-align: center;
+}
+
+.order__table_cell__buttons {
+    text-align: right;
+}
+
+/* Za poravnanje iznosa narudzbine na desno */
+.order__table_cell--price {
+    text-align: right;
+}
+
+/* Za centralno poravnanje dugmeta*/
+.order__table_cell--details {
+    text-align: center;
+}
+
+.order__single_wrapper {
+    border-top: 1px solid #a7aabd;
+}
+
+.order__product_image {
+    display: inline-block;
+    padding: 10px 10px 10px 0;
+    vertical-align: middle;
+    width: 50px;
+}
+
+.order__single__wrapper {
+    border-top: 1px solid #a7aabd;
+}
+
+.order__product_link {
+    color: #28282e;
+    text-decoration: none;
+}
+
+.order__product_link:hover {
+    color: #0454a8;
+}
+
+.order__single_price {
+    color: #0454a8;
+    font-weight: 600;
+}
+
+.order_list__confirm_item, .order_list__return_item, .order_list__delete_item {
+    background-color: #28282e;
+    border-radius: 4px;
+    color: #fff;
+    cursor: pointer;
+    padding: 8px 10px;
+}
+
+.order_list__confirm_item:hover, .order_list__return_item:hover, .order_list__delete_item:hover {
+    background-color: #0454a8;
+}
+
+.order__product_name {
+    display: inline-block;
+    font-weight: 600;
+    vertical-align: middle;
+}
+
+.order__cart_add {
+    background-color: #0454a8;
+    border-radius: 4px;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    padding: 8px 10px;
+    text-decoration: none;
+}
+
+.order__cart_add:hover {
+    background-color:#19426d;
+}
+
+.order_stock {
+    border-radius: 50%;
+    display: inline-block;
+    height: 5px;
+    margin-right: 5px;
+    position: relative;
+    vertical-align: middle;
+    width: 5px;
+}
+
+.order__in_stock {
+    background-color: #47d147;
+}
+
+.order__in_warehouse {
+    background-color: #ffff80;
+}
+
+.order__on_demand {
+    background-color: #ff1a1a;
+}
+
+.order__details {
+    background-color: #0454a8;
+    border-radius: 4px;
+    color: #fff;
+    cursor: pointer;
+    display: inline-block;
+    padding: 8px 10px;
+    text-decoration: none;
+}
+
+.order__details:hover {
+    background-color:#19426d;
+}
+
+@media (max-width: 1280px) {
+    /* .order__table_heading--address, .order__table_cell--address {
+        display: none;
+    } */
+
+    .order__table_heading--address, .order__table_cell--address {
+        display: none;
+    }
+}
+
+@media (max-width: 1024px) {
+    /* .order__table_heading, .order__table_cell {
+        font-size: 0.9em;
+    } */
+
+    .order__table_cell__buttons, .order__table_heading--controls {
+        display: none;
+    } 
+
+    .order__table_cell--details, .order__table_heading--details {
+        text-align: right;
+    } 
+}
+@media (max-width: 480px) {
+    .order__table_cell--price, .order__table_heading--price {
+        display: none;
+    } 
+}
+
+@media (max-width: 320px) {
+    .order__table_cell--status, .order__table_heading--status {
+        display: none;
+    } 
+}

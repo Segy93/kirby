@@ -1,0 +1,242 @@
+.main_menu__list {
+    margin: 0;
+    padding-left: 0;
+}
+
+.main_menu__item {
+    display: block;
+}
+
+.main_menu__item:focus {
+    outline: none;
+}
+
+.main_menu__item--child {
+    padding: 0.3em 0;
+}
+
+.main_menu__item_link {
+    color: #fff;
+    display: inline-block;
+    font-size: 1.2em;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: background-color 0.3s, color 0.3s;
+    width: 100%;
+}
+
+.main_menu__item_link_text {
+    box-sizing: border-box;
+    display: inline-block;
+    padding: 0.85em;
+    vertical-align: middle;
+    width: 90%;
+}
+
+.main_menu__icon {
+    fill: currentColor;
+    /* padding-top: 0.8em; */
+    padding: 0.3em 0;
+}
+
+.main_menu__item_link:focus {
+    outline: none;
+}
+
+.main_menu__item_link:focus .main_menu__item_link_text {
+    text-decoration: underline;
+}
+
+.main_menu__item--parent:hover .main_menu__item_link,
+.main_menu__item_link:hover {
+    background-color: #fff;
+    color: #0950aa;
+}
+
+.main_menu__sub {
+    background-color: rgba(40, 40, 46, 0.9);
+    box-sizing: border-box;
+    display: none;
+    list-style-type: none;
+    padding: 0;
+    padding-left: 2%;
+    width: 75%;
+    z-index: 2;
+}
+
+.main_menu__column {
+    box-sizing: border-box;
+    display: inline-block;
+    height: 100%;
+    padding: 1em 0;
+    vertical-align: top;
+    width: 25%;
+}
+
+.main_menu__column_list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.main_menu__heading {
+    color: #fff;
+    display: inline-block;
+    padding: 2px;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.main_menu__heading:focus {
+    outline-color: white;
+}
+
+.main_menu__heading:hover {
+    text-decoration: underline;
+}
+
+.main_menu__submenu_label {
+    display: inline-block;
+    vertical-align: middle;
+    width: 10%;
+}
+
+.main_menu__submenu_label {
+    box-sizing: border-box;
+}
+.main_menu__submenu_checkbox--focused {
+    border: solid 1px #fff;
+    border-radius: 8px;
+}
+.main_menu__submenu_checkbox:focus ~ .main_menu__submenu_label {
+    top: -10px;
+}
+.main_menu__submenu_checkbox:focus ~ .main_menu__submenu_label::before {
+    transform: rotate(90deg);
+}
+.main_menu__submenu_checkbox:checked ~ .main_menu__sub {
+    display: block;
+}
+
+@media (min-width: 1441px) and (max-width: 1680px) {
+    .main_menu__item_link {
+        font-size: 1.1rem;
+    }
+}
+
+@media (min-width: 1025px) and (max-width: 1440px) {
+    .main_menu__sub {
+        width: 82%;
+    }
+
+    .main_menu__item_link {
+        font-size: 1rem;
+    }
+}
+
+@media (min-width: 801px) and (max-width: 1440px) {
+    .main_menu__item_link {
+        font-size: 0.875rem;
+    }
+}
+
+@media (min-width: 1025px) {
+    .main_menu__sub {
+        height: 350px;
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+}
+
+@media (min-width: 801px) and (max-width: 1024px) {
+    .main_menu__sub {
+        height: 350px;
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+
+    .main_menu__item_link_text {
+        box-sizing: border-box;
+        display: inline-block;
+        padding: 1em;
+        vertical-align: middle;
+        width: 87%;
+    }
+
+    .main_menu__icon {
+        margin-right: 1em;
+    }
+}
+
+@media (min-width: 801px) {
+    .main_menu__item:hover .main_menu__sub,
+    .main_menu__sub:hover,
+    .main_menu__item_link:focus ~ .main_menu__sub,
+    .main_menu__item_link:hover ~ .main_menu__sub {
+        display: block;
+    }
+}
+
+@media (max-width: 800px) {
+    .main_menu__sub {
+        font-size: 0.8em;
+        left: 0;
+        padding: 0.3em 6vw;
+        width: 100%;
+    }
+
+    .main_menu__heading {
+        padding: 0;
+    }
+
+    .main_menu__item--child {
+        box-sizing: border-box;
+        padding-top: 0.5em;
+        width: 100%;
+    }
+
+    .main_menu__icon {
+        display: block;
+        /* height: 35%; */
+        margin: 0 auto;
+        /* padding-top: 1.5em; */
+        transform: rotate(90deg);
+        width: 35%;
+    }
+
+    .main_menu__item_link_text {
+        font-size: 0.8em;
+        padding: 0.3em 6vw;
+        width: 85%;
+        width: calc(100% - 50px - 0.5em);
+    }
+
+    .main_menu__submenu_label {
+        width: 15%;
+        width: calc(50px);
+    }
+}
+
+@media (min-width: 481px) {
+    .main_menu__column {
+        width: 33.3%;
+    }
+}
+
+@media (min-width: 361px) and (max-width: 480px) {
+    .main_menu__column {
+        width: 50%;
+    }
+}
+
+@media (max-width: 360px) {
+    .main_menu__column {
+        display: block;
+        width: 100%;
+    }
+
+    .main_menu__item_link {
+        font-size: 0.8em;
+    }
+}

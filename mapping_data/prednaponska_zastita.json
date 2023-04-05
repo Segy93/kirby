@@ -1,0 +1,115 @@
+{
+  "name": "Prenaponska zaštita",
+  "name_import": "Prnaponska",
+  "url": "prednaponska-zastita/",
+  "attributes": [
+    {
+      "machine_name": "field_prednaponska_zastita_proiz",
+      "name_import": "Proizvođač",
+      "label": "Proizvođač",
+      "type": "checkbox",
+      "order_category": "1",
+      "order_filter": "1",
+      "order_product": "1"
+    },
+    {
+      "machine_name": "field_prednaponska_zastita_br_ut",
+      "name_import": "Broj utičnica",
+      "label": "Broj utičnica",
+      "type": "checkbox",
+      "order_category": "2",
+      "order_filter": "2",
+      "order_product": "2"
+    },
+    {
+      "machine_name": "field_prednaponska_zastita_kabl",
+      "name_import": "Dužina kabla",
+      "label": "Dužina kabla",
+      "type": "checkbox",
+      "order_category": "null",
+      "order_filter": "3",
+      "order_product": "3"
+    },
+    {
+      "machine_name": "field_prednaponska_zastita_mreza",
+      "name_import": "Zaštita za mrežu",
+      "label": "Zaštita za mrežu",
+      "type": "checkbox",
+      "order_category": "3",
+      "order_filter": "4",
+      "order_product": "4"
+    },
+    {
+      "machine_name": "field_prednaponska_kablovska",
+      "name_import": "Zaštita za kablovsku",
+      "label": "Zaštita za kablovsku",
+      "type": "checkbox",
+      "order_category": "null",
+      "order_filter": "null",
+      "order_product": "5"
+    },
+    {
+      "machine_name": "field_prednaponska_zastita_telef",
+      "name_import": "Zaštita za telefon",
+      "label": "Zaštita za telefon",
+      "type": "checkbox",
+      "order_category": "null",
+      "order_filter": "null",
+      "order_product": "6"
+    },
+    {
+      "machine_name": "field_garantni_rok",
+      "name_import": "Garantni rok",
+      "label": "Garantni rok",
+      "type": "checkbox",
+      "order_category": "4",
+      "order_filter": "null",
+      "order_product": "8"
+    },
+    {
+      "machine_name": "field_boja",
+      "name_import": "Boja",
+      "label": "Boja",
+      "type": "checkbox",
+      "order_category": "null",
+      "order_filter": "null",
+      "order_product": "7"
+    },
+    {
+      "machine_name": "field_dodatne_opcije",
+      "name_import": "Dodatne opcije",
+      "label": "Dodatne opcije",
+      "type": "checkbox",
+      "order_category": "null",
+      "order_filter": "null",
+      "order_product": "null"
+    },
+    {
+      "machine_name": "field_link_proizvodjaca",
+      "name_import": "Link proizvođača",
+      "label": "Link proizvođača",
+      "type": "checkbox",
+      "order_category": "null",
+      "order_filter": "null",
+      "order_product": "9"
+    },
+    {
+      "machine_name": "field_youtube",
+      "name_import": "Youtube code",
+      "label": "Youtube code",
+      "type": "checkbox",
+      "order_category": "null",
+      "order_filter": "null",
+      "order_product": "10"
+    },
+    {
+      "machine_name": "field_ean_kod",
+      "name_import": "EAN kod",
+      "label": "EAN kod",
+      "type": "checkbox",
+      "order_category": "null",
+      "order_filter": "null",
+      "order_product": "null"
+    }
+  ]
+}

@@ -1,0 +1,22 @@
+/* .product_video {
+    border: solid 1px #002943;
+    margin: auto;
+} */
+
+.product_video {
+    position: relative;
+    padding-bottom: 56.25%;
+    padding-top: 30px; 
+    height: 0; 
+    overflow: hidden;
+}
+
+.product_video iframe,
+.product_video object,
+.product_video embed {
+	position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}

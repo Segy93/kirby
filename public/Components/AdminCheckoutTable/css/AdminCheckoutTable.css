@@ -1,0 +1,105 @@
+.admin_checkout_table__page {
+    background-color: white;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.admin_checkout_table__title {
+    color: #0454a8;
+    font-size: 1.2em;
+    font-weight: 600;
+    margin: 0 auto;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    width: 90%;
+}
+
+.admin_checkout_table__headnote {
+    margin: 0 auto;
+    text-align: left;
+    width: 90%;
+}
+
+.admin_checkout_table {
+    border:  1px solid #a7aabd;
+    margin: 0 auto;
+    width: 70%;
+    background: white;
+}
+
+.admin_checkout_table__heading {
+    background-color: rgb(236, 236, 237);
+    border: 1px solid #a7aabd;
+    text-align: center;
+}
+
+.admin_checkout_table__headers {
+    text-align: left;
+}
+
+.admin_checkout_table__row {
+    border: 1px solid #a7aabd;
+}
+
+.admin_checkout_table__heading, .admin_checkout_table__headers, .admin_checkout_table__cell {
+    padding: 5px;
+}
+
+.admin_checkout_table__cell--price, .admin_checkout_table__headers--price {
+    text-align: right;
+}
+
+.admin_checkout_table__button {
+    background-color: #28282e;
+    border-radius: 4px;
+    color: #fff;
+    cursor: pointer;
+    margin-bottom: 20px;
+    margin-top: 20px;
+    padding: 8px 10px;
+}
+
+.admin_checkout_table__button:hover {
+    background-color: #0454a8;
+}
+
+.admin_checkout_table__cell--price {
+    white-space: nowrap;
+}
+
+.admin_checkout_table__quantity_print {
+    display: none;
+    font-weight: bold;
+}
+
+
+@media print {
+    .admin_checkout_table__page {
+        padding: 0;
+    }
+
+    .admin_checkout_table {
+        margin-top: 0;
+        width: 90%;
+    }
+
+    .admin_checkout_table__heading, .admin_checkout_table__headers, .admin_checkout_table__cell {
+        padding: 1px 5px;
+    }
+
+    .admin_checkout_table__headnote {
+        display: none;
+    }
+
+    .admin_checkout_table__row--buttons {
+        display: none;
+    }
+
+    .admin_checkout_table__title {
+        margin-bottom: 1.5em;
+    }
+
+    .admin_checkout_table__row--shipping {
+        display: none;
+    }
+}

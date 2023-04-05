@@ -1,0 +1,198 @@
+.login_form {
+    background-color: #fff;
+    background-image: url(../img/logo.svg);
+    background-origin: content-box;
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: 100vh;
+    min-height: 500px;
+    padding: 30px;
+}
+.login_form__input {
+    background-color: rgba(255, 255, 255, 0);
+    border: 1px solid #a6a6a6;
+    display: block;
+    max-width: 90%;
+    max-width: calc(100% - 1em);
+    padding: 1em 0.5em;
+    width: 25em;
+}
+
+.login_form__help {
+    color: #a6a6a6;
+    margin: 0.3em 0 0.3em 0;
+    padding: 0;
+}
+
+.login_form__help--email {
+    text-transform: uppercase;
+}
+
+.login_form__help--forgot_password {
+    text-transform: uppercase;
+}
+
+.login_form__remember_label {
+    display: block;
+    padding: 1em 0 0.3em 0;
+}
+
+.login_form__remember_label input {
+    margin: 0;
+    padding: 0;
+}
+
+.login_form__accept_label {
+    display: block;
+    padding: 1em 0 0.3em 0;
+}
+
+.login_form__accept_label:after {
+    color: red;
+    content: "*";
+}
+
+.login_form__accept_label input {
+    margin: 0;
+    padding: 0;
+}
+
+.login_form__input_label {
+    display: block;
+    font-weight: bold;
+    margin: 0.5em 0 0 0;
+    padding: 0.5em 0 0.3em 0;
+}
+
+.login_form__forgot_success {
+    margin: 0.5em 0 0 0;
+    padding: 0.5em 0 0.3em 0;
+}
+
+.login_form__input_label_help {
+    display: block;
+    font-weight: bold;
+    margin: 0.5em 0 0 0;
+    padding: 0.5em 0 0.3em 0;
+}
+
+.login_form__input_label:after {
+    color: red;
+    content: "*";
+}
+
+.login_form__submit {
+    background-color: #28282e;
+    border: solid 1px #000;
+    color: #fff;
+    display: block;
+    font-size: 0.85em;
+    margin-top: 0.5em;
+    padding: 5px 10px;
+    text-transform: uppercase;
+}
+
+.login_form__submit:hover {
+    background-color: #000;
+    cursor: pointer;
+}
+
+.login_form__remember_link {
+    margin-right: 10px;
+}
+
+.login_form__link {
+    box-shadow: 2px 4px 3px;
+    color: #000;
+    display: inline-block;
+    margin-right: 10px;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.login_form__error:empty {
+    margin: 0;
+}
+
+.login_form__error {
+    color: red;
+    /* font-size: 1.2em; */
+    font-weight: bold;
+    margin-top: 30px;
+    text-transform: uppercase;
+}
+
+.login_form__link:active {
+    background-color: #28282e;
+    box-shadow: 2px 4px 3px #000;
+    color: #fff;
+}
+
+.login_form__radio_label {
+    border-color: #000;
+    border-style: solid;
+    border-width: 1px;
+    cursor: pointer;
+    display: block;
+    padding: 5px 10px;
+}
+
+
+.login_form__radio:checked + .login_form__link,
+.login_form__link:hover {
+    background-color: #28282e;
+    box-shadow: 2px 4px 3px #000;
+    color: #fff;
+}
+
+.login_form__form_container {
+    display: none;
+}
+
+.login_form__radio--login:checked ~ .login_form__form_container--login,
+.login_form__radio--forgot_password:checked ~ .login_form__form_container--forgot_password,
+.login_form__radio--register:checked ~ .login_form__form_container--register,
+.login_form__radio--reset:checked ~ .login_form__form_container--resetpword {
+    display: block;
+}
+
+.login_form__input_password,
+.login_form__input_confirm_password {
+    display: inline-block;
+    vertical-align: middle;
+}
+
+.login__password_eye {
+    display: inline-block;
+    height: 30px;
+    margin-left: 5px;
+    padding-top: 5px;
+    vertical-align: middle;
+    width: 30px;
+}
+
+.login__password_eye:hover {
+    fill: #ccc;
+}
+.login_form__label_reset_password_toggle {
+    display: inline-block;
+    vertical-align: middle;
+}
+:focus + .login_form__label_reset_password_toggle {
+    outline: solid 1px #0950aa;
+}
+
+@media (max-width: 640px) {
+    .login_form__link {
+        box-shadow: none;
+        display: block;
+        width: 100%;
+    }
+    .login_form__radio:checked + .login_form__link,
+    .login_form__link:hover {
+        box-shadow: none;
+    }
+    .login_form__link ~ .login_form__link .login_form__radio_label {
+        border-top: none;
+    }
+}

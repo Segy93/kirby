@@ -1,0 +1,33 @@
+.header {
+    background-color: #000;
+    border-bottom: solid 2px #0e4bac;
+    width: 100%;
+}
+
+.header__inner {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    max-width: 1200px;
+    padding: 0.5em 0 0.5em;
+    width: 80%;
+}
+
+@media (max-width: 480px) {
+    .header__inner {
+        padding: 0;
+        padding-top: 1vh;
+    }
+}
+
+@media print {
+    .header {
+        background-color: #fff;
+    }
+
+    .header__inner {
+        margin: 0;
+        width: 100%;
+    }
+}

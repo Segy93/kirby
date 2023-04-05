@@ -1,0 +1,3 @@
+User-agent: *
+Disallow: /Admin
+Sitemap: https://novi.monitor/sitemap.xml

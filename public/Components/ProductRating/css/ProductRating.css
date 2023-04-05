@@ -1,0 +1,102 @@
+.product_rating__container {
+    padding-left: 10px;
+}
+
+.product_rating__list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.product_rating__current_rating {
+    background-color: #0054a8;
+    color: #fff;
+    display: inline-block;
+    padding: 7px;
+    transform: skew(-20deg);
+}
+
+.product_rating__value {
+    display: block;
+    font-weight: bold;
+    transform: skew(20deg);
+}
+
+.product_rating__star_container {
+    background-color: #28282e;
+    display: inline-block;
+    padding: 2px;
+    padding-left: 8px;
+    padding-right: 10px;
+    transform: skew(-20deg);
+}
+
+.product_rating__star {
+    background-image: url("../img/stars.png");
+    background-position: bottom;
+    background-repeat: no-repeat;
+    display: inline-block;
+    height: 15px;
+    transform: skew(20deg);
+    width: 15px;
+}
+
+.product_rating__star:focus-within ~ .product_rating__star:not(:focus-within) {
+    background-image: url("../img/stars.png");
+}
+
+.product_rating__star:hover ~ .product_rating__star:not(:hover) {
+    background-image: url("../img/stars.png");
+}
+
+.product_rating__list:focus-within .product_rating__star {
+    background-image: url("../img/stars_hover.png");
+}
+
+.product_rating__list:hover .product_rating__star {
+    background-image: url("../img/stars_hover.png");
+}
+
+.product_rating__star_radio {
+    cursor: pointer;
+    opacity: 0;
+}
+
+.product_rating__list:not(:focus-within) .product_rating__star--selected {
+    background-image: url("../img/stars_hover.png");
+}
+
+.product_rating__list:not(:hover) .product_rating__star--selected {
+    background-image: url("../img/stars_hover.png");
+}
+
+/* .product_rating__star--selected {
+    background-image: url("../img/stars_hover.png");
+} */
+
+@media (max-width: 240px) {
+    .product_rating__container {
+        padding: 0;
+    }
+
+    .product_rating__current_rating,
+    .product_rating__value,
+    .product_rating__star_container {
+        transform: none;
+    }
+
+    .product_rating__current_rating {
+        display: block;
+        margin: 1em auto 0;
+        padding-left: 0;
+        padding-right: 0;
+        width: 100%;
+    }
+
+    .product_rating__star_container {
+        display: block;
+        margin-top: 0;
+        padding-bottom: 0.5em;
+        padding-top: 0.5em;
+    }
+}

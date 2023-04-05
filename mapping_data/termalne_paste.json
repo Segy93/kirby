@@ -1,0 +1,16 @@
+{
+  "name": "Termalne paste",
+  "name_import": "PASTA",
+  "url": "termalne-paste/",
+  "attributes": [
+    {
+      "machine_name": "field_paste_proizvodjac",
+      "name_import": "Proizvođač",
+      "label": "Proizvođač",
+      "type": "checkbox",
+      "order_category": "1",
+      "order_filter": "1",
+      "order_product": "1"
+    }
+  ]
+}

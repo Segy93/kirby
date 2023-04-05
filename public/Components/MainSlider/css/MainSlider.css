@@ -1,0 +1,116 @@
+.main_slider {
+    position: relative;
+}
+
+.slider_slides {
+    display: block;
+    height: 350px;
+    margin: 0 auto;
+    padding: 0;
+    position: relative;
+    width: 100%;
+}
+
+.slider_slides * {
+     -khtml-user-select: none;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+       -moz-user-select: none;
+        -ms-user-select: none;
+            user-select: none;
+}
+
+.slider_radio {
+    display: none;
+}
+
+.slider_slide__container {
+    display: block;
+}
+
+.slider_slide {
+    display: block;
+    height: 350px;
+    opacity: 0;
+    position: absolute;
+    top: 0;
+    transform: scale(0);
+    transition: all 0.7s ease-in-out;
+    width: 100%;
+}
+
+.slider_slide img {
+    height: 100%;
+    width: 100%;
+}
+
+.slider_slide__nav label {
+    color: #fff;
+    cursor: pointer;
+    display: none;
+    font-family: "Varela Round", sans-serif;
+    font-size: 100pt;
+    height: 100%;
+    line-height: 380px;
+    opacity: 0;
+    position: absolute;
+    text-align: center;
+    /*background-color: rgba(255, 255, 255, .3);*/
+    text-shadow: 0 0 15px rgb(119, 119, 119);
+    transition: opacity 0.2s;
+    width: 200px;
+    z-index: 1;
+}
+
+
+.slider_slide:hover + .slider_slide__nav label {
+    opacity: 0.5;
+}
+
+.slider_slide__nav label:hover {
+    opacity: 1;
+}
+
+.slider_slide__nav .next {
+    right: 0;
+}
+
+
+
+.slider_nav__dots {
+    bottom: 9px;
+    display: block;
+    height: 11px;
+    padding: 0;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+}
+
+.slider_nav__dot_container {
+    display: inline-block;
+}
+
+.slider_nav__dots .slider_nav__dot {
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 100%;
+    display: inline-block;
+    height: 11px;
+    margin: 0 4px;
+    position: relative;
+    top: -5px;
+    width: 11px;
+}
+
+.slider_nav__dots .slider_nav__dot:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+    cursor: pointer;
+}
+
+
+
+@supports (object-fit: fill) {
+    .slide img {
+        object-fit: fill;
+    }
+}
