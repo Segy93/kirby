@@ -1,9 +1,9 @@
 "use strict";
 
 if (typeof Monitor === "undefined") var Monitor = {};
-if (typeof Monitor.AdminRoles === "undefined") Monitor.AdminRoles = {};
+if (typeof Kirby.AdminRoles === "undefined") Kirby.AdminRoles = {};
 
-Monitor.AdminRoles.List = {
+Kirby.AdminRoles.List = {
     /**
      *
      * Konfiguracija komponente
@@ -64,7 +64,7 @@ Monitor.AdminRoles.List = {
 
     /**
      * Inicijalizacija osluškivača u okviru komponente, kao i funkcija koje reaguju na njih
-     * @return  {Object}                    Monitor.AdminRoles.List objekat, za ulančavanje funkcija
+     * @return  {Object}                    Kirby.AdminRoles.List objekat, za ulančavanje funkcija
      */
     initListeners: function() {
         var $wrapper = $(this.getElementSelector("wrapper"));
@@ -78,14 +78,14 @@ Monitor.AdminRoles.List = {
         this.getElement("form_edit").onsubmit = this.clickSave.bind(this);
         this.getElement("button_remove").addEventListener("click", this.clickDelete.bind(this), false);
 
-        document.addEventListener("Monitor.Admin.Role.Create", this.createdRole.bind(this));
+        document.addEventListener("Kirby.Admin.Role.Create", this.createdRole.bind(this));
 
         return this;
     },
 
     /**
      * Inicijalizacija sablona
-     * @return  {Object}                    Monitor.AdminRoles.List objekat, za ulančavanje funkcija
+     * @return  {Object}                    Kirby.AdminRoles.List objekat, za ulančavanje funkcija
      */
     initTemplates: function() {
         this.templates.main = _.template(document.getElementById("admin_roles__list__tmpl").innerHTML);
@@ -94,10 +94,10 @@ Monitor.AdminRoles.List = {
 
     /**
      * Registracija elemenata u upotrebi od strane komponente
-     * @return  {Object}                    Monitor.AdminRoles.List objekat, za ulančavanje funkcija
+     * @return  {Object}                    Kirby.AdminRoles.List objekat, za ulančavanje funkcija
      */
     registerElements: function() {
-        Monitor.Main.DOM.register("AdminRolesList", this.elements);
+        Kirby.Main.Dom.register("AdminRolesList", this.elements);
         return this;
     },
 
@@ -208,7 +208,7 @@ Monitor.AdminRoles.List = {
      * @return  {Node/NodeList}             Vraca Node objekat ukoliko je query_all false, niz Node objekata inace
      */
     getElement: function(element, query_all, modifier) {
-        return Monitor.Main.DOM.getElement("AdminRolesList", element, query_all, modifier);
+        return Kirby.Main.Dom.getElement("AdminRolesList", element, query_all, modifier);
     },
 
     /**
@@ -219,7 +219,7 @@ Monitor.AdminRoles.List = {
      * @return  {Node/NodeList}             Vraca Node objekat ukoliko je query_all false, niz Node objekata inace
      */
     getElementSelector: function(element, query_all, modifier) {
-        return Monitor.Main.DOM.getElementSelector("AdminRolesList", element, query_all, modifier);
+        return Kirby.Main.Dom.getElementSelector("AdminRolesList", element, query_all, modifier);
     },
 
     validateName: function() {
@@ -250,10 +250,10 @@ Monitor.AdminRoles.List = {
 
     /**
      * Dohvata podatke neophodne za funkcionisanje komponenti, nakon toga prikazuje komponentu
-     * @return {Object}                     Monitor.AdminRoles.List objekat, za ulancavanje funkcija
+     * @return {Object}                     Kirby.AdminRoles.List objekat, za ulancavanje funkcija
      */
     fetchData: function() {
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
             "AdminRoles",
             "fetchData",
             {
@@ -274,10 +274,10 @@ Monitor.AdminRoles.List = {
      * @param  {Number}     role_id         ID uloge
      * @param  {Number}     permission_id   ID dozvole
      * @param  {Boolean}    state           Stanje, da li je cekirano ili ne
-     * @return {Object}                     Monitor.AdminRoles.List objekat, za ulancavanje funkcija
+     * @return {Object}                     Kirby.AdminRoles.List objekat, za ulancavanje funkcija
      */
     toggleRolePermission: function(role_id, permission_id, state) {
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
             "AdminRoles",
             "toggleRolePermission",
             {
@@ -289,7 +289,7 @@ Monitor.AdminRoles.List = {
     },
 
     deleteRole: function(role_id){
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
             "AdminRoles",
             "deleteRole",
             {
@@ -297,11 +297,11 @@ Monitor.AdminRoles.List = {
             },
             function(data) {
                 if (data === true) {
-                    var event = new CustomEvent("Monitor.Role.Delete");
+                    var event = new CustomEvent("Kirby.Role.Delete");
                     event.data = role_id;
                     this.fetchData();
                 } else {
-                    var event = new CustomEvent("Monitor.Error");
+                    var event = new CustomEvent("Kirby.Error");
                     event.error_type = "roles";
                     event.error_code = parseInt(data, 10);
                 }
@@ -314,10 +314,10 @@ Monitor.AdminRoles.List = {
      * Promena imena uloga
      * @param  {Number}     role_id         ID uloge
      * @param  {String}     descrption      Opis uloge
-     * @return {Object}                     Monitor.AdminRoles.List objekat, za ulancavanje funkcija
+     * @return {Object}                     Kirby.AdminRoles.List objekat, za ulancavanje funkcija
      */
     changeText: function(role_id, description) {
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
             "AdminRoles",
             "changeText",
             {
@@ -326,7 +326,7 @@ Monitor.AdminRoles.List = {
             },
             function(data) {
                 var event_name = data === true ? "Role.Delete" : "Error";
-                var event = new CustomEvent("Monitor." + event_name);
+                var event = new CustomEvent("Kirby." + event_name);
 
                 if (data === true) {
                     this.fetchData();
@@ -341,4 +341,4 @@ Monitor.AdminRoles.List = {
     }
 };
 
-document.addEventListener('DOMContentLoaded', Monitor.AdminRoles.List.init.bind(Monitor.AdminRoles.List), false);
+document.addEventListener('DOMContentLoaded', Kirby.AdminRoles.List.init.bind(Kirby.AdminRoles.List), false);

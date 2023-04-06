@@ -1,14 +1,14 @@
 "use strict";
 
 if (typeof Monitor  === "undefined") var Monitor                        = {};
-if (typeof Monitor.AdminComments === "undefined") Monitor.AdminComments = {};
+if (typeof Kirby.AdminComments === "undefined") Kirby.AdminComments = {};
 
 /**
  *
  * Modal za potvrdu brisanja clanaka
  *
  */
-Monitor.AdminComments.Delete = {
+Kirby.AdminComments.Delete = {
 
     config: { // Konfiguracija komponente
         comment_id: 0, // ID clanka koji ce biti obrisan
@@ -32,7 +32,7 @@ Monitor.AdminComments.Delete = {
 
     /**
      * Inicijalizacija osluskivaca komponente
-     * @return  {Object}                    Monitor.AdminArticles.Delete
+     * @return  {Object}                    Kirby.AdminArticles.Delete
      */
     initListeners: function() {
         $(this.getElementSelector("wrapper")).on("show.bs.modal", this.requestedComponent.bind(this));
@@ -41,11 +41,11 @@ Monitor.AdminComments.Delete = {
     },
 
     /**
-     * Registracija elemenata za Monitor.Main.DOM
-     * @return  {Object}                    Monitor.AdminComments.Delete
+     * Registracija elemenata za Kirby.Main.Dom
+     * @return  {Object}                    Kirby.AdminComments.Delete
      */
     registerElements: function() {
-        Monitor.Main.DOM.register("AdminCommentsDelete", this.elements);
+        Kirby.Main.Dom.register("AdminCommentsDelete", this.elements);
         return this;
     },
 
@@ -89,7 +89,7 @@ Monitor.AdminComments.Delete = {
     *                                je query_all false, niz Node objekata inace
     */
     getElement: function(element, query_all, modifier) {
-        return Monitor.Main.DOM.getElement("AdminCommentsDelete", element, query_all, modifier);
+        return Kirby.Main.Dom.getElement("AdminCommentsDelete", element, query_all, modifier);
     },
 
     /**
@@ -101,7 +101,7 @@ Monitor.AdminComments.Delete = {
     *                                niz Node objekata inace
     */
     getElementSelector: function(element, query_all, modifier) {
-        return Monitor.Main.DOM.getElementSelector("AdminCommentsDelete", element, query_all, modifier);
+        return Kirby.Main.Dom.getElementSelector("AdminCommentsDelete", element, query_all, modifier);
     },
 
 
@@ -122,7 +122,7 @@ Monitor.AdminComments.Delete = {
     /**
      * Cuva ID trenutno aktivnog clanka
      * @param   {Number}    comment_id      ID clanka
-     * @return  {Object}                    Monitor.AdminComments.Delete
+     * @return  {Object}                    Kirby.AdminComments.Delete
      */
     setCommentID: function(comment_id) {
         this.config.comment_id = comment_id;
@@ -140,17 +140,17 @@ Monitor.AdminComments.Delete = {
 
     /**
      * Brisanje clanka
-     * @return  {Object}                    Monitor.AdminComments.Delete
+     * @return  {Object}                    Kirby.AdminComments.Delete
      */
     deleteComment: function() {
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
             "AdminComments",
             "deleteComment",
             {
                 comment_id: this.getCommentID(),
             },
             (data) => {
-                var event  = new CustomEvent("Monitor.Admin.Comments");
+                var event  = new CustomEvent("Kirby.Admin.Comments");
                 event.info = "Delete";
                 event.data = data;
                 document.dispatchEvent(event);
@@ -160,4 +160,4 @@ Monitor.AdminComments.Delete = {
     },
 };
 
-document.addEventListener("DOMContentLoaded", Monitor.AdminComments.Delete.init.bind(Monitor.AdminComments.Delete, false));
+document.addEventListener("DOMContentLoaded", Kirby.AdminComments.Delete.init.bind(Kirby.AdminComments.Delete, false));

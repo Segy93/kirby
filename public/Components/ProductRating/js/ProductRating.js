@@ -45,7 +45,7 @@
      * Registruje elemente koji se koriste u komponenti
      */
     var registerElements = function() {
-        Monitor.Main.DOM.register("ProductRating", elements);
+        Kirby.Main.Dom.register("ProductRating", elements);
     };
 
 
@@ -90,7 +90,7 @@
     * @return  {Node/NodeList}       Vraca Node objekat ukoliko je query_all false, niz Node obj
     */
     var getElement = function(element, query_all, modifier, parent) {
-        return Monitor.Main.DOM.getElement("ProductRating", element, query_all, modifier, parent);
+        return Kirby.Main.Dom.getElement("ProductRating", element, query_all, modifier, parent);
     };
 
     /**
@@ -101,7 +101,7 @@
     * @return  {Node/NodeList}       Vraca Node objekat ukoliko je query_all false, niz Node obj
     */
     var getElementSelector = function(element, query_all, modifier) {
-        return Monitor.Main.DOM.getElementSelector("ProductRating", element, query_all, modifier);
+        return Kirby.Main.Dom.getElementSelector("ProductRating", element, query_all, modifier);
     };
 
 
@@ -123,7 +123,7 @@
 
 
     var ratingAdd = function(rating, product_id) {
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
             "ProductRating",
             "ratingAdd",
             {

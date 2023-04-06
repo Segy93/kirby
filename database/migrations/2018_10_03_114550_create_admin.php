@@ -28,8 +28,8 @@ class CreateAdmin extends Migration
         DB::table('Admins')
         ->insert(
             [
-            'username'  =>  'monitor_admin',
-            'email'     =>  'admin@monitor.rs',
+            'username'  =>  'kirby_admin',
+            'email'     =>  'admin@kesezakirby.rs',
             'password'  =>  password_hash($password, PASSWORD_DEFAULT),
             'role_id'   =>  1,
         ]);
@@ -44,7 +44,7 @@ class CreateAdmin extends Migration
      */
     public function down()
     {
-        DB::table('Admins')->where('username', 'monitor_admin')->delete();
+        DB::table('Admins')->where('username', 'kirby_admin')->delete();
         DB::table('Roles')->where('description', 'Admin')->delete();
     }
 }

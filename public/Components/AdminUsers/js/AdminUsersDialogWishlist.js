@@ -1,10 +1,10 @@
 "use strict";
 
 if (typeof Monitor                     === "undefined") var Monitor                   = {};
-if (typeof Monitor.AdminUsers          === "undefined") Monitor.AdminUsers            = {};
-if (typeof Monitor.AdminUsers.Dialogs  === "undefined") Monitor.AdminUsers.Dialogs    = {};
+if (typeof Kirby.AdminUsers          === "undefined") Kirby.AdminUsers            = {};
+if (typeof Kirby.AdminUsers.Dialogs  === "undefined") Kirby.AdminUsers.Dialogs    = {};
 
-Monitor.AdminUsers.Dialogs.Wishlist = {
+Kirby.AdminUsers.Dialogs.Wishlist = {
     /**
      *
      * Konfiguracija komponente
@@ -53,7 +53,7 @@ Monitor.AdminUsers.Dialogs.Wishlist = {
 
     /**
      * Inicijalizacija osluškivača u okviru komponente, kao i funkcija koje reaguju na njih
-     * @return  {Object}                    Monitor.AdminUsers.Dialogs.Wishlist objekat, za ulančavanje funkcija
+     * @return  {Object}                    Kirby.AdminUsers.Dialogs.Wishlist objekat, za ulančavanje funkcija
      */
     initListeners: function() {
         var $wrapper = $(this.getElementSelector("wrapper"));
@@ -64,10 +64,10 @@ Monitor.AdminUsers.Dialogs.Wishlist = {
 
     /**
      * Registracija elemenata u upotrebi od strane komponente
-     * @return  {Object}                    Monitor.AdminUsers.Dialogs.Wishlist objekat, za ulančavanje funkcija
+     * @return  {Object}                    Kirby.AdminUsers.Dialogs.Wishlist objekat, za ulančavanje funkcija
      */
     registerElements: function() {
-        Monitor.Main.DOM.register("AdminUserDialogWishlist", this.elements);
+        Kirby.Main.Dom.register("AdminUserDialogWishlist", this.elements);
         return this;
     },
 
@@ -110,7 +110,7 @@ Monitor.AdminUsers.Dialogs.Wishlist = {
 
     /**
      * Zatvara modal
-     * @return  {Object}                    Monitor.AdminUsers.Dialogs.Wishlist objekat, za ulančavanje funkcija
+     * @return  {Object}                    Kirby.AdminUsers.Dialogs.Wishlist objekat, za ulančavanje funkcija
      */
     hideDialog: function() {
         $(this.getElement("wrapper")).modal("hide");
@@ -125,7 +125,7 @@ Monitor.AdminUsers.Dialogs.Wishlist = {
      * @return  {Node/NodeList}             Vraca Node objekat ukoliko je query_all false, niz Node objekata inace
      */
     getElement: function(element, query_all, modifier) {
-        return Monitor.Main.DOM.getElement("AdminUserDialogWishlist", element, query_all, modifier);
+        return Kirby.Main.Dom.getElement("AdminUserDialogWishlist", element, query_all, modifier);
     },
 
     /**
@@ -136,7 +136,7 @@ Monitor.AdminUsers.Dialogs.Wishlist = {
      * @return  {Node/NodeList}             Vraca Node objekat ukoliko je query_all false, niz Node objekata inace
      */
     getElementSelector: function(element, query_all, modifier) {
-        return Monitor.Main.DOM.getElementSelector("AdminUserDialogWishlist", element, query_all, modifier);
+        return Kirby.Main.Dom.getElementSelector("AdminUserDialogWishlist", element, query_all, modifier);
     },
 
 
@@ -152,7 +152,7 @@ Monitor.AdminUsers.Dialogs.Wishlist = {
     /**
      * Generise HTML na osnovu prosledjenih podataka i ubacuje u omotac
      * @param   {Object}    data            Podaci sa informacijama o korisniku
-     * @return  {Object}                    Monitor.AdminUsers.Dialogs.Wishlist objekat, za ulančavanje funkcija
+     * @return  {Object}                    Kirby.AdminUsers.Dialogs.Wishlist objekat, za ulančavanje funkcija
      */
     render: function(data) {
         var element = this.getElement("table_body");
@@ -202,10 +202,10 @@ Monitor.AdminUsers.Dialogs.Wishlist = {
     /**
      * Dohvata informacije o korisniku
      * @param   {Number}    user_id         ID korisnika za koga dohvatamo statistiku
-     * @return  {Object}                    Monitor.AdminUsers.Dialogs.Wishlist objekat, za ulančavanje funkcija
+     * @return  {Object}                    Kirby.AdminUsers.Dialogs.Wishlist objekat, za ulančavanje funkcija
      */
     fetchWishlist: function(user_id) {
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
             "AdminUsers",
             "fetchWishlist",
             {
@@ -217,7 +217,7 @@ Monitor.AdminUsers.Dialogs.Wishlist = {
     },
 
     deleteWishlistItem: function(wish_id) {
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
             "AdminUsers",
             "deleteWishlistItem",
             {
@@ -229,4 +229,4 @@ Monitor.AdminUsers.Dialogs.Wishlist = {
     },
 };
 
-document.addEventListener('DOMContentLoaded', Monitor.AdminUsers.Dialogs.Wishlist.init.bind(Monitor.AdminUsers.Dialogs.Wishlist), false);
+document.addEventListener('DOMContentLoaded', Kirby.AdminUsers.Dialogs.Wishlist.init.bind(Kirby.AdminUsers.Dialogs.Wishlist), false);

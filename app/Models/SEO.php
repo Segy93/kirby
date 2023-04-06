@@ -59,10 +59,10 @@ class SEO {
 
     public function __get($fieldName) {
         if ($fieldName === 'twitter_handle_publisher') {
-            return '@monitor_com';
+            return '@kirby_com';
         }
         if ($fieldName === 'twitter_handle_author') {
-            return '@monitor_com';
+            return '@kirby_com';
         }
 
         if ($fieldName === 'thumbnail_twitter' && $this->thumbnail_twitter === null) {

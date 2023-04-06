@@ -1,7 +1,7 @@
 "use strict";
 if (typeof Monitor === "undefined") var Monitor = {};
 
-Monitor.AdminErrorModal = {
+Kirby.AdminErrorModal = {
     config: {
         error_codes: {
             "role": {
@@ -378,12 +378,12 @@ Monitor.AdminErrorModal = {
     },
 
     initListeners: function() {
-        document.addEventListener("Monitor.Error", this.errorOccured.bind(this), false);
+        document.addEventListener("Kirby.Error", this.errorOccured.bind(this), false);
         return this;
     },
 
     registerElements: function() {
-        Monitor.Main.DOM.register("AdminErrorModal", this.elements);
+        Kirby.Main.Dom.register("AdminErrorModal", this.elements);
         return this;
     },
 
@@ -427,12 +427,12 @@ Monitor.AdminErrorModal = {
     },
 
     getElement: function(element, query_all, modifier) {
-        return Monitor.Main.DOM.getElement("AdminErrorModal", element, query_all, modifier);
+        return Kirby.Main.Dom.getElement("AdminErrorModal", element, query_all, modifier);
     },
 
     getElementSelector: function(element, query_all, modifier) {
-        return Monitor.Main.DOM.getElementSelector("AdminErrorModal", element, query_all, modifier);
+        return Kirby.Main.Dom.getElementSelector("AdminErrorModal", element, query_all, modifier);
     },
 };
 
-document.addEventListener('DOMContentLoaded', Monitor.AdminErrorModal.init.bind(Monitor.AdminErrorModal), false);
+document.addEventListener('DOMContentLoaded', Kirby.AdminErrorModal.init.bind(Kirby.AdminErrorModal), false);

@@ -1,9 +1,9 @@
 "use strict";
 
 if( typeof Monitor                 === "undefined") var Monitor             = {};
-if( typeof Monitor.AdminCategories === "undefined") Monitor.AdminCategories = {};
+if( typeof Kirby.AdminCategories === "undefined") Kirby.AdminCategories = {};
 
-Monitor.AdminCategories.Create = {
+Kirby.AdminCategories.Create = {
 
 
 
@@ -39,7 +39,7 @@ Monitor.AdminCategories.Create = {
 
 	/**
 	 * Inicializacija osluskivaca u sklopu komponente kao i funkcija koje reaguju na njih
-	 * @return {Object}  Monitor.AdminCategories.Create objekat za ulancavanje funkcija
+	 * @return {Object}  Kirby.AdminCategories.Create objekat za ulancavanje funkcija
 	 */
 	initListeners:function(){
 		var form = this.getElement("form");
@@ -48,17 +48,17 @@ Monitor.AdminCategories.Create = {
 		var name = this.getElement("name");
 		if(name !== null)name.addEventListener("blur", this.blurName.bind(this), false);
         this.getElement("submit").addEventListener("click", this.clickSubmit.bind(this), false);
-        document.addEventListener("Monitor.SEO.Form", this.changedSEOState.bind(this), false);
+        document.addEventListener("Kirby.SEO.Form", this.changedSEOState.bind(this), false);
 
 		return this;
 	},
 
 	/**
 	 * Registracija elemenata u uptrebi od strane komponente
-	 * @return {Object} Monitor.AdminCategories.Create objekat za ulancavanje funkcija
+	 * @return {Object} Kirby.AdminCategories.Create objekat za ulancavanje funkcija
 	 */
 	registerElements:function(){
-		Monitor.Main.DOM.register("AdminCategoriesCreate", this.elements);
+		Kirby.Main.Dom.register("AdminCategoriesCreate", this.elements);
 		return this;
 	},
 	 /**
@@ -66,7 +66,7 @@ Monitor.AdminCategories.Create = {
      * @param   {Object}    data            Informacije o kreiranom predmetu
      */
     categoryCreated: function(data) {
-        var event = new CustomEvent("Monitor.Admin.Categories");
+        var event = new CustomEvent("Kirby.Admin.Categories");
         event.info = "Create";
         event.data = data;
         document.dispatchEvent(event);
@@ -114,7 +114,7 @@ Monitor.AdminCategories.Create = {
 	/**
      * Zadaje validity za name polje, u zavisnosti da li postoji kategorija s ovim  imenom
      * @param   {Boolean}   exists          Da li je ime kategorije vec zauzet
-     * @return  {Object}                    Monitor.AdminCategories.Create objekat, za ulančavanje funkcija
+     * @return  {Object}                    Kirby.AdminCategories.Create objekat, za ulančavanje funkcija
      */
     setNameValidity: function(exists) {
         this.getElement("name").setCustomValidity(exists ? "Category with this name already exists" : "");
@@ -137,11 +137,11 @@ Monitor.AdminCategories.Create = {
 	 * @return {Node/NodeList}      Vraca Node objekat ukoliko je querry_all false u suprotnom vraca niz objekata
 	 */
 	getElement:function(element, querry_all, modifier){
-		return Monitor.Main.DOM.getElement("AdminCategoriesCreate", element, querry_all, modifier);
+		return Kirby.Main.Dom.getElement("AdminCategoriesCreate", element, querry_all, modifier);
 	},
 
 	isCategoryNameTaken:function(name){
-		Monitor.Main.Ajax(
+		Kirby.Main.Ajax(
 			"AdminCategories",
 			"isCategoryNameTaken",
 			{
@@ -153,7 +153,7 @@ Monitor.AdminCategories.Create = {
 	},
 
 	createCategory:function(name, image){
-		Monitor.Main.Ajax(
+		Kirby.Main.Ajax(
 			"AdminCategories",
 			"createCategory",
 			{
@@ -170,4 +170,4 @@ Monitor.AdminCategories.Create = {
 
 
 };
-document.addEventListener('DOMContentLoaded', Monitor.AdminCategories.Create.init.bind(Monitor.AdminCategories.Create), false);
+document.addEventListener('DOMContentLoaded', Kirby.AdminCategories.Create.init.bind(Kirby.AdminCategories.Create), false);

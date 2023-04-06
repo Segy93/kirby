@@ -1,9 +1,9 @@
 "use strict";
 
 if(typeof Monitor                 === "undefined") var Monitor             = {};
-if(typeof Monitor.AdminPagesStatic === "undefined") Monitor.AdminPagesStatic = {};
+if(typeof Kirby.AdminPagesStatic === "undefined") Kirby.AdminPagesStatic = {};
 
-Monitor.AdminPagesStatic.Delete = {
+Kirby.AdminPagesStatic.Delete = {
 
 
 
@@ -46,7 +46,7 @@ Monitor.AdminPagesStatic.Delete = {
 
     /**
      * Inicijalizacija osluškivača u okviru komponente, kao i funkcija koje reaguju na njih
-     * @return  {Object}                    Monitor.AdminPagesStatic.Delete objekat, za ulančavanje funkcija
+     * @return  {Object}                    Kirby.AdminPagesStatic.Delete objekat, za ulančavanje funkcija
      */
     initListeners: function() {
         $(this.getElementSelector("wrapper")).on("show.bs.modal", this.componentRequested.bind(this));
@@ -56,10 +56,10 @@ Monitor.AdminPagesStatic.Delete = {
 
     /**
      * Registracija elemenata u upotrebi od strane komponente
-     * @return  {Object}                     Monitor.AdminPagesStatic.Delete objekat, za ulančavanje funkcija
+     * @return  {Object}                     Kirby.AdminPagesStatic.Delete objekat, za ulančavanje funkcija
      */
     registerElements: function() {
-        Monitor.Main.DOM.register("AdminPagesStaticDelete", this.elements);
+        Kirby.Main.Dom.register("AdminPagesStaticDelete", this.elements);
         return this;
     },
 
@@ -105,7 +105,7 @@ Monitor.AdminPagesStatic.Delete = {
      * @return  {Node/NodeList}             Vraca Node objekat ukoliko je query_all false, niz Node objekata inace
      */
     getElement: function(element, query_all, modifier) {
-        return Monitor.Main.DOM.getElement("AdminPagesStaticDelete", element, query_all, modifier);
+        return Kirby.Main.Dom.getElement("AdminPagesStaticDelete", element, query_all, modifier);
     },
 
     /**
@@ -116,7 +116,7 @@ Monitor.AdminPagesStatic.Delete = {
      * @return  {Node/NodeList}             Vraca Node objekat ukoliko je query_all false, niz Node objekata inace
      */
     getElementSelector: function(element, query_all, modifier) {
-        return Monitor.Main.DOM.getElementSelector("AdminPagesStaticDelete", element, query_all, modifier);
+        return Kirby.Main.Dom.getElementSelector("AdminPagesStaticDelete", element, query_all, modifier);
     },
 
 
@@ -138,7 +138,7 @@ Monitor.AdminPagesStatic.Delete = {
 
     /**
      * Zadaje ID trenutne kategorije
-     * @return  {Object}                    Monitor.AdminPagesStatic.Delete objekat, za ulančavanje funkcija
+     * @return  {Object}                    Kirby.AdminPagesStatic.Delete objekat, za ulančavanje funkcija
      */
     setPageID: function(page_id) {
         this.config.page_id = page_id;
@@ -156,17 +156,17 @@ Monitor.AdminPagesStatic.Delete = {
 
     /**
      * Brise trenutnog korisnika
-     * @return  {Object}                    Monitor.AdminUsers.Dialogs.Delete objekat, za ulančavanje funkcija
+     * @return  {Object}                    Kirby.AdminUsers.Dialogs.Delete objekat, za ulančavanje funkcija
      */
     deletePage: function() {
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
             "AdminStaticPages",
             "deletePage",
             {
                 "page_id": this.getPageID(),
             },
             function(data) {
-                var event = new CustomEvent("Monitor.Admin.StaticPages");
+                var event = new CustomEvent("Kirby.Admin.StaticPages");
                 event.info = "Delete";
                 event.data = data;
                 document.dispatchEvent(event);
@@ -175,4 +175,4 @@ Monitor.AdminPagesStatic.Delete = {
         return this;
     },
 }
-document.addEventListener('DOMContentLoaded', Monitor.AdminPagesStatic.Delete.init.bind(Monitor.AdminPagesStatic.Delete), false);
+document.addEventListener('DOMContentLoaded', Kirby.AdminPagesStatic.Delete.init.bind(Kirby.AdminPagesStatic.Delete), false);

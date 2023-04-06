@@ -1,9 +1,9 @@
 "use strict";
 
 if (typeof Monitor === "undefined") var Monitor = {};
-if (typeof Monitor.Administrators === "undefined") Monitor.Administrators = {};
+if (typeof Kirby.Administrators === "undefined") Kirby.Administrators = {};
 
-Monitor.Administrators.List = {
+Kirby.Administrators.List = {
     config: {
         usernames:  [],
         emails:     [],
@@ -56,7 +56,7 @@ Monitor.Administrators.List = {
 
     /**
      * Inicijalizacija osluškivača u okviru komponente, kao i funkcija koje reaguju na njih
-     * @return  {Object}                    Monitor.Administrators.List objekat, za ulančavanje funkcija
+     * @return  {Object}                    Kirby.Administrators.List objekat, za ulančavanje funkcija
      */
     initListeners: function() {
         var $wrapper = $(this.getElementSelector("wrapper"));
@@ -74,15 +74,15 @@ Monitor.Administrators.List = {
         this.getElement("form_edit").onsubmit = this.clickSave.bind(this);
         this.getElement("button_remove").addEventListener("click", this.clickRemove.bind(this), false);
 
-        document.addEventListener("Monitor.Admin.Role.Create", this.createdRole.bind(this));
-        document.addEventListener("Monitor.Admin.Administrator.Create", this.createAdmin.bind(this));
+        document.addEventListener("Kirby.Admin.Role.Create", this.createdRole.bind(this));
+        document.addEventListener("Kirby.Admin.Administrator.Create", this.createAdmin.bind(this));
 
         return this;
     },
 
     /**
      * Inicijalizacija sablona
-     * @return  {Object}                    Monitor.Administrators.List objekat, za ulančavanje funkcija
+     * @return  {Object}                    Kirby.Administrators.List objekat, za ulančavanje funkcija
      */
     initTemplates: function() {
         this.templates.main = _.template(document.getElementById("admin_admins__list__tmpl").innerHTML);
@@ -91,10 +91,10 @@ Monitor.Administrators.List = {
 
     /**
      * Registracija elemenata u upotrebi od strane komponente
-     * @return  {Object}                    Monitor.Administrators.List objekat, za ulančavanje funkcija
+     * @return  {Object}                    Kirby.Administrators.List objekat, za ulančavanje funkcija
      */
     registerElements: function() {
-        Monitor.Main.DOM.register("AdministratorsList", this.elements);
+        Kirby.Main.Dom.register("AdministratorsList", this.elements);
         return this;
     },
 
@@ -227,7 +227,7 @@ Monitor.Administrators.List = {
      * @return  {Node/NodeList}             Vraca Node objekat ukoliko je query_all false, niz Node objekata inace
      */
     getElement: function(element, query_all, modifier) {
-        return Monitor.Main.DOM.getElement("AdministratorsList", element, query_all, modifier);
+        return Kirby.Main.Dom.getElement("AdministratorsList", element, query_all, modifier);
     },
 
     /**
@@ -238,7 +238,7 @@ Monitor.Administrators.List = {
      * @return  {Node/NodeList}             Vraca Node objekat ukoliko je query_all false, niz Node objekata inace
      */
     getElementSelector: function(element, query_all, modifier) {
-        return Monitor.Main.DOM.getElementSelector("AdministratorsList", element, query_all, modifier);
+        return Kirby.Main.Dom.getElementSelector("AdministratorsList", element, query_all, modifier);
     },
 
     validateName: function(){
@@ -286,10 +286,10 @@ Monitor.Administrators.List = {
 
     /**
      * Dohvata podatke neophodne za funkcionisanje komponenti, nakon toga prikazuje komponentu
-     * @return {Object}                     Monitor.Administratos.List objekat, za ulancavanje funkcija
+     * @return {Object}                     Kirby.Administratos.List objekat, za ulancavanje funkcija
      */
     fetchData: function() {
-    Monitor.Main.Ajax(
+    Kirby.Main.Ajax(
             "Administrators",
             "fetchData",
             {},
@@ -309,10 +309,10 @@ Monitor.Administrators.List = {
      * Cuvanje promene uloge datom adminu
      * @param  {Number} role_id  ID uloge koju menjamo
      * @param  {Number} admin_id ID admina kome menjamo ulogu
-     * @return {Object}                     Monitor.Administratos.List objekat, za ulancavanje funkcija
+     * @return {Object}                     Kirby.Administratos.List objekat, za ulancavanje funkcija
      */
     changeSave: function(role_id, admin_id) {
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
             "Administrators",
             "setRole",
             {
@@ -325,7 +325,7 @@ Monitor.Administrators.List = {
     },
 
     deleteAdmin: function(admin_id) {
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
             "Administrators",
             "deleteAdmin",
             {
@@ -333,7 +333,7 @@ Monitor.Administrators.List = {
             },
             function(data) {
                 var event_name = data === true ? "Admin.Delete" : "Error";
-                var event = new CustomEvent("Monitor." + event_name);
+                var event = new CustomEvent("Kirby." + event_name);
 
                 if (data === true) {
                     this.fetchData();
@@ -348,7 +348,7 @@ Monitor.Administrators.List = {
     },
 
     resetPassword: function(admin_id) {
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
             "Administrators",
             "resetPassword",
             {
@@ -364,7 +364,7 @@ Monitor.Administrators.List = {
     },
 
     updateAdmin: function(id, name, email) {
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
             "Administrators",
             "updateAdmin",
             {
@@ -374,7 +374,7 @@ Monitor.Administrators.List = {
             },
             function(data){
                 var event_name = data === true ? "Admin.Update" : "Error";
-                var event = new CustomEvent("Monitor." + event_name);
+                var event = new CustomEvent("Kirby." + event_name);
 
                 if (data === true) {
                     this.fetchData();
@@ -391,4 +391,4 @@ Monitor.Administrators.List = {
 
 };
 
-document.addEventListener('DOMContentLoaded', Monitor.Administrators.List.init.bind(Monitor.Administrators.List), false);
+document.addEventListener('DOMContentLoaded', Kirby.Administrators.List.init.bind(Kirby.Administrators.List), false);

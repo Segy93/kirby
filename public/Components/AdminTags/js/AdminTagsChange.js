@@ -1,10 +1,10 @@
 "use strict";
 
 if(typeof Monitor           === "undefined") var  Monitor      = {};
-if(typeof Monitor.AdminTags === "undefined") Monitor.AdminTags = {};
+if(typeof Kirby.AdminTags === "undefined") Kirby.AdminTags = {};
 
 
-Monitor.AdminTags.Change = {
+Kirby.AdminTags.Change = {
 
 	config: {
         callback_submit: null,
@@ -39,7 +39,7 @@ Monitor.AdminTags.Change = {
 	},
 
 	registerElements: function() {
-		Monitor.Main.DOM.register("AdminTagsChange", this.elements);
+		Kirby.Main.Dom.register("AdminTagsChange", this.elements);
         return this;
 	},
 
@@ -101,7 +101,7 @@ Monitor.AdminTags.Change = {
 
     /**
      * Zatvara modal
-     * @return  {Object}                    Monitor.AdminUsers.Dialogs.Password objekat, za ulančavanje funkcija
+     * @return  {Object}                    Kirby.AdminUsers.Dialogs.Password objekat, za ulančavanje funkcija
      */
     hideDialog: function() {
         $(this.getElement("wrapper")).modal("hide");
@@ -122,7 +122,7 @@ Monitor.AdminTags.Change = {
     /**
      * Zadaje validity za name polje, u zavisnosti da li postoji korisnik s ovim korisnickim imenom
      * @param   {Boolean}   exists          Da li je username vec zauzet
-     * @return  {Object}                    Monitor.AdminTags.Create objekat, za ulančavanje funkcija
+     * @return  {Object}                    Kirby.AdminTags.Create objekat, za ulančavanje funkcija
      */
     setNameValidity: function(exists) {
         this.getElement("input_name").setCustomValidity(exists ? "User with this username already exists" : "");
@@ -146,7 +146,7 @@ Monitor.AdminTags.Change = {
     * @return  {Node/NodeList}             Vraca Node objekat ukoliko je query_all false, niz Node objekata inace
     */
     getElement: function(element, query_all, modifier) {
-        return Monitor.Main.DOM.getElement("AdminTagsChange", element, query_all, modifier);
+        return Kirby.Main.Dom.getElement("AdminTagsChange", element, query_all, modifier);
     },
 
 	/**
@@ -157,13 +157,13 @@ Monitor.AdminTags.Change = {
     * @return  {Node/NodeList}             Vraca Node objekat ukoliko je query_all false, niz Node objekata inace
     */
 	getElementSelector: function(element, query_all, modifier) {
-        return Monitor.Main.DOM.getElementSelector("AdminTagsChange", element, query_all, modifier);
+        return Kirby.Main.Dom.getElementSelector("AdminTagsChange", element, query_all, modifier);
     },
 
     /**
      * Generise HTML na osnovu prosledjenih podataka i ubacuje u omotac
      * @param  {Object} data        podaci o tagu
-     * @return {Object}      Monitor.AdminTags.Change objekat za ulancavanje funkcija
+     * @return {Object}      Kirby.AdminTags.Change objekat za ulancavanje funkcija
      */
     render: function(data) {
         var elements = this.getElement("form").elements;
@@ -188,10 +188,10 @@ Monitor.AdminTags.Change = {
     /**
     * Provera da li vec postoji tag s ovim korisnickim imenom
     * @param   {String}    username        Ime koje proveravamo
-    * @return  {Object}                    Monitor.AdminTags.Change objekat, za ulančavanje funkcija
+    * @return  {Object}                    Kirby.AdminTags.Change objekat, za ulančavanje funkcija
     */
     isNameTaken: function(name) {
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
             "AdminTags",
             "isNameTaken",
             {
@@ -213,11 +213,11 @@ Monitor.AdminTags.Change = {
     * Menja trenutno ime u podeseno
     * @param  {Number} tag_id ID taga kojem se menja ime
     * @param  {String} name   ime kojim se menja
-    * @return {Object}        Monitor.AdminTags.Change objekat za ulancavanje funkcija
+    * @return {Object}        Kirby.AdminTags.Change objekat za ulancavanje funkcija
     */
     updateName: function(tag_id, name) {
         var callback = function () {
-            Monitor.Main.Ajax(
+            Kirby.Main.Ajax(
                 "AdminTags",
                 "updateName",
                 {
@@ -226,7 +226,7 @@ Monitor.AdminTags.Change = {
                 },
                 function(data) {
 
-                    var event = new CustomEvent("Monitor.Admin.Tags");
+                    var event = new CustomEvent("Kirby.Admin.Tags");
                     event.info = "Update";
                     event.data = data;
                     document.dispatchEvent(event);
@@ -248,10 +248,10 @@ Monitor.AdminTags.Change = {
     /**
     * Dohvata tag zarad dobijanja parametara
     * @param  {Number} tag_id ID taga kojem se menja ime
-    * @return {Object}        Monitor.AdminTags.Change objekat za ulancavanje funkcija
+    * @return {Object}        Kirby.AdminTags.Change objekat za ulancavanje funkcija
     */
     fetchTag: function(tag_id) {
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
             "AdminTags",
             "fetchTag",
             {
@@ -262,4 +262,4 @@ Monitor.AdminTags.Change = {
     }
 
 };
-document.addEventListener('DOMContentLoaded', Monitor.AdminTags.Change.init.bind(Monitor.AdminTags.Change), false);
+document.addEventListener('DOMContentLoaded', Kirby.AdminTags.Change.init.bind(Kirby.AdminTags.Change), false);

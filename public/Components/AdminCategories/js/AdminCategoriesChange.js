@@ -1,10 +1,10 @@
 "use strict";
 
 if (typeof Monitor           === "undefined") var  Monitor      = {};
-if (typeof Monitor.AdminCategories === "undefined") Monitor.AdminCategories = {};
+if (typeof Kirby.AdminCategories === "undefined") Kirby.AdminCategories = {};
 
 
-Monitor.AdminCategories.Change = {
+Kirby.AdminCategories.Change = {
 
     config: {
         callback_submit: null,
@@ -39,7 +39,7 @@ Monitor.AdminCategories.Change = {
     },
 
     registerElements: function() {
-        Monitor.Main.DOM.register("AdminCategoriesChange", this.elements);
+        Kirby.Main.Dom.register("AdminCategoriesChange", this.elements);
         return this;
     },
 
@@ -106,7 +106,7 @@ Monitor.AdminCategories.Change = {
 
     /**
      * Zatvara modal
-     * @return  {Object}                    Monitor.AdminUsers.Dialogs.Password objekat, za ulančavanje funkcija
+     * @return  {Object}                    Kirby.AdminUsers.Dialogs.Password objekat, za ulančavanje funkcija
      */
     hideDialog: function() {
         $(this.getElement("wrapper")).modal("hide");
@@ -126,7 +126,7 @@ Monitor.AdminCategories.Change = {
     /**
      * Zadaje validity za name polje, u zavisnosti da li postoji kategorija s ovim imenom
      * @param   {Boolean}   exists          Da li je ime kategorije  zauzeto
-     * @return  {Object}                    Monitor.AdminCategories.Create objekat, za ulančavanje funkcija
+     * @return  {Object}                    Kirby.AdminCategories.Create objekat, za ulančavanje funkcija
      */
     setNameValidity: function(exists) {
         this.config.processing_password = false;
@@ -152,7 +152,7 @@ Monitor.AdminCategories.Change = {
     * @return  {Node/NodeList}             Vraca Node objekat ukoliko je query_all false, niz Node objekata inace
     */
     getElement: function(element, query_all, modifier) {
-        return Monitor.Main.DOM.getElement("AdminCategoriesChange", element, query_all, modifier);
+        return Kirby.Main.Dom.getElement("AdminCategoriesChange", element, query_all, modifier);
     },
 
     /**
@@ -163,13 +163,13 @@ Monitor.AdminCategories.Change = {
     * @return  {Node/NodeList}             Vraca Node objekat ukoliko je query_all false, niz Node objekata inace
     */
     getElementSelector: function(element, query_all, modifier) {
-        return Monitor.Main.DOM.getElementSelector("AdminCategoriesChange", element, query_all, modifier);
+        return Kirby.Main.Dom.getElementSelector("AdminCategoriesChange", element, query_all, modifier);
     },
 
     /**
      * Generise HTML na osnovu prosledjenih podataka i ubacuje u omotac
      * @param  {Object} data        podaci o kategoriji
-     * @return {Object}      Monitor.AdminCategories.Change objekat za ulancavanje funkcija
+     * @return {Object}      Kirby.AdminCategories.Change objekat za ulancavanje funkcija
      */
     render: function(data){
         var elements = this.getElement("form").elements;
@@ -194,12 +194,12 @@ Monitor.AdminCategories.Change = {
     /**
     * Provera da li vec postoji kategorija s ovim korisnickim imenom
     * @param   {String}    username        Ime koje proveravamo
-    * @return  {Object}                    Monitor.AdminCategories.Change objekat, za ulančavanje funkcija
+    * @return  {Object}                    Kirby.AdminCategories.Change objekat, za ulančavanje funkcija
     */
     isCategoryNameTaken: function(name) {
         if (this.config.processing_name === false) {
             this.config.processing_name = true;
-            Monitor.Main.Ajax(
+            Kirby.Main.Ajax(
                 "AdminCategories",
                 "isCategoryNameTaken",
                 {
@@ -222,11 +222,11 @@ Monitor.AdminCategories.Change = {
     * Menja trenutno ime u podeseno
     * @param  {Number} category_id ID kategorije kojem se menja ime
     * @param  {String} name   ime kojim se menja
-    * @return {Object}        Monitor.AdminCategories.Change objekat za ulancavanje funkcija
+    * @return {Object}        Kirby.AdminCategories.Change objekat za ulancavanje funkcija
     */
     updateName: function(category_id, name){
         var callback = function () {
-            Monitor.Main.Ajax(
+            Kirby.Main.Ajax(
                 "AdminCategories",
                 "updateName",
                 {
@@ -234,7 +234,7 @@ Monitor.AdminCategories.Change = {
                     "name": name,
                 },
                 function(data) {
-                    var event = new CustomEvent("Monitor.Admin.Categories");
+                    var event = new CustomEvent("Kirby.Admin.Categories");
                     event.info = "Update";
                     event.data = data;
                     document.dispatchEvent(event);
@@ -257,10 +257,10 @@ Monitor.AdminCategories.Change = {
     /**
     * Dohvata kategoriju zarad dobijanja parametara
     * @param  {Number} category_id ID kategorije kojem se menja ime
-    * @return {Object}        Monitor.AdminCategories.Change objekat za ulancavanje funkcija
+    * @return {Object}        Kirby.AdminCategories.Change objekat za ulancavanje funkcija
     */
     fetchCategory: function(category_id){
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
             "AdminCategories",
             "fetchCategory",
             {
@@ -271,4 +271,4 @@ Monitor.AdminCategories.Change = {
         }
 
 };
-document.addEventListener('DOMContentLoaded', Monitor.AdminCategories.Change.init.bind(Monitor.AdminCategories.Change), false);
+document.addEventListener('DOMContentLoaded', Kirby.AdminCategories.Change.init.bind(Kirby.AdminCategories.Change), false);

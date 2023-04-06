@@ -43,7 +43,7 @@
         // window.addEventListener("popstate", popState,       false);
         getElement("more").addEventListener("click", clickLoadMore, false);
         document.addEventListener("Router.Url.Changed", getData, false);
-        document.addEventListener("Monitor.CategoryPageView", changeView, false);
+        document.addEventListener("Kirby.CategoryPageView", changeView, false);
     };
 
     var changeView = function (event) {
@@ -146,13 +146,13 @@
         setAppend(true);
         getData();
         config.page++;
-        var ev = new CustomEvent("Monitor.Filters.More.Clicked");
+        var ev = new CustomEvent("Kirby.Filters.More.Clicked");
         document.dispatchEvent(ev);
     };
 
     /**
      * Inicijalizacija sablona koje komponenta koristi
-     * @return  {Object}                    Monitor.AdminArticles.List
+     * @return  {Object}                    Kirby.AdminArticles.List
      */
     var initTemplates = function () {
         templates.main = _.template(document.getElementById("product_category__tmpl_list").innerHTML);
@@ -163,7 +163,7 @@
      * Registruje elemente koji se koriste u komponenti
      */
     var registerElements = function () {
-        Monitor.Main.DOM.register("ProductCategory", elements);
+        Kirby.Main.Dom.register("ProductCategory", elements);
     };
 
 
@@ -176,7 +176,7 @@
      * @return  {Node/NodeList}       Vraca Node objekat ukoliko je query_all false, niz objekata
      */
     var getElement = function (element, query_all, modifier, parent) {
-        return Monitor.Main.DOM.getElement("ProductCategory", element, query_all, modifier, parent);
+        return Kirby.Main.Dom.getElement("ProductCategory", element, query_all, modifier, parent);
     };
 
     /**
@@ -187,7 +187,7 @@
      * @return  {Node/NodeList}       Vraca Node objekat ukoliko je query_all false, niz objekata
      */
     var getElementSelector = function (element, query_all, modifier) {
-        return Monitor.Main.DOM.getElementSelector("ProductCategory", element, query_all, modifier);
+        return Kirby.Main.Dom.getElementSelector("ProductCategory", element, query_all, modifier);
     };
 
     var render = function (data) {
@@ -267,7 +267,7 @@
             config.banners_count = 0;
             config.append_count  = 0;
         }
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
             "ProductCategory",
             "fetchData",
             {

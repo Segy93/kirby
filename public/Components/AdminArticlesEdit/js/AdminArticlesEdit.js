@@ -1,14 +1,14 @@
 "use strict"
 
 if(typeof Monitor               === "undefined") var Monitor           = {};
-if(typeof Monitor.AdminArticles === "undefined") Monitor.AdminArticles = {};
+if(typeof Kirby.AdminArticles === "undefined") Kirby.AdminArticles = {};
 
 /**
  *
  * Modal za izmenu clanka
  *
  */
-Monitor.AdminArticlesEdit = {
+Kirby.AdminArticlesEdit = {
 
     config:{ // Konfiguracija komponente
         "editor_excerpt": {},
@@ -54,12 +54,12 @@ Monitor.AdminArticlesEdit = {
     /**
      * Inicijalizacija tinyMCE editora
      * @param   {string}    element         Na kom elementu (iz this.elements) ce biti editor
-     * @return  {Object}                    Monitor.AdminArticles.Change
+     * @return  {Object}                    Kirby.AdminArticles.Change
      */
     initEditor: function(element) {
         var selector = this.getElementSelector(element);
         var callback = this.setConfig.bind(this);
-        Monitor.Main.Editor.initEditor(element, selector, callback);
+        Kirby.Main.Editor.initEditor(element, selector, callback);
         return this;
     },
 
@@ -74,7 +74,7 @@ Monitor.AdminArticlesEdit = {
 
     /**
      * Inicijalizacija osluskivaca komponente
-     * @return  {Object}                    Monitor.AdminArticles.Change
+     * @return  {Object}                    Kirby.AdminArticles.Change
      */
     initListeners: function() {
         var $wrapper = $(this.getElementSelector("wrapper_list"));
@@ -82,16 +82,16 @@ Monitor.AdminArticlesEdit = {
 
         this.getElement("heading").addEventListener("input", this.blurHeading.bind(this), false);
         this.getElement("form").onsubmit =  this.submitChanges.bind(this);
-        document.addEventListener("Monitor.Admin.Articles", this.changeOccurred.bind(this), false);
+        document.addEventListener("Kirby.Admin.Articles", this.changeOccurred.bind(this), false);
         return this;
     },
 
     /**
-     * Registrovanje elemenata za Monitor.Main.DOM
-     * @return  {Object}                    Monitor.AdminArticles.Change
+     * Registrovanje elemenata za Kirby.Main.Dom
+     * @return  {Object}                    Kirby.AdminArticles.Change
      */
     registerElements: function() {
-        Monitor.Main.DOM.register("AdminArticlesEdit", this.elements);
+        Kirby.Main.Dom.register("AdminArticlesEdit", this.elements);
         return this;
     },
 
@@ -173,7 +173,7 @@ Monitor.AdminArticlesEdit = {
     * @return  {Node/NodeList}             Vraca Node objekat ukoliko je query_all false, niz Node objekata inace
     */
     getElement: function(element, query_all, modifier) {
-        return Monitor.Main.DOM.getElement("AdminArticlesEdit", element, query_all, modifier);
+        return Kirby.Main.Dom.getElement("AdminArticlesEdit", element, query_all, modifier);
     },
 
     /**
@@ -184,7 +184,7 @@ Monitor.AdminArticlesEdit = {
     * @return  {Node/NodeList}             Vraca Node objekat ukoliko je query_all false, niz Node objekata inace
     */
     getElementSelector: function(element, query_all, modifier) {
-        return Monitor.Main.DOM.getElementSelector("AdminArticlesEdit", element, query_all, modifier);
+        return Kirby.Main.Dom.getElementSelector("AdminArticlesEdit", element, query_all, modifier);
     },
 
 
@@ -213,7 +213,7 @@ Monitor.AdminArticlesEdit = {
     /**
      * Zadaje validity za heading polje, u zavisnosti da li postoji clanak s ovim naslovom
      * @param   {Boolean}   exists          Da li je heading vec zauzet
-     * @return  {Object}                    Monitor.AdminArticles.Create objekat, za ulančavanje funkcija
+     * @return  {Object}                    Kirby.AdminArticles.Create objekat, za ulančavanje funkcija
      */
     setHeadingValidity: function(exists) {
         this.getElement("heading").setCustomValidity(
@@ -241,10 +241,10 @@ Monitor.AdminArticlesEdit = {
     /**
      * Dohvatanje informacija o pojedinacnom clanku
      * @param   {Number}    article_id      ID clanka koji dohvatamo
-     * @return  {Object}                    Monitor.AdminArticles.Change
+     * @return  {Object}                    Kirby.AdminArticles.Change
      */
     fetchArticle: function(article_id) {
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
             "AdminArticlesEdit",
             "fetchArticle",
             {
@@ -259,10 +259,10 @@ Monitor.AdminArticlesEdit = {
     /**
      * Provera da li vec postoji tag s ovim korisnickim imenom
      * @param   {String}    username        Ime koje proveravamo
-     * @return  {Object}                    Monitor.AdminTags.Change objekat, za ulančavanje funkcija
+     * @return  {Object}                    Kirby.AdminTags.Change objekat, za ulančavanje funkcija
      */
     isHeadingTaken: function(heading) {
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
             "AdminArticlesEdit",
             "isHeadingTaken",
             {
@@ -280,7 +280,7 @@ Monitor.AdminArticlesEdit = {
      * @param   {string}    heading         Naslov clanka
      * @param   {string}    text            Tekst clanka
      * @param   {string}    excerpt         Isecak
-     * @return  {Object}                    Monitor.AdminArticles.Change
+     * @return  {Object}                    Kirby.AdminArticles.Change
      */
     updateArticle: function(article_id, heading, text, excerpt, author_id) {
         var params = {
@@ -291,13 +291,13 @@ Monitor.AdminArticlesEdit = {
         };
         if (author_id !== undefined) params.author_id = author_id;
 
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
             "AdminArticlesEdit",
             "updateArticle",
              params,
 
             function (data) {
-                var event   = new CustomEvent("Monitor.Admin.Articles");
+                var event   = new CustomEvent("Kirby.Admin.Articles");
                 event.info = "Update";
                 event.data = data;
                 document.dispatchEvent(event);
@@ -310,4 +310,4 @@ Monitor.AdminArticlesEdit = {
 
 };
 
-document.addEventListener("DOMContentLoaded", Monitor.AdminArticlesEdit.init.bind(Monitor.AdminArticlesEdit), false);
+document.addEventListener("DOMContentLoaded", Kirby.AdminArticlesEdit.init.bind(Kirby.AdminArticlesEdit), false);

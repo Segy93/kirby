@@ -1,9 +1,9 @@
 "use strict";
 
 if(typeof Monitor                 === "undefined") var Monitor             = {};
-if(typeof Monitor.AdminCategories === "undefined") Monitor.AdminCategories = {};
+if(typeof Kirby.AdminCategories === "undefined") Kirby.AdminCategories = {};
 
-Monitor.AdminCategories.Delete = {
+Kirby.AdminCategories.Delete = {
 
 
 
@@ -46,7 +46,7 @@ Monitor.AdminCategories.Delete = {
 
     /**
      * Inicijalizacija osluškivača u okviru komponente, kao i funkcija koje reaguju na njih
-     * @return  {Object}                    Monitor.AdminCategories.Delete objekat, za ulančavanje funkcija
+     * @return  {Object}                    Kirby.AdminCategories.Delete objekat, za ulančavanje funkcija
      */
     initListeners: function() {
         $(this.getElementSelector("wrapper")).on("show.bs.modal", this.componentRequested.bind(this));
@@ -56,10 +56,10 @@ Monitor.AdminCategories.Delete = {
 
     /**
      * Registracija elemenata u upotrebi od strane komponente
-     * @return  {Object}                     Monitor.AdminCategories.Delete objekat, za ulančavanje funkcija
+     * @return  {Object}                     Kirby.AdminCategories.Delete objekat, za ulančavanje funkcija
      */
     registerElements: function() {
-        Monitor.Main.DOM.register("AdminCategoriesDelete", this.elements);
+        Kirby.Main.Dom.register("AdminCategoriesDelete", this.elements);
         return this;
     },
 
@@ -105,7 +105,7 @@ Monitor.AdminCategories.Delete = {
      * @return  {Node/NodeList}             Vraca Node objekat ukoliko je query_all false, niz Node objekata inace
      */
     getElement: function(element, query_all, modifier) {
-        return Monitor.Main.DOM.getElement("AdminCategoriesDelete", element, query_all, modifier);
+        return Kirby.Main.Dom.getElement("AdminCategoriesDelete", element, query_all, modifier);
     },
 
     /**
@@ -116,7 +116,7 @@ Monitor.AdminCategories.Delete = {
      * @return  {Node/NodeList}             Vraca Node objekat ukoliko je query_all false, niz Node objekata inace
      */
     getElementSelector: function(element, query_all, modifier) {
-        return Monitor.Main.DOM.getElementSelector("AdminCategoriesDelete", element, query_all, modifier);
+        return Kirby.Main.Dom.getElementSelector("AdminCategoriesDelete", element, query_all, modifier);
     },
 
 
@@ -138,7 +138,7 @@ Monitor.AdminCategories.Delete = {
 
     /**
      * Zadaje ID trenutne kategorije
-     * @return  {Object}                    Monitor.AdminCategories.Delete objekat, za ulančavanje funkcija
+     * @return  {Object}                    Kirby.AdminCategories.Delete objekat, za ulančavanje funkcija
      */
     setCategoryID: function(category_id) {
         this.config.category_id = category_id;
@@ -156,17 +156,17 @@ Monitor.AdminCategories.Delete = {
 
     /**
      * Brise trenutnog korisnika
-     * @return  {Object}                    Monitor.AdminUsers.Dialogs.Delete objekat, za ulančavanje funkcija
+     * @return  {Object}                    Kirby.AdminUsers.Dialogs.Delete objekat, za ulančavanje funkcija
      */
     deleteCategory: function() {
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
             "AdminCategories",
             "deleteCategory",
             {
                 "category_id": this.getCategoryID(),
             },
             function(data) {
-                var event = new CustomEvent("Monitor.Admin.Categories");
+                var event = new CustomEvent("Kirby.Admin.Categories");
                 event.info = "Delete";
                 event.data = data;
                 document.dispatchEvent(event);
@@ -175,4 +175,4 @@ Monitor.AdminCategories.Delete = {
         return this;
     },
 }
-document.addEventListener('DOMContentLoaded', Monitor.AdminCategories.Delete.init.bind(Monitor.AdminCategories.Delete), false);
+document.addEventListener('DOMContentLoaded', Kirby.AdminCategories.Delete.init.bind(Kirby.AdminCategories.Delete), false);

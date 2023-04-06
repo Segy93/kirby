@@ -556,7 +556,7 @@
       });
     }
 
-    AjaxMonitor.prototype.watch = function(_arg) {
+    AjaxKirby.prototype.watch = function(_arg) {
       var request, tracker, type, url;
       type = _arg.type, request = _arg.request, url = _arg.url;
       if (shouldIgnoreURL(url)) {
@@ -679,7 +679,7 @@
   })();
 
   DocumentMonitor = (function() {
-    DocumentMonitor.prototype.states = {
+    DocumentKirby.prototype.states = {
       loading: 0,
       interactive: 50,
       complete: 100

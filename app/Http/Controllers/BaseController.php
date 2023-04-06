@@ -55,10 +55,10 @@ class BaseController extends Controller {
         'libs/omni-slider.min.js',
         'libs/underscore-min.js',
 
-        'libs/MonitorPolyfill.js',
-        'libs/MonitorMainAjax.js',
-        'libs/MonitorMainDOM.js',
-        'libs/MonitorMainRouter.js',
+        'libs/KirbyPolyfill.js',
+        'libs/KirbyMainAjax.js',
+        'libs/KirbyMainDOM.js',
+        'libs/KirbyMainRouter.js',
     ];
 
     protected function getJSExternal() {

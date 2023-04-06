@@ -1,10 +1,10 @@
 "use strict";
 
 if (typeof Monitor                     === "undefined") var Monitor                   = {};
-if (typeof Monitor.AdminUsers          === "undefined") Monitor.AdminUsers            = {};
-if (typeof Monitor.AdminUsers.Dialogs  === "undefined") Monitor.AdminUsers.Dialogs    = {};
+if (typeof Kirby.AdminUsers          === "undefined") Kirby.AdminUsers            = {};
+if (typeof Kirby.AdminUsers.Dialogs  === "undefined") Kirby.AdminUsers.Dialogs    = {};
 
-Monitor.AdminUsers.Dialogs.Cart = {
+Kirby.AdminUsers.Dialogs.Cart = {
     /**
      *
      * Konfiguracija komponente
@@ -53,7 +53,7 @@ Monitor.AdminUsers.Dialogs.Cart = {
 
     /**
      * Inicijalizacija osluškivača u okviru komponente, kao i funkcija koje reaguju na njih
-     * @return  {Object}                    Monitor.AdminUsers.Dialogs.Cart objekat, za ulančavanje funkcija
+     * @return  {Object}                    Kirby.AdminUsers.Dialogs.Cart objekat, za ulančavanje funkcija
      */
     initListeners: function() {
         var $wrapper = $(this.getElementSelector("wrapper"));
@@ -65,10 +65,10 @@ Monitor.AdminUsers.Dialogs.Cart = {
 
     /**
      * Registracija elemenata u upotrebi od strane komponente
-     * @return  {Object}                    Monitor.AdminUsers.Dialogs.Cart objekat, za ulančavanje funkcija
+     * @return  {Object}                    Kirby.AdminUsers.Dialogs.Cart objekat, za ulančavanje funkcija
      */
     registerElements: function() {
-        Monitor.Main.DOM.register("AdminUserDialogCart", this.elements);
+        Kirby.Main.Dom.register("AdminUserDialogCart", this.elements);
         return this;
     },
 
@@ -112,7 +112,7 @@ Monitor.AdminUsers.Dialogs.Cart = {
 
     /**
      * Zatvara modal
-     * @return  {Object}                    Monitor.AdminUsers.Dialogs.Cart objekat, za ulančavanje funkcija
+     * @return  {Object}                    Kirby.AdminUsers.Dialogs.Cart objekat, za ulančavanje funkcija
      */
     hideDialog: function() {
         $(this.getElement("wrapper")).modal("hide");
@@ -127,7 +127,7 @@ Monitor.AdminUsers.Dialogs.Cart = {
      * @return  {Node/NodeList}             Vraca Node objekat ukoliko je query_all false, niz Node objekata inace
      */
     getElement: function(element, query_all, modifier) {
-        return Monitor.Main.DOM.getElement("AdminUserDialogCart", element, query_all, modifier);
+        return Kirby.Main.Dom.getElement("AdminUserDialogCart", element, query_all, modifier);
     },
 
     /**
@@ -138,7 +138,7 @@ Monitor.AdminUsers.Dialogs.Cart = {
      * @return  {Node/NodeList}             Vraca Node objekat ukoliko je query_all false, niz Node objekata inace
      */
     getElementSelector: function(element, query_all, modifier) {
-        return Monitor.Main.DOM.getElementSelector("AdminUserDialogCart", element, query_all, modifier);
+        return Kirby.Main.Dom.getElementSelector("AdminUserDialogCart", element, query_all, modifier);
     },
 
 
@@ -154,7 +154,7 @@ Monitor.AdminUsers.Dialogs.Cart = {
     /**
      * Generise HTML na osnovu prosledjenih podataka i ubacuje u omotac
      * @param   {Object}    data            Podaci sa informacijama o korisniku
-     * @return  {Object}                    Monitor.AdminUsers.Dialogs.Cart objekat, za ulančavanje funkcija
+     * @return  {Object}                    Kirby.AdminUsers.Dialogs.Cart objekat, za ulančavanje funkcija
      */
     render: function(data) {
         var element = this.getElement("table_body");
@@ -204,10 +204,10 @@ Monitor.AdminUsers.Dialogs.Cart = {
     /**
      * Dohvata informacije o korisniku
      * @param   {Number}    user_id         ID korisnika za koga dohvatamo statistiku
-     * @return  {Object}                    Monitor.AdminUsers.Dialogs.Cart objekat, za ulančavanje funkcija
+     * @return  {Object}                    Kirby.AdminUsers.Dialogs.Cart objekat, za ulančavanje funkcija
      */
     fetchCart: function(user_id) {
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
             "AdminUsers",
             "fetchCart",
             {
@@ -219,7 +219,7 @@ Monitor.AdminUsers.Dialogs.Cart = {
     },
 
     deleteCartItem: function(user_id, product_id) {
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
             "AdminUsers",
             "deleteCartItem",
             {
@@ -232,4 +232,4 @@ Monitor.AdminUsers.Dialogs.Cart = {
     },
 };
 
-document.addEventListener('DOMContentLoaded', Monitor.AdminUsers.Dialogs.Cart.init.bind(Monitor.AdminUsers.Dialogs.Cart), false);
+document.addEventListener('DOMContentLoaded', Kirby.AdminUsers.Dialogs.Cart.init.bind(Kirby.AdminUsers.Dialogs.Cart), false);

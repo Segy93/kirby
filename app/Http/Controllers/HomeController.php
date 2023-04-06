@@ -64,8 +64,6 @@ use App\Providers\AdminService;
 use App\Providers\BannerService;
 use App\Providers\CommentService;
 use App\Providers\ConfigService;
-use App\Providers\ConfigurationService;
-use App\Providers\ConfiguratorService;
 use App\Providers\SearchService;
 use App\Providers\SEOService;
 use App\Providers\SessionService;
@@ -345,12 +343,6 @@ class HomeController extends BaseController {
     }
 
     public function productPage($params, $additional = [], $query = []) {
-        $is_configurator = false;
-        $configuration_name = ConfigurationService::$reserved_name;
-        if (array_key_exists('konfigurator', $query)) {
-            $is_configurator = true;
-            $configuration_name = $query['konfigurator'];
-        }
         $active_tab = '';
         $active_tab = $query['tab'] ?? '';
         $breadcrumbs =  new Breadcrumbs();
@@ -362,7 +354,7 @@ class HomeController extends BaseController {
             ],
             [
                 new Breadcrumbs(),
-                new ProductPage($params, $breadcrumbs, $comment_list, $active_tab, $is_configurator, $configuration_name),
+                new ProductPage($params, $breadcrumbs, $comment_list, $active_tab),
             ],
         ]);
     }
@@ -391,12 +383,11 @@ class HomeController extends BaseController {
         $cart       = new Cart();
         $wishlist   = new WishList();
         $order      = new OrderList();
-        $configuration_list = new ConfigurationList();
         $this->content['main'] [] = new MainContainer([
             [],
             [
                 new Breadcrumbs(),
-                new UserProfile($cart, $wishlist, $order, $configuration_list, $info, $active_tab),
+                new UserProfile($cart, $wishlist, $order, $info, $active_tab),
             ],
         ]);
     }
@@ -411,12 +402,12 @@ class HomeController extends BaseController {
         ]);
     }
 
-    public function checkoutPage(bool $is_configuration = false, ?string $name = null) {
+    public function checkoutPage() {
         $this->content['main'][] = new MainContainer([
             [],
             [
                 new BreadCrumbs(),
-                new CheckoutPage($is_configuration, $name),
+                new CheckoutPage(),
             ]
         ]);
     }
@@ -672,33 +663,14 @@ class HomeController extends BaseController {
 
     public function checkout() {
         $cart       = ShopService::getUserCartCurrent();
-        $is_configurator = false;
         $name = null;
         if (!empty($cart)) {
             return $this->getView(
                 'checkout',
-                $is_configurator,
                 $name
             );
         } else {
             return redirect()->route('cart');
-        }
-    }
-
-    public function checkoutConfigurator(?string $name = null) {
-        if ($name !== null) {
-            $name = urldecode($name);
-        }
-        $is_configuration = true;
-        $configuration = ConfigurationService::getConfigurationArray($name);
-        if (!empty($configuration['products'])) {
-            return $this->getView(
-                'checkout',
-                $is_configuration,
-                $name
-            );
-        } else {
-            return redirect()->route('configurator');
         }
     }
 
@@ -730,13 +702,8 @@ class HomeController extends BaseController {
     public function checkoutPost(Request $request) {
         $user = UserService::getCurrentUser();
         $user_id = $user !== null ? $user->id : null;
-        $username = $user !== null ? $user->username : null;
         $this->deleteSession('checkoutErrors');
         $type               = $request->input('type');
-        $configuration_id   = $request->input('configuration_id') !== ''
-            ? intval($request->input('configuration_id'))
-            : null
-        ;
         $errors         = [];
         $name           = $request->input('user_data_name');
         $surname        = $request->input('user_data_surname');
@@ -746,20 +713,9 @@ class HomeController extends BaseController {
         $is_logged_in   = UserService::isUserLoggedIn();
 
         $cart               = ShopService::getUserCartCurrent();
-        $configuration      = ConfigurationService::getConfigurationByUserIdConfigurationId($user_id, $configuration_id);
 
         if ($type === 'cart' && empty($cart)) {
             return redirect()->route('cart');
-        } else if ($type === 'configuration' && empty($configuration)) {
-            if ($configuration_id === null) {
-                return redirect()->route('configurator');
-            } else {
-                $configuration_name = ConfigurationService::getConfigurationById($configuration_id)->name;
-                return redirect()->route('configurator', [
-                    'username'  => urlencode($username),
-                    'name'      => urlencode($configuration_name)
-                ]);
-            }
         }
 
         if (!$terms_of_use) {
@@ -880,8 +836,7 @@ class HomeController extends BaseController {
                 $online_token,
                 $date_delivery,
                 $note,
-                $type,
-                $configuration_id
+                $type
             );
         } else {
             $order = false;

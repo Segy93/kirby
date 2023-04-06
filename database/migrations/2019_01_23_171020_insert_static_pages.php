@@ -112,7 +112,7 @@ class InsertStaticPages extends Migration {
         DB::table('SEO')->insert([
             'machine_name' => "static_" . $page_conditions->id,
             'title'        => 'Opšti uslovi',
-            'description'  => 'Koristeći web stranicu www.monitor.rs prihvatate pravila propisana ovim Opštim uslovima. Ukoliko ne prihvatate ove uslove nemojte koristiti web sajt www.monitor.rs u daljem tekstu Sajt“.',
+            'description'  => 'Koristeći web stranicu www.kesezakirby.rs prihvatate pravila propisana ovim Opštim uslovima. Ukoliko ne prihvatate ove uslove nemojte koristiti web sajt www.kesezakirby.rs u daljem tekstu Sajt“.',
             'url' => 'opsti-uslovi',
         ]);
 
@@ -136,7 +136,7 @@ class InsertStaticPages extends Migration {
         DB::table('SEO')->insert([
             'machine_name' => "static_" . $page_ordering->id,
             'title' => 'Kako naručiti',
-            'description' => 'Dolaskom na web sajt www.monitor.rs odmah u gornjem delu samog sajta ugledćete meni sa ispisanim kategorijama. Klikom na sam meni otvara se opširnija ponuda. Izaberite vrstu uređaja i klikom na isti.',
+            'description' => 'Dolaskom na web sajt www.kesezakirby.rs odmah u gornjem delu samog sajta ugledćete meni sa ispisanim kategorijama. Klikom na sam meni otvara se opširnija ponuda. Izaberite vrstu uređaja i klikom na isti.',
             'url' => 'kako-naruciti',
         ]);
 
@@ -192,7 +192,7 @@ class InsertStaticPages extends Migration {
         DB::table('SEO')->insert([
             'machine_name' => "static_" . $page_contact->id,
             'title' => 'Kontakt',
-            'description' => 'Monitor System d.o.o Kumanovska 14 11000 Beograd, Vračar Tel: +381 11 3086 979 Tel: +381 11 3086 979 Mob: +381 65 3086 979 Email: prodaja@monitor.rs ; nabavka@monitor.rs Web: www.monitor.rs',
+            'description' => 'Monitor System d.o.o Kumanovska 14 11000 Beograd, Vračar Tel: +381 11 3086 979 Tel: +381 11 3086 979 Mob: +381 65 3086 979 Email: prodaja@kesezakirby.rs ; nabavka@kesezakirby.rs Web: www.kesezakirby.rs',
             'url' => 'kontakt',
         ]);
 

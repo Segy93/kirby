@@ -27,7 +27,7 @@
     };
 
     var registerElements = function () {
-        Monitor.Main.DOM.register("AtomCartToggle", elements);
+        Kirby.Main.Dom.register("AtomCartToggle", elements);
     };
 
 
@@ -115,7 +115,7 @@
      * @return  {Node/NodeList}             Vraca Node objekat ukoliko je query_all false, niz Node objekata inace
      */
     var getElement = function(element, query_all, modifier, parent) {
-        return Monitor.Main.DOM.getElement("AtomCartToggle", element, query_all, modifier, parent);
+        return Kirby.Main.Dom.getElement("AtomCartToggle", element, query_all, modifier, parent);
     };
 
     /**
@@ -126,7 +126,7 @@
      * @return  {Node/NodeList}             Vraca Node objekat ukoliko je query_all false, niz Node objekata inace
      */
     var getElementSelector = function(element, query_all, modifier) {
-        return Monitor.Main.DOM.getElementSelector("AtomCartToggle", element, query_all, modifier);
+        return Kirby.Main.Dom.getElementSelector("AtomCartToggle", element, query_all, modifier);
     };
 
     // var render = function (data) {
@@ -143,7 +143,7 @@
 
 
     var changeCart = function (product_id, quantity, in_cart) {
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
             "AtomCartToggle",
             "changeCart",
             {
@@ -164,7 +164,7 @@
     };
 
     // var getUserCart = function () {
-    //     Monitor.Main.Ajax(
+    //     Kirby.Main.Ajax(
     //         "AtomCartToggle",
     //         "getUserCart",
     //         {

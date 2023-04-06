@@ -146,63 +146,6 @@ $router->get( // Korisnicka lista zelja
     ]
 );
 
-$router->get( // Korisnicka lista zelja
-    'konfigurator[/{username}/{name}]',
-    [
-        'as'    => 'configurator',
-        'uses'  => 'ConfiguratorController@newConfigurator',
-    ]
-);
-
-$router->get( // Korisnicka lista zelja
-    'lista-konfiguracija',
-    [
-        'as'    => 'configurationList',
-        'uses'  => 'ConfiguratorController@configurationList',
-    ]
-);
-
-$router->get( // Korisnicka lista zelja
-    'konfigurator/dodaj/{name}/{category_url}',
-    [
-        'as'    => 'configuratorAdd',
-        'uses'  => 'ConfiguratorController@configuratorProductList',
-    ]
-);
-
-$router->post(
-    'konfigurator-kreiraj',
-    [
-        'as'    => 'configuratorCreate',
-        'uses'  => 'ConfiguratorController@configuratorCreate',
-    ]
-);
-
-$router->post(
-    'konfigurator-izmeni',
-    [
-        'as'    => 'configuratorEdit',
-        'uses'  => 'ConfiguratorController@configuratorEdit',
-    ]
-);
-
-$router->post(
-    'konfigurator-brisanje-proizvoda',
-    [
-        'as'    => 'configuratorItemDelete',
-        'uses'  => 'ConfiguratorController@configuratorItemDelete',
-    ]
-);
-
-$router->post(
-    'konfiguracija-brisanje',
-    [
-        'as'    => 'configurationDelete',
-        'uses'  => 'ConfiguratorController@configurationDelete',
-    ]
-);
-
-
 $router->post( // POST za dodavanje proizvoda u korpu
     'configurator_add',
     [

@@ -94,7 +94,7 @@
      */
     function registerElements() {
         // @ts-ignore
-        Monitor.Main.DOM.register("Login", elements);
+        Kirby.Main.Dom.register("Login", elements);
     };
 
 
@@ -230,7 +230,7 @@
 
         history.pushState({}, document.title, href);
 
-        document.dispatchEvent(new CustomEvent("Monitor.PushState"));
+        document.dispatchEvent(new CustomEvent("Kirby.PushState"));
 
         /** @type {?HTMLLabelElement} */
         // @ts-ignore
@@ -369,7 +369,7 @@
      */
     function checkEmailTaken(email) {
         // @ts-ignore
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
             "Login",
             "checkEmailTaken",
             {
@@ -402,7 +402,7 @@
      */
      function checkUsernameTaken(username) {
         // @ts-ignore
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
             "Login",
             "checkUsernameTaken",
             {

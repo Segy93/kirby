@@ -78,7 +78,7 @@
      * Registruje elemente koji se koriste u komponenti
      */
     var registerElements = function() {
-        Monitor.Main.DOM.register("UserProfileAddresses", elements);
+        Kirby.Main.Dom.register("UserProfileAddresses", elements);
     };
 
     var blurAddress = function(event) {
@@ -253,7 +253,7 @@
     * @return  {Node/NodeList}       Vraca Node objekat ukoliko je query_all false, niz Node obj
     */
     var getElement = function(element, query_all, modifier, parent) {
-        return Monitor.Main.DOM.getElement(
+        return Kirby.Main.Dom.getElement(
             "UserProfileAddresses", element, query_all, modifier, parent
         );
     };
@@ -266,7 +266,7 @@
     * @return  {Node/NodeList}       Vraca Node objekat ukoliko je query_all false, niz Node obj
     */
     var getElementSelector = function(element, query_all, modifier) {
-        return Monitor.Main.DOM.getElementSelector(
+        return Kirby.Main.Dom.getElementSelector(
             "UserProfileAddresses", element, query_all, modifier
         );
     };
@@ -292,7 +292,7 @@
 
 
     var fetchData = function() {
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
             "UserProfile",
             "getAddresses",
             {},
@@ -301,7 +301,7 @@
     };
 
     var createAddress = function(address, name, surname, company, phone, city, postal_code, pib) {
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
             "UserProfile",
             "createAddress",
             {
@@ -328,7 +328,7 @@
     };
 
     var editAddress = function(address_id, address, name, surname, company, phone, city, postal_code, pib) {
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
             "UserProfile",
             "editAddress",
             {
@@ -356,7 +356,7 @@
 
 
     var deleteAddress = function (id) {
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
             "UserProfile",
             "deleteAddress",
             {
@@ -367,7 +367,7 @@
     }
 
     var checkAddress = function(address_id, address) {
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
             "UserProfile",
             "checkAddress",
             {
@@ -392,7 +392,7 @@
     }
 
     var checkPhone = function(address_id, phone) {
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
             "UserProfile",
             "checkPhone",
             {

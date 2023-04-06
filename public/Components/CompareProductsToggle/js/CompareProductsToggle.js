@@ -24,7 +24,7 @@
     };
 
     var registerElements = function () {
-        Monitor.Main.DOM.register("CompareProductsToggle", elements);
+        Kirby.Main.Dom.register("CompareProductsToggle", elements);
     };
 
 
@@ -90,7 +90,7 @@
      * @return  {Node/NodeList}             Vraca Node objekat ukoliko je query_all false, niz Node objekata inace
      */
     var getElement = function(element, query_all, modifier, parent) {
-        return Monitor.Main.DOM.getElement("CompareProductsToggle", element, query_all, modifier, parent);
+        return Kirby.Main.Dom.getElement("CompareProductsToggle", element, query_all, modifier, parent);
     };
 
     /**
@@ -101,7 +101,7 @@
      * @return  {Node/NodeList}             Vraca Node objekat ukoliko je query_all false, niz Node objekata inace
      */
     var getElementSelector = function(element, query_all, modifier) {
-        return Monitor.Main.DOM.getElementSelector("CompareProductsToggle", element, query_all, modifier);
+        return Kirby.Main.Dom.getElementSelector("CompareProductsToggle", element, query_all, modifier);
     };
 
 
@@ -121,7 +121,7 @@
 
 
     var changeCompare = function (product_id, in_compare) {
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
             "CompareProductsToggle",
             "changeCompare",
             {
@@ -140,7 +140,7 @@
 
 
     // var getComparing = function() {
-    //     Monitor.Main.Ajax(
+    //     Kirby.Main.Ajax(
     //         "CompareProductsToggle",
     //         "getComparingProductsIds",
     //         {

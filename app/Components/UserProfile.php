@@ -37,7 +37,6 @@ class UserProfile extends BaseComponent {
         $cart = null,
         $wishlist = null,
         $order = null,
-        $configuration_list = null,
         $info = [],
         $active_tab = ''
     ) {
@@ -53,10 +52,6 @@ class UserProfile extends BaseComponent {
 
         if ($order !== null) {
             array_push($components, $order);
-        }
-
-        if ($configuration_list !== null) {
-            array_push($components, $configuration_list);
         }
 
         $profile_settings   = new UserProfileInfo($info);
@@ -78,11 +73,6 @@ class UserProfile extends BaseComponent {
             [
                 'label' => 'Notifikacije',
                 'component' => $notifications,
-                'has_notifications' => false,
-            ],
-            [
-                'label' => 'Lista konfiguracija',
-                'component' => $configuration_list,
                 'has_notifications' => false,
             ],
         ];

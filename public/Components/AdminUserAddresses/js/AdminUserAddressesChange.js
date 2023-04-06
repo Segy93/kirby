@@ -1,10 +1,10 @@
 "use strict";
 
 if (typeof Monitor                     === "undefined") var Monitor                   = {};
-if (typeof Monitor.AdminUsers          === "undefined") Monitor.AdminUsers            = {};
-if (typeof Monitor.AdminUsersAddresses === "undefined") Monitor.AdminUsersAddresses   = {};
+if (typeof Kirby.AdminUsers          === "undefined") Kirby.AdminUsers            = {};
+if (typeof Kirby.AdminUsersAddresses === "undefined") Kirby.AdminUsersAddresses   = {};
 
-Monitor.AdminUsersAddresses.Change= {
+Kirby.AdminUsersAddresses.Change= {
 
     config: { // konfiguracioni parametri komponente
     },
@@ -27,7 +27,7 @@ Monitor.AdminUsersAddresses.Change= {
 
      /**
      * Inicijalizacija osluškivača u okviru komponente, kao i funkcija koje reaguju na njih
-     * @return  {Object}                    Monitor.AdminUsers.Dialogs.Edit objekat, za ulančavanje funkcija
+     * @return  {Object}                    Kirby.AdminUsers.Dialogs.Edit objekat, za ulančavanje funkcija
      */
     initListeners: function() {
         $(this.getElementSelector("wrapper")).on("show.bs.modal", this.componentRequested.bind(this));
@@ -37,10 +37,10 @@ Monitor.AdminUsersAddresses.Change= {
 
     /**
      * Registracija elemenata u upotrebi od strane komponente
-     * @return  {Object}                    Monitor.AdminAddress.Dialogs.Edit objekat, za ulančavanje funkcija
+     * @return  {Object}                    Kirby.AdminAddress.Dialogs.Edit objekat, za ulančavanje funkcija
      */
     registerElements: function() {
-        Monitor.Main.DOM.register("AdminUserAddressesChange", this.elements);
+        Kirby.Main.Dom.register("AdminUserAddressesChange", this.elements);
         return this;
     },
 
@@ -99,7 +99,7 @@ Monitor.AdminUsersAddresses.Change= {
 
     /**
      * Zatvara modal
-     * @return  {Object}                    Monitor.AdminAdress.Dialogs.Edit objekat, za ulančavanje funkcija
+     * @return  {Object}                    Kirby.AdminAdress.Dialogs.Edit objekat, za ulančavanje funkcija
      */
     hideDialog: function() {
         $(this.getElement("wrapper")).modal("hide");
@@ -114,7 +114,7 @@ Monitor.AdminUsersAddresses.Change= {
      * @return  {Node/NodeList}             Vraca Node objekat ukoliko je query_all false, niz Node objekata inace
      */
     getElement: function(element, query_all, modifier) {
-        return Monitor.Main.DOM.getElement("AdminUserAddressesChange", element, query_all, modifier);
+        return Kirby.Main.Dom.getElement("AdminUserAddressesChange", element, query_all, modifier);
     },
 
     /**
@@ -125,7 +125,7 @@ Monitor.AdminUsersAddresses.Change= {
      * @return  {Node/NodeList}             Vraca Node objekat ukoliko je query_all false, niz Node objekata inace
      */
     getElementSelector: function(element, query_all, modifier) {
-        return Monitor.Main.DOM.getElementSelector("AdminUserAddressesChange", element, query_all, modifier);
+        return Kirby.Main.Dom.getElementSelector("AdminUserAddressesChange", element, query_all, modifier);
     },
 
 
@@ -170,10 +170,10 @@ Monitor.AdminUsersAddresses.Change= {
     /**
      * Dohvata informacije o adresama
      * @param   {Number}    address_id         ID adrese koju dohvatamo
-     * @return  {Object}                    Monitor.AdminAdress.Dialogs.Edit objekat, za ulančavanje funkcija
+     * @return  {Object}                    Kirby.AdminAdress.Dialogs.Edit objekat, za ulančavanje funkcija
      */
     fetchData: function(address_id) {
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
             "AdminUserAddresses",
             "getAddressById",
             {
@@ -187,10 +187,10 @@ Monitor.AdminUsersAddresses.Change= {
     /**
      * Azurira statistiku korisnika
      * @param   {Number}    address_id         ID korisnika kog azuriramo
-     * @return  {Object}                    Monitor.AdminAddress.Dialogs.Edit objekat, za ulančavanje funkcija
+     * @return  {Object}                    Kirby.AdminAddress.Dialogs.Edit objekat, za ulančavanje funkcija
      */
     updateAddress: function(address_id, contact_name, contact_surname, company, phone_nr, address, postal_code, country, pib) {
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
             "AdminUserAddresses",
             "updateAddress",
             {
@@ -205,7 +205,7 @@ Monitor.AdminUsersAddresses.Change= {
                 pib:                pib
             },
             (data) => {
-                var event = new CustomEvent("Monitor.UserAddresses");
+                var event = new CustomEvent("Kirby.UserAddresses");
                 event.info = "Update";
                 event.data = data;
                 document.dispatchEvent(event);
@@ -219,6 +219,6 @@ Monitor.AdminUsersAddresses.Change= {
 
 
 
-document.addEventListener('DOMContentLoaded', Monitor.AdminUsersAddresses.Change.init.bind(Monitor.AdminUsersAddresses.Change), false);
+document.addEventListener('DOMContentLoaded', Kirby.AdminUsersAddresses.Change.init.bind(Kirby.AdminUsersAddresses.Change), false);
 
 

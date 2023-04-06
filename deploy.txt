@@ -1,21 +1,15 @@
 pristup serveru
 lamp
 pristup bazi
-monitor_tabele
+kirby_tabele
 slike
 git instalirati ako nema
-git clone https://github.com/teacher987/monitor.git
-mv monitor www
+git clone https://github.com/segy93/kirby.git
+mv kirby www
 php72 artisan migrate
 /admin -> logovanje /database ->uvoz
 dozvole za slike
 cd www/scripts; chmod 777 install_cron.sh; ./install_cron.sh;
-transfer_query.sql pokrenuti
-prebaciti podatke u monitor_tabele
-scp -P 2223 monitor_podaci.sql monitornew@novi.monitor.rs:www/database/scripts
-mysql -h localhost -u monitornew -p monitornew < site_data.sql
-transfer_query.sql pokrenuti
-mysql -h localhost -u monitornew -p monitornew < transfer_query.sql 
 ili rucno u phpmyadmin
 (dok se ovo uvozi drntati nesto po konzoli da ne pukne konekcija npr strelice gore dole to
 ne prekida uvoz a odrzava konekciju)

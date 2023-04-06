@@ -27,7 +27,7 @@
 
     var initEmbed = function() {
         var wrapper = getElement("wrapper");
-        Monitor.Main.Shortcodes.initEmbeds(wrapper);
+        Kirby.Main.Shortcodes.initEmbeds(wrapper);
     };
 
     var initListeners = function() {
@@ -35,7 +35,7 @@
     };
 
     var registerElements = function() {
-        Monitor.Main.DOM.register("ArticlePage", elements);
+        Kirby.Main.Dom.register("ArticlePage", elements);
     };
 
 
@@ -61,7 +61,7 @@
 
 
     var getElement = function(element, query_all, modifier, parent) {
-        return Monitor.Main.DOM.getElement("ArticlePage", element, query_all, modifier, parent);
+        return Kirby.Main.Dom.getElement("ArticlePage", element, query_all, modifier, parent);
     };
 
     var calculateEmbedHeights = function() {

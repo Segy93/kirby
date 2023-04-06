@@ -1,9 +1,9 @@
 "use strict"
 
 if (typeof Monitor === "undefined") var Monitor = {};
-if (typeof Monitor.AdminTags === "undefined") Monitor.AdminTags = {};
+if (typeof Kirby.AdminTags === "undefined") Kirby.AdminTags = {};
 
-Monitor.AdminTags.Create = {
+Kirby.AdminTags.Create = {
 
 
 
@@ -67,16 +67,16 @@ Monitor.AdminTags.Create = {
         this.getElement("form_create").onsubmit = this.submittedForm.bind(this);
         this.getElement("form_input").addEventListener("blur", this.blurName.bind(this), false);
         this.getElement("submit").addEventListener("click", this.clickSubmit.bind(this), false);
-        document.addEventListener("Monitor.SEO.Form", this.changedSEOState.bind(this), false);
-        document.addEventListener("Monitor.Admin.SEO.Create", this.fetchData.bind(this), false);
+        document.addEventListener("Kirby.SEO.Form", this.changedSEOState.bind(this), false);
+        document.addEventListener("Kirby.Admin.SEO.Create", this.fetchData.bind(this), false);
     },
 
     /**
      * Registracija elemenata u upotrebi od strane komponente
-     * @return  {Object}                    Monitor.AdminTags.Create objekat, za ulančavanje funkcija
+     * @return  {Object}                    Kirby.AdminTags.Create objekat, za ulančavanje funkcija
      */
     registerElements: function() {
-        Monitor.Main.DOM.register("AdminTagsCreate", this.elements);
+        Kirby.Main.Dom.register("AdminTagsCreate", this.elements);
         return this;
     },
 
@@ -127,7 +127,7 @@ Monitor.AdminTags.Create = {
      * @param   {Object}    data            Informacije o kreiranom predmetu
      */
     tagCreated: function(data) {
-        var event  = new CustomEvent("Monitor.Admin.Tags");
+        var event  = new CustomEvent("Kirby.Admin.Tags");
         event.info = "Create";
         event.data = data;
         document.dispatchEvent(event);
@@ -160,7 +160,7 @@ Monitor.AdminTags.Create = {
      * @return  {Node/NodeList}             Vraca Node objekat ukoliko je query_all false, niz Node objekata inace
      */
     getElement: function(element, query_all, modifier) {
-        return Monitor.Main.DOM.getElement("AdminTagsCreate", element, query_all, modifier);
+        return Kirby.Main.Dom.getElement("AdminTagsCreate", element, query_all, modifier);
     },
 
     validateName: function(event) {
@@ -181,10 +181,10 @@ Monitor.AdminTags.Create = {
 
     /**
      * Dohvata podatke neophodne za funkcionisanje komponenti,nakon cega ih cuva
-     * @return {Object}                     Monitor.AdminTags.Create objekat, za ulancavanje funkcija
+     * @return {Object}                     Kirby.AdminTags.Create objekat, za ulancavanje funkcija
      */
     fetchData: function() {
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
             "AdminTags",
             "fetchData",
             {},
@@ -200,10 +200,10 @@ Monitor.AdminTags.Create = {
     /**
      * Kreiranje nove znacke
      * @param   {String}    name            Ime taga
-     * @return {Object}                     Monitor.AdminTags.Create objekat, za ulancavanje funkcija
+     * @return {Object}                     Kirby.AdminTags.Create objekat, za ulancavanje funkcija
     **/
     createTag: function(name, image) {
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
             "AdminTags",
             "createTag",
             {
@@ -215,4 +215,4 @@ Monitor.AdminTags.Create = {
     }
 };
 
-document.addEventListener('DOMContentLoaded', Monitor.AdminTags.Create.init.bind(Monitor.AdminTags.Create), false);
+document.addEventListener('DOMContentLoaded', Kirby.AdminTags.Create.init.bind(Kirby.AdminTags.Create), false);

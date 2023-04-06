@@ -1,4 +1,4 @@
-const cacheName = "monitor_offline";
+const cacheName = "kirby_offline";
 
 self.addEventListener('install', event => {
     event.waitUntil(

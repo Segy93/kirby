@@ -1,9 +1,9 @@
 "use strict";
 
 if (typeof Monitor                     === "undefined") var Monitor                   = {};
-if (typeof Monitor.AdminUsers          === "undefined") Monitor.AdminOrder            = {};
+if (typeof Kirby.AdminUsers          === "undefined") Kirby.AdminOrder            = {};
 
-Monitor.AdminOrder.StatusHistory = {
+Kirby.AdminOrder.StatusHistory = {
     /**
      *
      * Konfiguracija komponente
@@ -54,7 +54,7 @@ Monitor.AdminOrder.StatusHistory = {
 
     /**
      * Inicijalizacija osluškivača u okviru komponente, kao i funkcija koje reaguju na njih
-     * @return  {Object} Monitor.AdminUsers.Dialogs.Edit objekat, za ulančavanje funkcija
+     * @return  {Object} Kirby.AdminUsers.Dialogs.Edit objekat, za ulančavanje funkcija
      */
     initListeners: function() {
         var $wrapper = $(this.getElementSelector("wrapper"));
@@ -64,15 +64,15 @@ Monitor.AdminOrder.StatusHistory = {
 
     /**
      * Registracija elemenata u upotrebi od strane komponente
-     * @return  {Object} Monitor.AdminUsers.Dialogs.Edit objekat, za ulančavanje funkcija
+     * @return  {Object} Kirby.AdminUsers.Dialogs.Edit objekat, za ulančavanje funkcija
      */
     registerElements: function() {
-        Monitor.Main.DOM.register("AdminOrderStatusHistory", this.elements);
+        Kirby.Main.Dom.register("AdminOrderStatusHistory", this.elements);
         return this;
     },
     /**
      * Inicijalizacija sablona
-     * @return  {Object}  Monitor.AdminOrders.List objekat, za ulančavanje funkcija
+     * @return  {Object}  Kirby.AdminOrders.List objekat, za ulančavanje funkcija
      */
     initTemplates: function() {
         this.templates.main = _.template(document.getElementById("admin_orders__status_history_tmpl").innerHTML);
@@ -108,7 +108,7 @@ Monitor.AdminOrder.StatusHistory = {
 
     /**
      * Zatvara modal
-     * @return  {Object} Monitor.AdminUsers.Dialogs.Edit objekat, za ulančavanje funkcija
+     * @return  {Object} Kirby.AdminUsers.Dialogs.Edit objekat, za ulančavanje funkcija
      */
     hideDialog: function() {
         $(this.getElement("wrapper")).modal("hide");
@@ -123,7 +123,7 @@ Monitor.AdminOrder.StatusHistory = {
      * @return  {Node/NodeList}       Vraca Node objekat je query_all false, niz Node objekata inace
      */
     getElement: function(element, query_all, modifier) {
-        return Monitor.Main.DOM.getElement("AdminOrderStatusHistory", element, query_all, modifier);
+        return Kirby.Main.Dom.getElement("AdminOrderStatusHistory", element, query_all, modifier);
     },
 
     /**
@@ -134,7 +134,7 @@ Monitor.AdminOrder.StatusHistory = {
      * @return  {Node/NodeList}       Vraca Node objekat je query_all false, niz Node objekata inace
      */
     getElementSelector: function(element, query_all, modifier) {
-        return Monitor.Main.DOM.getElementSelector("AdminOrderStatusHistory", element, query_all, modifier);
+        return Kirby.Main.Dom.getElementSelector("AdminOrderStatusHistory", element, query_all, modifier);
     },
 
 
@@ -147,7 +147,7 @@ Monitor.AdminOrder.StatusHistory = {
     /**
      * Generise HTML na osnovu prosledjenih podataka i ubacuje u omotac
      * @param   {Object}    data   Podaci sa informacijama o korisniku
-     * @return  {Object}           Monitor.AdminUsers.Dialogs.Edit objekat, za ulančavanje funkcija
+     * @return  {Object}           Kirby.AdminUsers.Dialogs.Edit objekat, za ulančavanje funkcija
      */
     render: function(statuses) {
         this.getElement("body").innerHTML = this.templates.main({
@@ -169,10 +169,10 @@ Monitor.AdminOrder.StatusHistory = {
     /**
      * Dohvata informacije o korisniku
      * @param   {Number}    order_id         ID korisnika za koga dohvatamo statistiku
-     * @return  {Object}   Monitor.AdminUsers.Dialogs.Edit objekat, za ulančavanje funkcija
+     * @return  {Object}   Kirby.AdminUsers.Dialogs.Edit objekat, za ulančavanje funkcija
      */
     fetchData: function(order_id) {
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
             "AdminOrder",
             "fetchOrderStatuses",
             {
@@ -184,4 +184,4 @@ Monitor.AdminOrder.StatusHistory = {
     },
 };
 
-document.addEventListener("DOMContentLoaded", Monitor.AdminOrder.StatusHistory.init.bind(Monitor.AdminOrder.StatusHistory), false);
+document.addEventListener("DOMContentLoaded", Kirby.AdminOrder.StatusHistory.init.bind(Kirby.AdminOrder.StatusHistory), false);

@@ -51,9 +51,7 @@ class ProductPage extends BaseComponent {
         int $product_id,
         $breadcrumbs = null,
         $comment_list = null,
-        $active_tab = '',
-        $is_configurator = false,
-        string $configuration_name = 'trenutni'
+        $active_tab = ''
     ) {
         $this->id               = $product_id;
         Product::enableImageFormatFullWidth();
@@ -71,7 +69,7 @@ class ProductPage extends BaseComponent {
         $this->infoShippingCost = new InfoShippingCost();
         $this->name             = new AtomProductName();
         $this->product_video    = new ProductVideo();
-        $this->productSingle    = new ProductSingle(false, $is_configurator, $configuration_name);
+        $this->productSingle    = new ProductSingle(false);
         $this->related          = new RelatedProducts($category_id, $product_id, $price);
         $this->social_share     = new SocialShare();
         $this->stock            = new ProductStock();

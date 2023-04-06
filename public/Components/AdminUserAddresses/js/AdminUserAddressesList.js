@@ -1,7 +1,7 @@
 "use strict";
 
 if (typeof Monitor             === "undefined") var Monitor           = {};
-if (typeof Monitor.AdminUserAddresses  === "undefined") Monitor.AdminUserAddresses    = {};
+if (typeof Kirby.AdminUserAddresses  === "undefined") Kirby.AdminUserAddresses    = {};
 
 /**
  * Pretraga i prikaz korisnika,
@@ -10,7 +10,7 @@ if (typeof Monitor.AdminUserAddresses  === "undefined") Monitor.AdminUserAddress
  * Blokiranje naloga
  * Brisanje
  */
-Monitor.AdminUserAddresses.List = {
+Kirby.AdminUserAddresses.List = {
     config: {
         direction:  true,    // Smer dohvatanja podataka (false za unazad, true za unapred)
         search:     "",         // Pretraga adresa
@@ -57,7 +57,7 @@ Monitor.AdminUserAddresses.List = {
     /**
      * Inicijalizacija osluškivača u okviru komponente, kao i funkcija koje reaguju na njih
      * Prvo idu osluskivaci na wrapera onda idu van wrapera i nakon toga idu sa uslovima
-     * @return  {Object}                    Monitor.AdminUser.List objekat, za ulančavanje funkcija
+     * @return  {Object}                    Kirby.AdminUser.List objekat, za ulančavanje funkcija
      */
     initListeners: function() {
         var $wrapper = $(this.getElementSelector("wrapper"));
@@ -67,14 +67,14 @@ Monitor.AdminUserAddresses.List = {
         // this.getElement("button_prev").addEventListener("click",  this.clickPaginationPrevious.bind(this),    false);
         // this.getElement("button_next").addEventListener("click",  this.clickPaginationNext.bind(this),        false);
 
-        document.addEventListener("Monitor.UserAddresses", this.changeOccured.bind(this), false);
+        document.addEventListener("Kirby.UserAddresses", this.changeOccured.bind(this), false);
 
         return this;
     },
 
     /**
      * Inicijalizacija sablona
-     * @return  {Object}                    Monitor.AdminUser.List objekat, za ulančavanje funkcija
+     * @return  {Object}                    Kirby.AdminUser.List objekat, za ulančavanje funkcija
      */
     initTemplates: function() {
         this.templates.main = _.template(document.getElementById("admin_address__list__tmpl").innerHTML);
@@ -83,10 +83,10 @@ Monitor.AdminUserAddresses.List = {
 
     /**
      * Registracija elemenata u upotrebi od strane komponente
-     * @return  {Object}                    Monitor.AdminUser.List objekat, za ulančavanje funkcija
+     * @return  {Object}                    Kirby.AdminUser.List objekat, za ulančavanje funkcija
      */
     registerElements: function() {
-        Monitor.Main.DOM.register("AdminUserAddresses", this.elements);
+        Kirby.Main.Dom.register("AdminUserAddresses", this.elements);
         return this;
     },
 
@@ -108,7 +108,7 @@ Monitor.AdminUserAddresses.List = {
     },
 
     triggerChangeOccured: function(data, info) {
-        var event = new CustomEvent("Monitor.User");
+        var event = new CustomEvent("Kirby.User");
         event.info = info;
         event.data = data;
         document.dispatchEvent(event);
@@ -160,7 +160,7 @@ Monitor.AdminUserAddresses.List = {
     /**
      * Smer dohvatanja podataka
      * @param   {Object}    direction       true za napred i false za nazad
-     * @return  {Object}                    Monitor.AdminUsers.List objekat, za ulancavanje funkcija
+     * @return  {Object}                    Kirby.AdminUsers.List objekat, za ulancavanje funkcija
      */
     setDirection: function(direction) {
         this.config.direction = direction;
@@ -178,7 +178,7 @@ Monitor.AdminUserAddresses.List = {
     /**
      * Setuje id prve prikazane adrese u paginaciji
      * @param   {Object}    id              ID prve dohvacene adrese
-     * @return  {Object}                    Monitor.AdminUsers.List objekat, za ulancavanje funkcija
+     * @return  {Object}                    Kirby.AdminUsers.List objekat, za ulancavanje funkcija
     */
     setIDFirst: function(id) {
         this.config.first_id = id;
@@ -196,7 +196,7 @@ Monitor.AdminUserAddresses.List = {
     /**
      * Setuje id poslednjeg prikaze adrese u paginaciji
      * @param   {Object}    id              ID poslednje dohvacene adrese
-     * @return  {Object}                    Monitor.AdminUsers.List objekat, za ulancavanje funkcija
+     * @return  {Object}                    Kirby.AdminUsers.List objekat, za ulancavanje funkcija
     */
     setIDLast: function(id) {
         this.config.last_id = id;
@@ -205,7 +205,7 @@ Monitor.AdminUserAddresses.List = {
 
     /**
      * Vraca na prvu stranu
-     * @return  {Object}                    Monitor.AdminUsers.List objekat, za ulancavanje funkcija
+     * @return  {Object}                    Kirby.AdminUsers.List objekat, za ulancavanje funkcija
      */
     resetIDs: function() {
         return this
@@ -263,7 +263,7 @@ Monitor.AdminUserAddresses.List = {
      * @return  {Node/NodeList}             Vraca Node objekat ukoliko je query_all false, niz Node objekata inace
      */
     getElement: function(element, query_all, modifier) {
-        return Monitor.Main.DOM.getElement("AdminUserAddresses", element, query_all, modifier);
+        return Kirby.Main.Dom.getElement("AdminUserAddresses", element, query_all, modifier);
     },
 
     /**
@@ -274,7 +274,7 @@ Monitor.AdminUserAddresses.List = {
      * @return  {Node/NodeList}             Vraca Node objekat ukoliko je query_all false, niz Node objekata inace
      */
     getElementSelector: function(element, query_all, modifier) {
-        return Monitor.Main.DOM.getElementSelector("AdminUserAddresses", element, query_all, modifier);
+        return Kirby.Main.Dom.getElementSelector("AdminUserAddresses", element, query_all, modifier);
     },
 
     /**
@@ -297,12 +297,12 @@ Monitor.AdminUserAddresses.List = {
 
     /**
      * Dohvata podatke neophodne za funkcionisanje komponenti, nakon toga prikazuje komponentu
-     * @return {Object}                     Monitor.AdminUser.List objekat, za ulancavanje funkcija
+     * @return {Object}                     Kirby.AdminUser.List objekat, za ulancavanje funkcija
      */
     fetchData: function(address_id) {
         if (typeof address_id === "undefined") address_id = this.getAddressID();
         var user_id = this.getElement("userId").dataset.userId;
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
             "AdminUserAddresses",
             "fetchData",
             {
@@ -353,4 +353,4 @@ Monitor.AdminUserAddresses.List = {
 
 };
 
-document.addEventListener("DOMContentLoaded", Monitor.AdminUserAddresses.List.init.bind(Monitor.AdminUserAddresses.List), false);
+document.addEventListener("DOMContentLoaded", Kirby.AdminUserAddresses.List.init.bind(Kirby.AdminUserAddresses.List), false);

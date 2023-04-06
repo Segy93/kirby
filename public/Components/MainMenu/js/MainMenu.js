@@ -25,7 +25,7 @@
     };
 
     var registerElements = function () {
-        Monitor.Main.DOM.register("MainMenu", elements);
+        Kirby.Main.Dom.register("MainMenu", elements);
     };
 
 
@@ -37,7 +37,7 @@
     * @param   {String}    modifier   BEM modifier za selektor
     */
     var getElement = function(element, query_all, modifier, parent) {
-        return Monitor.Main.DOM.getElement("MainMenu", element, query_all, modifier, parent);
+        return Kirby.Main.Dom.getElement("MainMenu", element, query_all, modifier, parent);
     };
 
     /**
@@ -57,7 +57,7 @@
     * @param   {String}    modifier  BEM modifier za selektor
     */
     var getElementSelector = function(element, modifier) {
-        return Monitor.Main.DOM.getElementSelector("MainMenu", element, modifier);
+        return Kirby.Main.Dom.getElementSelector("MainMenu", element, modifier);
     };
 
     var menuFocused = function(event) {

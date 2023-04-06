@@ -1,10 +1,10 @@
 "use strict";
 
 if (typeof Monitor           === "undefined") var  Monitor      = {};
-if (typeof Monitor.AdminStaticPages === "undefined") Monitor.AdminStaticPages = {};
+if (typeof Kirby.AdminStaticPages === "undefined") Kirby.AdminStaticPages = {};
 
 
-Monitor.AdminStaticPages.Change = {
+Kirby.AdminStaticPages.Change = {
 
     config: {
 
@@ -43,7 +43,7 @@ Monitor.AdminStaticPages.Change = {
     },
 
     registerElements: function(){
-        Monitor.Main.DOM.register("AdminStaticPagesChange", this.elements);
+        Kirby.Main.Dom.register("AdminStaticPagesChange", this.elements);
         return this;
     },
 
@@ -51,17 +51,17 @@ Monitor.AdminStaticPages.Change = {
 
     /* Inicijalizacija tinyMCE editora
     * @param   {string}    element         Na kom elementu (iz this.elements) ce biti editor
-    * @return  {Object}                    Monitor.AdminArticles.Change
+    * @return  {Object}                    Kirby.AdminArticles.Change
     */
    initEditor: function(element) {
        var selector = this.getElementSelector(element);
        var callback = this.setConfig.bind(this);
-       Monitor.Main.Editor.initEditor(element, selector, callback);
+       Kirby.Main.Editor.initEditor(element, selector, callback);
        return this;
    },
 
     /* Inicijalizacija podatke potrebne za izmenu
-    * @return  {Object}                    Monitor.AdminArticles.Change
+    * @return  {Object}                    Kirby.AdminArticles.Change
     */
    initData: function() {
         var page_id = this.getElement("page_id").value;
@@ -136,7 +136,7 @@ Monitor.AdminStaticPages.Change = {
 
     /**
      * Zatvara modal
-     * @return  {Object}                    Monitor.AdminUsers.Dialogs.Password objekat, za ulančavanje funkcija
+     * @return  {Object}                    Kirby.AdminUsers.Dialogs.Password objekat, za ulančavanje funkcija
      */
     // hideDialog: function() {
     //     $(this.getElement("wrapper")).modal("hide");
@@ -154,7 +154,7 @@ Monitor.AdminStaticPages.Change = {
     /**
      * Zadaje validity za name polje, u zavisnosti da li postoji kategorija s ovim imenom
      * @param   {Boolean}   exists          Da li je ime kategorije  zauzeto
-     * @return  {Object}                    Monitor.AdminStaticPages.Create objekat, za ulančavanje funkcija
+     * @return  {Object}                    Kirby.AdminStaticPages.Create objekat, za ulančavanje funkcija
      */
     setNameValidity: function(exists) {
         this.getElement("input_name").setCustomValidity(exists ? "Page with this name already exists" : "");
@@ -178,7 +178,7 @@ Monitor.AdminStaticPages.Change = {
     * @return  {Node/NodeList}             Vraca Node objekat ukoliko je query_all false, niz Node objekata inace
     */
     getElement: function(element, query_all, modifier) {
-        return Monitor.Main.DOM.getElement("AdminStaticPagesChange", element, query_all, modifier);
+        return Kirby.Main.Dom.getElement("AdminStaticPagesChange", element, query_all, modifier);
     },
 
     /**
@@ -189,13 +189,13 @@ Monitor.AdminStaticPages.Change = {
     * @return  {Node/NodeList}             Vraca Node objekat ukoliko je query_all false, niz Node objekata inace
     */
     getElementSelector: function(element, query_all, modifier) {
-        return Monitor.Main.DOM.getElementSelector("AdminStaticPagesChange", element, query_all, modifier);
+        return Kirby.Main.Dom.getElementSelector("AdminStaticPagesChange", element, query_all, modifier);
     },
 
     /**
      * Generise HTML na osnovu prosledjenih podataka i ubacuje u omotac
      * @param  {Object} data        podaci o kategoriji
-     * @return {Object}      Monitor.AdminStaticPages.Change objekat za ulancavanje funkcija
+     * @return {Object}      Kirby.AdminStaticPages.Change objekat za ulancavanje funkcija
      */
     render: function(data){
         var elements = this.getElement("form").elements;
@@ -211,7 +211,7 @@ Monitor.AdminStaticPages.Change = {
     },
 
     pageUpdated: function(data) {
-            var event = new CustomEvent("Monitor.Admin.StaticPages");
+            var event = new CustomEvent("Kirby.Admin.StaticPages");
             event.info = "Update";
             event.data = data;
             document.dispatchEvent(event);
@@ -232,10 +232,10 @@ Monitor.AdminStaticPages.Change = {
     /**
     * Provera da li vec postoji kategorija s ovim korisnickim imenom
     * @param   {String}    username        Ime koje proveravamo
-    * @return  {Object}                    Monitor.AdminStaticPages.Change objekat, za ulančavanje funkcija
+    * @return  {Object}                    Kirby.AdminStaticPages.Change objekat, za ulančavanje funkcija
     */
     isPageNameTaken: function(name) {
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
             "AdminStaticPages",
             "isPageNameTaken",
             {
@@ -250,10 +250,10 @@ Monitor.AdminStaticPages.Change = {
     * Menja trenutno ime u podeseno
     * @param  {Number} page_id ID kategorije kojem se menja ime
     * @param  {String} name   ime kojim se menja
-    * @return {Object}        Monitor.AdminStaticPages.Change objekat za ulancavanje funkcija
+    * @return {Object}        Kirby.AdminStaticPages.Change objekat za ulancavanje funkcija
     */
     updatePage: function(page_id, name, category_id, text){
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
             "AdminStaticPages",
             "updatePage",
             {
@@ -270,10 +270,10 @@ Monitor.AdminStaticPages.Change = {
     /**
     * Dohvata kategoriju zarad dobijanja parametara
     * @param  {Number} page_id ID kategorije kojem se menja ime
-    * @return {Object}        Monitor.AdminStaticPages.Change objekat za ulancavanje funkcija
+    * @return {Object}        Kirby.AdminStaticPages.Change objekat za ulancavanje funkcija
     */
     fetchPage: function(page_id){
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
             "AdminStaticPages",
             "fetchPage",
             {
@@ -284,4 +284,4 @@ Monitor.AdminStaticPages.Change = {
         }
 
 };
-document.addEventListener('DOMContentLoaded', Monitor.AdminStaticPages.Change.init.bind(Monitor.AdminStaticPages.Change), false);
+document.addEventListener('DOMContentLoaded', Kirby.AdminStaticPages.Change.init.bind(Kirby.AdminStaticPages.Change), false);

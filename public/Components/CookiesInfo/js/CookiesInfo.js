@@ -19,7 +19,7 @@
     };
 
     var registerElements = function () {
-        Monitor.Main.DOM.register("CookiesInfo", elements);
+        Kirby.Main.Dom.register("CookiesInfo", elements);
     };
 
 
@@ -48,7 +48,7 @@
      * @return  {Node/NodeList}             Vraca Node objekat ukoliko je query_all false, niz Node objekata inace
      */
     var getElement = function(element, query_all, modifier, parent) {
-        return Monitor.Main.DOM.getElement("CookiesInfo", element, query_all, modifier, parent);
+        return Kirby.Main.Dom.getElement("CookiesInfo", element, query_all, modifier, parent);
     };
 
     /**
@@ -59,7 +59,7 @@
      * @return  {Node/NodeList}             Vraca Node objekat ukoliko je query_all false, niz Node objekata inace
      */
     var getElementSelector = function(element, query_all, modifier) {
-        return Monitor.Main.DOM.getElementSelector("CookiesInfo", element, query_all, modifier);
+        return Kirby.Main.Dom.getElementSelector("CookiesInfo", element, query_all, modifier);
     };
 
 
@@ -72,7 +72,7 @@
 
 
     var cookieAccepted = function () {
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
             "CookiesInfo",
             "cookieAccepted",
             {

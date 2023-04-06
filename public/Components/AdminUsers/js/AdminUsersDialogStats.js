@@ -1,10 +1,10 @@
 "use strict";
 
 if (typeof Monitor                     === "undefined") var Monitor                   = {};
-if (typeof Monitor.AdminUsers          === "undefined") Monitor.AdminUsers            = {};
-if (typeof Monitor.AdminUsers.Dialogs  === "undefined") Monitor.AdminUsers.Dialogs    = {};
+if (typeof Kirby.AdminUsers          === "undefined") Kirby.AdminUsers            = {};
+if (typeof Kirby.AdminUsers.Dialogs  === "undefined") Kirby.AdminUsers.Dialogs    = {};
 
-Monitor.AdminUsers.Dialogs.Stats = {
+Kirby.AdminUsers.Dialogs.Stats = {
     /**
      *
      * Konfiguracija komponente
@@ -62,7 +62,7 @@ Monitor.AdminUsers.Dialogs.Stats = {
 
     /**
      * Inicijalizacija osluškivača u okviru komponente, kao i funkcija koje reaguju na njih
-     * @return  {Object}                    Monitor.AdminUsers.Dialogs.Stats objekat, za ulančavanje funkcija
+     * @return  {Object}                    Kirby.AdminUsers.Dialogs.Stats objekat, za ulančavanje funkcija
      */
     initListeners: function() {
         $(this.getElementSelector("wrapper")).on("show.bs.modal", this.componentRequested.bind(this));
@@ -72,10 +72,10 @@ Monitor.AdminUsers.Dialogs.Stats = {
 
     /**
      * Registracija elemenata u upotrebi od strane komponente
-     * @return  {Object}                    Monitor.AdminUsers.Dialogs.Stats objekat, za ulančavanje funkcija
+     * @return  {Object}                    Kirby.AdminUsers.Dialogs.Stats objekat, za ulančavanje funkcija
      */
     registerElements: function() {
-        Monitor.Main.DOM.register("AdminUserDialogStats", this.elements);
+        Kirby.Main.Dom.register("AdminUserDialogStats", this.elements);
         return this;
     },
 
@@ -128,7 +128,7 @@ Monitor.AdminUsers.Dialogs.Stats = {
 
     /**
      * Zatvara modal
-     * @return  {Object}                    Monitor.AdminUsers.Dialogs.Stats objekat, za ulančavanje funkcija
+     * @return  {Object}                    Kirby.AdminUsers.Dialogs.Stats objekat, za ulančavanje funkcija
      */
     hideDialog: function() {
         $(this.getElement("wrapper")).modal("hide");
@@ -143,7 +143,7 @@ Monitor.AdminUsers.Dialogs.Stats = {
      * @return  {Node/NodeList}             Vraca Node objekat ukoliko je query_all false, niz Node objekata inace
      */
     getElement: function(element, query_all, modifier) {
-        return Monitor.Main.DOM.getElement("AdminUserDialogStats", element, query_all, modifier);
+        return Kirby.Main.Dom.getElement("AdminUserDialogStats", element, query_all, modifier);
     },
 
     /**
@@ -154,7 +154,7 @@ Monitor.AdminUsers.Dialogs.Stats = {
      * @return  {Node/NodeList}             Vraca Node objekat ukoliko je query_all false, niz Node objekata inace
      */
     getElementSelector: function(element, query_all, modifier) {
-        return Monitor.Main.DOM.getElementSelector("AdminUserDialogStats", element, query_all, modifier);
+        return Kirby.Main.Dom.getElementSelector("AdminUserDialogStats", element, query_all, modifier);
     },
 
 
@@ -169,7 +169,7 @@ Monitor.AdminUsers.Dialogs.Stats = {
     /**
      * Generise HTML na osnovu prosledjenih podataka i ubacuje u omotac
      * @param   {Object}    data            Podaci sa informacijama o korisniku
-     * @return  {Object}                    Monitor.AdminUsers.Dialogs.Stats objekat, za ulančavanje funkcija
+     * @return  {Object}                    Kirby.AdminUsers.Dialogs.Stats objekat, za ulančavanje funkcija
      */
     render: function(data) {
         this.getElement("title").textContent = data.username;
@@ -208,10 +208,10 @@ Monitor.AdminUsers.Dialogs.Stats = {
     /**
      * Dohvata informacije o korisniku
      * @param   {Number}    user_id         ID korisnika za koga dohvatamo statistiku
-     * @return  {Object}                    Monitor.AdminUsers.Dialogs.Stats objekat, za ulančavanje funkcija
+     * @return  {Object}                    Kirby.AdminUsers.Dialogs.Stats objekat, za ulančavanje funkcija
      */
     fetchStats: function(user_id) {
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
             "AdminUsers",
             "fetchStatsUser",
             {
@@ -229,10 +229,10 @@ Monitor.AdminUsers.Dialogs.Stats = {
      * @param   {Number}    points          Koliko poena ima
      * @param   {Number}    energy_amount   Koliko energije ima
      * @param   {String}    energy_refill   MySQL datetime string
-     * @return  {Object}                    Monitor.AdminUsers.Dialogs.Stats objekat, za ulančavanje funkcija
+     * @return  {Object}                    Kirby.AdminUsers.Dialogs.Stats objekat, za ulančavanje funkcija
      */
     updateUser: function(user_id, xp, points, energy_amount, energy_refill) {
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
             "AdminUsers",
             "updateStats",
             {
@@ -243,7 +243,7 @@ Monitor.AdminUsers.Dialogs.Stats = {
                 "energy_refill": energy_refill,
             },
             function(data) {
-                var event = new CustomEvent("Monitor.User");
+                var event = new CustomEvent("Kirby.User");
                 event.info = "Update.Stats";
                 event.data = data;
                 document.dispatchEvent(event);
@@ -254,4 +254,4 @@ Monitor.AdminUsers.Dialogs.Stats = {
     },
 };
 
-document.addEventListener('DOMContentLoaded', Monitor.AdminUsers.Dialogs.Stats.init.bind(Monitor.AdminUsers.Dialogs.Stats), false);
+document.addEventListener('DOMContentLoaded', Kirby.AdminUsers.Dialogs.Stats.init.bind(Kirby.AdminUsers.Dialogs.Stats), false);

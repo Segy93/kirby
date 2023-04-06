@@ -57,7 +57,7 @@
 
         getElement("search_button").addEventListener("click", searchChanged);
         getElement("sort").addEventListener("change", sortChanged);
-        document.addEventListener("Monitor.Filters.More.Clicked", moreClicked, false);
+        document.addEventListener("Kirby.Filters.More.Clicked", moreClicked, false);
     };
 
     var initData = function () {
@@ -120,7 +120,7 @@
 
     var viewChanged = function (event) {
         var el = event.currentTarget;
-        var event   = new CustomEvent("Monitor.CategoryPageView");
+        var event   = new CustomEvent("Kirby.CategoryPageView");
         event.data = el.value;
         document.dispatchEvent(event);
     };
@@ -129,7 +129,7 @@
      * Registruje elemente koji se koriste u komponenti
      */
     var registerElements = function() {
-        Monitor.Main.DOM.register("SettingsFilters", elements);
+        Kirby.Main.Dom.register("SettingsFilters", elements);
     };
 
     var limitChanged = function(event) {
@@ -174,7 +174,7 @@
             values: config.page
         });
         var state_type = "settings_filters";
-        Monitor.Main.Router.stateChanged(data, state_type, config.refresh_data);
+        Kirby.Main.Router.stateChanged(data, state_type, config.refresh_data);
         var ev    = new CustomEvent("Settings.Filter.Changed");
         ev.data = config.refresh_data;
         document.dispatchEvent(ev);
@@ -190,7 +190,7 @@
      * @return  {Node/NodeList}       Vraca Node objekat ukoliko je query_all false, niz objekata
      */
     var getElement = function(element, query_all, modifier, parent) {
-        return Monitor.Main.DOM.getElement("SettingsFilters", element, query_all, modifier, parent);
+        return Kirby.Main.Dom.getElement("SettingsFilters", element, query_all, modifier, parent);
     };
 
 

@@ -15,7 +15,7 @@
     };
 
     var registerElements = function () {
-        Monitor.Main.DOM.register("MainMenuCart", elements);
+        Kirby.Main.Dom.register("MainMenuCart", elements);
     };
 
 
@@ -60,7 +60,7 @@
      * @return  {Node/NodeList}             Vraca Node objekat ukoliko je query_all false, niz Node objekata inace
      */
     var getElement = function(element, query_all, modifier, parent) {
-        return Monitor.Main.DOM.getElement("MainMenuCart", element, query_all, modifier, parent);
+        return Kirby.Main.Dom.getElement("MainMenuCart", element, query_all, modifier, parent);
     };
 
     /**
@@ -71,11 +71,11 @@
      * @return  {Node/NodeList}             Vraca Node objekat ukoliko je query_all false, niz Node objekata inace
      */
     var getElementSelector = function(element, query_all, modifier) {
-        return Monitor.Main.DOM.getElementSelector("MainMenuCart", element, query_all, modifier);
+        return Kirby.Main.Dom.getElementSelector("MainMenuCart", element, query_all, modifier);
     };
 
     var fetchData = function () {
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
             "MainMenuCart",
             "fetchData",
             {},

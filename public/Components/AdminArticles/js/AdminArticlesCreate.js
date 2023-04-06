@@ -1,9 +1,9 @@
 "use strict"
 
 if(typeof Monitor               === "undefined") var Monitor           = {};
-if(typeof Monitor.AdminArticles === "undefined") Monitor.AdminArticles = {};
+if(typeof Kirby.AdminArticles === "undefined") Kirby.AdminArticles = {};
 
-Monitor.AdminArticles.Create = {
+Kirby.AdminArticles.Create = {
     config: {               // Konfiguracija komponente
         editor_text: {},    // Editor teksta
         exitor_excerpt: {}, // Editor isecka
@@ -54,7 +54,7 @@ Monitor.AdminArticles.Create = {
     /**
      * Inicijalizacija biblioteke za izbor datuma
      * @param   {string}    element         Na kom elementu je picker
-     * @return  {Object}                    Monitor.AdminArticles.Create
+     * @return  {Object}                    Kirby.AdminArticles.Create
      */
     initDatePicker: function(element) {
         flatpickr(this.getElementSelector("date"), {
@@ -68,12 +68,12 @@ Monitor.AdminArticles.Create = {
     /**
      * Inicijalizacija tinyMCE editora
      * @param   {string}    element         Na kom elementu (iz this.elements) ce biti editor
-     * @return  {Object}                    Monitor.AdminArticles.Create
+     * @return  {Object}                    Kirby.AdminArticles.Create
      */
         initEditor: function(element) {
         var selector = this.getElementSelector(element);
         var callback = this.setConfig.bind(this);
-        Monitor.Main.Editor.initEditor(element, selector, callback);
+        Kirby.Main.Editor.initEditor(element, selector, callback);
         return this;
     },
 
@@ -89,7 +89,7 @@ Monitor.AdminArticles.Create = {
 
     /**
      * Inicijalizacija osluskivaca komponente
-     * @return  {Object}                    Monitor.AdminArticles.Create
+     * @return  {Object}                    Kirby.AdminArticles.Create
      */
     initListeners: function() {
         var form    = this.getElement("form");
@@ -103,7 +103,7 @@ Monitor.AdminArticles.Create = {
         this.getElement("categories").addEventListener("change", this.changedPath.bind(this), false);
         this.getElement("heading").addEventListener("blur", this.changedPath.bind(this),     false);
         this.getElement("reset").addEventListener("click", this.clickReset.bind(this), false);
-        document.addEventListener("Monitor.SEO.Form", this.changedSEOState.bind(this), false);
+        document.addEventListener("Kirby.SEO.Form", this.changedSEOState.bind(this), false);
 
         window.addEventListener("unload", this.unloadPage.bind(this), false);
         window.addEventListener("load", this.loadPage.bind(this),false)
@@ -112,11 +112,11 @@ Monitor.AdminArticles.Create = {
     },
 
     /**
-     * Registrovanje elemenata za Monitor.Main.DOM
-     * @return  {Object}                    Monitor.AdminArticles.Create
+     * Registrovanje elemenata za Kirby.Main.Dom
+     * @return  {Object}                    Kirby.AdminArticles.Create
      */
     registerElements: function() {
-        Monitor.Main.DOM.register("AdminArticlesCreate", this.elements);
+        Kirby.Main.Dom.register("AdminArticlesCreate", this.elements);
         return this;
     },
 
@@ -136,7 +136,7 @@ Monitor.AdminArticles.Create = {
      * @param   {Object}    data            Informacije o kreiranom clanku
      */
     createdArticle: function(data) {
-        var event = new CustomEvent("Monitor.Admin.Articles");
+        var event = new CustomEvent("Kirby.Admin.Articles");
         event.info = "Create";
         event.data = data;
         document.dispatchEvent(event);
@@ -316,7 +316,7 @@ Monitor.AdminArticles.Create = {
 
     /**
      * Resetovanje unetog datuma
-     * @return  {Object}                    Monitor.AdminArticles.Create
+     * @return  {Object}                    Kirby.AdminArticles.Create
      */
     resetDateValue: function() {
         var picker = this.getElement("date")._flatpickr;
@@ -341,7 +341,7 @@ Monitor.AdminArticles.Create = {
      * @return {Node/NodeList}      Vraca Node objekat ukoliko je querry_all false u suprotnom vraca niz objekata
      */
     getElement: function(element, querry_all, modifier){
-        return Monitor.Main.DOM.getElement("AdminArticlesCreate", element , querry_all , modifier);
+        return Kirby.Main.Dom.getElement("AdminArticlesCreate", element , querry_all , modifier);
     },
 
     /**
@@ -352,7 +352,7 @@ Monitor.AdminArticles.Create = {
      * @return  {Node/NodeList}             Vraca Node objekat ukoliko je query_all false, niz Node objekata inace
      */
     getElementSelector: function(element, query_all, modifier) {
-        return Monitor.Main.DOM.getElementSelector("AdminArticlesCreate", element, query_all, modifier);
+        return Kirby.Main.Dom.getElementSelector("AdminArticlesCreate", element, query_all, modifier);
     },
 
     /**
@@ -368,7 +368,7 @@ Monitor.AdminArticles.Create = {
     /**
      * Zadaje validity za heading polje, u zavisnosti da li postoji clanak s ovim naslovom
      * @param   {Boolean}   exists          Da li je heading vec zauzet
-     * @return  {Object}                    Monitor.AdminArticles.Create objekat, za ulančavanje funkcija
+     * @return  {Object}                    Kirby.AdminArticles.Create objekat, za ulančavanje funkcija
      */
     setHeadingValidity: function(exists) {
         this.getElement("heading").setCustomValidity(
@@ -396,10 +396,10 @@ Monitor.AdminArticles.Create = {
      * @param   {string}    text            Tekst
      * @param   {Array}     tags            Niz ID-jeva tagova
      * @param   {string}    excerpt         Isecak
-     * @return  {Object}                    Monitor.AdminArticles.Create
+     * @return  {Object}                    Kirby.AdminArticles.Create
      */
     createArticle: function(heading, image, category, date, text, tags, excerpt, author) {
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
             "AdminArticles",
             "createArticle",
             {
@@ -424,10 +424,10 @@ Monitor.AdminArticles.Create = {
     /**
      * Provera da li vec postoji clanak s ovim naslovom
      * @param   {String}    heading         Korisnicko ime koje proveravamo
-     * @return  {Object}                    Monitor.AdminUsers.Create objekat, za ulančavanje funkcija
+     * @return  {Object}                    Kirby.AdminUsers.Create objekat, za ulančavanje funkcija
      */
     isHeadingTaken: function(heading) {
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
             "AdminArticles",
             "isHeadingTaken",
             {
@@ -440,7 +440,7 @@ Monitor.AdminArticles.Create = {
 
     //Mislim da ova metoda neće više biti potrebna jer folder za članke kreira u metodi za kreiranje članaka
     createFolder: function (name, category) {
-        // Monitor.Main.Ajax(
+        // Kirby.Main.Ajax(
         //     "AdminArticles",
         //     "createFolder",
         //     {
@@ -451,7 +451,7 @@ Monitor.AdminArticles.Create = {
     },
 
     renameFolder: function (old_name, new_name, category) {
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
             "AdminArticles",
             "updateFolder",
             {
@@ -463,7 +463,7 @@ Monitor.AdminArticles.Create = {
     },
 
     deleteFolder: function (name, category) {
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
             "AdminArticles",
             "deleteFolder",
             {
@@ -475,4 +475,4 @@ Monitor.AdminArticles.Create = {
 
 };
 
-document.addEventListener("DOMContentLoaded", Monitor.AdminArticles.Create.init.bind(Monitor.AdminArticles.Create),false);
+document.addEventListener("DOMContentLoaded", Kirby.AdminArticles.Create.init.bind(Kirby.AdminArticles.Create),false);

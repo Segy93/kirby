@@ -66,7 +66,7 @@
      * Registruje elemente koji se koriste u komponenti
      */
     var registerElements = function() {
-        Monitor.Main.DOM.register("ProductFilter", elements);
+        Kirby.Main.Dom.register("ProductFilter", elements);
     };
 
     var initSlider = function() {
@@ -259,7 +259,7 @@
             }
         }
         var state_type = "product_filters";
-        Monitor.Main.Router.stateChanged(data, state_type, refresh_data);
+        Kirby.Main.Router.stateChanged(data, state_type, refresh_data);
     };
 
 
@@ -272,7 +272,7 @@
      * @return  {Node/NodeList}       Vraca Node objekat ukoliko je query_all false, niz objekata
      */
     var getElement = function(element, query_all, modifier, parent) {
-        return Monitor.Main.DOM.getElement("ProductFilter", element, query_all, modifier, parent);
+        return Kirby.Main.Dom.getElement("ProductFilter", element, query_all, modifier, parent);
     };
 
 

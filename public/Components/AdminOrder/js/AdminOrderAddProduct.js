@@ -1,9 +1,9 @@
 "use strict";
 
 if (typeof Monitor                     === "undefined") var Monitor                   = {};
-if (typeof Monitor.AdminUsers          === "undefined") Monitor.AdminOrder            = {};
+if (typeof Kirby.AdminUsers          === "undefined") Kirby.AdminOrder            = {};
 
-Monitor.AdminOrder.AddProduct = {
+Kirby.AdminOrder.AddProduct = {
     /**
      *
      * Konfiguracija komponente
@@ -59,7 +59,7 @@ Monitor.AdminOrder.AddProduct = {
 
     /**
      * Inicijalizacija osluškivača u okviru komponente, kao i funkcija koje reaguju na njih
-     * @return  {Object}  Monitor.AdminOrder.AddProduct objekat, za ulančavanje funkcija
+     * @return  {Object}  Kirby.AdminOrder.AddProduct objekat, za ulančavanje funkcija
      */
     initListeners: function() {
         var $wrapper = $(this.getElementSelector("wrapper"));
@@ -71,15 +71,15 @@ Monitor.AdminOrder.AddProduct = {
 
     /**
      * Registracija elemenata u upotrebi od strane komponente
-     * @return  {Object}   Monitor.AdminOrder.AddProduct objekat, za ulančavanje funkcija
+     * @return  {Object}   Kirby.AdminOrder.AddProduct objekat, za ulančavanje funkcija
      */
     registerElements: function() {
-        Monitor.Main.DOM.register("AdminOrderPageAddProduct", this.elements);
+        Kirby.Main.Dom.register("AdminOrderPageAddProduct", this.elements);
         return this;
     },
     /**
      * Inicijalizacija sablona
-     * @return  {Object}   Monitor.AdminOrder.AddProduct objekat, za ulančavanje funkcija
+     * @return  {Object}   Kirby.AdminOrder.AddProduct objekat, za ulančavanje funkcija
      */
     initTemplates: function() {
         this.templates.main = _.template(document.getElementById("admin_order__add_products_tmpl").innerHTML);
@@ -153,7 +153,7 @@ Monitor.AdminOrder.AddProduct = {
 
     /**
      * Zatvara modal
-     * @return  {Object}  Monitor.AdminOrder.AddProduct objekat, za ulančavanje funkcija
+     * @return  {Object}  Kirby.AdminOrder.AddProduct objekat, za ulančavanje funkcija
      */
     hideDialog: function() {
         $(this.getElement("model_wrapper")).modal("hide");
@@ -168,7 +168,7 @@ Monitor.AdminOrder.AddProduct = {
      * @return  {Node/NodeList}       Vraca Node objekat je query_all false, niz Node objekata inace
      */
     getElement: function(element, query_all, modifier) {
-        return Monitor.Main.DOM.getElement("AdminOrderPageAddProduct", element, query_all, modifier);
+        return Kirby.Main.Dom.getElement("AdminOrderPageAddProduct", element, query_all, modifier);
     },
 
     /**
@@ -179,7 +179,7 @@ Monitor.AdminOrder.AddProduct = {
      * @return  {Node/NodeList}       Vraca Node objekat je query_all false, niz Node objekata inace
      */
     getElementSelector: function(element, query_all, modifier) {
-        return Monitor.Main.DOM.getElementSelector("AdminOrderPageAddProduct", element, query_all, modifier);
+        return Kirby.Main.Dom.getElementSelector("AdminOrderPageAddProduct", element, query_all, modifier);
     },
 
 
@@ -193,7 +193,7 @@ Monitor.AdminOrder.AddProduct = {
     /**
      * Generise HTML na osnovu prosledjenih podataka i ubacuje u omotac
      * @param   {Object}    queried_products   Podaci sa trazenim proizvodima
-     * @return  {Object}           Monitor.AdminOrder.AddProduct objekat, za ulančavanje funkcija
+     * @return  {Object}           Kirby.AdminOrder.AddProduct objekat, za ulančavanje funkcija
      */
     render: function(queried_products) {
         this.getElement("wrapper").innerHTML = this.templates.main({
@@ -214,10 +214,10 @@ Monitor.AdminOrder.AddProduct = {
     * @param order_id identifikator za narudzbinu
     * @param product_id identifikator za proizvod
     * @param quantity  kolicina proizvoda
-    * @return  Monitor.AdminOrder.AddProduct objekat za ulancavanje funkcija
+    * @return  Kirby.AdminOrder.AddProduct objekat za ulancavanje funkcija
     */
     addProduct: function(order_id, product_id, quantity) {
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
             "AdminOrder",
             "addProduct",
             {
@@ -227,7 +227,7 @@ Monitor.AdminOrder.AddProduct = {
             },
             (added) => {
                 if (added) {
-                    var event = new CustomEvent("Monitor.AdminOrder.AddProduct.Added");
+                    var event = new CustomEvent("Kirby.AdminOrder.AddProduct.Added");
                     document.dispatchEvent(event);
                 }
             }
@@ -239,10 +239,10 @@ Monitor.AdminOrder.AddProduct = {
     /**
     * Poziva metodu za pronalazenje svih proizvoda zadatog upita
     * @param query-upit
-    * @return  Monitor.AdminOrder.AddProduct objekat za ulancavanje funkcija
+    * @return  Kirby.AdminOrder.AddProduct objekat za ulancavanje funkcija
     */
     findProducts: function(query, order_id) {
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
             "AdminOrder",
             "findProducts",
             {
@@ -255,4 +255,4 @@ Monitor.AdminOrder.AddProduct = {
     },
 };
 
-document.addEventListener("DOMContentLoaded", Monitor.AdminOrder.AddProduct.init.bind(Monitor.AdminOrder.AddProduct), false);
+document.addEventListener("DOMContentLoaded", Kirby.AdminOrder.AddProduct.init.bind(Kirby.AdminOrder.AddProduct), false);

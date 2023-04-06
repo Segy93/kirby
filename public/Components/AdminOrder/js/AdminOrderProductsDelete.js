@@ -1,10 +1,10 @@
 "use strict";
 
 if (typeof Monitor                     === "undefined") var Monitor                   = {};
-if (typeof Monitor.AdminOrders          === "undefined") Monitor.AdminOrders            = {};
-if (typeof Monitor.AdminOrders.Products  === "undefined") Monitor.AdminOrders.Products    = {};
+if (typeof Kirby.AdminOrders          === "undefined") Kirby.AdminOrders            = {};
+if (typeof Kirby.AdminOrders.Products  === "undefined") Kirby.AdminOrders.Products    = {};
 
-Monitor.AdminOrders.Products.Delete = {
+Kirby.AdminOrders.Products.Delete = {
     /**
      *
      * Konfiguracija komponente
@@ -64,7 +64,7 @@ Monitor.AdminOrders.Products.Delete = {
      * @return  {Object}                    
      */
     registerElements: function() {
-        Monitor.Main.DOM.register("AdminOrderProductsDelete", this.elements);
+        Kirby.Main.Dom.register("AdminOrderProductsDelete", this.elements);
         return this;
     },
 
@@ -111,7 +111,7 @@ Monitor.AdminOrders.Products.Delete = {
      * @return  {Node/NodeList}             Vraca Node objekat ukoliko je query_all false, niz Node objekata inace
      */
     getElement: function(element, query_all, modifier) {
-        return Monitor.Main.DOM.getElement("AdminOrderProductsDelete", element, query_all, modifier);
+        return Kirby.Main.Dom.getElement("AdminOrderProductsDelete", element, query_all, modifier);
     },
 
     /**
@@ -122,7 +122,7 @@ Monitor.AdminOrders.Products.Delete = {
      * @return  {Node/NodeList}             Vraca Node objekat ukoliko je query_all false, niz Node objekata inace
      */
     getElementSelector: function(element, query_all, modifier) {
-        return Monitor.Main.DOM.getElementSelector("AdminOrderProductsDelete", element, query_all, modifier);
+        return Kirby.Main.Dom.getElementSelector("AdminOrderProductsDelete", element, query_all, modifier);
     },
 
 
@@ -165,14 +165,14 @@ Monitor.AdminOrders.Products.Delete = {
      * @return  {Object}                    
      */
     deleteProduct: function() {
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
             "AdminOrder",
             "deleteOrderProduct",
             {
                 product_id: this.getProductID(),
             },
             (data) => {
-                var event = new CustomEvent("Monitor.OrderProduct");
+                var event = new CustomEvent("Kirby.OrderProduct");
                 event.info = "Delete";
                 event.data = data;
                 document.dispatchEvent(event);
@@ -182,4 +182,4 @@ Monitor.AdminOrders.Products.Delete = {
     },
 };
 
-document.addEventListener("DOMContentLoaded", Monitor.AdminOrders.Products.Delete.init.bind(Monitor.AdminOrders.Products.Delete), false);
+document.addEventListener("DOMContentLoaded", Kirby.AdminOrders.Products.Delete.init.bind(Kirby.AdminOrders.Products.Delete), false);

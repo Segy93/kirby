@@ -1,9 +1,9 @@
 "use strict";
 
 if (Monitor === undefined) window.Monitor = {};
-if (Monitor.AdminRoles === undefined) window.Monitor.AdminRoles = {};
+if (Kirby.AdminRoles === undefined) window.Kirby.AdminRoles = {};
 
-Monitor.AdminRoles.Create = {
+Kirby.AdminRoles.Create = {
     /**
      *
      * Konfiguracija komponente
@@ -52,7 +52,7 @@ Monitor.AdminRoles.Create = {
     /**
      * Inicijalizacija osluškivača u okviru komponente, kao i funkcija koje reaguju na njih
      * @param   {Object}    event           JavaScript event objekat
-     * @return  {Object}                    Monitor.AdminRoles.Create objekat, za ulančavanje funkcija
+     * @return  {Object}                    Kirby.AdminRoles.Create objekat, za ulančavanje funkcija
      */
     initListeners: function() {
         var form_create = this.getElement("form_create");
@@ -61,17 +61,17 @@ Monitor.AdminRoles.Create = {
         var input_create = this.getElement("input_create");
         if(input_create !== null) input_create.addEventListener("blur", this.blurName.bind(this), false);
 
-        document.addEventListener("Monitor.Role.Update", this.changedRole.bind(this), false);
-        document.addEventListener("Monitor.Role.Delete", this.changedRole.bind(this), false);
+        document.addEventListener("Kirby.Role.Update", this.changedRole.bind(this), false);
+        document.addEventListener("Kirby.Role.Delete", this.changedRole.bind(this), false);
         return this;
     },
 
     /**
      * Registracija elemenata u upotrebi od strane komponente
-     * @return  {Object}                    Monitor.AdminRoles.Create objekat, za ulančavanje funkcija
+     * @return  {Object}                    Kirby.AdminRoles.Create objekat, za ulančavanje funkcija
      */
     registerElements: function() {
-        Monitor.Main.DOM.register("AdminRolesCreate", this.elements);
+        Kirby.Main.Dom.register("AdminRolesCreate", this.elements);
         return this;
     },
 
@@ -114,7 +114,7 @@ Monitor.AdminRoles.Create = {
      * @param   {Object}    data            Informacije o kreiranom predmetu
      */
     roleCreated: function(data) {
-        var event = new CustomEvent("Monitor.Admin.Role.Create");
+        var event = new CustomEvent("Kirby.Admin.Role.Create");
         event.data = data;
         document.dispatchEvent(event);
         this.fetchData();
@@ -154,7 +154,7 @@ Monitor.AdminRoles.Create = {
      * @return  {Node/NodeList}             Vraca Node objekat ukoliko je query_all false, niz Node objekata inace
      */
     getElement: function(element, query_all, modifier) {
-        return Monitor.Main.DOM.getElement("AdminRolesCreate", element, query_all, modifier);
+        return Kirby.Main.Dom.getElement("AdminRolesCreate", element, query_all, modifier);
     },
 
     validateName: function() {
@@ -175,10 +175,10 @@ Monitor.AdminRoles.Create = {
 
     /**
      * Dohvata podatke neophodne za funkcionisanje komponenti,nakon cega ih cuva
-     * @return {Object}                     Monitor.AdminRoles.Create objekat, za ulancavanje funkcija
+     * @return {Object}                     Kirby.AdminRoles.Create objekat, za ulancavanje funkcija
      */
     fetchData: function() {
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
             "AdminRoles",
             "fetchData",
             {},
@@ -194,10 +194,10 @@ Monitor.AdminRoles.Create = {
     /**
      * Kreiranje nove uloge
      * @param   {String}    name            Ime predmeta
-     * @return {Object}                     Monitor.AdminRoles.Create objekat, za ulancavanje funkcija
+     * @return {Object}                     Kirby.AdminRoles.Create objekat, za ulancavanje funkcija
     **/
     createRole: function(name) {
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
             "AdminRoles",
             "createRole",
             {
@@ -210,4 +210,4 @@ Monitor.AdminRoles.Create = {
 
 };
 
-document.addEventListener('DOMContentLoaded', Monitor.AdminRoles.Create.init.bind(Monitor.AdminRoles.Create), false);
+document.addEventListener('DOMContentLoaded', Kirby.AdminRoles.Create.init.bind(Kirby.AdminRoles.Create), false);

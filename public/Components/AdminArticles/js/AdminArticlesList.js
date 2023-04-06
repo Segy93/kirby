@@ -1,14 +1,14 @@
 "use strict"
 
 if(typeof Monitor               === "undefined") var Monitor               = {};
-if(typeof Monitor.AdminArticles === "undefined") Monitor.AdminArticles     = {};
+if(typeof Kirby.AdminArticles === "undefined") Kirby.AdminArticles     = {};
 
 /**
  *
  * Tabela sa listom clanaka i akcijama nad njima
  *
  */
-Monitor.AdminArticles.List = {
+Kirby.AdminArticles.List = {
     config: {                   // Konfiguracija komponente
         direction: true,        // Smer dohvatanja podataka (false za unazad, true za unapred)
         first_date: null,       // Prvi dohvaceni DATE (koristi se za navigaciju po stranama)
@@ -62,7 +62,7 @@ Monitor.AdminArticles.List = {
 
     /**
      * Inicijalizacija osluskivaca za komponentu
-     * @return  {Object}                    Monitor.AdminArticles.List
+     * @return  {Object}                    Kirby.AdminArticles.List
      */
     initListeners: function() {
         var $wrapper = $(this.getElementSelector("wrapper"));
@@ -78,15 +78,15 @@ Monitor.AdminArticles.List = {
         this.getElement("button_prev")  .addEventListener("click",  this.clickPaginationPrevious.bind(this),    false);
         this.getElement("button_next")  .addEventListener("click",  this.clickPaginationNext.bind(this),        false);
 
-        document.addEventListener("Monitor.Admin.Articles", this.changeOccurred.bind(this), false);
-        document.addEventListener("Monitor.Admin.SEO.Create", this.refreshData.bind(this), false);
+        document.addEventListener("Kirby.Admin.Articles", this.changeOccurred.bind(this), false);
+        document.addEventListener("Kirby.Admin.SEO.Create", this.refreshData.bind(this), false);
 
         return this;
     },
 
     /**
      * Inicijalizacija sablona koje komponenta koristi
-     * @return  {Object}                    Monitor.AdminArticles.List
+     * @return  {Object}                    Kirby.AdminArticles.List
      */
     initTemplates: function() {
         this.templates.main = _.template(document.getElementById("admin_articles__list_temp").innerHTML);
@@ -94,11 +94,11 @@ Monitor.AdminArticles.List = {
     },
 
     /**
-     * Registrovanje elemenata za Monitor.Main.DOM
-     * @return  {Object}                    Monitor.AdminArticles.List
+     * Registrovanje elemenata za Kirby.Main.Dom
+     * @return  {Object}                    Kirby.AdminArticles.List
      */
     registerElements()  {
-        Monitor.Main.DOM.register("AdminArticlesList", this.elements);
+        Kirby.Main.Dom.register("AdminArticlesList", this.elements);
         return this;
     },
 
@@ -172,8 +172,8 @@ Monitor.AdminArticles.List = {
      * @param   {Object}    event           jQuery event objekat
      */
     changeOccurred: function(event) {
-        event.type === 'Monitor.Admin.Articles' ? this.config.awaitArticle = false : this.config.awaitSeo = false;
-        if (event.type === 'Monitor.Admin.Articles' && event.info !== 'Create') {
+        event.type === 'Kirby.Admin.Articles' ? this.config.awaitArticle = false : this.config.awaitSeo = false;
+        if (event.type === 'Kirby.Admin.Articles' && event.info !== 'Create') {
             this.config.awaitSeo = false;
         }
         if (this.config.awaitArticle === false && this.config.awaitSeo === false) {
@@ -247,7 +247,7 @@ Monitor.AdminArticles.List = {
     /**
      * Setuje date prvog prikazanog korisnika u paginaciji
      * @param   {Object}    id              ID prvog dohvacenog korisnika
-     * @return  {Object}                    Monitor.AdminUsers.List objekat, za ulancavanje funkcija
+     * @return  {Object}                    Kirby.AdminUsers.List objekat, za ulancavanje funkcija
     */
     setDateFirst: function(date) {
         this.config.first_date = date;
@@ -265,7 +265,7 @@ Monitor.AdminArticles.List = {
     /**
      * Setuje date poslednjeg prikazanog korisnika u paginaciji
      * @param   {Object}    id              date poslednje dohvacenog korisnika
-     * @return  {Object}                    Monitor.AdminUsers.List objekat, za ulancavanje funkcija
+     * @return  {Object}                    Kirby.AdminUsers.List objekat, za ulancavanje funkcija
     */
     setDateLast: function(date) {
         this.config.last_date = date;
@@ -274,7 +274,7 @@ Monitor.AdminArticles.List = {
 
     /**
      * Vraca na prvu stranu
-     * @return  {Object}                    Monitor.AdminUsers.List objekat, za ulancavanje funkcija
+     * @return  {Object}                    Kirby.AdminUsers.List objekat, za ulancavanje funkcija
      */
     resetDates: function() {
         return this
@@ -294,7 +294,7 @@ Monitor.AdminArticles.List = {
     /**
      * Smer dohvatanja podataka
      * @param   {Object}    direction       true za napred i false za nazad
-     * @return  {Object}                    Monitor.AdminUsers.List objekat, za ulancavanje funkcija
+     * @return  {Object}                    Kirby.AdminUsers.List objekat, za ulancavanje funkcija
      */
     setDirection: function(direction) {
         this.config.direction = direction;
@@ -312,7 +312,7 @@ Monitor.AdminArticles.List = {
     /**
      * Zadaje trenutni filter po kategoriju (0 ako je iskljucen)
      * @param   {Number}    category_id     ID kategorije po kom filtriramo
-     * @return  {Object}                    Monitor.AdminArticles.List
+     * @return  {Object}                    Kirby.AdminArticles.List
      */
     setFilterCategory: function(category_id) {
         this.config.filter_category = category_id;
@@ -330,7 +330,7 @@ Monitor.AdminArticles.List = {
     /**
      * Zadaje trenutni filter po tagu (0 ako je iskljucen)
      * @param   {Number}    tag_id          ID taga po kom filtriramo
-     * @return  {Object}                    Monitor.AdminArticles.List
+     * @return  {Object}                    Kirby.AdminArticles.List
      */
     setFilterTag: function(tag_id) {
         this.config.filter_tag = tag_id;
@@ -371,7 +371,7 @@ Monitor.AdminArticles.List = {
      * @return  {Node/NodeList}             Vraca Node objekat ukoliko je query_all false, niz Node objekata inace
      */
     getElement: function(element, query_all, modifier) {
-        return Monitor.Main.DOM.getElement("AdminArticlesList", element, query_all, modifier);
+        return Kirby.Main.Dom.getElement("AdminArticlesList", element, query_all, modifier);
     },
 
     /**
@@ -382,13 +382,13 @@ Monitor.AdminArticles.List = {
      * @return  {Node/NodeList}             Vraca Node objekat ukoliko je query_all false, niz Node objekata inace
      */
     getElementSelector: function(element, query_all, modifier) {
-        return Monitor.Main.DOM.getElementSelector("AdminArticlesList", element, query_all, modifier);
+        return Kirby.Main.Dom.getElementSelector("AdminArticlesList", element, query_all, modifier);
     },
 
     /**
      * Rendanje komponenta na osnovu dohvacenih podataka
      * @param   {Object}    data            Niz clanaka koje treba prikazati
-     * @return  {Object}                    Monitor.AdminArticles.List
+     * @return  {Object}                    Kirby.AdminArticles.List
      */
     render: function(data) {
         this.getElement("wrapper").innerHTML = this.templates.main({
@@ -425,10 +425,10 @@ Monitor.AdminArticles.List = {
      * Promena kategorije clanka
      * @param   {Number}    article_id      ID clanka
      * @param   {Number}    category_id     ID kategorije
-     * @return  {Object}                    Monitor.AdminArticles.List
+     * @return  {Object}                    Kirby.AdminArticles.List
      */
     changeCategory: function(article_id, category_id) {
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
             "AdminArticles",
             "changeCategory",
             {
@@ -444,10 +444,10 @@ Monitor.AdminArticles.List = {
      * Promena datuma clanka
      * @param   {Number}    article_id      ID clanka
      * @param   {string}    date            Datum clanka
-     * @return  {Object}                    Monitor.AdminArticles.List
+     * @return  {Object}                    Kirby.AdminArticles.List
      */
     changeDate: function(article_id, date) {
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
             "AdminArticles",
             "changeDate",
             {
@@ -461,11 +461,11 @@ Monitor.AdminArticles.List = {
 
     /**
      * Dohvatanje clanaka
-     * @return  {Object}                    Monitor.AdminArticles.List
+     * @return  {Object}                    Kirby.AdminArticles.List
      */
     fetchData: function() {
         console.log('fetchData');
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
             "AdminArticles",
             "fetchData",
             {
@@ -522,7 +522,7 @@ Monitor.AdminArticles.List = {
 
     /**
      * Refresh the current page
-     * @return {Object}                     Monitor.AdminUsers.List objekat, za ulancavanje funkcija
+     * @return {Object}                     Kirby.AdminUsers.List objekat, za ulancavanje funkcija
      */
     refreshData: function() {
         console.log("REFRESH DATA");
@@ -540,7 +540,7 @@ Monitor.AdminArticles.List = {
      * @param  {string} status     PUBLISHED ili DRAFT
      */
     changeStatus: function(article_id, status) {
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
             "AdminArticles",
             "changeStatus",
             {
@@ -552,4 +552,4 @@ Monitor.AdminArticles.List = {
     },
 };
 
-document.addEventListener('DOMContentLoaded', Monitor.AdminArticles.List.init.bind(Monitor.AdminArticles.List), false);
+document.addEventListener('DOMContentLoaded', Kirby.AdminArticles.List.init.bind(Kirby.AdminArticles.List), false);

@@ -34,7 +34,7 @@
     var initListeners = function () {
         getElement("cart_list").addEventListener("submit", submitAnything, false);
         getElement("cart_list").addEventListener("change", changeAnything, false);
-        document.addEventListener("Monitor.WishList.Cart.Added", fetchData, false);
+        document.addEventListener("Kirby.WishList.Cart.Added", fetchData, false);
     };
 
     var initTemplates = function() {
@@ -42,7 +42,7 @@
     };
 
     var registerElements = function () {
-        Monitor.Main.DOM.register("Cart", elements);
+        Kirby.Main.Dom.register("Cart", elements);
     };
 
 
@@ -175,7 +175,7 @@
      * @return  {Node/NodeList}             Vraca Node objekat ukoliko je query_all false, niz Node objekata inace
      */
     var getElement = function(element, query_all, modifier, parent) {
-        return Monitor.Main.DOM.getElement("Cart", element, query_all, modifier, parent);
+        return Kirby.Main.Dom.getElement("Cart", element, query_all, modifier, parent);
     };
 
     /**
@@ -186,7 +186,7 @@
      * @return  {Node/NodeList}             Vraca Node objekat ukoliko je query_all false, niz Node objekata inace
      */
     var getElementSelector = function(element, query_all, modifier) {
-        return Monitor.Main.DOM.getElementSelector("Cart", element, query_all, modifier);
+        return Kirby.Main.Dom.getElementSelector("Cart", element, query_all, modifier);
     };
 
     var render = function(data) {
@@ -199,7 +199,7 @@
     };
 
     var fetchData = function() {
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
             "Cart",
             "getUserCart",
             {},
@@ -225,7 +225,7 @@
 
 
     var deleteCartItem = function(id) {
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
             "Cart",
             "deleteCartItem",
             {
@@ -239,7 +239,7 @@
     }
 
     var changeCart = function(product_id, quantity) {
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
             "Cart",
             "changeCart",
             {

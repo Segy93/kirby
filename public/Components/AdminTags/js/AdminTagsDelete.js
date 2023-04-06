@@ -1,9 +1,9 @@
 "use strict";
 
 if(typeof Monitor === "undefined") var Monitor                 = {};
-if(typeof Monitor.AdminTags === "undefined") Monitor.AdminTags = {};
+if(typeof Kirby.AdminTags === "undefined") Kirby.AdminTags = {};
 
-Monitor.AdminTags.Delete = {
+Kirby.AdminTags.Delete = {
 
 
 
@@ -46,7 +46,7 @@ Monitor.AdminTags.Delete = {
 
     /**
      * Inicijalizacija osluškivača u okviru komponente, kao i funkcija koje reaguju na njih
-     * @return  {Object}                    Monitor.AdminTags.Delete objekat, za ulančavanje funkcija
+     * @return  {Object}                    Kirby.AdminTags.Delete objekat, za ulančavanje funkcija
      */
     initListeners: function() {
         $(this.getElementSelector("wrapper")).on("show.bs.modal", this.componentRequested.bind(this));
@@ -56,10 +56,10 @@ Monitor.AdminTags.Delete = {
 
     /**
      * Registracija elemenata u upotrebi od strane komponente
-     * @return  {Object}                     Monitor.AdminTags.Delete objekat, za ulančavanje funkcija
+     * @return  {Object}                     Kirby.AdminTags.Delete objekat, za ulančavanje funkcija
      */
     registerElements: function() {
-        Monitor.Main.DOM.register("AdminTagsDelete", this.elements);
+        Kirby.Main.Dom.register("AdminTagsDelete", this.elements);
         return this;
     },
 
@@ -105,7 +105,7 @@ Monitor.AdminTags.Delete = {
      * @return  {Node/NodeList}             Vraca Node objekat ukoliko je query_all false, niz Node objekata inace
      */
     getElement: function(element, query_all, modifier) {
-        return Monitor.Main.DOM.getElement("AdminTagsDelete", element, query_all, modifier);
+        return Kirby.Main.Dom.getElement("AdminTagsDelete", element, query_all, modifier);
     },
 
     /**
@@ -116,7 +116,7 @@ Monitor.AdminTags.Delete = {
      * @return  {Node/NodeList}             Vraca Node objekat ukoliko je query_all false, niz Node objekata inace
      */
     getElementSelector: function(element, query_all, modifier) {
-        return Monitor.Main.DOM.getElementSelector("AdminTagsDelete", element, query_all, modifier);
+        return Kirby.Main.Dom.getElementSelector("AdminTagsDelete", element, query_all, modifier);
     },
 
 
@@ -138,7 +138,7 @@ Monitor.AdminTags.Delete = {
 
     /**
      * Zadaje ID trenutnog taga
-     * @return  {Object}                    Monitor.AdminTag.Delete objekat, za ulančavanje funkcija
+     * @return  {Object}                    Kirby.AdminTag.Delete objekat, za ulančavanje funkcija
      */
     setTagID: function(tag_id) {
         this.config.tag_id = tag_id;
@@ -156,17 +156,17 @@ Monitor.AdminTags.Delete = {
 
     /**
      * Brise trenutnog korisnika
-     * @return  {Object}                    Monitor.AdminUsers.Dialogs.Delete objekat, za ulančavanje funkcija
+     * @return  {Object}                    Kirby.AdminUsers.Dialogs.Delete objekat, za ulančavanje funkcija
      */
     deleteTag: function() {
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
             "AdminTags",
             "deleteTag",
             {
                 "tag_id": this.getTagID(),
             },
             function(data) {
-                var event = new CustomEvent("Monitor.Admin.Tags");
+                var event = new CustomEvent("Kirby.Admin.Tags");
                 event.info = "Delete";
                 event.data = data;
                 document.dispatchEvent(event);
@@ -175,4 +175,4 @@ Monitor.AdminTags.Delete = {
         return this;
     },
 }
-document.addEventListener('DOMContentLoaded', Monitor.AdminTags.Delete.init.bind(Monitor.AdminTags.Delete), false);
+document.addEventListener('DOMContentLoaded', Kirby.AdminTags.Delete.init.bind(Kirby.AdminTags.Delete), false);

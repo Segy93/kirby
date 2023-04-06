@@ -1,10 +1,10 @@
 "use strict";
 
 if(typeof Monitor           === "undefined") var  Monitor      = {};
-if(typeof Monitor.AdminTags === "undefined") Monitor.AdminTags = {};
+if(typeof Kirby.AdminTags === "undefined") Kirby.AdminTags = {};
 
 
-Monitor.AdminTags.List = {
+Kirby.AdminTags.List = {
 
     config: {
 
@@ -38,8 +38,8 @@ Monitor.AdminTags.List = {
     },
 
     initListeners:function(){
-        document.addEventListener("Monitor.Admin.Tags", this.changeOccured.bind(this), false);
-        document.addEventListener("Monitor.Admin.SEO.Create", this.fetchData.bind(this), false);
+        document.addEventListener("Kirby.Admin.Tags", this.changeOccured.bind(this), false);
+        document.addEventListener("Kirby.Admin.SEO.Create", this.fetchData.bind(this), false);
         return this;
     },
 
@@ -49,7 +49,7 @@ Monitor.AdminTags.List = {
     },
 
     registerElements:function(){
-        Monitor.Main.DOM.register("AdminTagsList", this.elements);
+        Kirby.Main.Dom.register("AdminTagsList", this.elements);
         return this;
     },
 
@@ -71,7 +71,7 @@ Monitor.AdminTags.List = {
     },
 
     triggerChangeOccured: function(data, info) {
-        var event = new CustomEvent("Monitor.Admin.Tags");
+        var event = new CustomEvent("Kirby.Admin.Tags");
         event.info = "Update";
         event.data = data;
         document.dispatchEvent(event);
@@ -88,7 +88,7 @@ Monitor.AdminTags.List = {
     * @return  {Node/NodeList}             Vraca Node objekat ukoliko je query_all false, niz Node objekata inace
     */
     getElement: function(element, query_all, modifier) {
-        return Monitor.Main.DOM.getElement("AdminTagsList", element, query_all, modifier);
+        return Kirby.Main.Dom.getElement("AdminTagsList", element, query_all, modifier);
     },
 
     /**
@@ -99,7 +99,7 @@ Monitor.AdminTags.List = {
     * @return  {Node/NodeList}             Vraca Node objekat ukoliko je query_all false, niz Node objekata inace
     */
     getElementSelector: function(element, query_all, modifier) {
-        return Monitor.Main.DOM.getElementSelector("AdminTagsList", element, query_all, modifier);
+        return Kirby.Main.Dom.getElementSelector("AdminTagsList", element, query_all, modifier);
     },
 
     /**
@@ -123,10 +123,10 @@ Monitor.AdminTags.List = {
 
     /**
      * Dohvata podatke neophodne za funkcionisanje komponenti, nakon toga prikazuje komponentu
-     * @return {Object}                     Monitor.AdminTags.List objekat, za ulancavanje funkcija
+     * @return {Object}                     Kirby.AdminTags.List objekat, za ulancavanje funkcija
      */
     fetchData: function() {
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
             "AdminTags",
             "fetchData",
             {},
@@ -135,4 +135,4 @@ Monitor.AdminTags.List = {
         );
     },
 };
-document.addEventListener('DOMContentLoaded', Monitor.AdminTags.List.init.bind(Monitor.AdminTags.List), false);
+document.addEventListener('DOMContentLoaded', Kirby.AdminTags.List.init.bind(Kirby.AdminTags.List), false);

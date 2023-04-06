@@ -39,7 +39,7 @@
     };
 
     var registerElements = function() {
-        Monitor.Main.DOM.register("HeaderSearchBar", elements);
+        Kirby.Main.Dom.register("HeaderSearchBar", elements);
     };
     
 
@@ -75,7 +75,7 @@
     * @return  {Node/NodeList}             Vraca Node objekat ukoliko je query_all false, niz Node objekata inace
     */
     var getElement = function(element, query_all, modifier, parent) {
-        return Monitor.Main.DOM.getElement("HeaderSearchBar", element, query_all, modifier, parent);
+        return Kirby.Main.Dom.getElement("HeaderSearchBar", element, query_all, modifier, parent);
     };
 
     /**
@@ -86,7 +86,7 @@
      * @return  {Node/NodeList}             Vraca Node objekat ukoliko je query_all false, niz Node objekata inace
      */
     var getElementSelector = function(element, query_all, modifier) {
-        return Monitor.Main.DOM.getElementSelector("HeaderSearchBar", element, query_all, modifier);
+        return Kirby.Main.Dom.getElementSelector("HeaderSearchBar", element, query_all, modifier);
     };
 
 
@@ -117,7 +117,7 @@
 
 
     var getSearchResults = function(query, response) {
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
             "HeaderSearchBar",
             "getSearchResults",
             {

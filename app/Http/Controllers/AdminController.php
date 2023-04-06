@@ -47,10 +47,10 @@ class AdminController extends BaseController {
         // Dodatne biblioteke
         'libs/Sortable.min.js',
 
-        'libs/MonitorMainAjax.js',
-        'libs/MonitorMainDOM.js',
-        'libs/MonitorMainEditor.js',
-        'libs/MonitorMainShortcodes.js',
+        'libs/KirbyMainAjax.js',
+        'libs/KirbyMainDOM.js',
+        'libs/KirbyMainEditor.js',
+        'libs/KirbyMainShortcodes.js',
     ];
 
 

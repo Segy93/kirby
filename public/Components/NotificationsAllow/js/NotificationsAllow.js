@@ -9,7 +9,7 @@
     };
 
     var config = {
-        device_subscribed: Monitor._params.device_subscribed,
+        device_subscribed: Kirby._params.device_subscribed,
     }
 
     var init = function(event) {
@@ -31,7 +31,7 @@
     };
 
     var registerElements = function () {
-        Monitor.Main.DOM.register("NotificationsAllow", elements);
+        Kirby.Main.Dom.register("NotificationsAllow", elements);
     };
 
 
@@ -47,7 +47,7 @@
     };
 
     var hidePrompt = function (event) {
-        var event   = new CustomEvent("Monitor.Notifications.Hide.Prompt");
+        var event   = new CustomEvent("Kirby.Notifications.Hide.Prompt");
         document.dispatchEvent(event);
     };
 
@@ -80,7 +80,7 @@
                     var auth  = btoa(String.fromCharCode.apply(null, new Uint8Array(sub.getKey('auth'))));
                     notificationsAllowed(sub.endpoint, p256h, auth);
     
-                    var event   = new CustomEvent("Monitor.Notifications.Device.Added");
+                    var event   = new CustomEvent("Kirby.Notifications.Device.Added");
                     document.dispatchEvent(event);
                 }).catch(function(e) {
                     if ("Notification" in window && Notification.permission === 'denied') {
@@ -115,7 +115,7 @@
      * @return  {Node/NodeList}             Vraca Node objekat ukoliko je query_all false, niz Node objekata inace
      */
     var getElement = function(element, query_all, modifier, parent) {
-        return Monitor.Main.DOM.getElement("NotificationsAllow", element, query_all, modifier, parent);
+        return Kirby.Main.Dom.getElement("NotificationsAllow", element, query_all, modifier, parent);
     };
 
     /**
@@ -126,7 +126,7 @@
      * @return  {Node/NodeList}             Vraca Node objekat ukoliko je query_all false, niz Node objekata inace
      */
     var getElementSelector = function(element, query_all, modifier) {
-        return Monitor.Main.DOM.getElementSelector("NotificationsAllow", element, query_all, modifier);
+        return Kirby.Main.Dom.getElementSelector("NotificationsAllow", element, query_all, modifier);
     };
 
     var render = function (data) {
@@ -136,7 +136,7 @@
     };
 
     function notificationsAllowed (endpoint, p256dh, auth) {
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
             "NotificationsAllow",
             "notificationsAllowed",
             {

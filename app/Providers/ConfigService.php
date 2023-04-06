@@ -89,7 +89,7 @@ class ConfigService {
     }
 
     /**
-     * Dohvata osnovnu putanju do sajta, https://www.monitor.rs deo
+     * Dohvata osnovnu putanju do sajta, https://www.kesezakirby.rs deo
      *
      * @return  string                      Pomenuta putanja
      */

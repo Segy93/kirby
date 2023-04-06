@@ -1,9 +1,9 @@
 "use strict";
 
 if(typeof Monitor                 === "undefined") var Monitor             = {};
-if(typeof Monitor.AdminCategoriesStatic === "undefined") Monitor.AdminCategoriesStatic = {};
+if(typeof Kirby.AdminCategoriesStatic === "undefined") Kirby.AdminCategoriesStatic = {};
 
-Monitor.AdminCategoriesStatic.Delete = {
+Kirby.AdminCategoriesStatic.Delete = {
 
 
 
@@ -46,7 +46,7 @@ Monitor.AdminCategoriesStatic.Delete = {
 
     /**
      * Inicijalizacija osluškivača u okviru komponente, kao i funkcija koje reaguju na njih
-     * @return  {Object}                    Monitor.AdminCategoriesStatic.Delete objekat, za ulančavanje funkcija
+     * @return  {Object}                    Kirby.AdminCategoriesStatic.Delete objekat, za ulančavanje funkcija
      */
     initListeners: function() {
         $(this.getElementSelector("wrapper")).on("show.bs.modal", this.componentRequested.bind(this));
@@ -56,10 +56,10 @@ Monitor.AdminCategoriesStatic.Delete = {
 
     /**
      * Registracija elemenata u upotrebi od strane komponente
-     * @return  {Object}                     Monitor.AdminCategoriesStatic.Delete objekat, za ulančavanje funkcija
+     * @return  {Object}                     Kirby.AdminCategoriesStatic.Delete objekat, za ulančavanje funkcija
      */
     registerElements: function() {
-        Monitor.Main.DOM.register("AdminCategoriesStaticDelete", this.elements);
+        Kirby.Main.Dom.register("AdminCategoriesStaticDelete", this.elements);
         return this;
     },
 
@@ -105,7 +105,7 @@ Monitor.AdminCategoriesStatic.Delete = {
      * @return  {Node/NodeList}             Vraca Node objekat ukoliko je query_all false, niz Node objekata inace
      */
     getElement: function(element, query_all, modifier) {
-        return Monitor.Main.DOM.getElement("AdminCategoriesStaticDelete", element, query_all, modifier);
+        return Kirby.Main.Dom.getElement("AdminCategoriesStaticDelete", element, query_all, modifier);
     },
 
     /**
@@ -116,7 +116,7 @@ Monitor.AdminCategoriesStatic.Delete = {
      * @return  {Node/NodeList}             Vraca Node objekat ukoliko je query_all false, niz Node objekata inace
      */
     getElementSelector: function(element, query_all, modifier) {
-        return Monitor.Main.DOM.getElementSelector("AdminCategoriesStaticDelete", element, query_all, modifier);
+        return Kirby.Main.Dom.getElementSelector("AdminCategoriesStaticDelete", element, query_all, modifier);
     },
 
 
@@ -138,7 +138,7 @@ Monitor.AdminCategoriesStatic.Delete = {
 
     /**
      * Zadaje ID trenutne kategorije
-     * @return  {Object}                    Monitor.AdminCategoriesStatic.Delete objekat, za ulančavanje funkcija
+     * @return  {Object}                    Kirby.AdminCategoriesStatic.Delete objekat, za ulančavanje funkcija
      */
     setCategoryID: function(category_id) {
         this.config.category_id = category_id;
@@ -156,17 +156,17 @@ Monitor.AdminCategoriesStatic.Delete = {
 
     /**
      * Brise trenutnog korisnika
-     * @return  {Object}                    Monitor.AdminUsers.Dialogs.Delete objekat, za ulančavanje funkcija
+     * @return  {Object}                    Kirby.AdminUsers.Dialogs.Delete objekat, za ulančavanje funkcija
      */
     deleteCategory: function() {
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
             "AdminStaticCategories",
             "deleteCategory",
             {
                 "category_id": this.getCategoryID(),
             },
             function(data) {
-                var event = new CustomEvent("Monitor.Admin.StaticCategories");
+                var event = new CustomEvent("Kirby.Admin.StaticCategories");
                 event.info = "Delete";
                 event.data = data;
                 document.dispatchEvent(event);
@@ -175,4 +175,4 @@ Monitor.AdminCategoriesStatic.Delete = {
         return this;
     },
 }
-document.addEventListener('DOMContentLoaded', Monitor.AdminCategoriesStatic.Delete.init.bind(Monitor.AdminCategoriesStatic.Delete), false);
+document.addEventListener('DOMContentLoaded', Kirby.AdminCategoriesStatic.Delete.init.bind(Kirby.AdminCategoriesStatic.Delete), false);

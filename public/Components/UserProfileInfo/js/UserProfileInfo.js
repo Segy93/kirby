@@ -87,7 +87,7 @@
      * Registruje elemente koji se koriste u komponenti
      */
     var registerElements = function() {
-        Monitor.Main.DOM.register("UserProfileInfo", elements);
+        Kirby.Main.Dom.register("UserProfileInfo", elements);
     };
 
 
@@ -252,7 +252,7 @@
     * @return  {Node/NodeList}       Vraca Node objekat ukoliko je query_all false, niz Node obj
     */
     var getElement = function(element, query_all, modifier, parent) {
-        return Monitor.Main.DOM.getElement("UserProfileInfo", element, query_all, modifier, parent);
+        return Kirby.Main.Dom.getElement("UserProfileInfo", element, query_all, modifier, parent);
     };
 
     /**
@@ -263,7 +263,7 @@
     * @return  {Node/NodeList}       Vraca Node objekat ukoliko je query_all false, niz Node obj
     */
     var getElementSelector = function(element, query_all, modifier) {
-        return Monitor.Main.DOM.getElementSelector("UserProfileInfo", element, query_all, modifier);
+        return Kirby.Main.Dom.getElementSelector("UserProfileInfo", element, query_all, modifier);
     };
 
 
@@ -286,7 +286,7 @@
 
 
     var userImageChange = function(user_id, image) {
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
             "UserProfile",
             "userImageChange",
             {
@@ -300,7 +300,7 @@
     };
 
     var changeUserInfo = function(user_id, username, name, surname, phone_nr) {
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
             "UserProfile",
             "userChange",
             {
@@ -318,7 +318,7 @@
     var changePassword = function(user_id, password_old, password, password_confirm) {
         var callback = function() {
             var password_message = getElement("password_message");
-            Monitor.Main.Ajax(
+            Kirby.Main.Ajax(
                 "UserProfile",
                 "changePassword",
                 {
@@ -351,7 +351,7 @@
     var checkPassword = function(password_old) {
         if (config.processing_password === false) {
             config.processing_password = true;
-            Monitor.Main.Ajax(
+            Kirby.Main.Ajax(
                 "UserProfile",
                 "checkPassword",
                 {
@@ -373,7 +373,7 @@
         spinner.classList.add("active");
         var message = getElement("message");
 
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
             "UserProfile",
             "sendEmail",
             {},

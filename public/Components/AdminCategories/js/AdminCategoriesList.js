@@ -1,9 +1,9 @@
 "use strict"
 
 if(typeof Monitor                 === "undefined") var Monitor             = {};
-if(typeof Monitor.AdminCategories === "undefined") Monitor.AdminCategories = {};
+if(typeof Kirby.AdminCategories === "undefined") Kirby.AdminCategories = {};
 
-Monitor.AdminCategories.List = {
+Kirby.AdminCategories.List = {
 
 
 	config:{
@@ -44,15 +44,15 @@ Monitor.AdminCategories.List = {
 		$wrapper.on("click",    this.getElementSelector("image_click"),            this.clickImage.bind(this));
         $wrapper.on("change",   this.getElementSelector("image_change"),            this.changedImage.bind(this));
 
-        document.addEventListener("Monitor.Admin.Categories", this.changeOccured.bind(this), false);
-        document.addEventListener("Monitor.Admin.SEO.Create", this.fetchData.bind(this), false);
+        document.addEventListener("Kirby.Admin.Categories", this.changeOccured.bind(this), false);
+        document.addEventListener("Kirby.Admin.SEO.Create", this.fetchData.bind(this), false);
         return this;
 
 	},
 
 	  /**
      * Inicijalizacija sablona
-     * @return  {Object}                    Monitor.AdminCategories.List objekat, za ulančavanje funkcija
+     * @return  {Object}                    Kirby.AdminCategories.List objekat, za ulančavanje funkcija
      */
     initTemplates: function() {
         this.templates.main = _.template(document.getElementById("admin_categories__list_tmpl").innerHTML);
@@ -62,10 +62,10 @@ Monitor.AdminCategories.List = {
 
     /**
      * Registracija elemenata u upotrebi od strane komponente
-     * @return  {Object}                    Monitor.AdminFields.List objekat, za ulančavanje funkcija
+     * @return  {Object}                    Kirby.AdminFields.List objekat, za ulančavanje funkcija
      */
     registerElements: function() {
-        Monitor.Main.DOM.register("AdminCategoriesList", this.elements);
+        Kirby.Main.Dom.register("AdminCategoriesList", this.elements);
         return this;
     },
 
@@ -119,7 +119,7 @@ Monitor.AdminCategories.List = {
      * @return  {Node/NodeList}             Vraca Node objekat ukoliko je query_all false, niz Node objekata inace
      */
     getElement: function(element, query_all, modifier) {
-        return Monitor.Main.DOM.getElement("AdminCategoriesList", element, query_all, modifier);
+        return Kirby.Main.Dom.getElement("AdminCategoriesList", element, query_all, modifier);
     },
 
     /**
@@ -130,7 +130,7 @@ Monitor.AdminCategories.List = {
     * @return  {Node/NodeList}             Vraca Node objekat ukoliko je query_all false, niz Node objekata inace
     */
 	getElementSelector: function(element, query_all, modifier) {
-        return Monitor.Main.DOM.getElementSelector("AdminCategoriesList", element, query_all, modifier);
+        return Kirby.Main.Dom.getElementSelector("AdminCategoriesList", element, query_all, modifier);
     },
     /**
     * Generise HTML na osnovu prosledjenih podataka i ubacuje u omotac
@@ -141,7 +141,7 @@ Monitor.AdminCategories.List = {
         this.getElement("wrapper").innerHTML = this.templates.main({
            "categories": data.categories,
         });
-        if (Monitor._params.AdminCategories.permission_reorder) {
+        if (Kirby._params.AdminCategories.permission_reorder) {
             if (this.config.sortable) this.config.sortable.destroy();
             this.config.sortable = Sortable.create(this.getElement("sortable_wrapper"), {
                 animation: 150,
@@ -163,10 +163,10 @@ Monitor.AdminCategories.List = {
 
      /**
      * Dohvata podatke neophodne za funkcionisanje komponenti, nakon toga prikazuje komponentu
-     * @return {Object}                     Monitor.AdminCategories.List objekat, za ulancavanje funkcija
+     * @return {Object}                     Kirby.AdminCategories.List objekat, za ulancavanje funkcija
      */
     fetchData: function() {
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
             "AdminCategories",
             "fetchData",
             {},
@@ -181,10 +181,10 @@ Monitor.AdminCategories.List = {
      * Promena slike kategorije
      * @param  {Number}     id              ID kategorije kojoj menjamo sliku
      * @param  {File}       picture         Nova slika
-     * @return {Object}                     Monitor.AdminCategories.List objekat, za ulancavanje funkcija
+     * @return {Object}                     Kirby.AdminCategories.List objekat, za ulancavanje funkcija
      */
     updateImage: function(id, picture) {
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
             "AdminCategories",
             "updateImage",
             {
@@ -192,7 +192,7 @@ Monitor.AdminCategories.List = {
                 "picture": picture,
             },
            	 function(data) {
-                var event = new CustomEvent("Monitor.Admin.Categories");
+                var event = new CustomEvent("Kirby.Admin.Categories");
                 event.info = "Update";
                 event.data = data;
                 document.dispatchEvent(event);
@@ -207,10 +207,10 @@ Monitor.AdminCategories.List = {
      * Promena redosleda
      * @param  {Number}     order_old       Stara pozicija
      * @param  {Number}     order_new       Nova pozicija
-     * @return {Object}                     Monitor.AdminCourses.List objekat, za ulancavanje funkcija
+     * @return {Object}                     Kirby.AdminCourses.List objekat, za ulancavanje funkcija
      */
     changeOrder: function(order_old, order_new) {
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
             "AdminCategories",
             "changeOrder",
             {
@@ -220,4 +220,4 @@ Monitor.AdminCategories.List = {
         );
     },
 };
-document.addEventListener('DOMContentLoaded', Monitor.AdminCategories.List.init.bind(Monitor.AdminCategories.List), false);
+document.addEventListener('DOMContentLoaded', Kirby.AdminCategories.List.init.bind(Kirby.AdminCategories.List), false);

@@ -10,7 +10,7 @@
 
                 <label for="admin_seo__url">
                     Url<br />
-                    -URL ukucan ovde će biti automatski nadovezan na www.monitor.rs. <br />
+                    -URL ukucan ovde će biti automatski nadovezan na www.kesezakirby.rs. <br />
                     -Ne sme biti razmaka (reči razdvajati sa "-")<br />
                     -Nije dozvoljen znak "/".<br />
                     -Koristiti samo slova engleske abecede.<br />
@@ -73,7 +73,7 @@
                                 <span class="glyphicon glyphicon-lock"></span>
                             </button>
                             <p>Putanje nije preporučljivo menjati.</p>
-                            <p> URL ukucan ovde će biti automatski nadovezan na www.monitor.rs.</p>
+                            <p> URL ukucan ovde će biti automatski nadovezan na www.kesezakirby.rs.</p>
                             <p>Ne sme biti razmaka (reči razdvajati sa "-") niti "/" znak. Koristiti samo slova engleske abecede.</p>
                         </div>
                         <div class="form-group">

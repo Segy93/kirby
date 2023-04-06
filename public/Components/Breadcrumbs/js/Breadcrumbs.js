@@ -7,11 +7,11 @@
 
     var initListeners = function () {
         window.addEventListener("popstate", statePop, false);
-        document.addEventListener("Monitor.PushState", statePop, false);
+        document.addEventListener("Kirby.PushState", statePop, false);
     };
 
     var registerElements = function () {
-        Monitor.Main.DOM.register("Breadcrumbs", elements);
+        Kirby.Main.Dom.register("Breadcrumbs", elements);
     };
 
 
@@ -39,7 +39,7 @@
      * @return  {Node/NodeList}             Vraca Node objekat ukoliko je query_all false, niz Node objekata inace
      */
     var getElement = function(element, query_all, modifier, parent) {
-        return Monitor.Main.DOM.getElement("Breadcrumbs", element, query_all, modifier, parent);
+        return Kirby.Main.Dom.getElement("Breadcrumbs", element, query_all, modifier, parent);
     };
 
     /**
@@ -50,7 +50,7 @@
      * @return  {Node/NodeList}             Vraca Node objekat ukoliko je query_all false, niz Node objekata inace
      */
     var getElementSelector = function(element, query_all, modifier) {
-        return Monitor.Main.DOM.getElementSelector("Breadcrumbs", element, query_all, modifier);
+        return Kirby.Main.Dom.getElementSelector("Breadcrumbs", element, query_all, modifier);
     };
 
     registerElements();

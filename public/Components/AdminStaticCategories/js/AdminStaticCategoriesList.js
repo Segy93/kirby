@@ -1,9 +1,9 @@
 "use strict"
 
 if(typeof Monitor                 === "undefined") var Monitor             = {};
-if(typeof Monitor.AdminStaticCategories === "undefined") Monitor.AdminStaticCategories = {};
+if(typeof Kirby.AdminStaticCategories === "undefined") Kirby.AdminStaticCategories = {};
 
-Monitor.AdminStaticCategories.List = {
+Kirby.AdminStaticCategories.List = {
 
 
 	config:{
@@ -44,15 +44,15 @@ Monitor.AdminStaticCategories.List = {
 		$wrapper.on("click",    this.getElementSelector("image_click"),            this.clickImage.bind(this));
         $wrapper.on("change",   this.getElementSelector("image_change"),            this.changedImage.bind(this));
 
-        document.addEventListener("Monitor.Admin.StaticCategories", this.changeOccured.bind(this), false);
-        document.addEventListener("Monitor.Admin.SEO.Create", this.fetchData.bind(this), false);
+        document.addEventListener("Kirby.Admin.StaticCategories", this.changeOccured.bind(this), false);
+        document.addEventListener("Kirby.Admin.SEO.Create", this.fetchData.bind(this), false);
         return this;
 
 	},
 
 	  /**
      * Inicijalizacija sablona
-     * @return  {Object}                    Monitor.AdminStaticCategories.List objekat, za ulančavanje funkcija
+     * @return  {Object}                    Kirby.AdminStaticCategories.List objekat, za ulančavanje funkcija
      */
     initTemplates: function() {
         this.templates.main = _.template(document.getElementById("admin_categories__static_list__tmpl").innerHTML);
@@ -62,10 +62,10 @@ Monitor.AdminStaticCategories.List = {
 
     /**
      * Registracija elemenata u upotrebi od strane komponente
-     * @return  {Object}                    Monitor.AdminFields.List objekat, za ulančavanje funkcija
+     * @return  {Object}                    Kirby.AdminFields.List objekat, za ulančavanje funkcija
      */
     registerElements: function() {
-        Monitor.Main.DOM.register("AdminStaticCategoriesList", this.elements);
+        Kirby.Main.Dom.register("AdminStaticCategoriesList", this.elements);
         return this;
     },
 
@@ -119,7 +119,7 @@ Monitor.AdminStaticCategories.List = {
      * @return  {Node/NodeList}             Vraca Node objekat ukoliko je query_all false, niz Node objekata inace
      */
     getElement: function(element, query_all, modifier) {
-        return Monitor.Main.DOM.getElement("AdminStaticCategoriesList", element, query_all, modifier);
+        return Kirby.Main.Dom.getElement("AdminStaticCategoriesList", element, query_all, modifier);
     },
 
     /**
@@ -130,7 +130,7 @@ Monitor.AdminStaticCategories.List = {
     * @return  {Node/NodeList}             Vraca Node objekat ukoliko je query_all false, niz Node objekata inace
     */
 	getElementSelector: function(element, query_all, modifier) {
-        return Monitor.Main.DOM.getElementSelector("AdminStaticCategoriesList", element, query_all, modifier);
+        return Kirby.Main.Dom.getElementSelector("AdminStaticCategoriesList", element, query_all, modifier);
     },
     /**
     * Generise HTML na osnovu prosledjenih podataka i ubacuje u omotac
@@ -141,7 +141,7 @@ Monitor.AdminStaticCategories.List = {
         this.getElement("wrapper").innerHTML = this.templates.main({
            "categories": data.categories,
         });
-        if (Monitor._params.AdminStaticCategories.permission_reorder) {
+        if (Kirby._params.AdminStaticCategories.permission_reorder) {
             if (this.config.sortable) this.config.sortable.destroy();
             this.config.sortable = Sortable.create(this.getElement("sortable_wrapper"), {
                 animation: 150,
@@ -163,10 +163,10 @@ Monitor.AdminStaticCategories.List = {
 
      /**
      * Dohvata podatke neophodne za funkcionisanje komponenti, nakon toga prikazuje komponentu
-     * @return {Object}                     Monitor.AdminStaticCategories.List objekat, za ulancavanje funkcija
+     * @return {Object}                     Kirby.AdminStaticCategories.List objekat, za ulancavanje funkcija
      */
     fetchData: function() {
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
             "AdminStaticCategories",
             "fetchData",
             {},
@@ -181,10 +181,10 @@ Monitor.AdminStaticCategories.List = {
      * Promena slike kategorije
      * @param  {Number}     id              ID kategorije kojoj menjamo sliku
      * @param  {File}       picture         Nova slika
-     * @return {Object}                     Monitor.AdminStaticCategories.List objekat, za ulancavanje funkcija
+     * @return {Object}                     Kirby.AdminStaticCategories.List objekat, za ulancavanje funkcija
      */
     updateImage: function(id, picture) {
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
             "AdminStaticCategories",
             "updateImage",
             {
@@ -192,7 +192,7 @@ Monitor.AdminStaticCategories.List = {
                 "picture": picture,
             },
            	 function(data) {
-                var event = new CustomEvent("Monitor.Admin.Categories");
+                var event = new CustomEvent("Kirby.Admin.Categories");
                 event.info = "Update";
                 event.data = data;
                 document.dispatchEvent(event);
@@ -207,10 +207,10 @@ Monitor.AdminStaticCategories.List = {
      * Promena redosleda
      * @param  {Number}     order_old       Stara pozicija
      * @param  {Number}     order_new       Nova pozicija
-     * @return {Object}                     Monitor.AdminCourses.List objekat, za ulancavanje funkcija
+     * @return {Object}                     Kirby.AdminCourses.List objekat, za ulancavanje funkcija
      */
     changeOrder: function(order_old, order_new) {
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
             "AdminStaticCategories",
             "changeOrder",
             {
@@ -220,4 +220,4 @@ Monitor.AdminStaticCategories.List = {
         );
     },
 };
-document.addEventListener('DOMContentLoaded', Monitor.AdminStaticCategories.List.init.bind(Monitor.AdminStaticCategories.List), false);
+document.addEventListener('DOMContentLoaded', Kirby.AdminStaticCategories.List.init.bind(Kirby.AdminStaticCategories.List), false);

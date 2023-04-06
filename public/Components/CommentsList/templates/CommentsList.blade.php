@@ -51,7 +51,7 @@
         <input type="hidden" id = "comments_list__node_id" name="node_id" value="{{ $node_id }}" />
         <input type="hidden" id = "comments_list__page_type" name="type" value="{{ $type }}" />
         <p class="comments_list__login_notification">
-            Da biste mogli da ostavite komentar, morate da se <a class="common_landing__link" href="/prijava">prijavite</a> ili da se <a class="common_landing__link" href="/registracija">registrujete</a> na sajt <a class="common_landing__link" href="/">monitor.rs</a>
+            Da biste mogli da ostavite komentar, morate da se <a class="common_landing__link" href="/prijava">prijavite</a> ili da se <a class="common_landing__link" href="/registracija">registrujete</a> na sajt <a class="common_landing__link" href="/">kesezakirby.rs</a>
         </p>
     @endif
 

@@ -17,7 +17,7 @@
     /**
      * Inicijalizacija osluškivača u okviru komponente, kao i funkcija koje reaguju na njih
      * @param   {Object}    event           JavaScript event objekat
-     * @return  {Object}                    Monitor.Login objekat, za ulančavanje funkcija
+     * @return  {Object}                    Kirby.Login objekat, za ulančavanje funkcija
      */
     var initListeners = function() {
         var form_forgot = getElement("form_forgot");
@@ -29,10 +29,10 @@
 
     /**
      * Registracija elemenata u upotrebi od strane komponente
-     * @return  {Object}                    Monitor.Login objekat, za ulančavanje funkcija
+     * @return  {Object}                    Kirby.Login objekat, za ulančavanje funkcija
      */
     var registerElements = function() {
-        Monitor.Main.DOM.register("LoginForgotPassword", elements);
+        Kirby.Main.Dom.register("LoginForgotPassword", elements);
     };
 
 
@@ -69,7 +69,7 @@
      * @return  {Node/NodeList}             Vraca Node objekat ukoliko je query_all false, niz Node objekata inace
      */
     var getElement = function(element, query_all, modifier) {
-        return Monitor.Main.DOM.getElement("Login", element, query_all, modifier);
+        return Kirby.Main.Dom.getElement("Login", element, query_all, modifier);
     };
 
     /**
@@ -80,7 +80,7 @@
      * @return  {Node/NodeList}             Vraca Node objekat ukoliko je query_all false, niz Node objekata inace
      */
     var getElementSelector = function(element, query_all, modifier) {
-        return Monitor.Main.DOM.getElementSelector("Login", element, query_all, modifier);
+        return Kirby.Main.Dom.getElementSelector("Login", element, query_all, modifier);
     };
 
 
@@ -93,7 +93,7 @@
 
 
     var checkEmailTaken = function(email) {
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
             "Login",
             "checkEmailTaken",
             {

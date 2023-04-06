@@ -40,8 +40,8 @@
 
         if (getElement("form_comment"))getElement("form_comment").addEventListener("keyup", formKeyUp, false);
 
-        document.addEventListener("Monitor.Comment.Added", dataChanged, false);
-        document.addEventListener("Monitor.Comment.Status", dataChanged, false);
+        document.addEventListener("Kirby.Comment.Added", dataChanged, false);
+        document.addEventListener("Kirby.Comment.Status", dataChanged, false);
     };
 
     var initTemplates = function() {
@@ -50,7 +50,7 @@
     };
 
     var registerElements = function() {
-        Monitor.Main.DOM.register("CommentList", elements);
+        Kirby.Main.Dom.register("CommentList", elements);
     };
 
 
@@ -110,7 +110,7 @@
 
 
     var getElement = function(element, query_all, modifier, parent) {
-        return Monitor.Main.DOM.getElement("CommentList", element, query_all, modifier, parent);
+        return Kirby.Main.Dom.getElement("CommentList", element, query_all, modifier, parent);
     };
 
 
@@ -134,7 +134,7 @@
 
         wrapper.innerHTML = html;
 
-        var event   = new CustomEvent("Monitor.Comment.InitListeners");
+        var event   = new CustomEvent("Kirby.Comment.InitListeners");
         document.dispatchEvent(event);
     };
 
@@ -146,7 +146,7 @@
     var postMessage = function(message, node_id, type, parent_id) {
         if (typeof parent_id === "undefined") parent_id = null;
 
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
             "CommentsList",
             "postMessage",
             {
@@ -156,7 +156,7 @@
                 parent_id:  parent_id,
             },
             function (data) {
-                var event   = new CustomEvent("Monitor.Comment.Added");
+                var event   = new CustomEvent("Kirby.Comment.Added");
                 document.dispatchEvent(event);
             }
         );
@@ -165,7 +165,7 @@
 
 
     var fetchData = function(node_id, type, limit) {
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
             "CommentsList",
             "fetchData",
             {

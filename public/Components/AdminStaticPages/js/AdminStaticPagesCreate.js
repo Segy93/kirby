@@ -1,9 +1,9 @@
 "use strict";
 
 if( typeof Monitor                 === "undefined") var Monitor             = {};
-if( typeof Monitor.AdminStaticPages === "undefined") Monitor.AdminStaticPages = {};
+if( typeof Kirby.AdminStaticPages === "undefined") Kirby.AdminStaticPages = {};
 
-Monitor.AdminStaticPages.Create = {
+Kirby.AdminStaticPages.Create = {
 
 
 
@@ -42,7 +42,7 @@ Monitor.AdminStaticPages.Create = {
 
 	/**
 	 * Inicializacija osluskivaca u sklopu komponente kao i funkcija koje reaguju na njih
-	 * @return {Object}  Monitor.AdminStaticPages.Create objekat za ulancavanje funkcija
+	 * @return {Object}  Kirby.AdminStaticPages.Create objekat za ulancavanje funkcija
 	 */
 	initListeners:function(){
 		var form = this.getElement("form");
@@ -51,17 +51,17 @@ Monitor.AdminStaticPages.Create = {
 		var name = this.getElement("name");
 		if(name !== null)name.addEventListener("blur", this.blurName.bind(this), false);
         this.getElement("submit").addEventListener("click", this.clickSubmit.bind(this), false);
-        document.addEventListener("Monitor.SEO.Form", this.changedSEOState.bind(this), false);
+        document.addEventListener("Kirby.SEO.Form", this.changedSEOState.bind(this), false);
 
 		return this;
 	},
 
 	/**
 	 * Registracija elemenata u uptrebi od strane komponente
-	 * @return {Object} Monitor.AdminStaticPages.Create objekat za ulancavanje funkcija
+	 * @return {Object} Kirby.AdminStaticPages.Create objekat za ulancavanje funkcija
 	 */
 	registerElements:function(){
-		Monitor.Main.DOM.register("AdminStaticPagesCreate", this.elements);
+		Kirby.Main.Dom.register("AdminStaticPagesCreate", this.elements);
 		return this;
 	},
 	 /**
@@ -69,7 +69,7 @@ Monitor.AdminStaticPages.Create = {
      * @param   {Object}    data            Informacije o kreiranom predmetu
      */
     pageCreated: function(data) {
-        var event = new CustomEvent("Monitor.Admin.StaticPages");
+        var event = new CustomEvent("Kirby.Admin.StaticPages");
         event.info = "Create";
         event.data = data;
         document.dispatchEvent(event);
@@ -88,12 +88,12 @@ Monitor.AdminStaticPages.Create = {
     /**
      * Inicijalizacija tinyMCE editora
      * @param   {string}    element         Na kom elementu (iz this.elements) ce biti editor
-     * @return  {Object}                    Monitor.AdminArticles.Create
+     * @return  {Object}                    Kirby.AdminArticles.Create
      */
 	initEditor: function(element) {
         var selector = this.getElementSelector(element);
         var callback = this.setConfig.bind(this);
-        Monitor.Main.Editor.initEditor(element, selector, callback);
+        Kirby.Main.Editor.initEditor(element, selector, callback);
         return this;
     },
 
@@ -140,7 +140,7 @@ Monitor.AdminStaticPages.Create = {
 	/**
      * Zadaje validity za name polje, u zavisnosti da li postoji kategorija s ovim  imenom
      * @param   {Boolean}   exists          Da li je ime kategorije vec zauzet
-     * @return  {Object}                    Monitor.AdminStaticPages.Create objekat, za ulančavanje funkcija
+     * @return  {Object}                    Kirby.AdminStaticPages.Create objekat, za ulančavanje funkcija
      */
     setNameValidity: function(exists) {
         this.getElement("name").setCustomValidity(exists ? "Page with this name already exists" : "");
@@ -163,7 +163,7 @@ Monitor.AdminStaticPages.Create = {
 	 * @return {Node/NodeList}      Vraca Node objekat ukoliko je querry_all false u suprotnom vraca niz objekata
 	 */
 	getElement:function(element, querry_all, modifier){
-		return Monitor.Main.DOM.getElement("AdminStaticPagesCreate", element, querry_all, modifier);
+		return Kirby.Main.Dom.getElement("AdminStaticPagesCreate", element, querry_all, modifier);
 	},
 
 
@@ -175,11 +175,11 @@ Monitor.AdminStaticPages.Create = {
     * @return  {Node/NodeList}             Vraca Node objekat ukoliko je query_all false, niz Node objekata inace
     */
    	getElementSelector: function(element, query_all, modifier) {
-		return Monitor.Main.DOM.getElementSelector("AdminStaticPagesCreate", element, query_all, modifier);
+		return Kirby.Main.Dom.getElementSelector("AdminStaticPagesCreate", element, query_all, modifier);
 	},
 
 	isPageNameTaken:function(name){
-		Monitor.Main.Ajax(
+		Kirby.Main.Ajax(
 			"AdminStaticPages",
 			"isPageNameTaken",
 			{
@@ -191,7 +191,7 @@ Monitor.AdminStaticPages.Create = {
 	},
 
 	createPage:function(name, category, text){
-		Monitor.Main.Ajax(
+		Kirby.Main.Ajax(
 			"AdminStaticPages",
 			"createPage",
 			{
@@ -209,4 +209,4 @@ Monitor.AdminStaticPages.Create = {
 
 
 };
-document.addEventListener('DOMContentLoaded', Monitor.AdminStaticPages.Create.init.bind(Monitor.AdminStaticPages.Create), false);
+document.addEventListener('DOMContentLoaded', Kirby.AdminStaticPages.Create.init.bind(Kirby.AdminStaticPages.Create), false);

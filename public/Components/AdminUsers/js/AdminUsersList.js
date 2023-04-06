@@ -1,7 +1,7 @@
 "use strict";
 
 if (typeof Monitor             === "undefined") var Monitor           = {};
-if (typeof Monitor.AdminUsers  === "undefined") Monitor.AdminUsers    = {};
+if (typeof Kirby.AdminUsers  === "undefined") Kirby.AdminUsers    = {};
 
 /**
  * Pretraga i prikaz korisnika,
@@ -10,7 +10,7 @@ if (typeof Monitor.AdminUsers  === "undefined") Monitor.AdminUsers    = {};
  * Blokiranje naloga
  * Brisanje
  */
-Monitor.AdminUsers.List = {
+Kirby.AdminUsers.List = {
     config: {
         direction:  true,    // Smer dohvatanja podataka (false za unazad, true za unapred)
         search:     "",         // Pretraga korisnika
@@ -67,7 +67,7 @@ Monitor.AdminUsers.List = {
     /**
      * Inicijalizacija osluškivača u okviru komponente, kao i funkcija koje reaguju na njih
      * Prvo idu osluskivaci na wrapera onda idu van wrapera i nakon toga idu sa uslovima
-     * @return  {Object}                    Monitor.AdminUsers.List objekat, za ulančavanje funkcija
+     * @return  {Object}                    Kirby.AdminUsers.List objekat, za ulančavanje funkcija
      */
     initListeners: function() {
         var $wrapper = $(this.getElementSelector("wrapper"));
@@ -85,14 +85,14 @@ Monitor.AdminUsers.List = {
         this.getElement("button_prev").addEventListener("click",  this.clickPaginationPrevious.bind(this),    false);
         this.getElement("button_next").addEventListener("click",  this.clickPaginationNext.bind(this),        false);
 
-        document.addEventListener("Monitor.User", this.changeOccured.bind(this), false);
+        document.addEventListener("Kirby.User", this.changeOccured.bind(this), false);
 
         return this;
     },
 
     /**
      * Inicijalizacija sablona
-     * @return  {Object}                    Monitor.AdminUsers.List objekat, za ulančavanje funkcija
+     * @return  {Object}                    Kirby.AdminUsers.List objekat, za ulančavanje funkcija
      */
     initTemplates: function() {
         this.templates.main = _.template(document.getElementById("admin_users__list__tmpl").innerHTML);
@@ -101,10 +101,10 @@ Monitor.AdminUsers.List = {
 
     /**
      * Registracija elemenata u upotrebi od strane komponente
-     * @return  {Object}                    Monitor.AdminUsers.List objekat, za ulančavanje funkcija
+     * @return  {Object}                    Kirby.AdminUsers.List objekat, za ulančavanje funkcija
      */
     registerElements: function() {
-        Monitor.Main.DOM.register("AdminUsers", this.elements);
+        Kirby.Main.Dom.register("AdminUsers", this.elements);
         return this;
     },
 
@@ -159,7 +159,7 @@ Monitor.AdminUsers.List = {
     },
 
     triggerChangeOccured: function(data, info) {
-        var event = new CustomEvent("Monitor.User");
+        var event = new CustomEvent("Kirby.User");
         event.info = info;
         event.data = data;
         document.dispatchEvent(event);
@@ -268,7 +268,7 @@ Monitor.AdminUsers.List = {
     /**
      * Smer dohvatanja podataka
      * @param   {Object}    direction       true za napred i false za nazad
-     * @return  {Object}                    Monitor.AdminUsers.List objekat, za ulancavanje funkcija
+     * @return  {Object}                    Kirby.AdminUsers.List objekat, za ulancavanje funkcija
      */
     setDirection: function(direction) {
         this.config.direction = direction;
@@ -286,7 +286,7 @@ Monitor.AdminUsers.List = {
     /**
      * Setuje id prvog prikazanog korisnika u paginaciji
      * @param   {Object}    id              ID prvog dohvacenog korisnika
-     * @return  {Object}                    Monitor.AdminUsers.List objekat, za ulancavanje funkcija
+     * @return  {Object}                    Kirby.AdminUsers.List objekat, za ulancavanje funkcija
     */
     setIDFirst: function(id) {
         this.config.first_id = id;
@@ -304,7 +304,7 @@ Monitor.AdminUsers.List = {
     /**
      * Setuje id poslednjeg prikazanog korisnika u paginaciji
      * @param   {Object}    id              ID poslednje dohvacenog korisnika
-     * @return  {Object}                    Monitor.AdminUsers.List objekat, za ulancavanje funkcija
+     * @return  {Object}                    Kirby.AdminUsers.List objekat, za ulancavanje funkcija
     */
     setIDLast: function(id) {
         this.config.last_id = id;
@@ -313,7 +313,7 @@ Monitor.AdminUsers.List = {
 
     /**
      * Vraca na prvu stranu
-     * @return  {Object}                    Monitor.AdminUsers.List objekat, za ulancavanje funkcija
+     * @return  {Object}                    Kirby.AdminUsers.List objekat, za ulancavanje funkcija
      */
     resetIDs: function() {
         return this
@@ -373,7 +373,7 @@ Monitor.AdminUsers.List = {
      * @return  {Node/NodeList}             Vraca Node objekat ukoliko je query_all false, niz Node objekata inace
      */
     getElement: function(element, query_all, modifier) {
-        return Monitor.Main.DOM.getElement("AdminUsers", element, query_all, modifier);
+        return Kirby.Main.Dom.getElement("AdminUsers", element, query_all, modifier);
     },
 
     /**
@@ -384,7 +384,7 @@ Monitor.AdminUsers.List = {
      * @return  {Node/NodeList}             Vraca Node objekat ukoliko je query_all false, niz Node objekata inace
      */
     getElementSelector: function(element, query_all, modifier) {
-        return Monitor.Main.DOM.getElementSelector("AdminUsers", element, query_all, modifier);
+        return Kirby.Main.Dom.getElementSelector("AdminUsers", element, query_all, modifier);
     },
 
     /**
@@ -418,10 +418,10 @@ Monitor.AdminUsers.List = {
 
     /**
      * Izvoz korisnika u CSV fajl
-     * @return {Object}                     Monitor.AdminUsers.List objekat, za ulancavanje funkcija
+     * @return {Object}                     Kirby.AdminUsers.List objekat, za ulancavanje funkcija
      */
     exportToCSV: function() {
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
             "AdminUsers",
             "exportToCSV",
             {
@@ -437,12 +437,12 @@ Monitor.AdminUsers.List = {
 
     /**
      * Dohvata podatke neophodne za funkcionisanje komponenti, nakon toga prikazuje komponentu
-     * @return {Object}                     Monitor.AdminUsers.List objekat, za ulancavanje funkcija
+     * @return {Object}                     Kirby.AdminUsers.List objekat, za ulancavanje funkcija
      */
     fetchData: function(user_id) {
         if (typeof user_id === "undefined") user_id = this.getUserID();
 
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
             "AdminUsers",
             "fetchData",
             {
@@ -490,7 +490,7 @@ Monitor.AdminUsers.List = {
 
     /**
      * Refresh the current page
-     * @return {Object}                     Monitor.AdminUsers.List objekat, za ulancavanje funkcija
+     * @return {Object}                     Kirby.AdminUsers.List objekat, za ulancavanje funkcija
      */
     refreshData: function() {
         var id_first = this.getIDFirst();
@@ -507,10 +507,10 @@ Monitor.AdminUsers.List = {
      * Promena statusa korisnika (true ako mu je nalog blokiran, false da je aktivan)
      * @param   {Number}    user_id         ID korisnika kome menjamo status
      * @param   {Boolean}   status          Status korisnika
-     * @return  {Object}                    Monitor.AdminUsers.List objekat, za ulancavanje funkcija
+     * @return  {Object}                    Kirby.AdminUsers.List objekat, za ulancavanje funkcija
      */
     updateStatus: function(user_id, status) {
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
             "AdminUsers",
             "updateStatus",
             {
@@ -528,10 +528,10 @@ Monitor.AdminUsers.List = {
      * Blokiranje naloga korisniku na odredjeno vreme
      * @param   {Number}    user_id         ID korisnika koga blokiramo
      * @param   {Number}    length          Trajanje blokade, u danima
-     * @return  {Object}                    Monitor.AdminUsers.List objekat, za ulancavanje funkcija
+     * @return  {Object}                    Kirby.AdminUsers.List objekat, za ulancavanje funkcija
      */
     banUser: function(user_id, length) {
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
             "AdminUsers",
             "banTemporarily",
             {
@@ -546,7 +546,7 @@ Monitor.AdminUsers.List = {
     },
 
     sendMail: function(id) {
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
             "AdminUsers",
             "sendMail",
             {
@@ -563,7 +563,7 @@ Monitor.AdminUsers.List = {
 
 
     changePassword: function(id) {
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
             "AdminUsers",
             "changePassword",
             {
@@ -583,10 +583,10 @@ Monitor.AdminUsers.List = {
      * Promena slike korisnika
      * @param  {Number}     id              ID korisnika kome menjamo sliku
      * @param  {File}       picture         Nova slika
-     * @return {Object}                     Monitor.AdminUsers.List objekat, za ulancavanje funkcija
+     * @return {Object}                     Kirby.AdminUsers.List objekat, za ulancavanje funkcija
      */
     updateImage: function(id, picture) {
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
             "AdminUsers",
             "updateImage",
             {
@@ -602,4 +602,4 @@ Monitor.AdminUsers.List = {
     },
 };
 
-document.addEventListener("DOMContentLoaded", Monitor.AdminUsers.List.init.bind(Monitor.AdminUsers.List), false);
+document.addEventListener("DOMContentLoaded", Kirby.AdminUsers.List.init.bind(Kirby.AdminUsers.List), false);

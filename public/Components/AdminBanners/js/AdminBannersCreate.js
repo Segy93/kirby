@@ -1,9 +1,9 @@
 "use strict";
 
 if (typeof Monitor               === "undefined")   var Monitor           = {};
-if (typeof Monitor.AdminBanners === "undefined")    Monitor.AdminBanners   = {};
+if (typeof Kirby.AdminBanners === "undefined")    Kirby.AdminBanners   = {};
 
-Monitor.AdminBanners.Create = {
+Kirby.AdminBanners.Create = {
     config: {               // Konfiguracija kompon
         //machine_name: '',
     },
@@ -39,7 +39,7 @@ Monitor.AdminBanners.Create = {
 
     /**
      * Inicijalizacija osluskivaca komponente
-     * @return  {Object}                    Monitor.AdminBanners.Create
+     * @return  {Object}                    Kirby.AdminBanners.Create
      */
     initListeners: function() {
         var form    = this.getElement("form");
@@ -49,17 +49,17 @@ Monitor.AdminBanners.Create = {
         this.getElement("reset").addEventListener("click", this.resetForm.bind(this), false);
         this.getElement("select_page").addEventListener("change", this.pageSelected.bind(this), false);
         //this.getElement("location").addEventListener("change", this.categoryChanged.bind(this), false);
-        // document.addEventListener("Monitor.SEO.Form", this.changedSEOState.bind(this), false);
+        // document.addEventListener("Kirby.SEO.Form", this.changedSEOState.bind(this), false);
 
         return this;
     },
 
     /**
-     * Registrovanje elemenata za Monitor.Main.DOM
-     * @return  {Object}                    Monitor.AdminBanners.Create
+     * Registrovanje elemenata za Kirby.Main.Dom
+     * @return  {Object}                    Kirby.AdminBanners.Create
      */
     registerElements: function() {
-        Monitor.Main.DOM.register("AdminBannersCreate", this.elements);
+        Kirby.Main.Dom.register("AdminBannersCreate", this.elements);
         return this;
     },
 
@@ -103,7 +103,7 @@ Monitor.AdminBanners.Create = {
      * @param   {Object}    data            Informacije o kreiranom clanku
      */
     createdBanner: function(data) {
-        var event = new CustomEvent("Monitor.Admin.Banners");
+        var event = new CustomEvent("Kirby.Admin.Banners");
         event.info = "Create";
         event.data = data;
         document.dispatchEvent(event);
@@ -159,7 +159,7 @@ Monitor.AdminBanners.Create = {
     * @param  {[type]} modifier   BEM Modifier za selektor
     */
     getElement: function(element, querry_all, modifier) {
-        return Monitor.Main.DOM.getElement("AdminBannersCreate", element, querry_all, modifier);
+        return Kirby.Main.Dom.getElement("AdminBannersCreate", element, querry_all, modifier);
     },
 
     /**
@@ -169,7 +169,7 @@ Monitor.AdminBanners.Create = {
     * @param   {String}    modifier  BEM modifier za selektor
     */
     getElementSelector: function(element, query_all, modifier) {
-        return Monitor.Main.DOM.getElementSelector("AdminBannersCreate", element, query_all, modifier);
+        return Kirby.Main.Dom.getElementSelector("AdminBannersCreate", element, query_all, modifier);
     },
 
     /**
@@ -183,7 +183,7 @@ Monitor.AdminBanners.Create = {
     /**
      * Zadaje validity za heading polje, u zavisnosti da li postoji clanak s ovim naslovom
      * @param   {Boolean}   exists          Da li je heading vec zauzet
-     * @return  {Object}              Monitor.AdminBanners.Create objekat, za ulančavanje funkcija
+     * @return  {Object}              Kirby.AdminBanners.Create objekat, za ulančavanje funkcija
      */
     setNameValidity: function(exists) {
         this.getElement("name").setCustomValidity(exists ? "Banner with this name already exists" : "");
@@ -253,10 +253,10 @@ Monitor.AdminBanners.Create = {
      * @param   {string}    text            Tekst
      * @param   {Array}     tags            Niz ID-jeva tagova
      * @param   {string}    excerpt         Isecak
-     * @return  {Object}                    Monitor.AdminBanners.Create
+     * @return  {Object}                    Kirby.AdminBanners.Create
      */
     createBanner: function(position_id, name, link, url, image) {
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
             "AdminBanners",
             "createBanner",
             {
@@ -278,10 +278,10 @@ Monitor.AdminBanners.Create = {
     /**
     * Provera da li vec postoji clanak s ovim naslovom
     * @param   {String}    heading     Naziv banera koje proveravamo
-    * @return  {Object}                Monitor.AdminBanners.Create objekat, za ulančavanje funkcija
+    * @return  {Object}                Kirby.AdminBanners.Create objekat, za ulančavanje funkcija
     */
     isNameTaken: function(name) {
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
             "AdminBanners",
             "isNameTaken",
             {
@@ -293,7 +293,7 @@ Monitor.AdminBanners.Create = {
     },
     
     getPagePositions: function(page_id) {
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
             "AdminBanners",
             "getPagePositions",
             {
@@ -305,7 +305,7 @@ Monitor.AdminBanners.Create = {
     },
 
     // getFilterData: function(page_id) {
-    //     Monitor.Main.Ajax(
+    //     Kirby.Main.Ajax(
     //         "AdminBanners",
     //         "getFilterData",
     //         {
@@ -317,7 +317,7 @@ Monitor.AdminBanners.Create = {
     // },
 
     // getCategoryFilters: function(machine_name, category_id) {
-    //     Monitor.Main.Ajax(
+    //     Kirby.Main.Ajax(
     //         "AdminBanners",
     //         "getCategoryFilters",
     //         {
@@ -331,4 +331,4 @@ Monitor.AdminBanners.Create = {
 
 };
 
-document.addEventListener("DOMContentLoaded", Monitor.AdminBanners.Create.init.bind(Monitor.AdminBanners.Create), false);
+document.addEventListener("DOMContentLoaded", Kirby.AdminBanners.Create.init.bind(Kirby.AdminBanners.Create), false);

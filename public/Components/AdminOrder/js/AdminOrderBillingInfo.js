@@ -1,9 +1,9 @@
 "use strict";
 
 if (typeof Monitor                     === "undefined") var Monitor                   = {};
-if (typeof Monitor.AdminUsers          === "undefined") Monitor.AdminOrder            = {};
+if (typeof Kirby.AdminUsers          === "undefined") Kirby.AdminOrder            = {};
 
-Monitor.AdminOrder.BillingInfo = {
+Kirby.AdminOrder.BillingInfo = {
     /**
      *
      * Konfiguracija komponente
@@ -56,7 +56,7 @@ Monitor.AdminOrder.BillingInfo = {
 
     /**
      * Inicijalizacija osluškivača u okviru komponente, kao i funkcija koje reaguju na njih
-     * @return  {Object} Monitor.AdminUsers.Dialogs.Edit objekat, za ulančavanje funkcija
+     * @return  {Object} Kirby.AdminUsers.Dialogs.Edit objekat, za ulančavanje funkcija
      */
     initListeners: function() {
         var $wrapper = $(this.getElementSelector("wrapper"));
@@ -67,15 +67,15 @@ Monitor.AdminOrder.BillingInfo = {
 
     /**
      * Registracija elemenata u upotrebi od strane komponente
-     * @return  {Object} Monitor.AdminUsers.Dialogs.Edit objekat, za ulančavanje funkcija
+     * @return  {Object} Kirby.AdminUsers.Dialogs.Edit objekat, za ulančavanje funkcija
      */
     registerElements: function() {
-        Monitor.Main.DOM.register("AdminOrderBillingInfo", this.elements);
+        Kirby.Main.Dom.register("AdminOrderBillingInfo", this.elements);
         return this;
     },
     /**
      * Inicijalizacija sablona
-     * @return  {Object}  Monitor.AdminOrders.List objekat, za ulančavanje funkcija
+     * @return  {Object}  Kirby.AdminOrders.List objekat, za ulančavanje funkcija
      */
     initTemplates: function() {
         this.templates.main = _.template(document.getElementById("admin_order__address_billing_tmpl").innerHTML);
@@ -141,7 +141,7 @@ Monitor.AdminOrder.BillingInfo = {
 
     /**
      * Zatvara modal
-     * @return  {Object} Monitor.AdminUsers.Dialogs.Edit objekat, za ulančavanje funkcija
+     * @return  {Object} Kirby.AdminUsers.Dialogs.Edit objekat, za ulančavanje funkcija
      */
     hideDialog: function() {
         $(this.getElement("wrapper")).modal("hide");
@@ -156,7 +156,7 @@ Monitor.AdminOrder.BillingInfo = {
      * @return  {Node/NodeList}       Vraca Node objekat je query_all false, niz Node objekata inace
      */
     getElement: function(element, query_all, modifier) {
-        return Monitor.Main.DOM.getElement("AdminOrderBillingInfo", element, query_all, modifier);
+        return Kirby.Main.Dom.getElement("AdminOrderBillingInfo", element, query_all, modifier);
     },
 
     /**
@@ -167,7 +167,7 @@ Monitor.AdminOrder.BillingInfo = {
      * @return  {Node/NodeList}       Vraca Node objekat je query_all false, niz Node objekata inace
      */
     getElementSelector: function(element, query_all, modifier) {
-        return Monitor.Main.DOM.getElementSelector("AdminOrderBillingInfo", element, query_all, modifier);
+        return Kirby.Main.Dom.getElementSelector("AdminOrderBillingInfo", element, query_all, modifier);
     },
 
 
@@ -180,7 +180,7 @@ Monitor.AdminOrder.BillingInfo = {
     /**
      * Generise HTML na osnovu prosledjenih podataka i ubacuje u omotac
      * @param   {Object}    data   Podaci sa informacijama o korisniku
-     * @return  {Object}           Monitor.AdminUsers.Dialogs.Edit objekat, za ulančavanje funkcija
+     * @return  {Object}           Kirby.AdminUsers.Dialogs.Edit objekat, za ulančavanje funkcija
      */
     render: function(address) {
         var is_shop         = address.shop_id !== undefined;
@@ -205,10 +205,10 @@ Monitor.AdminOrder.BillingInfo = {
     /**
      * Azurira statistiku korisnika
      * @param   {Number}    user_id         ID korisnika kog azuriramo
-     * @return  {Object} Monitor.AdminUsers.Dialogs.Edit objekat, za ulančavanje funkcija
+     * @return  {Object} Kirby.AdminUsers.Dialogs.Edit objekat, za ulančavanje funkcija
      */
     updateAddress: function(address_id, name, surname, company, billing_address, phone_nr, city) {
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
             "AdminOrder",
             "updateAddress",
             {
@@ -223,7 +223,7 @@ Monitor.AdminOrder.BillingInfo = {
             },
             (changed) => {
                 if (changed) {
-                    var event = new CustomEvent("Monitor.AdminOrder.Address.Changed");
+                    var event = new CustomEvent("Kirby.AdminOrder.Address.Changed");
                     document.dispatchEvent(event);
                 }
             }
@@ -235,10 +235,10 @@ Monitor.AdminOrder.BillingInfo = {
     /**
      * Dohvata informacije o korisniku
      * @param   {Number}    order_id         ID korisnika za koga dohvatamo statistiku
-     * @return  {Object}   Monitor.AdminUsers.Dialogs.Edit objekat, za ulančavanje funkcija
+     * @return  {Object}   Kirby.AdminUsers.Dialogs.Edit objekat, za ulančavanje funkcija
      */
     fetchAddress: function(address_id) {
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
             "AdminOrder",
             "fetchAddress",
             {
@@ -250,4 +250,4 @@ Monitor.AdminOrder.BillingInfo = {
     },
 };
 
-document.addEventListener("DOMContentLoaded", Monitor.AdminOrder.BillingInfo.init.bind(Monitor.AdminOrder.BillingInfo), false);
+document.addEventListener("DOMContentLoaded", Kirby.AdminOrder.BillingInfo.init.bind(Kirby.AdminOrder.BillingInfo), false);

@@ -1,9 +1,9 @@
 "use strict"
 
 if(typeof Monitor                 === "undefined") var Monitor             = {};
-if(typeof Monitor.AdminStaticPages === "undefined") Monitor.AdminStaticPages = {};
+if(typeof Kirby.AdminStaticPages === "undefined") Kirby.AdminStaticPages = {};
 
-Monitor.AdminStaticPages.List = {
+Kirby.AdminStaticPages.List = {
 
 
 	config:{
@@ -44,14 +44,14 @@ Monitor.AdminStaticPages.List = {
 		$wrapper.on("click",    this.getElementSelector("image_click"),            this.clickImage.bind(this));
         $wrapper.on("change",   this.getElementSelector("image_change"),            this.changedImage.bind(this));
 
-        document.addEventListener("Monitor.Admin.StaticPages", this.changeOccured.bind(this), false);
+        document.addEventListener("Kirby.Admin.StaticPages", this.changeOccured.bind(this), false);
         return this;
 
 	},
 
 	  /**
      * Inicijalizacija sablona
-     * @return  {Object}                    Monitor.AdminStaticPages.List objekat, za ulančavanje funkcija
+     * @return  {Object}                    Kirby.AdminStaticPages.List objekat, za ulančavanje funkcija
      */
     initTemplates: function() {
         this.templates.main = _.template(document.getElementById("admin_pages__static_list__tmpl").innerHTML);
@@ -61,10 +61,10 @@ Monitor.AdminStaticPages.List = {
 
     /**
      * Registracija elemenata u upotrebi od strane komponente
-     * @return  {Object}                    Monitor.AdminFields.List objekat, za ulančavanje funkcija
+     * @return  {Object}                    Kirby.AdminFields.List objekat, za ulančavanje funkcija
      */
     registerElements: function() {
-        Monitor.Main.DOM.register("AdminStaticPagesList", this.elements);
+        Kirby.Main.Dom.register("AdminStaticPagesList", this.elements);
         return this;
     },
 
@@ -117,7 +117,7 @@ Monitor.AdminStaticPages.List = {
      * @return  {Node/NodeList}             Vraca Node objekat ukoliko je query_all false, niz Node objekata inace
      */
     getElement: function(element, query_all, modifier) {
-        return Monitor.Main.DOM.getElement("AdminStaticPagesList", element, query_all, modifier);
+        return Kirby.Main.Dom.getElement("AdminStaticPagesList", element, query_all, modifier);
     },
 
     /**
@@ -128,7 +128,7 @@ Monitor.AdminStaticPages.List = {
     * @return  {Node/NodeList}             Vraca Node objekat ukoliko je query_all false, niz Node objekata inace
     */
 	getElementSelector: function(element, query_all, modifier) {
-        return Monitor.Main.DOM.getElementSelector("AdminStaticPagesList", element, query_all, modifier);
+        return Kirby.Main.Dom.getElementSelector("AdminStaticPagesList", element, query_all, modifier);
     },
     /**
     * Generise HTML na osnovu prosledjenih podataka i ubacuje u omotac
@@ -139,7 +139,7 @@ Monitor.AdminStaticPages.List = {
         this.getElement("wrapper").innerHTML = this.templates.main({
            "pages": data.pages,
         });
-        if (Monitor._params.AdminStaticPages.permission_reorder) {
+        if (Kirby._params.AdminStaticPages.permission_reorder) {
             if (this.config.sortable) this.config.sortable.destroy();
             this.config.sortable = Sortable.create(this.getElement("sortable_wrapper"), {
                 animation: 150,
@@ -161,10 +161,10 @@ Monitor.AdminStaticPages.List = {
 
      /**
      * Dohvata podatke neophodne za funkcionisanje komponenti, nakon toga prikazuje komponentu
-     * @return {Object}                     Monitor.AdminStaticPages.List objekat, za ulancavanje funkcija
+     * @return {Object}                     Kirby.AdminStaticPages.List objekat, za ulancavanje funkcija
      */
     fetchData: function() {
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
             "AdminStaticPages",
             "fetchData",
             {},
@@ -179,10 +179,10 @@ Monitor.AdminStaticPages.List = {
      * Promena slike kategorije
      * @param  {Number}     id              ID kategorije kojoj menjamo sliku
      * @param  {File}       picture         Nova slika
-     * @return {Object}                     Monitor.AdminStaticPages.List objekat, za ulancavanje funkcija
+     * @return {Object}                     Kirby.AdminStaticPages.List objekat, za ulancavanje funkcija
      */
     updateImage: function(id, picture) {
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
             "AdminStaticPages",
             "updateImage",
             {
@@ -190,7 +190,7 @@ Monitor.AdminStaticPages.List = {
                 "picture": picture,
             },
            	 function(data) {
-                var event = new CustomEvent("Monitor.Admin.StaticPages");
+                var event = new CustomEvent("Kirby.Admin.StaticPages");
                 event.info = "Update";
                 event.data = data;
                 document.dispatchEvent(event);
@@ -205,10 +205,10 @@ Monitor.AdminStaticPages.List = {
      * Promena redosleda
      * @param  {Number}     order_old       Stara pozicija
      * @param  {Number}     order_new       Nova pozicija
-     * @return {Object}                     Monitor.AdminCourses.List objekat, za ulancavanje funkcija
+     * @return {Object}                     Kirby.AdminCourses.List objekat, za ulancavanje funkcija
      */
     changeOrder: function(order_old, order_new) {
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
             "AdminStaticPages",
             "changeOrder",
             {
@@ -218,4 +218,4 @@ Monitor.AdminStaticPages.List = {
         );
     },
 };
-document.addEventListener('DOMContentLoaded', Monitor.AdminStaticPages.List.init.bind(Monitor.AdminStaticPages.List), false);
+document.addEventListener('DOMContentLoaded', Kirby.AdminStaticPages.List.init.bind(Kirby.AdminStaticPages.List), false);

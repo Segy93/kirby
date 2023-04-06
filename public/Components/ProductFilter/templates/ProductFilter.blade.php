@@ -26,8 +26,6 @@
                         @if (
                             !empty($url) &&
                             !empty($url[str_replace(" ", "_", $filter['label'])])
-                            && ($is_configurator === false
-                            || $filter['label'] !== 'Proizvođač')
                         )
                             checked
                         @endif
@@ -74,9 +72,6 @@
                                             in_array($value, $url[str_replace(" ", "_", $filter['label'])])
                                         )
                                             checked
-                                        @endif
-                                        @if ($is_configurator && $is_any_checked)
-                                            disabled
                                         @endif
                                     @endif
                                 >

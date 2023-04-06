@@ -2,7 +2,7 @@
 
 if (Monitor === undefined) window.Monitor = {};
 
-Monitor.AdminSEO = {
+Kirby.AdminSEO = {
     config: {
         field:  null, //Cuva polje za koje treba da se zakaci custom validity
         valid:  true, //validnost forme
@@ -64,11 +64,11 @@ Monitor.AdminSEO = {
         this.getElement("button_unlock").addEventListener("click", this.clickUnlockUrl.bind(this), false);
         // this.getElement("button_modal_close").addEventListener("click", this.clickSeoModalClose.bind(this), false);
 
-        document.addEventListener("Monitor.Admin.Tags", this.createdTag.bind(this));
-        document.addEventListener("Monitor.Admin.Categories", this.createdCategory.bind(this));
-        document.addEventListener("Monitor.Admin.StaticCategories", this.createdStaticCategory.bind(this));
-        document.addEventListener("Monitor.Admin.Articles", this.createdArticle.bind(this));
-        document.addEventListener("Monitor.Admin.StaticPages", this.createdStaticPage.bind(this));
+        document.addEventListener("Kirby.Admin.Tags", this.createdTag.bind(this));
+        document.addEventListener("Kirby.Admin.Categories", this.createdCategory.bind(this));
+        document.addEventListener("Kirby.Admin.StaticCategories", this.createdStaticCategory.bind(this));
+        document.addEventListener("Kirby.Admin.Articles", this.createdArticle.bind(this));
+        document.addEventListener("Kirby.Admin.StaticPages", this.createdStaticPage.bind(this));
 
         $(this.getElementSelector("modal_update")).on("hidden.bs.modal", this.closeModal.bind(this));
         $(document).on("click", this.getElementSelector("invoker"), this.clickedInvoker.bind(this));
@@ -79,7 +79,7 @@ Monitor.AdminSEO = {
     },
 
     registerElements: function() {
-        Monitor.Main.DOM.register("AdminSEO", this.elements);
+        Kirby.Main.Dom.register("AdminSEO", this.elements);
         return this;
     },
 
@@ -161,7 +161,7 @@ Monitor.AdminSEO = {
     },
 
     blurInput: function(event) {
-        var seo_event = new CustomEvent("Monitor.SEO.Form");
+        var seo_event = new CustomEvent("Kirby.SEO.Form");
         var form = $(event.target).parents("form");
         var message = "";
         var inputs = event.target.parentNode.querySelectorAll("input:not([type=hidden])");
@@ -260,13 +260,13 @@ Monitor.AdminSEO = {
     },
 
     SEOCreated: function(data) {
-        var event = new CustomEvent("Monitor.Admin.SEO.Create");
+        var event = new CustomEvent("Kirby.Admin.SEO.Create");
         event.data = data;
         document.dispatchEvent(event);
     },
 
     SEOUpdated: function(data) {
-        var event = new CustomEvent("Monitor.Admin.SEO.Update");
+        var event = new CustomEvent("Kirby.Admin.SEO.Update");
         event.data = data;
         document.dispatchEvent(event);
     },
@@ -285,11 +285,11 @@ Monitor.AdminSEO = {
 
 
     getElement: function(element, query_all, modifier) {
-        return Monitor.Main.DOM.getElement("AdminSEO", element, query_all, modifier);
+        return Kirby.Main.Dom.getElement("AdminSEO", element, query_all, modifier);
     },
 
     getElementSelector: function(element, query_all, modifier) {
-        return Monitor.Main.DOM.getElementSelector("AdminSEO", element, query_all, modifier);
+        return Kirby.Main.Dom.getElementSelector("AdminSEO", element, query_all, modifier);
     },
 
     validateUrl: function(event) {
@@ -346,7 +346,7 @@ Monitor.AdminSEO = {
 
         if (picture) params["picture"] = picture;
 
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
             "AdminSEO",
             "createEntry",
             params,
@@ -368,7 +368,7 @@ Monitor.AdminSEO = {
         if (url) params['url'] = url;
         if (picture) params["picture"] = picture;
 
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
             "AdminSEO",
             "updateSEO",
             params,
@@ -379,7 +379,7 @@ Monitor.AdminSEO = {
     },
 
     fetchData: function(machine_name) {
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
         "AdminSEO",
         "fetchData",
         {
@@ -391,7 +391,7 @@ Monitor.AdminSEO = {
     },
 
     isUrlTaken: function(url) {
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
         "AdminSEO",
         "isUrlTaken",
         {
@@ -404,4 +404,4 @@ Monitor.AdminSEO = {
 
 };
 
-document.addEventListener('DOMContentLoaded', Monitor.AdminSEO.init.bind(Monitor.AdminSEO), false);
+document.addEventListener('DOMContentLoaded', Kirby.AdminSEO.init.bind(Kirby.AdminSEO), false);

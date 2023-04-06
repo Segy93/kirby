@@ -2,7 +2,7 @@
 {!!$csrf_meta!!}
 <input type = "button" id = "enable_notifications" class = "enable_notifications" value = "enable"/>
 <input type = "button" id = "send_notifications" class = "send_notifications" value = "send"/>
-<script src = "Components/libs/MonitorMainAjax.js" ></script>
+<script src = "Components/libs/KirbyMainAjax.js" ></script>
 <script  type="text/javascript" nonce = "{{$_SESSION['token']}}">
     if ('serviceWorker' in navigator) {
         navigator.serviceWorker.register('service-worker.js').then(function(reg) {
@@ -65,7 +65,7 @@
     }
 
     function sendNotification (event) {
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
             "test",
             "sendNotification",
             {

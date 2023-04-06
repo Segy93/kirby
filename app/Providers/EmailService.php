@@ -55,7 +55,7 @@ class EmailService extends BaseService {
             'OrderCreatedAdmin'          =>  'Narudžbina kreirana ' . $email,
         ];
 
-        return array_key_exists($email_type, $subjects) ? $subjects[$email_type] : "Mail od monitor.rs";
+        return array_key_exists($email_type, $subjects) ? $subjects[$email_type] : "Mail od kesezakirby.rs";
     }
 
     /**

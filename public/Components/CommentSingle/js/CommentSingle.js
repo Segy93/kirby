@@ -12,7 +12,7 @@
 
 
     var config = {
-        //node_id: Monitor._params.CommentsList.node_id,
+        //node_id: Kirby._params.CommentsList.node_id,
     };
 
 
@@ -44,11 +44,11 @@
         }
 
 
-        document.addEventListener("Monitor.Comment.InitListeners", initListeners, false);
+        document.addEventListener("Kirby.Comment.InitListeners", initListeners, false);
     };
 
     var registerElements = function() {
-        Monitor.Main.DOM.register("CommentSingle", elements);
+        Kirby.Main.Dom.register("CommentSingle", elements);
     };
 
     // var initTimeAgo = function() {
@@ -103,7 +103,7 @@
 
 
     var getElement = function(element, query_all, modifier, parent) {
-        return Monitor.Main.DOM.getElement("CommentSingle", element, query_all, modifier, parent);
+        return Kirby.Main.Dom.getElement("CommentSingle", element, query_all, modifier, parent);
     };
 
 
@@ -115,7 +115,7 @@
     var postMessageReply = function(message, node_id,type, parent_id) {
         if (typeof parent_id === "undefined") parent_id = null;
 
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
             "CommentSingle",
             "postMessage",
             {
@@ -125,7 +125,7 @@
                 parent_id:  parent_id,
             },
             function (data) {
-                var event   = new CustomEvent("Monitor.Comment.Added");
+                var event   = new CustomEvent("Kirby.Comment.Added");
                 document.dispatchEvent(event);
             }
         );
@@ -135,7 +135,7 @@
 
 
     var changeCommentStatus = function(comment_id, status) {
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
             "CommentSingle",
             "changeCommentStatus",
             {
@@ -143,7 +143,7 @@
                 status: status,
             },
             function (data) {
-                var event   = new CustomEvent("Monitor.Comment.Status");
+                var event   = new CustomEvent("Kirby.Comment.Status");
                 document.dispatchEvent(event);
             }
         );

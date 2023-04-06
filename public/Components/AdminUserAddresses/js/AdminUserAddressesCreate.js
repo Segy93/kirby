@@ -1,12 +1,12 @@
 "use strict";
 
 if (Monitor            === undefined) var Monitor = {};
-if (Monitor.AdminUserAddress === undefined) Monitor.AdminUserAddress = {};
+if (Kirby.AdminUserAddress === undefined) Kirby.AdminUserAddress = {};
 
 /**
  * Forma za kreiranje korisnika
  */
-Monitor.AdminUserAddress.Create = {
+Kirby.AdminUserAddress.Create = {
     /**
      *
      * Konfiguracija komponente
@@ -61,7 +61,7 @@ Monitor.AdminUserAddress.Create = {
     /**
      * Inicijalizacija osluškivača u okviru komponente, kao i funkcija koje reaguju na njih
      * @param   {Object}    event           JavaScript event objekat
-     * @return  {Object}                    Monitor.AdminUserAddress.Create objekat, za ulančavanje funkcija
+     * @return  {Object}                    Kirby.AdminUserAddress.Create objekat, za ulančavanje funkcija
      */
     initListeners: function() {
         this.getElement("form_create").onsubmit = this.formSubmitted.bind(this);
@@ -70,10 +70,10 @@ Monitor.AdminUserAddress.Create = {
 
     /**
      * Registracija elemenata u upotrebi od strane komponente
-     * @return  {Object}                    Monitor.AdminUserAddress.Create objekat, za ulančavanje funkcija
+     * @return  {Object}                    Kirby.AdminUserAddress.Create objekat, za ulančavanje funkcija
      */
     registerElements: function() {
-        Monitor.Main.DOM.register("AdminUserAddressCreate", this.elements);
+        Kirby.Main.Dom.register("AdminUserAddressCreate", this.elements);
         return this;
     },
 
@@ -105,10 +105,10 @@ Monitor.AdminUserAddress.Create = {
      * @param   {Object}    data            Informacije o kreiranom korisniku
      */
     triggerAddressCreated: function(data) {
-        var event       = new CustomEvent("Monitor.UserAddresses");
+        var event       = new CustomEvent("Kirby.UserAddresses");
         event.data      = data;
         event.info      = "Create";
-        event.invoker   = "Monitor.AdminUserAddress.Create";
+        event.invoker   = "Kirby.AdminUserAddress.Create";
         document.dispatchEvent(event);
     },
 
@@ -129,13 +129,13 @@ Monitor.AdminUserAddress.Create = {
      * @return  {Node/NodeList}             Vraca Node objekat ukoliko je query_all false, niz Node objekata inace
      */
     getElement: function(element, query_all, modifier) {
-        return Monitor.Main.DOM.getElement("AdminUserAddressCreate", element, query_all, modifier);
+        return Kirby.Main.Dom.getElement("AdminUserAddressCreate", element, query_all, modifier);
     },
 
     /**
      * Zadaje validity za email polje, u zavisnosti da li postoji korisnik s ovim email-om
      * @param   {Boolean}   exists          Da li je email vec zauzet
-     * @return  {Object}                    Monitor.AdminUserAddress.Create objekat, za ulančavanje funkcija
+     * @return  {Object}                    Kirby.AdminUserAddress.Create objekat, za ulančavanje funkcija
      */
     setEmailValidity: function(exists) {
         this.getElement("input_email").setCustomValidity(exists ? "User with this email already exists" : "");
@@ -156,7 +156,7 @@ Monitor.AdminUserAddress.Create = {
         };
 
 
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
             "AdminUserAddresses",
             "createAddress",
             params,
@@ -169,4 +169,4 @@ Monitor.AdminUserAddress.Create = {
     }
 };
 
-document.addEventListener("DOMContentLoaded", Monitor.AdminUserAddress.Create.init.bind(Monitor.AdminUserAddress.Create), false);
+document.addEventListener("DOMContentLoaded", Kirby.AdminUserAddress.Create.init.bind(Kirby.AdminUserAddress.Create), false);

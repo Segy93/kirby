@@ -1,14 +1,14 @@
 "use strict"
 
 if(typeof Monitor  			 === "undefined") var Monitor 			 = {};
-if(typeof Monitor.AdminArticles === "undefined") Monitor.AdminArticles = {};
+if(typeof Kirby.AdminArticles === "undefined") Kirby.AdminArticles = {};
 
 /**
  *
  * Modal za potvrdu brisanja clanaka
  *
  */
-Monitor.AdminArticles.Delete = {
+Kirby.AdminArticles.Delete = {
 
 	config :{ // Konfiguracija komponente
 		"article_id": 0, // ID clanka koji ce biti obrisan
@@ -32,7 +32,7 @@ Monitor.AdminArticles.Delete = {
 
     /**
      * Inicijalizacija osluskivaca komponente
-     * @return  {Object}                    Monitor.AdminArticles.Delete
+     * @return  {Object}                    Kirby.AdminArticles.Delete
      */
 	initListeners: function() {
 		$(this.getElementSelector("wrapper")).on("show.bs.modal", this.requestedComponent.bind(this));
@@ -41,11 +41,11 @@ Monitor.AdminArticles.Delete = {
 	},
 
     /**
-     * Registracija elemenata za Monitor.Main.DOM
-     * @return  {Object}                    Monitor.AdminArticles.Delete
+     * Registracija elemenata za Kirby.Main.Dom
+     * @return  {Object}                    Kirby.AdminArticles.Delete
      */
 	registerElements: function() {
-		Monitor.Main.DOM.register("AdminArticlesDelete", this.elements);
+		Kirby.Main.Dom.register("AdminArticlesDelete", this.elements);
 		return this;
 	},
 
@@ -88,7 +88,7 @@ Monitor.AdminArticles.Delete = {
      * @return  {Node/NodeList}             Vraca Node objekat ukoliko je query_all false, niz Node objekata inace
      */
     getElement: function(element, query_all, modifier) {
-        return Monitor.Main.DOM.getElement("AdminArticlesDelete", element, query_all, modifier);
+        return Kirby.Main.Dom.getElement("AdminArticlesDelete", element, query_all, modifier);
     },
 
     /**
@@ -99,7 +99,7 @@ Monitor.AdminArticles.Delete = {
      * @return  {Node/NodeList}             Vraca Node objekat ukoliko je query_all false, niz Node objekata inace
      */
     getElementSelector: function(element, query_all, modifier) {
-        return Monitor.Main.DOM.getElementSelector("AdminArticlesDelete", element, query_all, modifier);
+        return Kirby.Main.Dom.getElementSelector("AdminArticlesDelete", element, query_all, modifier);
     },
 
 
@@ -120,7 +120,7 @@ Monitor.AdminArticles.Delete = {
     /**
      * Cuva ID trenutno aktivnog clanka
      * @param   {Number}    article_id      ID clanka
-     * @return  {Object}                    Monitor.AdminArticles.Delete
+     * @return  {Object}                    Kirby.AdminArticles.Delete
      */
     setArticleID: function(article_id) {
     	this.config.article_id = article_id;
@@ -138,17 +138,17 @@ Monitor.AdminArticles.Delete = {
 
     /**
      * Brisanje clanka
-     * @return  {Object}                    Monitor.AdminArticles.Delete
+     * @return  {Object}                    Kirby.AdminArticles.Delete
      */
     deleteArticle: function() {
-    	Monitor.Main.Ajax(
+    	Kirby.Main.Ajax(
     		"AdminArticles",
     		"deleteArticle",
     		{
     			"article_id": this.getArticleID(),
     		},
     		function(data) {
-    			var event  = new CustomEvent("Monitor.Admin.Articles");
+    			var event  = new CustomEvent("Kirby.Admin.Articles");
     			event.info = "Delete";
     			event.data = data;
     			document.dispatchEvent(event);
@@ -159,4 +159,4 @@ Monitor.AdminArticles.Delete = {
     },
 }
 
-document.addEventListener("DOMContentLoaded", Monitor.AdminArticles.Delete.init.bind(Monitor.AdminArticles.Delete, false));
+document.addEventListener("DOMContentLoaded", Kirby.AdminArticles.Delete.init.bind(Kirby.AdminArticles.Delete, false));

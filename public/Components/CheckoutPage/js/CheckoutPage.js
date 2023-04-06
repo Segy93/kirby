@@ -53,7 +53,7 @@
     };
 
     var registerElements = function () {
-        Monitor.Main.DOM.register("CheckoutPage", elements);
+        Kirby.Main.Dom.register("CheckoutPage", elements);
     };
 
     var setVisibility = function() {
@@ -275,7 +275,7 @@
     * @param   {String}    modifier   BEM modifier za selektor
     */
     var getElement = function(element, query_all, modifier, parent) {
-        return Monitor.Main.DOM.getElement("CheckoutPage", element, query_all, modifier, parent);
+        return Kirby.Main.Dom.getElement("CheckoutPage", element, query_all, modifier, parent);
     };
 
     /**
@@ -285,7 +285,7 @@
     * @param   {String}    modifier  BEM modifier za selektor
     */
     var getElementSelector = function(element, query_all, modifier) {
-        return Monitor.Main.DOM.getElementSelector("CheckoutPage", element, query_all, modifier);
+        return Kirby.Main.Dom.getElementSelector("CheckoutPage", element, query_all, modifier);
     };
 
     var render = function (data) {
@@ -307,7 +307,7 @@
 
 
     var createUserAddress = function(city, name, surname, address, post_code, phone, company, pib) {
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
             "CheckoutPage",
             "createUserAddress",
             {
@@ -325,7 +325,7 @@
     };
 
     var checkEmailTaken = function(email) {
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
             "Login",
             "checkEmailTaken",
             {

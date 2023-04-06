@@ -1,14 +1,14 @@
 "use strict";
 
 if (typeof Monitor               === "undefined") var Monitor           = {};
-if (typeof Monitor.AdminBanners  === "undefined") Monitor.AdminBanners  = {};
+if (typeof Kirby.AdminBanners  === "undefined") Kirby.AdminBanners  = {};
 
 /**
  *
  * Modal za izmenu clanka
  *
  */
-Monitor.AdminBanners.Change = {
+Kirby.AdminBanners.Change = {
 
     config: {
         position_id: null,
@@ -49,7 +49,7 @@ Monitor.AdminBanners.Change = {
 
     /**
      * Inicijalizacija osluskivaca komponente
-     * @return  {Object}                    Monitor.AdminBanners.Change
+     * @return  {Object}                    Kirby.AdminBanners.Change
      */
     initListeners: function() {
         var $wrapper = $(this.getElementSelector("wrapper_list"));
@@ -66,11 +66,11 @@ Monitor.AdminBanners.Change = {
     },
 
     /**
-     * Registrovanje elemenata za Monitor.Main.DOM
-     * @return  {Object}                    Monitor.AdminBanners.Change
+     * Registrovanje elemenata za Kirby.Main.Dom
+     * @return  {Object}                    Kirby.AdminBanners.Change
      */
     registerElements: function() {
-        Monitor.Main.DOM.register("AdminBannersChange", this.elements);
+        Kirby.Main.Dom.register("AdminBannersChange", this.elements);
         return this;
     },
 
@@ -171,7 +171,7 @@ Monitor.AdminBanners.Change = {
     * @param   {String}    modifier  BEM modifier za selektor
     */
     getElement: function(element, query_all, modifier) {
-        return Monitor.Main.DOM.getElement("AdminBannersChange", element, query_all, modifier);
+        return Kirby.Main.Dom.getElement("AdminBannersChange", element, query_all, modifier);
     },
 
     /**
@@ -181,12 +181,12 @@ Monitor.AdminBanners.Change = {
     * @param   {String}    modifier  BEM modifier za selektor
     */
     getElementSelector: function(element, query_all, modifier) {
-        return Monitor.Main.DOM.getElementSelector("AdminBannersChange", element, query_all, modifier);
+        return Kirby.Main.Dom.getElementSelector("AdminBannersChange", element, query_all, modifier);
     },
 
     /**
     * Zatvara modal
-    * @return  {Object}         Monitor.AdminUsers.Dialogs.Password objekat, za ulančavanje funkcija
+    * @return  {Object}         Kirby.AdminUsers.Dialogs.Password objekat, za ulančavanje funkcija
     */
     hideDialog: function() {
         $(this.getElement("wrapper")).modal("hide");
@@ -227,7 +227,7 @@ Monitor.AdminBanners.Change = {
     /**
     * Zadaje validity za name polje, u zavisnosti da li postoji clanak s ovim naslovom
     * @param   {Boolean}   exists   Da li je name vec zauzet
-    * @return  {Object}             Monitor.AdminBanners.Create objekat, za ulančavanje funkcija
+    * @return  {Object}             Kirby.AdminBanners.Create objekat, za ulančavanje funkcija
     */
     setNameValidity: function(exists) {
         var element = this.getElement("name");
@@ -248,10 +248,10 @@ Monitor.AdminBanners.Change = {
     /**
      * Dohvatanje informacija o pojedinacnom clanku
      * @param   {Number}    banner_id      ID clanka koji dohvatamo
-     * @return  {Object}                    Monitor.AdminBanners.Change
+     * @return  {Object}                    Kirby.AdminBanners.Change
      */
     fetchBanner: function(banner_id) {
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
             "AdminBanners",
             "fetchBanner",
             {
@@ -266,10 +266,10 @@ Monitor.AdminBanners.Change = {
     /**
      * Provera da li vec postoji tag s ovim korisnickim imenom
      * @param   {String}    username Ime koje proveravamo
-     * @return  {Object}             Monitor.AdminTags.Change objekat, za ulančavanje funkcija
+     * @return  {Object}             Kirby.AdminTags.Change objekat, za ulančavanje funkcija
      */
     isNameTaken: function(name) {
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
             "AdminBanners",
             "isNameTaken",
             {
@@ -285,10 +285,10 @@ Monitor.AdminBanners.Change = {
      * Menjamo sliku clanka
      * @param   {Number}    banner_id      ID clanka kome menjamo sliku
      * @param   {File}      image           Nova slika
-     * @return  {Object}                    Monitor.AdminBanners.Change
+     * @return  {Object}                    Kirby.AdminBanners.Change
      */
     changeImage: function(banner_id, image) {
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
             "AdminBanners",
             "changeImage",
             {
@@ -296,7 +296,7 @@ Monitor.AdminBanners.Change = {
                 image:      image,
             },
             (data) => {
-                var event   = new CustomEvent("Monitor.Admin.Banners");
+                var event   = new CustomEvent("Kirby.Admin.Banners");
                 event.info = "Update";
                 event.data = data;
                 document.dispatchEvent(event);
@@ -314,7 +314,7 @@ Monitor.AdminBanners.Change = {
      * @param   {string}    name         Naslov clanka
      * @param   {string}    text            Tekst clanka
      * @param   {string}    excerpt         Isecak
-     * @return  {Object}                    Monitor.AdminBanners.Change
+     * @return  {Object}                    Kirby.AdminBanners.Change
      */
     updateBanner: function(banner_id, name, link, url, position) {
         var params = {
@@ -325,13 +325,13 @@ Monitor.AdminBanners.Change = {
             position:   position,
         };
 
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
             "AdminBanners",
             "updateBanner",
             params,
 
             (data) => {
-                var event   = new CustomEvent("Monitor.Admin.Banners");
+                var event   = new CustomEvent("Kirby.Admin.Banners");
                 event.info = "Update";
                 event.data = data;
                 document.dispatchEvent(event);
@@ -342,7 +342,7 @@ Monitor.AdminBanners.Change = {
     },
 
     getPagePositions: function(page_id) {
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
             "AdminBanners",
             "getPagePositions",
             {
@@ -355,4 +355,4 @@ Monitor.AdminBanners.Change = {
 
 };
 
-document.addEventListener("DOMContentLoaded", Monitor.AdminBanners.Change.init.bind(Monitor.AdminBanners.Change), false);
+document.addEventListener("DOMContentLoaded", Kirby.AdminBanners.Change.init.bind(Kirby.AdminBanners.Change), false);

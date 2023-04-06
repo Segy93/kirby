@@ -1,5 +1,3 @@
-///<reference path="../../libs/MonitorMainAjax.js" />
-
 (function () {
     "use strict";
 
@@ -37,7 +35,7 @@
      * Registruje elemente koji se koriste u komponenti
      */
     var registerElements = function() {
-        Monitor.Main.DOM.register("UserProfile", elements);
+        Kirby.Main.Dom.register("UserProfile", elements);
     };
 
 
@@ -51,7 +49,7 @@
     * @return  {Node|NodeList}       Vraca Node objekat ukoliko je query_all false, niz Node obj
     */
     var getElement = function(element, query_all, modifier, parent) {
-        return Monitor.Main.DOM.getElement("UserProfile", element, query_all, modifier, parent);
+        return Kirby.Main.Dom.getElement("UserProfile", element, query_all, modifier, parent);
     };
 
     /**
@@ -62,7 +60,7 @@
     * @return  {Node/NodeList}       Vraca Node objekat ukoliko je query_all false, niz Node obj
     */
     var getElementSelector = function(element, query_all, modifier) {
-        return Monitor.Main.DOM.getElementSelector("UserProfile", element, query_all, modifier);
+        return Kirby.Main.Dom.getElementSelector("UserProfile", element, query_all, modifier);
     };
 
 

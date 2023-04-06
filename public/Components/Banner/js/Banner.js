@@ -47,7 +47,7 @@
     };
 
     var registerElements = function () {
-        Monitor.Main.DOM.register("Order", elements);
+        Kirby.Main.Dom.register("Order", elements);
     };
 
     /**
@@ -206,7 +206,7 @@
      * @return  {Node/NodeList}             Vraca Node objekat ukoliko je query_all false, niz Node objekata inace
      */
     var getElement = function(element, query_all, modifier, parent) {
-        return Monitor.Main.DOM.getElement("Order", element, query_all, modifier, parent);
+        return Kirby.Main.Dom.getElement("Order", element, query_all, modifier, parent);
     };
 
     /**
@@ -217,7 +217,7 @@
      * @return  {Node/NodeList}             Vraca Node objekat ukoliko je query_all false, niz Node objekata inace
      */
     var getElementSelector = function(element, query_all, modifier) {
-        return Monitor.Main.DOM.getElementSelector("Order", element, query_all, modifier);
+        return Kirby.Main.Dom.getElementSelector("Order", element, query_all, modifier);
     };
 
     /**
@@ -227,7 +227,7 @@
      *
      */
     var clickBanner = function (id) {
-        Monitor.Main.Beacon(
+        Kirby.Main.Beacon(
             "Banner",
             "clickBanner",
             {

@@ -1,9 +1,9 @@
 "use strict"
 
 if (typeof Monitor === "undefined") var Monitor = {};
-if (typeof Monitor.AdminArticles === "undefined") Monitor.AdminArticles = {};
+if (typeof Kirby.AdminArticles === "undefined") Kirby.AdminArticles = {};
 
-Monitor.AdminArticles.TagChange = {
+Kirby.AdminArticles.TagChange = {
     config: { // Konfiguracija komponente
         "article_id": 0, // ID clanka kome menjamo tagove
     },
@@ -36,7 +36,7 @@ Monitor.AdminArticles.TagChange = {
 
     /**
      * Inicijalizacija osluskivaca komponente
-     * @return  {Object}                    Monitor.AdminArticles.TagChange
+     * @return  {Object}                    Kirby.AdminArticles.TagChange
      */
     initListeners: function() {
         // Pojedinacni checkbox za svaki tag
@@ -50,11 +50,11 @@ Monitor.AdminArticles.TagChange = {
     },
 
     /**
-     * Registrovanje elemenata za Monitor.Main.DOM
-     * @return  {Object}                    Monitor.AdminArticles.TagChange
+     * Registrovanje elemenata za Kirby.Main.Dom
+     * @return  {Object}                    Kirby.AdminArticles.TagChange
      */
     registerElements: function() {
-        Monitor.Main.DOM.register("AdminArticlesChangeTag", this.elements);
+        Kirby.Main.Dom.register("AdminArticlesChangeTag", this.elements);
         return this;
     },
 
@@ -109,7 +109,7 @@ Monitor.AdminArticles.TagChange = {
      * @return  {Node/NodeList}             Vraca Node objekat ukoliko je query_all false, niz Node objekata inace
      */
     getElement: function(element, query_all, modifier) {
-        return Monitor.Main.DOM.getElement("AdminArticlesChangeTag", element, query_all, modifier);
+        return Kirby.Main.Dom.getElement("AdminArticlesChangeTag", element, query_all, modifier);
     },
 
     /**
@@ -120,12 +120,12 @@ Monitor.AdminArticles.TagChange = {
      * @return  {Node/NodeList}             Vraca Node objekat ukoliko je query_all false, niz Node objekata inace
      */
     getElementSelector: function(element, query_all, modifier) {
-        return Monitor.Main.DOM.getElementSelector("AdminArticlesChangeTag", element, query_all, modifier);
+        return Kirby.Main.Dom.getElementSelector("AdminArticlesChangeTag", element, query_all, modifier);
     },
 
     /**
      * Zatvara modal
-     * @return  {Object}                    Monitor.AdminArticles.TagChange
+     * @return  {Object}                    Kirby.AdminArticles.TagChange
      */
     hideDialog: function() {
         var form    = this.getElement('form');
@@ -179,10 +179,10 @@ Monitor.AdminArticles.TagChange = {
     /**
      * Dohvata tagove koje clanak ima
      * @param   {Number}    article_id      ID clanka
-     * @return  {Object}                    Monitor.AdminArticles.TagChange
+     * @return  {Object}                    Kirby.AdminArticles.TagChange
      */
     fetchUsedTags: function(article_id) {
-        Monitor.Main.Ajax (
+        Kirby.Main.Ajax (
             "AdminArticles",
             "fetchUsedTags",
             {
@@ -199,10 +199,10 @@ Monitor.AdminArticles.TagChange = {
      * @param   {Number}    article_id      ID clanka
      * @param   {Number}    tag_id          ID taga
      * @param   {Boolean}   state           Stanje (true za kacenje i false za sklanjanje)
-     * @return  {Object}                    Monitor.AdminArticles.TagChange
+     * @return  {Object}                    Kirby.AdminArticles.TagChange
      */
     changeArticleTag: function(article_id, tag_id, state) {
-        Monitor.Main.Ajax (
+        Kirby.Main.Ajax (
             "AdminArticles",
             "changeTag",
             {
@@ -211,7 +211,7 @@ Monitor.AdminArticles.TagChange = {
                 "state": state,
             },
             function (data) {
-                var event   = new CustomEvent("Monitor.Admin.Articles");
+                var event   = new CustomEvent("Kirby.Admin.Articles");
                 event.info = "Update";
                 event.data = data;
                 document.dispatchEvent(event);
@@ -223,4 +223,4 @@ Monitor.AdminArticles.TagChange = {
 
 };
 
-document.addEventListener("DOMContentLoaded", Monitor.AdminArticles.TagChange.init.bind(Monitor.AdminArticles.TagChange), false);
+document.addEventListener("DOMContentLoaded", Kirby.AdminArticles.TagChange.init.bind(Kirby.AdminArticles.TagChange), false);

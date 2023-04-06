@@ -1,9 +1,9 @@
 "use strict";
 
 if (typeof Monitor             === "undefined") var Monitor           = {};
-if (typeof Monitor.AdminOrderPage  === "undefined") Monitor.AdminOrder    = {};
+if (typeof Kirby.AdminOrderPage  === "undefined") Kirby.AdminOrder    = {};
 
-Monitor.AdminOrder.Addresses = {
+Kirby.AdminOrder.Addresses = {
     config: {
         delivery_address_type: "shop",
         billing_address_type: "shop",
@@ -69,23 +69,23 @@ Monitor.AdminOrder.Addresses = {
     /**
     * Inicijalizacija osluškivača u okviru komponente, kao i funkcija koje reaguju na njih
     * Prvo idu osluskivaci na wrapera onda idu van wrapera i nakon toga idu sa uslovima
-    * @return  {Object}       Monitor.AdminOrder.Addresses objekat, za ulančavanje funkcija
+    * @return  {Object}       Kirby.AdminOrder.Addresses objekat, za ulančavanje funkcija
     */
     initListeners: function() {
         this.getElement("delivery_form").addEventListener("submit", this.formSubmitted.bind(this), false);
         this.getElement("billing_form").addEventListener("submit", this.formSubmitted.bind(this), false);
         this.getElement("dropdown_delivery").addEventListener("change", this.dropdownDeliveryChanged.bind(this), false);
         this.getElement("dropdown_billing").addEventListener("change", this.dropdownBillingChanged.bind(this), false);
-        document.addEventListener("Monitor.AdminOrder.Address.Changed", this.changeOccurred.bind(this), false);
+        document.addEventListener("Kirby.AdminOrder.Address.Changed", this.changeOccurred.bind(this), false);
         return this;
     },
 
     /**
     * Registracija elemenata u upotrebi od strane komponente
-    * @return  {Object} Monitor.AdminOrder.Addresses objekat, za ulančavanje funkcija
+    * @return  {Object} Kirby.AdminOrder.Addresses objekat, za ulančavanje funkcija
     */
     registerElements: function() {
-        Monitor.Main.DOM.register("AdminOrderAddresses", this.elements);
+        Kirby.Main.Dom.register("AdminOrderAddresses", this.elements);
         return this;
     },
 
@@ -136,7 +136,7 @@ Monitor.AdminOrder.Addresses = {
      * @return  {Node/NodeList}       Vraca Node objekat  query_all false, niz Node objekata inace
      */
     getElement: function(element, query_all, modifier) {
-        return Monitor.Main.DOM.getElement("AdminOrderAddresses", element, query_all, modifier);
+        return Kirby.Main.Dom.getElement("AdminOrderAddresses", element, query_all, modifier);
     },
 
     /**
@@ -147,7 +147,7 @@ Monitor.AdminOrder.Addresses = {
      * @return  {Node/NodeList}       Vraca Node objekat je query_all false, niz Node objekata inace
      */
     getElementSelector: function(element, query_all, modifier) {
-        return Monitor.Main.DOM.getElementSelector("AdminOrderAddresses", element, query_all, modifier);
+        return Kirby.Main.Dom.getElementSelector("AdminOrderAddresses", element, query_all, modifier);
     },
 
     changeOccurred: function(event) {
@@ -341,7 +341,7 @@ Monitor.AdminOrder.Addresses = {
 
 
     refreshData: function(order_id) {
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
             'AdminOrder',
             'getData', {
                 order_id: order_id,
@@ -357,10 +357,10 @@ Monitor.AdminOrder.Addresses = {
     * @param type - tip adrese (delivery || billing)
     * @param address_id identifikacioni parametar adrese
     * @param order_id identifikacioni parametar narudzbine
-    * @return  {Object} Monitor.AdminOrder.Addresses objekat, za ulančavanje funkcija
+    * @return  {Object} Kirby.AdminOrder.Addresses objekat, za ulančavanje funkcija
     */
     changeAddress: function(type, address_id, order_id) {
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
             "AdminOrder",
             "changeAddress",
             {
@@ -370,7 +370,7 @@ Monitor.AdminOrder.Addresses = {
             },
             function(data) {
                 this.render(data);
-                document.dispatchEvent(new CustomEvent("Monitor.Order.Address.Update"));
+                document.dispatchEvent(new CustomEvent("Kirby.Order.Address.Update"));
             }
             .bind(this)
         );
@@ -378,4 +378,4 @@ Monitor.AdminOrder.Addresses = {
     }
 };
 
-document.addEventListener("DOMContentLoaded", Monitor.AdminOrder.Addresses.init.bind(Monitor.AdminOrder.Addresses), false);
+document.addEventListener("DOMContentLoaded", Kirby.AdminOrder.Addresses.init.bind(Kirby.AdminOrder.Addresses), false);

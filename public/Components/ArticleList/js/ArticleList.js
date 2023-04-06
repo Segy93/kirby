@@ -2,17 +2,17 @@
     "use strict";
 
     var config = {
-        base_url:     Monitor._params.Columns.ArticleList.base_url,
+        base_url:     Kirby._params.Columns.ArticleList.base_url,
 
         date_first:   null,
         date_last:    null,
 
-        id_object:    Monitor._params.Columns.ArticleList.id_object,
+        id_object:    Kirby._params.Columns.ArticleList.id_object,
 
-        id_oldest:    Monitor._params.Columns.ArticleList.id_oldest,
-        id_newest:    Monitor._params.Columns.ArticleList.id_newest,
+        id_oldest:    Kirby._params.Columns.ArticleList.id_oldest,
+        id_newest:    Kirby._params.Columns.ArticleList.id_newest,
 
-        type:         Monitor._params.Columns.ArticleList.type,
+        type:         Kirby._params.Columns.ArticleList.type,
 
         interrupt_animation: false, /*prekid animacije*/
     };
@@ -45,12 +45,12 @@
     };
 
     var initDateFirst = function() {
-        var date_object = Monitor._params.Columns.ArticleList.date_first;
+        var date_object = Kirby._params.Columns.ArticleList.date_first;
         if (date_object !== null) config.date_first = date_object.date;
     };
 
     var initDateLast = function() {
-        var date_object = Monitor._params.Columns.ArticleList.date_last;
+        var date_object = Kirby._params.Columns.ArticleList.date_last;
         if (date_object !== null) config.date_last = date_object.date;
     };
 
@@ -75,7 +75,7 @@
     };
 
     var registerElements = function() {
-        Monitor.Main.DOM.register("ArticleList", elements);
+        Kirby.Main.Dom.register("ArticleList", elements);
     };
 
 
@@ -147,7 +147,7 @@
 
 
     var getElement = function(element, query_all, modifier, parent) {
-        return Monitor.Main.DOM.getElement(
+        return Kirby.Main.Dom.getElement(
             "ArticleList",
             element,
             query_all,
@@ -251,7 +251,7 @@
 
 
     var fetchData = function(direction) {
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
             "ArticleList",
             "fetchData",
             {

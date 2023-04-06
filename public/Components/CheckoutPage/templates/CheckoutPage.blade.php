@@ -336,16 +336,6 @@
         role            = "form"
     >
         {!! $csrf_field !!}
-        <input
-            name  = "type"
-            type  = "hidden"
-            value = "{{ $is_configuration ? 'configuration' : 'cart' }}"
-        />
-        <input
-            name  = "configuration_id"
-            type  = "hidden"
-            value = "{{ $configuration_id }}"
-        />
         <p
             class = "checkout_page__text"
         >

@@ -25,7 +25,7 @@
                         	<tr>
                               	<td class="topbar topbar-greeting" valign="top" width="600" height="25" style="color: white; text-align:center; font-family:Georgia, 'Times New Roman', Times, serif; font-size: 12px; line-height: 120%; vertical-align:middle; font-style:italic; padding-top:5px; padding-bottom:5px;" mc:edit="topbar_greeting_center">
                                 		<singleline label="topbar_greeting_center">
-                        					Dobrodošli na Monitor.rs!
+                        					Dobrodošli na Kirby.rs!
                                         </singleline>
                         		</td>
                             <tr>

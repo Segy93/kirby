@@ -14,11 +14,7 @@
         aria-label      = "{!!$js_template ?  '<%=product.name %>' :$product->name!!}"
         class           = "product_single__image product_single__section"
         @if ($show_link)
-            @if ($is_configurator)
-                href        = "{!! $js_template ?  '<%=product.url %>?konfigurator=' . $configuration_name : $product->url . '?konfigurator=' . $configuration_name !!}"
-            @else
-                href        = "{!! $js_template ?  '<%=product.url %>' : $product->url !!}"
-            @endif
+            href        = "{!! $js_template ?  '<%=product.url %>' : $product->url !!}"
             tabindex    = "-1"
         @else
             href        = "{!! $js_template ?  '<%= product.images.thumbnail[0] %>' : $product->images['thumbnail'][0] !!}"
@@ -57,11 +53,7 @@
         @if ($show_link)
             <a
                 class = "product_single__product_name_link"
-                @if ($is_configurator)
-                    href =  "{!! $js_template ?  '<%=product.url %>?konfigurator=' . $configuration_name : $product->url . '?konfigurator=' . $configuration_name !!}"
-                @else
-                    href =  "{!! $js_template ?  '<%=product.url %>' : $product->url !!}"
-                @endif
+                href =  "{!! $js_template ?  '<%=product.url %>' : $product->url !!}"
                 itemprop = "name"
             >
                 {!!$js_template ?  '<%=product.name %>' :$product->name!!}
@@ -222,20 +214,16 @@
             </p>
         @endif
         --}}
-        @if ($is_configurator)
-            {!! $configurator_add_button->renderHTML($js_template ? null : $product->id, $configuration_id) !!}
-        @else
-            @if ($js_template)
-                <% if (product.in_stock === true) { %>
-                    {!! $cartToggle->renderHTML(null) !!}
-                <% }%>
-            @elseif ($product->in_stock === true)
-                {!! $cartToggle->renderHTML($product->id) !!}
-            @endif
-
-            {!! $wishListToggle->renderHTML($js_template ? null : $product->id) !!}
-
-            {!! $productCompare->renderHTML($js_template ? null : $product->id) !!}
+        @if ($js_template)
+            <% if (product.in_stock === true) { %>
+                {!! $cartToggle->renderHTML(null) !!}
+            <% }%>
+        @elseif ($product->in_stock === true)
+            {!! $cartToggle->renderHTML($product->id) !!}
         @endif
+
+        {!! $wishListToggle->renderHTML($js_template ? null : $product->id) !!}
+
+        {!! $productCompare->renderHTML($js_template ? null : $product->id) !!}
     </div>
 </section>

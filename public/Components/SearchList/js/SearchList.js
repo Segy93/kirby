@@ -73,7 +73,7 @@
 
     /**
      * Inicijalizacija sablona koje komponenta koristi
-     * @return  {Object}                    Monitor.AdminArticles.List
+     * @return  {Object}                    Kirby.AdminArticles.List
      */
     var initTemplates = function () {
         templates.main = _.template(document.getElementById("search_list__tmpl").innerHTML);
@@ -83,7 +83,7 @@
      * Registruje elemente koji se koriste u komponenti
      */
     var registerElements = function () {
-        Monitor.Main.DOM.register("SearchList", elements);
+        Kirby.Main.Dom.register("SearchList", elements);
     };
 
 
@@ -96,7 +96,7 @@
      * @return  {Node/NodeList}       Vraca Node objekat ukoliko je query_all false, niz objekata
      */
     var getElement = function (element, query_all, modifier, parent) {
-        return Monitor.Main.DOM.getElement("SearchList", element, query_all, modifier, parent);
+        return Kirby.Main.Dom.getElement("SearchList", element, query_all, modifier, parent);
     };
 
     var render = function (data) {
@@ -136,7 +136,7 @@
         if (getAppend() === false) {
             config.append_count  = 0;
         }
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
             "SearchList",
             "fetchData",
             {

@@ -1,10 +1,10 @@
 "use strict";
 
 if (typeof Monitor                     === "undefined") var Monitor                   = {};
-if (typeof Monitor.AdminUsers          === "undefined") Monitor.AdminUsers            = {};
-if (typeof Monitor.AdminUsersAddresses  === "undefined") Monitor.AdminUsersAddresses    = {};
+if (typeof Kirby.AdminUsers          === "undefined") Kirby.AdminUsers            = {};
+if (typeof Kirby.AdminUsersAddresses  === "undefined") Kirby.AdminUsersAddresses    = {};
 
-Monitor.AdminUsersAddresses.Delete = {
+Kirby.AdminUsersAddresses.Delete = {
     /**
      *
      * Konfiguracija komponente
@@ -51,7 +51,7 @@ Monitor.AdminUsersAddresses.Delete = {
 
     /**
      * Inicijalizacija osluškivača u okviru komponente, kao i funkcija koje reaguju na njih
-     * @return  {Object}                    Monitor.AdminUsers.Dialogs.Delete objekat, za ulančavanje funkcija
+     * @return  {Object}                    Kirby.AdminUsers.Dialogs.Delete objekat, za ulančavanje funkcija
      */
     initListeners: function() {
         $(this.getElementSelector("wrapper")).on("show.bs.modal", this.componentRequested.bind(this));
@@ -61,10 +61,10 @@ Monitor.AdminUsersAddresses.Delete = {
 
     /**
      * Registracija elemenata u upotrebi od strane komponente
-     * @return  {Object}                    Monitor.AdminUsers.Dialogs.Delete objekat, za ulančavanje funkcija
+     * @return  {Object}                    Kirby.AdminUsers.Dialogs.Delete objekat, za ulančavanje funkcija
      */
     registerElements: function() {
-        Monitor.Main.DOM.register("AdminUserAddressesDelete", this.elements);
+        Kirby.Main.Dom.register("AdminUserAddressesDelete", this.elements);
         return this;
     },
 
@@ -111,7 +111,7 @@ Monitor.AdminUsersAddresses.Delete = {
      * @return  {Node/NodeList}             Vraca Node objekat ukoliko je query_all false, niz Node objekata inace
      */
     getElement: function(element, query_all, modifier) {
-        return Monitor.Main.DOM.getElement("AdminUserAddressesDelete", element, query_all, modifier);
+        return Kirby.Main.Dom.getElement("AdminUserAddressesDelete", element, query_all, modifier);
     },
 
     /**
@@ -122,7 +122,7 @@ Monitor.AdminUsersAddresses.Delete = {
      * @return  {Node/NodeList}             Vraca Node objekat ukoliko je query_all false, niz Node objekata inace
      */
     getElementSelector: function(element, query_all, modifier) {
-        return Monitor.Main.DOM.getElementSelector("AdminUserAddressesDelete", element, query_all, modifier);
+        return Kirby.Main.Dom.getElementSelector("AdminUserAddressesDelete", element, query_all, modifier);
     },
 
 
@@ -144,7 +144,7 @@ Monitor.AdminUsersAddresses.Delete = {
 
     /**
      * Zadaje ID trenutnog korisnika
-     * @return  {Object}                    Monitor.AdminUsers.Dialogs.Delete objekat, za ulančavanje funkcija
+     * @return  {Object}                    Kirby.AdminUsers.Dialogs.Delete objekat, za ulančavanje funkcija
      */
     setAddressID: function(address_id) {
         this.config.address_id = address_id;
@@ -162,17 +162,17 @@ Monitor.AdminUsersAddresses.Delete = {
 
     /**
      * Brise trenutnog korisnika
-     * @return  {Object}                    Monitor.AdminUsers.Dialogs.Delete objekat, za ulančavanje funkcija
+     * @return  {Object}                    Kirby.AdminUsers.Dialogs.Delete objekat, za ulančavanje funkcija
      */
     deleteUser: function() {
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
             "AdminUserAddresses",
             "deleteAddress",
             {
                 address_id: this.getAddressID(),
             },
             (data) => {
-                var event = new CustomEvent("Monitor.UserAddresses");
+                var event = new CustomEvent("Kirby.UserAddresses");
                 event.info = "Delete";
                 event.data = data;
                 document.dispatchEvent(event);
@@ -182,4 +182,4 @@ Monitor.AdminUsersAddresses.Delete = {
     },
 };
 
-document.addEventListener("DOMContentLoaded", Monitor.AdminUsersAddresses.Delete.init.bind(Monitor.AdminUsersAddresses.Delete), false);
+document.addEventListener("DOMContentLoaded", Kirby.AdminUsersAddresses.Delete.init.bind(Kirby.AdminUsersAddresses.Delete), false);

@@ -1,8 +1,7 @@
 <?php
 
-use Illuminate\Support\Facades\Schema;
-use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Illuminate\Support\Facades\DB;
 
 class InsertBannerPagesAndPositions extends Migration
 {
@@ -40,28 +39,28 @@ class InsertBannerPagesAndPositions extends Migration
                 'machine_name'  => 'product'
             ]
         );
-        
+
         DB::table('PageTypes')->insert(
             [
                 'type'          => 'Članak',
                 'machine_name'  => 'article'
             ]
         );
-        
+
         DB::table('PageTypes')->insert(
             [
                 'type'          => 'Lista članaka',
                 'machine_name'  => 'article_list'
             ]
         );
-        
+
         DB::table('PageTypes')->insert(
             [
                 'type'          => 'Profil',
                 'machine_name'  => 'profile'
             ]
         );
-        
+
         DB::table('PageTypes')->insert(
             [
                 'type'          => 'Prijava',
@@ -73,13 +72,6 @@ class InsertBannerPagesAndPositions extends Migration
             [
                 'type'          => 'Statička strana',
                 'machine_name'  => 'static_page'
-            ]
-        );
-
-        DB::table('PageTypes')->insert(
-            [
-                'type'          => 'Konfigurator',
-                'machine_name'  => 'configurator'
             ]
         );
 

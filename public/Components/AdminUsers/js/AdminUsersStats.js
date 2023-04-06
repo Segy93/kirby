@@ -1,9 +1,9 @@
 "use strict";
 
 if (Monitor            === undefined) var Monitor = {};
-if (Monitor.AdminUsers === undefined) Monitor.AdminUsers = {};
+if (Kirby.AdminUsers === undefined) Kirby.AdminUsers = {};
 
-Monitor.AdminUsers.Stats = {
+Kirby.AdminUsers.Stats = {
     /**
      *
      * Konfiguracija komponente
@@ -55,10 +55,10 @@ Monitor.AdminUsers.Stats = {
 
     /**
      * Inicijalizacija osluškivača u okviru komponente, kao i funkcija koje reaguju na njih
-     * @return  {Object}                    Monitor.AdminUsers.Stats objekat, za ulančavanje funkcija
+     * @return  {Object}                    Kirby.AdminUsers.Stats objekat, za ulančavanje funkcija
      */
     initListeners: function() {
-        document.addEventListener("Monitor.User", this.fetchData.bind(this), false);
+        document.addEventListener("Kirby.User", this.fetchData.bind(this), false);
         return this;
     },
 
@@ -69,10 +69,10 @@ Monitor.AdminUsers.Stats = {
 
     /**
      * Registracija elemenata u upotrebi od strane komponente
-     * @return  {Object}                    Monitor.AdminUsers.Stats objekat, za ulančavanje funkcija
+     * @return  {Object}                    Kirby.AdminUsers.Stats objekat, za ulančavanje funkcija
      */
     registerElements: function() {
-        Monitor.Main.DOM.register("AdminUserStats", this.elements);
+        Kirby.Main.Dom.register("AdminUserStats", this.elements);
         return this;
     },
 
@@ -103,7 +103,7 @@ Monitor.AdminUsers.Stats = {
      * @return  {Node/NodeList}             Vraca Node objekat ukoliko je query_all false, niz Node objekata inace
      */
     getElement: function(element, query_all, modifier) {
-        return Monitor.Main.DOM.getElement("AdminUserStats", element, query_all, modifier);
+        return Kirby.Main.Dom.getElement("AdminUserStats", element, query_all, modifier);
     },
 
 
@@ -116,7 +116,7 @@ Monitor.AdminUsers.Stats = {
     /**
      * Generise HTML na osnovu prosledjenih podataka i ubacuje u omotac
      * @param   {Object}    data            Podaci sa informacijama o korisnicima
-     * @return  {Object}                    Monitor.AdminUsers.Stats objekat, za ulančavanje funkcija
+     * @return  {Object}                    Kirby.AdminUsers.Stats objekat, za ulančavanje funkcija
      */
     render: function(data) {
         this.getElement("users_info").innerHTML = this.templates.main({
@@ -142,7 +142,7 @@ Monitor.AdminUsers.Stats = {
      * @return array data
      */
     fetchData: function() {
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
             "AdminUsers",
             "fetchStats",
             {},
@@ -151,4 +151,4 @@ Monitor.AdminUsers.Stats = {
     },
 };
 
-document.addEventListener('DOMContentLoaded', Monitor.AdminUsers.Stats.init.bind(Monitor.AdminUsers.Stats), false);
+document.addEventListener('DOMContentLoaded', Kirby.AdminUsers.Stats.init.bind(Kirby.AdminUsers.Stats), false);

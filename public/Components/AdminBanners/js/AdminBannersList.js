@@ -1,14 +1,14 @@
 "use strict";
 
 if (typeof Monitor               === "undefined") var Monitor               = {};
-if (typeof Monitor.AdminBanners === "undefined") Monitor.AdminBanners     = {};
+if (typeof Kirby.AdminBanners === "undefined") Kirby.AdminBanners     = {};
 
 /**
  *
  * Tabela sa listom clanaka i akcijama nad njima
  *
  */
-Monitor.AdminBanners.List = {
+Kirby.AdminBanners.List = {
     config: {                   // Konfiguracija komponente
         direction:          true,  // Smer dohvatanja podataka (false za unazad, true za unapred)
         first_id:         null,  // Prvi dohvaceni id (koristi se za navigaciju po stranama)
@@ -61,7 +61,7 @@ Monitor.AdminBanners.List = {
 
     /**
      * Inicijalizacija osluskivaca za komponentu
-     * @return  {Object}                    Monitor.AdminBanners.List
+     * @return  {Object}                    Kirby.AdminBanners.List
      */
     initListeners: function() {
         var $wrapper = $(this.getElementSelector("wrapper"));
@@ -75,14 +75,14 @@ Monitor.AdminBanners.List = {
         this.getElement("button_prev").addEventListener("click",  this.clickPaginationPrevious.bind(this),    false);
         this.getElement("button_next").addEventListener("click",  this.clickPaginationNext.bind(this),        false);
 
-        document.addEventListener("Monitor.Admin.Banners", this.changeOccurred.bind(this), false);
+        document.addEventListener("Kirby.Admin.Banners", this.changeOccurred.bind(this), false);
 
         return this;
     },
 
     /**
      * Inicijalizacija sablona koje komponenta koristi
-     * @return  {Object}                    Monitor.AdminBanners.List
+     * @return  {Object}                    Kirby.AdminBanners.List
      */
     initTemplates: function() {
         this.templates.main = _.template(document.getElementById("admin_banners__list_temp").innerHTML);
@@ -90,11 +90,11 @@ Monitor.AdminBanners.List = {
     },
 
     /**
-     * Registrovanje elemenata za Monitor.Main.DOM
-     * @return  {Object}                    Monitor.AdminBanners.List
+     * Registrovanje elemenata za Kirby.Main.Dom
+     * @return  {Object}                    Kirby.AdminBanners.List
      */
     registerElements()  {
-        Monitor.Main.DOM.register("AdminBannersList", this.elements);
+        Kirby.Main.Dom.register("AdminBannersList", this.elements);
         return this;
     },
 
@@ -196,7 +196,7 @@ Monitor.AdminBanners.List = {
     /**
      * Setuje id prvog prikazanog korisnika u paginaciji
      * @param   {Object}    id              ID prvog dohvacenog korisnika
-     * @return  {Object}                    Monitor.AdminUsers.List objekat, za ulancavanje funkcija
+     * @return  {Object}                    Kirby.AdminUsers.List objekat, za ulancavanje funkcija
     */
     setIdFirst: function(id) {
         this.config.first_id = id;
@@ -222,7 +222,7 @@ Monitor.AdminBanners.List = {
     /**
      * Setuje date prvog prikazanog korisnika u paginaciji
      * @param   {Object}    id              ID prvog dohvacenog korisnika
-     * @return  {Object}                    Monitor.AdminUsers.List objekat, za ulancavanje funkcija
+     * @return  {Object}                    Kirby.AdminUsers.List objekat, za ulancavanje funkcija
     */
     setSearch: function(search) {
         this.config.search = search;
@@ -241,7 +241,7 @@ Monitor.AdminBanners.List = {
     /**
      * Setuje date poslednjeg prikazanog korisnika u paginaciji
      * @param   {Object}    id              date poslednje dohvacenog korisnika
-     * @return  {Object}                    Monitor.AdminUsers.List objekat, za ulancavanje funkcija
+     * @return  {Object}                    Kirby.AdminUsers.List objekat, za ulancavanje funkcija
     */
     setIdLast: function(id) {
         this.config.last_id = id;
@@ -250,7 +250,7 @@ Monitor.AdminBanners.List = {
 
     /**
      * Vraca na prvu stranu
-     * @return  {Object}                    Monitor.AdminUsers.List objekat, za ulancavanje funkcija
+     * @return  {Object}                    Kirby.AdminUsers.List objekat, za ulancavanje funkcija
      */
     resetIds: function() {
         return this
@@ -270,7 +270,7 @@ Monitor.AdminBanners.List = {
     /**
      * Smer dohvatanja podataka
      * @param   {Object}    direction       true za napred i false za nazad
-     * @return  {Object}                    Monitor.AdminUsers.List objekat, za ulancavanje funkcija
+     * @return  {Object}                    Kirby.AdminUsers.List objekat, za ulancavanje funkcija
      */
     setDirection: function(direction) {
         this.config.direction = direction;
@@ -301,7 +301,7 @@ Monitor.AdminBanners.List = {
     * @param   {String}    modifier    BEM modifier za selektor
     */
     getElement: function(element, query_all, modifier) {
-        return Monitor.Main.DOM.getElement("AdminBannersList", element, query_all, modifier);
+        return Kirby.Main.Dom.getElement("AdminBannersList", element, query_all, modifier);
     },
 
     /**
@@ -311,13 +311,13 @@ Monitor.AdminBanners.List = {
     * @param   {String}    modifier    BEM modifier za selektor
     */
     getElementSelector: function(element, query_all, modifier) {
-        return Monitor.Main.DOM.getElementSelector("AdminBannersList", element, query_all, modifier);
+        return Kirby.Main.Dom.getElementSelector("AdminBannersList", element, query_all, modifier);
     },
 
     /**
      * Rendanje komponenta na osnovu dohvacenih podataka
      * @param   {Object}    data            Niz clanaka koje treba prikazati
-     * @return  {Object}                    Monitor.AdminBanners.List
+     * @return  {Object}                    Kirby.AdminBanners.List
      */
     render: function(data) {
         this.config.banners = data.banners;
@@ -355,10 +355,10 @@ Monitor.AdminBanners.List = {
      * Promena kategorije clanka
      * @param   {Number}    banner_id      ID clanka
      * @param   {Number}    category_id     ID kategorije
-     * @return  {Object}                    Monitor.AdminBanners.List
+     * @return  {Object}                    Kirby.AdminBanners.List
      */
     changePosition: function(banner_id, position_id) {
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
             "AdminBanners",
             "changePosition",
             {
@@ -372,10 +372,10 @@ Monitor.AdminBanners.List = {
 
     /**
      * Dohvatanje clanaka
-     * @return  {Object}                    Monitor.AdminBanners.List
+     * @return  {Object}                    Kirby.AdminBanners.List
      */
     fetchData: function() {
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
             "AdminBanners",
             "fetchData",
             {
@@ -425,7 +425,7 @@ Monitor.AdminBanners.List = {
 
     /**
      * Refresh the current page
-     * @return {Object}                     Monitor.AdminUsers.List objekat, za ulancavanje funkcija
+     * @return {Object}                     Kirby.AdminUsers.List objekat, za ulancavanje funkcija
      */
     refreshData: function() {
         return this
@@ -442,7 +442,7 @@ Monitor.AdminBanners.List = {
      * @param  {string} status     PUBLISHED ili DRAFT
      */
     changeStatus: function(banner_id, status) {
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
             "AdminBanners",
             "changeStatus",
             {
@@ -454,7 +454,7 @@ Monitor.AdminBanners.List = {
     },
 
     getPagePositions: function(page_id) {
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
             "AdminBanners",
             "getPagePositions",
             {
@@ -466,4 +466,4 @@ Monitor.AdminBanners.List = {
     }
 };
 
-document.addEventListener("DOMContentLoaded", Monitor.AdminBanners.List.init.bind(Monitor.AdminBanners.List), false);
+document.addEventListener("DOMContentLoaded", Kirby.AdminBanners.List.init.bind(Kirby.AdminBanners.List), false);

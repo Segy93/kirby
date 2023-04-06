@@ -25,7 +25,7 @@
     };
 
     var registerElements = function () {
-        Monitor.Main.DOM.register("AtomWishListToggle", elements);
+        Kirby.Main.Dom.register("AtomWishListToggle", elements);
     };
 
 
@@ -79,7 +79,7 @@
      * @return  {Node/NodeList}             Vraca Node objekat ukoliko je query_all false, niz Node objekata inace
      */
     var getElement = function(element, query_all, modifier, parent) {
-        return Monitor.Main.DOM.getElement("AtomWishListToggle", element, query_all, modifier, parent);
+        return Kirby.Main.Dom.getElement("AtomWishListToggle", element, query_all, modifier, parent);
     };
 
     /**
@@ -90,7 +90,7 @@
      * @return  {Node/NodeList}             Vraca Node objekat ukoliko je query_all false, niz Node objekata inace
      */
     var getElementSelector = function(element, query_all, modifier) {
-        return Monitor.Main.DOM.getElementSelector("AtomWishListToggle", element, query_all, modifier);
+        return Kirby.Main.Dom.getElementSelector("AtomWishListToggle", element, query_all, modifier);
     };
 
     // var render = function (data) {
@@ -111,7 +111,7 @@
 
 
     var changeWish = function (product_id, in_wishlist) {
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
             "AtomWishListToggle",
             "changeWish",
             {
@@ -131,7 +131,7 @@
 
 
     // var getWishlist = function() {
-    //     Monitor.Main.Ajax(
+    //     Kirby.Main.Ajax(
     //         "AtomWishListToggle",
     //         "getUsersWishlist",
     //         {

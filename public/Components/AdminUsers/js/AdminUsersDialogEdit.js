@@ -1,10 +1,10 @@
 "use strict";
 
 if (typeof Monitor                     === "undefined") var Monitor                   = {};
-if (typeof Monitor.AdminUsers          === "undefined") Monitor.AdminUsers            = {};
-if (typeof Monitor.AdminUsers.Dialogs  === "undefined") Monitor.AdminUsers.Dialogs    = {};
+if (typeof Kirby.AdminUsers          === "undefined") Kirby.AdminUsers            = {};
+if (typeof Kirby.AdminUsers.Dialogs  === "undefined") Kirby.AdminUsers.Dialogs    = {};
 
-Monitor.AdminUsers.Dialogs.Edit = {
+Kirby.AdminUsers.Dialogs.Edit = {
     /**
      *
      * Konfiguracija komponente
@@ -51,7 +51,7 @@ Monitor.AdminUsers.Dialogs.Edit = {
 
     /**
      * Inicijalizacija osluškivača u okviru komponente, kao i funkcija koje reaguju na njih
-     * @return  {Object}                    Monitor.AdminUsers.Dialogs.Edit objekat, za ulančavanje funkcija
+     * @return  {Object}                    Kirby.AdminUsers.Dialogs.Edit objekat, za ulančavanje funkcija
      */
     initListeners: function() {
         $(this.getElementSelector("wrapper")).on("show.bs.modal", this.componentRequested.bind(this));
@@ -62,10 +62,10 @@ Monitor.AdminUsers.Dialogs.Edit = {
 
     /**
      * Registracija elemenata u upotrebi od strane komponente
-     * @return  {Object}                    Monitor.AdminUsers.Dialogs.Edit objekat, za ulančavanje funkcija
+     * @return  {Object}                    Kirby.AdminUsers.Dialogs.Edit objekat, za ulančavanje funkcija
      */
     registerElements: function() {
-        Monitor.Main.DOM.register("AdminUserDialogEdit", this.elements);
+        Kirby.Main.Dom.register("AdminUserDialogEdit", this.elements);
         return this;
     },
 
@@ -131,7 +131,7 @@ Monitor.AdminUsers.Dialogs.Edit = {
 
     /**
      * Zatvara modal
-     * @return  {Object}                    Monitor.AdminUsers.Dialogs.Edit objekat, za ulančavanje funkcija
+     * @return  {Object}                    Kirby.AdminUsers.Dialogs.Edit objekat, za ulančavanje funkcija
      */
     hideDialog: function() {
         $(this.getElement("wrapper")).modal("hide");
@@ -146,7 +146,7 @@ Monitor.AdminUsers.Dialogs.Edit = {
      * @return  {Node/NodeList}             Vraca Node objekat ukoliko je query_all false, niz Node objekata inace
      */
     getElement: function(element, query_all, modifier) {
-        return Monitor.Main.DOM.getElement("AdminUserDialogEdit", element, query_all, modifier);
+        return Kirby.Main.Dom.getElement("AdminUserDialogEdit", element, query_all, modifier);
     },
 
     /**
@@ -157,12 +157,12 @@ Monitor.AdminUsers.Dialogs.Edit = {
      * @return  {Node/NodeList}             Vraca Node objekat ukoliko je query_all false, niz Node objekata inace
      */
     getElementSelector: function(element, query_all, modifier) {
-        return Monitor.Main.DOM.getElementSelector("AdminUserDialogEdit", element, query_all, modifier);
+        return Kirby.Main.Dom.getElementSelector("AdminUserDialogEdit", element, query_all, modifier);
     },
     /**
      * Zadaje validity za name polje, u zavisnosti da li postoji korisnik s ovim korisnickim imenom
      * @param   {Boolean}   exists          Da li je username vec zauzet
-     * @return  {Object}                    Monitor.AdminTags.Create objekat, za ulančavanje funkcija
+     * @return  {Object}                    Kirby.AdminTags.Create objekat, za ulančavanje funkcija
      */
     setNameValidity: function(exists) {
         this.getElement("input_name").setCustomValidity(exists ? "User with this username already exists" : "");
@@ -181,7 +181,7 @@ Monitor.AdminUsers.Dialogs.Edit = {
     /**
      * Generise HTML na osnovu prosledjenih podataka i ubacuje u omotac
      * @param   {Object}    data            Podaci sa informacijama o korisniku
-     * @return  {Object}                    Monitor.AdminUsers.Dialogs.Edit objekat, za ulančavanje funkcija
+     * @return  {Object}                    Kirby.AdminUsers.Dialogs.Edit objekat, za ulančavanje funkcija
      */
     render: function(data) {
         var elements = this.getElement("form").elements;
@@ -211,10 +211,10 @@ Monitor.AdminUsers.Dialogs.Edit = {
     /**
      * Dohvata informacije o korisniku
      * @param   {Number}    user_id         ID korisnika za koga dohvatamo statistiku
-     * @return  {Object}                    Monitor.AdminUsers.Dialogs.Edit objekat, za ulančavanje funkcija
+     * @return  {Object}                    Kirby.AdminUsers.Dialogs.Edit objekat, za ulančavanje funkcija
      */
     fetchUser: function(user_id) {
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
             "AdminUsers",
             "fetchUser",
             {
@@ -228,10 +228,10 @@ Monitor.AdminUsers.Dialogs.Edit = {
     /**
      * Azurira statistiku korisnika
      * @param   {Number}    user_id         ID korisnika kog azuriramo
-     * @return  {Object}                    Monitor.AdminUsers.Dialogs.Edit objekat, za ulančavanje funkcija
+     * @return  {Object}                    Kirby.AdminUsers.Dialogs.Edit objekat, za ulančavanje funkcija
      */
     updateUser: function(user_id, username, email, name, surname, /* address_of_living, address_of_delivery, */ phone, mobile) {
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
             "AdminUsers",
             "updateInfo",
             {
@@ -246,7 +246,7 @@ Monitor.AdminUsers.Dialogs.Edit = {
                 mobile_phone:   mobile,
             },
             (data) => {
-                var event = new CustomEvent("Monitor.User");
+                var event = new CustomEvent("Kirby.User");
                 event.info = "Update";
                 event.data = data;
                 document.dispatchEvent(event);
@@ -259,10 +259,10 @@ Monitor.AdminUsers.Dialogs.Edit = {
     /**
     * Provera da li vec postoji tag s ovim korisnickim imenom
     * @param   {String}    username        Ime koje proveravamo
-    * @return  {Object}                    Monitor.AdminTags.Change objekat, za ulančavanje funkcija
+    * @return  {Object}                    Kirby.AdminTags.Change objekat, za ulančavanje funkcija
     */
     isUsernameTaken: function(username) {
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
             "AdminUsers",
             "isUsernameTaken",
             {
@@ -274,4 +274,4 @@ Monitor.AdminUsers.Dialogs.Edit = {
     },
 };
 
-document.addEventListener('DOMContentLoaded', Monitor.AdminUsers.Dialogs.Edit.init.bind(Monitor.AdminUsers.Dialogs.Edit), false);
+document.addEventListener('DOMContentLoaded', Kirby.AdminUsers.Dialogs.Edit.init.bind(Kirby.AdminUsers.Dialogs.Edit), false);

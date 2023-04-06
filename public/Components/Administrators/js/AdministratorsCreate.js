@@ -1,9 +1,9 @@
 "use strict";
 
 if (Monitor === undefined) var Monitor = {};
-if (Monitor.Administrators === undefined) Monitor.Administrators = {};
+if (Kirby.Administrators === undefined) Kirby.Administrators = {};
 
-Monitor.Administrators.Create = {
+Kirby.Administrators.Create = {
     /**
      *
      * Konfiguracija komponente
@@ -55,7 +55,7 @@ Monitor.Administrators.Create = {
     /**
      * Inicijalizacija osluškivača u okviru komponente, kao i funkcija koje reaguju na njih
      * @param   {Object}    event           JavaScript event objekat
-     * @return  {Object}                    Monitor.Administrators.Create objekat, za ulančavanje funkcija
+     * @return  {Object}                    Kirby.Administrators.Create objekat, za ulančavanje funkcija
      */
     initListeners: function() {
         var form_create = this.getElement("form_create");
@@ -67,17 +67,17 @@ Monitor.Administrators.Create = {
         var input_create = this.getElement("input_create");
         if(input_create !== null) input_create.addEventListener("blur", this.blurName.bind(this), false);
 
-        document.addEventListener("Monitor.Admin.Update", this.changedAdmin.bind(this), false);
-        document.addEventListener("Monitor.Admin.Delete", this.changedAdmin.bind(this), false);
+        document.addEventListener("Kirby.Admin.Update", this.changedAdmin.bind(this), false);
+        document.addEventListener("Kirby.Admin.Delete", this.changedAdmin.bind(this), false);
         return this;
     },
 
     /**
      * Registracija elemenata u upotrebi od strane komponente
-     * @return  {Object}                    Monitor.Administrators.Create objekat, za ulančavanje funkcija
+     * @return  {Object}                    Kirby.Administrators.Create objekat, za ulančavanje funkcija
      */
     registerElements: function() {
-        Monitor.Main.DOM.register("AdministratorsCreate", this.elements);
+        Kirby.Main.Dom.register("AdministratorsCreate", this.elements);
         return this;
     },
 
@@ -125,7 +125,7 @@ Monitor.Administrators.Create = {
      * @param   {Object}    data            Informacije o kreiranom administratoru
      */
     adminCreated: function(data) {
-        var event  = new CustomEvent("Monitor.Admin.Administrator.Create");
+        var event  = new CustomEvent("Kirby.Admin.Administrator.Create");
         event.data = data;
         document.dispatchEvent(event);
         this.fetchData();
@@ -166,7 +166,7 @@ Monitor.Administrators.Create = {
      * @return  {Node/NodeList}             Vraca Node objekat ukoliko je query_all false, niz Node objekata inace
      */
     getElement: function(element, query_all, modifier) {
-        return Monitor.Main.DOM.getElement("AdministratorsCreate", element, query_all, modifier);
+        return Kirby.Main.Dom.getElement("AdministratorsCreate", element, query_all, modifier);
     },
 
     validateName: function() {
@@ -194,10 +194,10 @@ Monitor.Administrators.Create = {
 
     /**
      * Dohvata podatke neophodne za funkcionisanje komponenti,nakon cega ih cuva
-     * @return {Object}                     Monitor.Administrators.Create objekat, za ulancavanje funkcija
+     * @return {Object}                     Kirby.Administrators.Create objekat, za ulancavanje funkcija
      */
     fetchData: function() {
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
             "Administrators",
             "fetchData",
             {},
@@ -217,10 +217,10 @@ Monitor.Administrators.Create = {
      * @param   {String}    name            Ime administratora
      * @param   {Number}    role_id         ID uloge kojoj će administrator pripadati
      * @param   {String}    email           Email administratora
-     * @return  {Object}                    Monitor.Administrators.Create objekat, za ulančavanje funkcija
+     * @return  {Object}                    Kirby.Administrators.Create objekat, za ulančavanje funkcija
      */
     createAdmin: function(name, email, role_id) {
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
             "Administrators",
             "createAdmin",
             {
@@ -234,4 +234,4 @@ Monitor.Administrators.Create = {
     }
 };
 
-document.addEventListener('DOMContentLoaded', Monitor.Administrators.Create.init.bind(Monitor.Administrators.Create), false);
+document.addEventListener('DOMContentLoaded', Kirby.Administrators.Create.init.bind(Kirby.Administrators.Create), false);

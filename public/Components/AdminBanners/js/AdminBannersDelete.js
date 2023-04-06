@@ -1,14 +1,14 @@
 "use strict";
 
 if (typeof Monitor               === "undefined") var Monitor           = {};
-if (typeof Monitor.AdminBanners === "undefined") Monitor.AdminBanners = {};
+if (typeof Kirby.AdminBanners === "undefined") Kirby.AdminBanners = {};
 
 /**
  *
  * Modal za potvrdu brisanja clanaka
  *
  */
-Monitor.AdminBanners.Delete = {
+Kirby.AdminBanners.Delete = {
 
     config: { // Konfiguracija komponente
         banner_id: 0, // ID bannera koji ce biti obrisan
@@ -32,7 +32,7 @@ Monitor.AdminBanners.Delete = {
 
     /**
      * Inicijalizacija osluskivaca komponente
-     * @return  {Object}                    Monitor.AdminBanners.Delete
+     * @return  {Object}                    Kirby.AdminBanners.Delete
      */
     initListeners: function() {
         $(this.getElementSelector("wrapper")).on("show.bs.modal", this.requestedComponent.bind(this));
@@ -41,11 +41,11 @@ Monitor.AdminBanners.Delete = {
     },
 
     /**
-     * Registracija elemenata za Monitor.Main.DOM
-     * @return  {Object}                    Monitor.AdminArticles.Delete
+     * Registracija elemenata za Kirby.Main.Dom
+     * @return  {Object}                    Kirby.AdminArticles.Delete
      */
     registerElements: function() {
-        Monitor.Main.DOM.register("AdminBannersDelete", this.elements);
+        Kirby.Main.Dom.register("AdminBannersDelete", this.elements);
         return this;
     },
 
@@ -87,7 +87,7 @@ Monitor.AdminBanners.Delete = {
     * @param   {String}    modifier  BEM modifier za selektor
     */
     getElement: function(element, query_all, modifier) {
-        return Monitor.Main.DOM.getElement("AdminBannersDelete", element, query_all, modifier);
+        return Kirby.Main.Dom.getElement("AdminBannersDelete", element, query_all, modifier);
     },
 
     /**
@@ -97,7 +97,7 @@ Monitor.AdminBanners.Delete = {
     * @param   {String}    modifier    BEM modifier za selektor
     */
     getElementSelector: function(element, query_all, modifier) {
-        return Monitor.Main.DOM.getElementSelector("AdminBannersDelete", element, query_all, modifier);
+        return Kirby.Main.Dom.getElementSelector("AdminBannersDelete", element, query_all, modifier);
     },
 
 
@@ -118,7 +118,7 @@ Monitor.AdminBanners.Delete = {
     /**
      * Cuva ID trenutno aktivnog clanka
      * @param   {Number}    banner_id      ID clanka
-     * @return  {Object}                    Monitor.Adminbanners.Delete
+     * @return  {Object}                    Kirby.Adminbanners.Delete
      */
     setBannerID: function(banner_id) {
         this.config.banner_id = banner_id;
@@ -136,17 +136,17 @@ Monitor.AdminBanners.Delete = {
 
     /**
      * Brisanje clanka
-     * @return  {Object}                    Monitor.AdminArticles.Delete
+     * @return  {Object}                    Kirby.AdminArticles.Delete
      */
     deleteBanner: function() {
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
             "AdminBanners",
             "deleteBanner",
             {
                 banner_id: this.getBannerID(),
             },
             (data) => {
-                var event  = new CustomEvent("Monitor.Admin.Banners");
+                var event  = new CustomEvent("Kirby.Admin.Banners");
                 event.info = "Delete";
                 event.data = data;
                 document.dispatchEvent(event);
@@ -157,4 +157,4 @@ Monitor.AdminBanners.Delete = {
     },
 };
 
-document.addEventListener("DOMContentLoaded", Monitor.AdminBanners.Delete.init.bind(Monitor.AdminBanners.Delete, false));
+document.addEventListener("DOMContentLoaded", Kirby.AdminBanners.Delete.init.bind(Kirby.AdminBanners.Delete, false));

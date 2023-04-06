@@ -36,11 +36,11 @@
             var thumb = thumbs[i];
             thumb.addEventListener('keydown', thumbEnterd, false);
         }
-        document.addEventListener("Monitor.Gallery.Clicked", galleryClicked, false);
+        document.addEventListener("Kirby.Gallery.Clicked", galleryClicked, false);
     };
 
     var registerElements = function () {
-        Monitor.Main.DOM.register("ProductLightBoxGallery", elements);
+        Kirby.Main.Dom.register("ProductLightBoxGallery", elements);
     };
 
     var galleryClicked = function () {
@@ -69,7 +69,7 @@
      * @return  {Node/NodeList}             Vraca Node objekat ukoliko je query_all false, niz Node objekata inace
      */
     var getElement = function(element, query_all, modifier, parent) {
-        return Monitor.Main.DOM.getElement("ProductLightBoxGallery", element, query_all, modifier, parent);
+        return Kirby.Main.Dom.getElement("ProductLightBoxGallery", element, query_all, modifier, parent);
     };
 
     /**
@@ -80,7 +80,7 @@
      * @return  {Node/NodeList}             Vraca Node objekat ukoliko je query_all false, niz Node objekata inace
      */
     var getElementSelector = function(element, query_all, modifier) {
-        return Monitor.Main.DOM.getElementSelector("ProductLightBoxGallery", element, query_all, modifier);
+        return Kirby.Main.Dom.getElementSelector("ProductLightBoxGallery", element, query_all, modifier);
     };
 
     document.addEventListener("DOMContentLoaded", init);

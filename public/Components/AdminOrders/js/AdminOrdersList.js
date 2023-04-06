@@ -1,7 +1,7 @@
 "use strict";
 
 if (typeof Monitor             === "undefined") var Monitor           = {};
-if (typeof Monitor.AdminOrders  === "undefined") Monitor.AdminOrders    = {};
+if (typeof Kirby.AdminOrders  === "undefined") Kirby.AdminOrders    = {};
 
 /**
  * Pretraga i prikaz narudzbina,
@@ -10,7 +10,7 @@ if (typeof Monitor.AdminOrders  === "undefined") Monitor.AdminOrders    = {};
  * Blokiranje naloga
  * Brisanje
  */
-Monitor.AdminOrders.List = {
+Kirby.AdminOrders.List = {
     config: {
         direction:      true,    // Smer dohvatanja podataka (false za unazad, true za unapred)
         search:         "",         // Pretraga narudzbina
@@ -60,7 +60,7 @@ Monitor.AdminOrders.List = {
     /**
      * Inicijalizacija osluškivača u okviru komponente, kao i funkcija koje reaguju na njih
      * Prvo idu osluskivaci na wrapera onda idu van wrapera i nakon toga idu sa uslovima
-     * @return  {Object}    Monitor.AdminOrders.List objekat, za ulančavanje funkcija
+     * @return  {Object}    Kirby.AdminOrders.List objekat, za ulančavanje funkcija
      */
     initListeners: function() {
         var $wrapper = $(this.getElementSelector("wrapper"));
@@ -74,7 +74,7 @@ Monitor.AdminOrders.List = {
 
     /**
      * Inicijalizacija sablona
-     * @return  {Object} Monitor.AdminOrders.List objekat, za ulančavanje funkcija
+     * @return  {Object} Kirby.AdminOrders.List objekat, za ulančavanje funkcija
      */
     initTemplates: function() {
         this.templates.main = _.template(document.getElementById("admin_orders__list__tmpl").innerHTML);
@@ -83,10 +83,10 @@ Monitor.AdminOrders.List = {
 
     /**
      * Registracija elemenata u upotrebi od strane komponente
-     * @return  {Object}   Monitor.AdminOrders.List objekat, za ulančavanje funkcija
+     * @return  {Object}   Kirby.AdminOrders.List objekat, za ulančavanje funkcija
      */
     registerElements: function() {
-        Monitor.Main.DOM.register("AdminOrders", this.elements);
+        Kirby.Main.Dom.register("AdminOrders", this.elements);
         return this;
     },
 
@@ -183,7 +183,7 @@ Monitor.AdminOrders.List = {
     /**
      * Smer dohvatanja podataka
      * @param   {Object}    direction      true za napred i false za nazad
-     * @return  {Object}                   Monitor.AdminOrders.List objekat, za ulancavanje funkcija
+     * @return  {Object}                   Kirby.AdminOrders.List objekat, za ulancavanje funkcija
      */
     setDirection: function(direction) {
         this.config.direction = direction;
@@ -201,7 +201,7 @@ Monitor.AdminOrders.List = {
     /**
      * Setuje id prvog prikazanog narudzbina u paginaciji
      * @param   {Object}    id        ID prvog dohvacenog narudzbina
-     * @return  {Object}              Monitor.AdminOrders.List objekat, za ulancavanje funkcija
+     * @return  {Object}              Kirby.AdminOrders.List objekat, za ulancavanje funkcija
     */
     setIDFirst: function(id) {
         this.config.first_id = id;
@@ -219,7 +219,7 @@ Monitor.AdminOrders.List = {
     /**
      * Setuje id poslednjeg prikazanog narudzbina u paginaciji
      * @param   {Object}    id             ID poslednje dohvacenog narudzbina
-     * @return  {Object}                   Monitor.AdminOrders.List objekat, za ulancavanje funkcija
+     * @return  {Object}                   Kirby.AdminOrders.List objekat, za ulancavanje funkcija
     */
     setIDLast: function(id) {
         this.config.last_id = id;
@@ -228,7 +228,7 @@ Monitor.AdminOrders.List = {
 
     /**
      * Vraca na prvu stranu
-     * @return  {Object}                   Monitor.AdminOrders.List objekat, za ulancavanje funkcija
+     * @return  {Object}                   Kirby.AdminOrders.List objekat, za ulancavanje funkcija
      */
     resetIDs: function() {
         return this
@@ -296,7 +296,7 @@ Monitor.AdminOrders.List = {
      * @return  {Node/NodeList}       Vraca Node objekat je query_all false, niz Node objekata inace
      */
     getElement: function(element, query_all, modifier) {
-        return Monitor.Main.DOM.getElement("AdminOrders", element, query_all, modifier);
+        return Kirby.Main.Dom.getElement("AdminOrders", element, query_all, modifier);
     },
 
     /**
@@ -307,7 +307,7 @@ Monitor.AdminOrders.List = {
      * @return  {Node/NodeList}       Vraca Node objekat je query_all false, niz Node objekata inace
      */
     getElementSelector: function(element, query_all, modifier) {
-        return Monitor.Main.DOM.getElementSelector("AdminOrders", element, query_all, modifier);
+        return Kirby.Main.Dom.getElementSelector("AdminOrders", element, query_all, modifier);
     },
 
     /**
@@ -334,10 +334,10 @@ Monitor.AdminOrders.List = {
 
     /**
     * Dohvata podatke neophodne za funkcionisanje komponenti, nakon toga prikazuje komponentu
-    * @return {Object}                    Monitor.AdminOrders.List objekat, za ulancavanje funkcija
+    * @return {Object}                    Kirby.AdminOrders.List objekat, za ulancavanje funkcija
     */
     fetchData: function() {
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
             "AdminOrders",
             "fetchData",
             {
@@ -390,7 +390,7 @@ Monitor.AdminOrders.List = {
 
     /**
     * Refresh the current page
-    * @return {Object}                     Monitor.AdminOrders.List objekat, za ulancavanje funkcija
+    * @return {Object}                     Kirby.AdminOrders.List objekat, za ulancavanje funkcija
     */
     refreshData: function() {
         var id_first = this.getIDFirst();
@@ -403,4 +403,4 @@ Monitor.AdminOrders.List = {
     },
 };
 
-document.addEventListener("DOMContentLoaded", Monitor.AdminOrders.List.init.bind(Monitor.AdminOrders.List), false);
+document.addEventListener("DOMContentLoaded", Kirby.AdminOrders.List.init.bind(Kirby.AdminOrders.List), false);

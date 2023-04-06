@@ -16,7 +16,7 @@
     };
 
     var registerElements = function () {
-        Monitor.Main.DOM.register("MainMenuCompare", elements);
+        Kirby.Main.Dom.register("MainMenuCompare", elements);
     };
 
 
@@ -50,7 +50,7 @@
      * @return  {Node/NodeList}             Vraca Node objekat ukoliko je query_all false, niz Node objekata inace
      */
     var getElement = function(element, query_all, modifier, parent) {
-        return Monitor.Main.DOM.getElement("MainMenuCompare", element, query_all, modifier, parent);
+        return Kirby.Main.Dom.getElement("MainMenuCompare", element, query_all, modifier, parent);
     };
 
     /**
@@ -61,7 +61,7 @@
      * @return  {Node/NodeList}             Vraca Node objekat ukoliko je query_all false, niz Node objekata inace
      */
     var getElementSelector = function(element, query_all, modifier) {
-        return Monitor.Main.DOM.getElementSelector("MainMenuCompare", element, query_all, modifier);
+        return Kirby.Main.Dom.getElementSelector("MainMenuCompare", element, query_all, modifier);
     };
 
 
@@ -87,7 +87,7 @@
 
 
     var fetchData = function (){
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
             "MainMenuCompare",
             "fetchData",
             {},

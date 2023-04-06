@@ -30,7 +30,7 @@
     };
 
     var registerElements = function () {
-        Monitor.Main.DOM.register("WishList", elements);
+        Kirby.Main.Dom.register("WishList", elements);
     };
 
 
@@ -67,7 +67,7 @@
             getElement("wishlist").innerHTML = "";
         }
 
-        document.dispatchEvent(new CustomEvent("Monitor.WishList.Cart.Added"));
+        document.dispatchEvent(new CustomEvent("Kirby.WishList.Cart.Added"));
     };
 
 
@@ -87,7 +87,7 @@
      * @return  {Node/NodeList}             Vraca Node objekat ukoliko je query_all false, niz Node objekata inace
      */
     var getElement = function(element, query_all, modifier, parent) {
-        return Monitor.Main.DOM.getElement("WishList", element, query_all, modifier, parent);
+        return Kirby.Main.Dom.getElement("WishList", element, query_all, modifier, parent);
     };
 
     /**
@@ -98,7 +98,7 @@
      * @return  {Node/NodeList}             Vraca Node objekat ukoliko je query_all false, niz Node objekata inace
      */
     var getElementSelector = function(element, query_all, modifier) {
-        return Monitor.Main.DOM.getElementSelector("WishList", element, query_all, modifier);
+        return Kirby.Main.Dom.getElementSelector("WishList", element, query_all, modifier);
     };
 
     var addedToCart = function (data) {
@@ -117,7 +117,7 @@
 
 
     var deleteWish = function (id) {
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
             "WishList",
             "removeWish",
             {
@@ -130,7 +130,7 @@
     };
 
     var addToCart = function (id) {
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
             "WishList",
             "addToCart",
             {

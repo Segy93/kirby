@@ -288,31 +288,18 @@ class ShopService extends BaseService {
         $billing_address_id = null,
         $online_token = null,
         $date_delivery = null,
-        $note = null,
-        $type = 'cart',
-        $configuration_id = null
+        $note = null
     ) {
         $user_cart = self::getUserCartByUserId($user_id);
-        $configuration_products = ConfigurationService::getConfigurationArrayById($configuration_id);
         $product_data = [];
-        if ($type === 'cart' && empty($user_cart)) {
+        if (empty($user_cart)) {
             throw new ValidationException('Korpa je prazna', 19009);
-        } else if ($type === 'configuration' && empty($configuration_products['products'])) {
-            throw new ValidationException('Konfigurator je prazan', 19009);
-        } else if ($type === 'cart') {
+        } else {
             //Dohvata id prizvoda koji treba da se unesu
             foreach ($user_cart as $cart) {
                 $product_data[] = [
                     'product_id'    =>  $cart->product_id,
                     'quantity'      =>  $cart->quantity,
-                ];
-            }
-        } else {
-            //Dohvata id prizvoda koji treba da se unesu
-            foreach ($configuration_products['products'] as $configuration_product) {
-                $product_data[] = [
-                    'product_id'    =>  $configuration_product['product_id'],
-                    'quantity'      =>  $configuration_product['quantity'],
                 ];
             }
         }

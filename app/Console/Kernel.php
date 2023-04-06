@@ -14,11 +14,6 @@ class Kernel extends ConsoleKernel
      */
     protected $commands = [
         Commands\createComponent::class,
-        Commands\CreateMappingMigration::class,
-        Commands\ImportData::class,
-        Commands\ImportImages::class,
-        Commands\SyncImages::class,
-        Commands\UpdateData::class,
     ];
 
     /**

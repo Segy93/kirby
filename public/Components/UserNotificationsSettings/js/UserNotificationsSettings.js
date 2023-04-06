@@ -33,12 +33,12 @@
 
         window.addEventListener("click", clickAnything, false);
 
-        document.addEventListener("Monitor.Notifications.Device.Added", deviceAdded, false);
-        document.addEventListener("Monitor.Notifications.Hide.Prompt", hidePrompt, false);
+        document.addEventListener("Kirby.Notifications.Device.Added", deviceAdded, false);
+        document.addEventListener("Kirby.Notifications.Hide.Prompt", hidePrompt, false);
     };
 
     var registerElements = function () {
-        Monitor.Main.DOM.register("UserNotificationsSettings", elements);
+        Kirby.Main.Dom.register("UserNotificationsSettings", elements);
     };
 
 
@@ -120,7 +120,7 @@
      * @return  {Node/NodeList}             Vraca Node objekat ukoliko je query_all false, niz Node objekata inace
      */
     var getElement = function(element, query_all, modifier, parent) {
-        return Monitor.Main.DOM.getElement("UserNotificationsSettings", element, query_all, modifier, parent);
+        return Kirby.Main.Dom.getElement("UserNotificationsSettings", element, query_all, modifier, parent);
     };
 
     /**
@@ -131,13 +131,13 @@
      * @return  {Node/NodeList}             Vraca Node objekat ukoliko je query_all false, niz Node objekata inace
      */
     var getElementSelector = function(element, query_all, modifier) {
-        return Monitor.Main.DOM.getElementSelector("UserNotificationsSettings", element, query_all, modifier);
+        return Kirby.Main.Dom.getElementSelector("UserNotificationsSettings", element, query_all, modifier);
     };
 
 
 
     var changeNotificationSubscription = function (type_id) {
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
             "UserNotificationsSettings",
             "changeNotificationSubscription",
             {
@@ -148,7 +148,7 @@
     };
 
     var getEndpoints = function () {
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
             "UserNotificationsSettings",
             "getUserEndpoints",
             {
@@ -158,7 +158,7 @@
     }
 
     var removeEndpoint = function (endpoint_id) {
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
             "UserNotificationsSettings",
             "removeEndpoint",
             {

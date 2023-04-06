@@ -1,7 +1,7 @@
 "use strict";
 
 if (typeof Monitor             === "undefined") var Monitor                 = {};
-if (typeof Monitor.AdminOrderPage  === "undefined") Monitor.AdminOrder      = {};
+if (typeof Kirby.AdminOrderPage  === "undefined") Kirby.AdminOrder      = {};
 
 /**
  * Pretraga i prikaz narudzbina,
@@ -10,7 +10,7 @@ if (typeof Monitor.AdminOrderPage  === "undefined") Monitor.AdminOrder      = {}
  * Blokiranje naloga
  * Brisanje
  */
-Monitor.AdminOrder.Products = {
+Kirby.AdminOrder.Products = {
     config: {
     },
 
@@ -56,7 +56,7 @@ Monitor.AdminOrder.Products = {
     /**
      * Inicijalizacija osluškivača u okviru komponente, kao i funkcija koje reaguju na njih
      * Prvo idu osluskivaci na wrapera onda idu van wrapera i nakon toga idu sa uslovima
-     * @return  {Object}                 Monitor.AdminOrders.List objekat, za ulančavanje funkcija
+     * @return  {Object}                 Kirby.AdminOrders.List objekat, za ulančavanje funkcija
      */
     initListeners: function() {
         var $wrapper = $(this.getElementSelector("wrapper"));
@@ -64,16 +64,16 @@ Monitor.AdminOrder.Products = {
         form.addEventListener("submit", this.statusFormSubmited.bind(this), false);
         //$wrapper.on("click", this.getElementSelector("button_delete"), this.clickDeleteProduct.bind(this));
         $wrapper.on("change", this.getElementSelector("quantity_change"), this.quantityChanged.bind(this));
-        document.addEventListener("Monitor.AdminOrder.AddProduct.Added", this.productAdded.bind(this), false);
-        document.addEventListener("Monitor.OrderProduct", this.productChanged.bind(this), false);
-        document.addEventListener("Monitor.Order.Address.Update", this.addressChanged.bind(this));
+        document.addEventListener("Kirby.AdminOrder.AddProduct.Added", this.productAdded.bind(this), false);
+        document.addEventListener("Kirby.OrderProduct", this.productChanged.bind(this), false);
+        document.addEventListener("Kirby.Order.Address.Update", this.addressChanged.bind(this));
 
         return this;
     },
 
     /**
      * Inicijalizacija sablona
-     * @return  {Object}  Monitor.AdminOrders.List objekat, za ulančavanje funkcija
+     * @return  {Object}  Kirby.AdminOrders.List objekat, za ulančavanje funkcija
      */
     initTemplates: function() {
         this.templates.main = _.template(document.getElementById("admin_order__products_tmpl").innerHTML);
@@ -82,10 +82,10 @@ Monitor.AdminOrder.Products = {
 
     /**
      * Registracija elemenata u upotrebi od strane komponente
-     * @return  {Object} Monitor.AdminOrders.List objekat, za ulančavanje funkcija
+     * @return  {Object} Kirby.AdminOrders.List objekat, za ulančavanje funkcija
      */
     registerElements: function() {
-        Monitor.Main.DOM.register("AdminOrderProducts", this.elements);
+        Kirby.Main.Dom.register("AdminOrderProducts", this.elements);
         return this;
     },
 
@@ -161,7 +161,7 @@ Monitor.AdminOrder.Products = {
      * query_all false, niz Node objekata inace
      */
     getElement: function(element, query_all, modifier) {
-        return Monitor.Main.DOM.getElement("AdminOrderProducts", element, query_all, modifier);
+        return Kirby.Main.Dom.getElement("AdminOrderProducts", element, query_all, modifier);
     },
 
     /**
@@ -173,7 +173,7 @@ Monitor.AdminOrder.Products = {
      * niz Node objekata inace
      */
     getElementSelector: function(element, query_all, modifier) {
-        return Monitor.Main.DOM.getElementSelector("AdminOrderProducts", element, query_all, modifier);
+        return Kirby.Main.Dom.getElementSelector("AdminOrderProducts", element, query_all, modifier);
     },
 
     /**
@@ -214,12 +214,12 @@ Monitor.AdminOrder.Products = {
 
     /**
      * Dohvata podatke neophodne za funkcionisanje komponenti, nakon toga prikazuje komponentu
-     * @return {Object}      Monitor.AdminOrder.Products objekat, za ulancavanje funkcija
+     * @return {Object}      Kirby.AdminOrder.Products objekat, za ulancavanje funkcija
      */
     fetchData: function() {
         var table = this.getElement("table");
         var order_id = parseInt(table.dataset.orderId, 10);
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
             "AdminOrder",
             "fetchData",
             {
@@ -233,10 +233,10 @@ Monitor.AdminOrder.Products = {
     /**
     * Poziva metodu za brisanje proizvoda iz narudzbine
     * @param  order_product_id identifikator proizvoda u narudzbini
-    * @return {Object}      Monitor.AdminOrder.Products objekat, za ulancavanje funkcija
+    * @return {Object}      Kirby.AdminOrder.Products objekat, za ulancavanje funkcija
     */
     deleteProduct: function(order_product_id) {
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
             "AdminOrder",
             "deleteOrderProduct",
             {
@@ -254,10 +254,10 @@ Monitor.AdminOrder.Products = {
     * @param {String}   status   novi status naruzbine
     * @param {String}   message  poruka uz promenu statusa
     * @param {Boolean}  notify   true obavestava korisnika false ne obavestava
-    * @return {Object}      Monitor.AdminOrder.Products objekat, za ulancavanje funkcija
+    * @return {Object}      Kirby.AdminOrder.Products objekat, za ulancavanje funkcija
     */
     changeStatus: function(order_id, status, message, notify) {
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
             "AdminOrder",
             "changeStatus",
             {
@@ -277,10 +277,10 @@ Monitor.AdminOrder.Products = {
     * @param {int} order_id     identifikator narudzbine
     * @param {int} product_id   identifikator proizvoda
     * @param {int} quantity     kolicina proizvoda
-    * @return {Object}      Monitor.AdminOrder.Products objekat, za ulancavanje funkcija
+    * @return {Object}      Kirby.AdminOrder.Products objekat, za ulancavanje funkcija
     */
     quantityChange: function(order_id, product_id, quantity) {
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
             "AdminOrder",
             "quantityChange",
             {
@@ -309,4 +309,4 @@ Monitor.AdminOrder.Products = {
 
 };
 
-document.addEventListener("DOMContentLoaded", Monitor.AdminOrder.Products.init.bind(Monitor.AdminOrder.Products), false);
+document.addEventListener("DOMContentLoaded", Kirby.AdminOrder.Products.init.bind(Kirby.AdminOrder.Products), false);

@@ -1,10 +1,10 @@
 "use strict";
 
 if (typeof Monitor                     === "undefined") var Monitor                   = {};
-if (typeof Monitor.AdminUsers          === "undefined") Monitor.AdminUsers            = {};
-if (typeof Monitor.AdminUsers.Dialogs  === "undefined") Monitor.AdminUsers.Dialogs    = {};
+if (typeof Kirby.AdminUsers          === "undefined") Kirby.AdminUsers            = {};
+if (typeof Kirby.AdminUsers.Dialogs  === "undefined") Kirby.AdminUsers.Dialogs    = {};
 
-Monitor.AdminUsers.Dialogs.Logins = {
+Kirby.AdminUsers.Dialogs.Logins = {
     /**
      *
      * Konfiguracija komponente
@@ -55,7 +55,7 @@ Monitor.AdminUsers.Dialogs.Logins = {
 
     /**
      * Inicijalizacija osluškivača u okviru komponente, kao i funkcija koje reaguju na njih
-     * @return  {Object}                    Monitor.AdminUsers.Dialogs.Logins objekat, za ulančavanje funkcija
+     * @return  {Object}                    Kirby.AdminUsers.Dialogs.Logins objekat, za ulančavanje funkcija
      */
     initListeners: function() {
         $(this.getElementSelector("wrapper")).on("show.bs.modal", this.componentRequested.bind(this));
@@ -64,7 +64,7 @@ Monitor.AdminUsers.Dialogs.Logins = {
 
     /**
      * Inicijalizacija sablona
-     * @return  {Object}                    Monitor.AdminUsers.List objekat, za ulančavanje funkcija
+     * @return  {Object}                    Kirby.AdminUsers.List objekat, za ulančavanje funkcija
      */
     initTemplates: function() {
         this.templates.main = _.template(document.getElementById("admin_users__modal_logins__tmpl").innerHTML);
@@ -73,10 +73,10 @@ Monitor.AdminUsers.Dialogs.Logins = {
 
     /**
      * Registracija elemenata u upotrebi od strane komponente
-     * @return  {Object}                    Monitor.AdminUsers.Dialogs.Logins objekat, za ulančavanje funkcija
+     * @return  {Object}                    Kirby.AdminUsers.Dialogs.Logins objekat, za ulančavanje funkcija
      */
     registerElements: function() {
-        Monitor.Main.DOM.register("AdminUserDialogLogins", this.elements);
+        Kirby.Main.Dom.register("AdminUserDialogLogins", this.elements);
         return this;
     },
 
@@ -109,7 +109,7 @@ Monitor.AdminUsers.Dialogs.Logins = {
 
     /**
      * Zatvara modal
-     * @return  {Object}                    Monitor.AdminUsers.Dialogs.Logins objekat, za ulančavanje funkcija
+     * @return  {Object}                    Kirby.AdminUsers.Dialogs.Logins objekat, za ulančavanje funkcija
      */
     hideDialog: function() {
         $(this.getElement("wrapper")).modal("hide");
@@ -124,7 +124,7 @@ Monitor.AdminUsers.Dialogs.Logins = {
      * @return  {Node/NodeList}             Vraca Node objekat ukoliko je query_all false, niz Node objekata inace
      */
     getElement: function(element, query_all, modifier) {
-        return Monitor.Main.DOM.getElement("AdminUserDialogLogins", element, query_all, modifier);
+        return Kirby.Main.Dom.getElement("AdminUserDialogLogins", element, query_all, modifier);
     },
 
     /**
@@ -135,7 +135,7 @@ Monitor.AdminUsers.Dialogs.Logins = {
      * @return  {Node/NodeList}             Vraca Node objekat ukoliko je query_all false, niz Node objekata inace
      */
     getElementSelector: function(element, query_all, modifier) {
-        return Monitor.Main.DOM.getElementSelector("AdminUserDialogLogins", element, query_all, modifier);
+        return Kirby.Main.Dom.getElementSelector("AdminUserDialogLogins", element, query_all, modifier);
     },
 
 
@@ -150,7 +150,7 @@ Monitor.AdminUsers.Dialogs.Logins = {
     /**
      * Generise HTML na osnovu prosledjenih podataka i ubacuje u omotac
      * @param   {Object}    data            Podaci sa informacijama o korisniku
-     * @return  {Object}                    Monitor.AdminUsers.Dialogs.Logins objekat, za ulančavanje funkcija
+     * @return  {Object}                    Kirby.AdminUsers.Dialogs.Logins objekat, za ulančavanje funkcija
      */
     render: function(data) {
         this.getElement("content").innerHTML = this.templates.main({"logins": data});
@@ -169,10 +169,10 @@ Monitor.AdminUsers.Dialogs.Logins = {
     /**
      * Dohvata informacije o korisniku
      * @param   {Number}    user_id         ID korisnika za koga dohvatamo statistiku
-     * @return  {Object}                    Monitor.AdminUsers.Dialogs.Logins objekat, za ulančavanje funkcija
+     * @return  {Object}                    Kirby.AdminUsers.Dialogs.Logins objekat, za ulančavanje funkcija
      */
     fetchData: function(user_id) {
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
             "AdminUsers",
             "fetchUserLogs",
             {
@@ -184,4 +184,4 @@ Monitor.AdminUsers.Dialogs.Logins = {
     },
 };
 
-document.addEventListener('DOMContentLoaded', Monitor.AdminUsers.Dialogs.Logins.init.bind(Monitor.AdminUsers.Dialogs.Logins), false);
+document.addEventListener('DOMContentLoaded', Kirby.AdminUsers.Dialogs.Logins.init.bind(Kirby.AdminUsers.Dialogs.Logins), false);

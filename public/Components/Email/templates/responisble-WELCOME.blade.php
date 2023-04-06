@@ -610,7 +610,7 @@
                         	<tr>
                               	<td class="topbar topbar-greeting" valign="top" width="600" height="25" style="text-align:center; color: #ffffff; font-family:Georgia, 'Times New Roman', Times, serif; font-size: 12px; line-height: 120%; vertical-align:middle; font-style:italic; padding-top:5px; padding-bottom:5px;" mc:edit="topbar_greeting_center">
                                 		<singleline label="topbar_greeting_center">
-                        					Dobrodošli na Monitor.rs!
+                        					Dobrodošli na Kirby.rs!
                                         </singleline>
                         		</td>
                             <tr>
@@ -645,7 +645,7 @@
                             	<td class="topbar topbar-center" valign="top" width="600" height="250" style="line-height: 125%; text-align:center; ">
 
 
-										<a href="http://www.monitors.rs"><img editable width="600" height="250" src="images/main_image.jpg" style="max-width:600px; display:block;" class="columnImage" mc:label="200px_right_picture" mc:edit="200px_right_picture" /></a>
+										<a href="http://www.kesezakirby.rs"><img editable width="600" height="250" src="images/main_image.jpg" style="max-width:600px; display:block;" class="columnImage" mc:label="200px_right_picture" mc:edit="200px_right_picture" /></a>
                                 </td>
 
                             </tr>
@@ -686,7 +686,7 @@
                                         	<td align="center" valign="top" class="templateColumnContainer200" style="padding-top:0px; width:200px;">
                                             	<table border="0" cellpadding="0" cellspacing="0" width="100%">
                                                 	<tr>
-                                                    	<td class="rightColumnContent" style="padding:0px;"><a href="http://monitor.rs/" target="_blank" title="Monitor"><img editable width="200" src="images/width200.jpg" style="max-width:200px; border:0px; display:block;" class="columnImage" mc:label="200px_right_picture" mc:edit="200px_right_picture" /></a></td>
+                                                    	<td class="rightColumnContent" style="padding:0px;"><a href="http://kesezakirby.rs/" target="_blank" title="Monitor"><img editable width="200" src="images/width200.jpg" style="max-width:200px; border:0px; display:block;" class="columnImage" mc:label="200px_right_picture" mc:edit="200px_right_picture" /></a></td>
                                                     </tr>
                                                 </table>
                                             </td>
@@ -728,12 +728,12 @@
                                     <table border="0" cellpadding="0" cellspacing="0" width="100%" id="templateBody">
                                         <tr>
                                             <td valign="top" class="bodyContent" style="padding-top:30px; padding-left:10px; padding-right:10px; padding-bottom:20px; text-align:center; font-style:normal;" mc:edit="Slogan_two">
-											<singleline label="Slogan Two">Dobili ste ovaj e-mail zato što ste registrovani korisnik <a href="http://monitor.rs/" target="_blank" title="Monitor">monitor.rs</a>
+											<singleline label="Slogan Two">Dobili ste ovaj e-mail zato što ste registrovani korisnik <a href="http://kesezakirby.rs/" target="_blank" title="Kirby">kesezakirby.rs</a>
 											<br/></singleline></td>
                                         </tr>
                                         <tr>
                                        <td valign="top" class="topbar topbar-center" style=" text-align:center;" >
-										<a href="http://monitor.rs/" target="_blank" title="Monitor" style="margin:0 auto;"><img editable width="600" src="images/play.png" style="width:393px!important; height:128px; text-align:center;margin:0 auto;"  class="columnImage" mc:label="brands_logos" mc:edit="brands_logos" /></td></a>
+										<a href="http://kesezakirby.rs/" target="_blank" title="Kirby" style="margin:0 auto;"><img editable width="600" src="images/play.png" style="width:393px!important; height:128px; text-align:center;margin:0 auto;"  class="columnImage" mc:label="brands_logos" mc:edit="brands_logos" /></td></a>
                                         </tr>
                                     </table>
                                 </td>

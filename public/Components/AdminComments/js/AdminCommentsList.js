@@ -1,14 +1,14 @@
 "use strict";
 
 if (typeof Monitor               === "undefined") var Monitor               = {};
-if (typeof Monitor.AdminComments === "undefined") Monitor.AdminComments     = {};
+if (typeof Kirby.AdminComments === "undefined") Kirby.AdminComments     = {};
 
 /**
  *
  * Tabela sa listom clanaka i akcijama nad njima
  *
  */
-Monitor.AdminComments.List = {
+Kirby.AdminComments.List = {
     config: {                   // Konfiguracija komponente
         direction:      true,   // Smer dohvatanja podataka (false za unazad, true za unapred)
         first_date:     null,   // Prvi dohvaceni DATE (koristi se za navigaciju po stranama)
@@ -61,7 +61,7 @@ Monitor.AdminComments.List = {
 
     /**
      * Inicijalizacija osluskivaca za komponentu
-     * @return  {Object}                    Monitor.AdminComments.List
+     * @return  {Object}                    Kirby.AdminComments.List
      */
     initListeners: function() {
         var $wrapper = $(this.getElementSelector("wrapper"));
@@ -75,14 +75,14 @@ Monitor.AdminComments.List = {
         this.getElement("form_search").addEventListener("submit",  this.submitSearch.bind(this),    false);
         this.getElement("comment_type").addEventListener("change",  this.changeType.bind(this),    false);
 
-        document.addEventListener("Monitor.Admin.Comments", this.changeOccurred.bind(this), false);
+        document.addEventListener("Kirby.Admin.Comments", this.changeOccurred.bind(this), false);
 
         return this;
     },
 
     /**
      * Inicijalizacija sablona koje komponenta koristi
-     * @return  {Object}                    Monitor.AdminComments.List
+     * @return  {Object}                    Kirby.AdminComments.List
      */
     initTemplates: function() {
         this.templates.main = _.template(document.getElementById("admin_comments__table_temp").innerHTML);
@@ -90,11 +90,11 @@ Monitor.AdminComments.List = {
     },
 
     /**
-     * Registrovanje elemenata za Monitor.Main.DOM
-     * @return  {Object}                    Monitor.AdminComments.List
+     * Registrovanje elemenata za Kirby.Main.Dom
+     * @return  {Object}                    Kirby.AdminComments.List
      */
     registerElements()  {
-        Monitor.Main.DOM.register("AdminCommentsList", this.elements);
+        Kirby.Main.Dom.register("AdminCommentsList", this.elements);
         return this;
     },
 
@@ -190,7 +190,7 @@ Monitor.AdminComments.List = {
     /**
      * Setuje date prvog prikazanog korisnika u paginaciji
      * @param   {Object}    id              ID prvog dohvacenog korisnika
-     * @return  {Object}                    Monitor.AdminUsers.List objekat, za ulancavanje funkcija
+     * @return  {Object}                    Kirby.AdminUsers.List objekat, za ulancavanje funkcija
     */
     setType: function(type) {
         this.config.comment_type = type;
@@ -208,7 +208,7 @@ Monitor.AdminComments.List = {
     /**
      * Setuje date prvog prikazanog korisnika u paginaciji
      * @param   {Object}    id              ID prvog dohvacenog korisnika
-     * @return  {Object}                    Monitor.AdminUsers.List objekat, za ulancavanje funkcija
+     * @return  {Object}                    Kirby.AdminUsers.List objekat, za ulancavanje funkcija
     */
     setSearch: function(search) {
         this.config.search = search;
@@ -226,7 +226,7 @@ Monitor.AdminComments.List = {
     /**
      * Setuje date prvog prikazanog korisnika u paginaciji
      * @param   {Object}    id              ID prvog dohvacenog korisnika
-     * @return  {Object}                    Monitor.AdminUsers.List objekat, za ulancavanje funkcija
+     * @return  {Object}                    Kirby.AdminUsers.List objekat, za ulancavanje funkcija
     */
     setDateFirst: function(date) {
         this.config.first_date = date;
@@ -244,7 +244,7 @@ Monitor.AdminComments.List = {
     /**
      * Setuje date prvog prikazanog korisnika u paginaciji
      * @param   {Object}    id              ID prvog dohvacenog korisnika
-     * @return  {Object}                    Monitor.AdminUsers.List objekat, za ulancavanje funkcija
+     * @return  {Object}                    Kirby.AdminUsers.List objekat, za ulancavanje funkcija
     */
     setStatusShow: function(status) {
         this.config.status_show = status;
@@ -262,7 +262,7 @@ Monitor.AdminComments.List = {
     /**
      * Setuje date poslednjeg prikazanog korisnika u paginaciji
      * @param   {Object}    id              date poslednje dohvacenog korisnika
-     * @return  {Object}                    Monitor.AdminUsers.List objekat, za ulancavanje funkcija
+     * @return  {Object}                    Kirby.AdminUsers.List objekat, za ulancavanje funkcija
     */
     setDateLast: function(date) {
         this.config.last_date = date;
@@ -271,7 +271,7 @@ Monitor.AdminComments.List = {
 
     /**
      * Vraca na prvu stranu
-     * @return  {Object}                    Monitor.AdminUsers.List objekat, za ulancavanje funkcija
+     * @return  {Object}                    Kirby.AdminUsers.List objekat, za ulancavanje funkcija
      */
     resetDates: function() {
         return this
@@ -291,7 +291,7 @@ Monitor.AdminComments.List = {
     /**
      * Smer dohvatanja podataka
      * @param   {Object}    direction       true za napred i false za nazad
-     * @return  {Object}                    Monitor.AdminUsers.List objekat, za ulancavanje funkcija
+     * @return  {Object}                    Kirby.AdminUsers.List objekat, za ulancavanje funkcija
      */
     setDirection: function(direction) {
         this.config.direction = direction;
@@ -309,7 +309,7 @@ Monitor.AdminComments.List = {
     /**
      * Zadaje trenutni filter po kategoriju (0 ako je iskljucen)
      * @param   {Number}    category_id     ID kategorije po kom filtriramo
-     * @return  {Object}                    Monitor.AdminComments.List
+     * @return  {Object}                    Kirby.AdminComments.List
      */
     setFilterCategory: function(category_id) {
         this.config.filter_category = category_filter;
@@ -327,7 +327,7 @@ Monitor.AdminComments.List = {
     /**
      * Zadaje trenutni filter po tagu (0 ako je iskljucen)
      * @param   {Number}    tag_id          ID taga po kom filtriramo
-     * @return  {Object}                    Monitor.AdminComments.List
+     * @return  {Object}                    Kirby.AdminComments.List
      */
     setFilterTag: function(tag_id) {
         this.config.filter_tag = tag_filter;
@@ -367,7 +367,7 @@ Monitor.AdminComments.List = {
      * @param   {String}    modifier  BEM modifier za selektor
      */
     getElement: function(element, query_all, modifier) {
-        return Monitor.Main.DOM.getElement("AdminCommentsList", element, query_all, modifier);
+        return Kirby.Main.Dom.getElement("AdminCommentsList", element, query_all, modifier);
     },
 
     /**
@@ -379,13 +379,13 @@ Monitor.AdminComments.List = {
      *                                  query_all false, niz Node objekata inace
      */
     getElementSelector: function(element, query_all, modifier) {
-        return Monitor.Main.DOM.getElementSelector("AdminCommentsList", element, query_all, modifier);
+        return Kirby.Main.Dom.getElementSelector("AdminCommentsList", element, query_all, modifier);
     },
 
     /**
      * Rendanje komponenta na osnovu dohvacenih podataka
      * @param   {Object}    data            Niz clanaka koje treba prikazati
-     * @return  {Object}                    Monitor.AdminComments.List
+     * @return  {Object}                    Kirby.AdminComments.List
      */
     render: function(data) {
         this.getElement("wrapper").innerHTML = this.templates.main({
@@ -414,10 +414,10 @@ Monitor.AdminComments.List = {
 
     /**
      * Dohvatanje clanaka
-     * @return  {Object}                    Monitor.AdminComments.List
+     * @return  {Object}                    Kirby.AdminComments.List
      */
     fetchData: function() {
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
             "AdminComments",
             "fetchData",
             {
@@ -474,7 +474,7 @@ Monitor.AdminComments.List = {
 
     /**
      * Refresh the current page
-     * @return {Object}                     Monitor.AdminUsers.List objekat, za ulancavanje funkcija
+     * @return {Object}                     Kirby.AdminUsers.List objekat, za ulancavanje funkcija
      */
     refreshData: function() {
         return this
@@ -491,7 +491,7 @@ Monitor.AdminComments.List = {
      * @param  {string} status     PUBLISHED ili DRAFT
      */
     changeCommentStatus: function(comment_id, status) {
-        Monitor.Main.Ajax(
+        Kirby.Main.Ajax(
             "AdminComments",
             "changeCommentStatus",
             {
@@ -503,4 +503,4 @@ Monitor.AdminComments.List = {
     },
 };
 
-document.addEventListener("DOMContentLoaded", Monitor.AdminComments.List.init.bind(Monitor.AdminComments.List), false);
+document.addEventListener("DOMContentLoaded", Kirby.AdminComments.List.init.bind(Kirby.AdminComments.List), false);

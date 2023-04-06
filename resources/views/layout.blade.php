@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html lang = "sr">
     <head >
-        <title>{{ !empty($seo->title) ? $seo->title : 'Online prodaja Laptopova, Računara i komponenti | Monitor - Samo najbolje!' }}</title>
+        <title>{{ !empty($seo->title) ? $seo->title : 'Kese za kirby | Exelence d.o.o' }}</title>
 
         <base href="{{ (isset($_SERVER['HTTPS']) ? 'https' : 'http').'://'.$_SERVER['HTTP_HOST']}}">
         <link href="apple-touch-icon-72x72.png" rel="apple-touch-icon" sizes="72x72"/>
@@ -14,8 +14,8 @@
         <link href="apple-touch-icon-114x114.png" rel="apple-touch-icon" sizes="114x114"/>
         <link href="apple-touch-icon-57x57.png" rel="apple-touch-icon" sizes="57x57"/>
         <meta name="msapplication-TileImage" content="mstile-144x144.png"/>
-        <meta name="application-name" itemprop="name" content="Monitor">
-        <meta name="apple-mobile-web-app-title" content="Monitor">
+        <meta name="application-name" itemprop="name" content="Kirby">
+        <meta name="apple-mobile-web-app-title" content="Kirby">
         @if ($is_dev)
             <meta name="robots" content="noindex">
         @endif
@@ -31,10 +31,10 @@
         <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#0056a9">
         <meta name="msapplication-TileColor" content="#0056a9">
         <meta name="msapplication-TileImage" content="/mstile-144x144.png">
-        <meta name="theme-color" content="#0056a9"> 
-        <meta itemprop="name" content="{{ !empty($seo) ? $seo->title : 'Monitor' }}">
-        <meta name= "description" content="{{ !empty($seo->description) ? $seo->description : 'Online prodaja Laptopova, Računara i komponenti | Monitor - Samo najbolje!' }}">
-        <meta name= "keywords" content="{{ !empty($seo->keywords) ? $seo->keywords : 'Monitor, online prodaja laptopova, računara, komponenti, dodatne opreme' }}">
+        <meta name="theme-color" content="#0056a9">
+        <meta itemprop="name" content="{{ !empty($seo) ? $seo->title : 'Kese za kirby' }}">
+        <meta name= "description" content="{{ !empty($seo->description) ? $seo->description : 'Kese za kirby | Exelence d.o.o' }}">
+        <meta name= "keywords" content="{{ !empty($seo->keywords) ? $seo->keywords : 'Kese za kirby, exelence d.o.o, dodatna oprema, rezervni delovi' }}">
 
         @if (!empty($seo))
             @if (!empty($seo->image_open_graph))
@@ -72,10 +72,10 @@
             @endif
             <meta property="og:description" content="{{ $seo->description }}" />
             <meta property="og:url" content="{{ $base_url }}/{{ $seo->url !== 'pocetna' ? $seo->url : '' }}" />
-            <meta property="og:site_name" content="Monitor" />
+            <meta property="og:site_name" content="Kirby" />
         @else
-            <meta name= "description" content="{{'Online prodaja Laptopova, Računara i komponenti | Monitor - Samo najbolje!'}}">
-            <meta name= "keywords" content="{{'Monitor, online prodaja laptopova, računara, komponenti, dodatne opreme'}}">
+            <meta name= "description" content="Kese za kirby | Exelence d.o.o">
+            <meta name= "keywords" content="Kese za kirby, exelence d.o.o, dodatna oprema, rezervni delovi">
         @endif
         <meta name="format-detection" content="telephone=no">
 
@@ -191,11 +191,11 @@
             @endforeach
         </footer>
         <script id = "test" nonce = "{{$_SESSION['token']}}" type="text/javascript" >
-            if (window.Monitor === undefined) {
-                var Monitor = {};
+            if (window.Kirby === undefined) {
+                var Kirby = {};
             }
 
-            Monitor._params = {
+            Kirby._params = {
                 fm_key: '{{$fm_key}}',
             };
 
@@ -203,11 +203,11 @@
                 @foreach ($section as $component)
                     @if ($component->isComposite())
                         @foreach ($component->getJSConfiguration() as $name => $params)
-                            Monitor._params["{{ $name }}"] = {!! json_encode($params) !!};
+                            Kirby._params["{{ $name }}"] = {!! json_encode($params) !!};
                         @endforeach
                     @else
                         <?php $name = substr(get_class($component), strrpos(get_class($component), '\\') + 1); ?>
-                        Monitor._params["{{ $name }}"] = {!! json_encode($component->getJSConfiguration()) !!};
+                        Kirby._params["{{ $name }}"] = {!! json_encode($component->getJSConfiguration()) !!};
                     @endif
                 @endforeach
             @endforeach
