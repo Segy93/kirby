@@ -76,11 +76,6 @@ abstract class User implements \JsonSerializable {
     protected $addresses;
 
     /**
-     * @ORM\OneToMany(targetEntity="App\Models\Configuration\ConfigurationMain", mappedBy="user")
-     */
-    protected $configurations;
-
-    /**
      * @ORM\OneToOne(targetEntity="UserLocal")
      * @ORM\JoinColumn(name="id", referencedColumnName="id")
      */

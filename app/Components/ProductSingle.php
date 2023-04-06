@@ -22,7 +22,6 @@ class ProductSingle extends BaseComponent {
     protected $cartToggle       = null;
     protected $productRating    = null;
     protected $productCompare   = null;
-    protected $configurator_add_button = null;
     private $show_link          = true;
 
 
