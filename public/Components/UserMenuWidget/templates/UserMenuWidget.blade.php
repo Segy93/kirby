@@ -37,14 +37,4 @@
     <a class = "user_menu__item" href = "/lista-zelja" role = "menuitem">{!! $wishList->renderHTML() !!}</a>
 
     <a class = "user_menu__item" href = "/uporedi-proizvode" role = "menuitem">{!! $compare->renderHTML() !!}</a>
-    <a class = "user_menu__item" href = "/konfigurator" role = "menuitem"> Konfigurator </a>
-    @if ($isLoggedIn)
-        <a
-            class = "user_menu__item"
-            href  = "{{ route('configurationList')}}"
-            role  = "menuitem"
-        >
-            Lista konfiguracija
-        </a>
-    @endif
 </nav>
