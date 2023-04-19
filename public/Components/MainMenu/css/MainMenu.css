@@ -179,6 +179,19 @@
 }
 
 @media (max-width: 800px) {
+    .main_menu__list {
+        display: flex;
+        gap: 1rem;
+        justify-content: center;
+        margin: auto;
+        width: 90%;
+    }
+
+    .main_menu__item_link {
+        font-size: 0.875rem;
+        white-space: nowrap;
+    }
+
     .main_menu__sub {
         font-size: 0.8em;
         left: 0;
@@ -204,12 +217,8 @@
         transform: rotate(90deg);
         width: 35%;
     }
-
     .main_menu__item_link_text {
-        font-size: 0.8em;
-        padding: 0.3em 6vw;
-        width: 85%;
-        width: calc(100% - 50px - 0.5em);
+        padding: 1em 0;
     }
 
     .main_menu__submenu_label {

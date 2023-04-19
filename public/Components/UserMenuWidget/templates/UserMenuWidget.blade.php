@@ -24,7 +24,6 @@
         </a>
     @else
         <a class = "user_menu__item" href = "/prijava" role = "menuitem">Prijavi se</a>
-        <a class = "user_menu__item" href = "/registracija" role = "menuitem">Registruj se</a>
     @endif
 
     <a class = "user_menu__item user_menu__cart" href = "/korpa" role = "menuitem">
@@ -35,6 +34,4 @@
     </a>
 
     <a class = "user_menu__item" href = "/lista-zelja" role = "menuitem">{!! $wishList->renderHTML() !!}</a>
-
-    <a class = "user_menu__item" href = "/uporedi-proizvode" role = "menuitem">{!! $compare->renderHTML() !!}</a>
 </nav>

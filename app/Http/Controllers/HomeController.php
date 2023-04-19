@@ -219,22 +219,15 @@ class HomeController extends BaseController {
             [
                 new Breadcrumbs(),
                 new SettingsFilters(),
-                new Columns(1, [
-                    [
-                        new ProductFilter($url_filter, $params, $on_sale)
-                    ],
-                    [
-                        new ProductCategory(
-                            $product_single,
-                            $product_compact,
-                            $params,
-                            $url_filter,
-                            $additional,
-                            $banner_category,
-                            $full_url
-                        )
-                    ],
-                ])
+                new ProductCategory(
+                    $product_single,
+                    $product_compact,
+                    $params,
+                    $url_filter,
+                    $additional,
+                    $banner_category,
+                    $full_url
+                )
             ],
         ]);
     }

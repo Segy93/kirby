@@ -185,12 +185,12 @@ $router->get(
     ]
 );
 
-$router->get( // Poredjenje proizvoda
-    'uporedi-proizvode',
-    [
-        'uses' => 'HomeController@compare',
-    ]
-);
+// $router->get( // Poredjenje proizvoda
+//     'uporedi-proizvode',
+//     [
+//         'uses' => 'HomeController@compare',
+//     ]
+// );
 
 
 $router->get(
