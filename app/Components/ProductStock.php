@@ -18,8 +18,7 @@ class ProductStock extends BaseComponent {
             'js_template' => $js_template,
 
             'status' => [
-                'Magacin' => $js_template ? 'in_warehouse' : $product->inWarehouse(),
-                'Radnja' => $js_template ? 'in_shop' : $product->inShop(),
+                'Stanje' => $js_template ? 'in_warehouse' : $product->inWarehouse(),
             ],
         ];
         return view('ProductStock/templates/ProductStock', $args);
