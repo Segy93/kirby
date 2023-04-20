@@ -174,7 +174,7 @@
                 <p
                     class = "product_single__text_note"
                 >
-                    *Cena važi za gotovinsko, virmansko i online plaćanje
+                    *Cena važi za gotovinsko i virmansko plaćanje
                 </p>
             <%}%>
         @else
@@ -182,7 +182,7 @@
                 <p
                     class = "product_single__text_note"
                 >
-                    *Cena važi za gotovinsko, virmansko i online plaćanje
+                    *Cena važi za gotovinsko i virmansko plaćanje
                 </p>
             @endif
         @endif
