@@ -9,126 +9,51 @@ class CategoryService extends BaseService {
     private static $category_tree = [
         [
             'title' => 'Kirby sistem',
-            'url'   => 'kirby-system',
+            'url'   => 'kirby-sistem',
         ],
         [
             'title' => 'Kese',
-            'url'   => 'kirby-kese',
+            'url'   => 'kese',
         ],
         [
             'title' => 'Hemija',
-            'url'   => 'hemija',
-        ],
-        [
-            'title' => 'Remenovi',
-            'url'   => 'remen',
+            'url'   => 'sredstva-za-ciscenje',
         ],
         [
             'title' => 'Delovi',
             'url'   => 'delovi',
         ],
+        [
+            'title' => 'Oprema',
+            'url'   => 'oprema',
+        ],
     ];
 
     private static $categories_promoted = [
         [
-            'url'  => 'maticne-ploce',
+            'url'  => 'kirby-sistem',
             'img'  => '/default_pictures/maticne.png',
-            'title' => 'Matične ploče',
+            'title' => 'Kirby sistem',
         ],
         [
-            'url'  => 'procesori',
+            'url'  => 'kese',
             'img'  => '/default_pictures/procesori.png',
-            'title' => 'Procesori',
+            'title' => 'Kese',
         ],
         [
-            'url'  => 'računari',
+            'url'  => 'sredstva-za-ciscenje',
             'img'  => '/default_pictures/racunari.png',
-            'title' => 'Računari',
+            'title' => 'Sredstva za čišćenje',
         ],
         [
-            'url'  => 'laptopovi',
-            'img'  => '/default_pictures/laptopovi.png',
-            'title' => 'Laptopovi',
-        ],
-        [
-            'url'  => 'tableti',
+            'url'  => 'delovi',
             'img'  => '/default_pictures/tableti.png',
-            'title' => 'Tableti',
+            'title' => 'Rezervni delovi',
         ],
         [
-            'url'  => 'graficke-karte',
-            'img'  => '/default_pictures/graficke.png',
-            'title' => 'Grafičke kartice',
-        ],
-        [
-            'url'  => 'ram-memorija',
-            'img'  => '/default_pictures/memorije.png',
-            'title' => 'Memorije',
-        ],
-        [
-            'url'  => 'hard-diskovi',
-            'img'  => '/default_pictures/hardovi.png',
-            'title' => 'Hard diskovi',
-        ],
-        [
-            'url'  => 'ssd-diskovi',
-            'img'  => '/default_pictures/ssd.png',
-            'title' => 'SSD',
-        ],
-        [
-            'url'  => 'bundle-kit',
-            'img'  => '/default_pictures/bundle.png',
-            'title' => 'Bundle kit',
-        ],
-        [
-            'url'  => 'televizori',
-            'img'  => '/default_pictures/televizori.png',
-            'title' => 'Televizori',
-        ],
-        [
-            'url'  => 'monitori',
-            'img'  => '/default_pictures/monitori.png',
-            'title' => 'Monitori',
-        ],
-        [
-            'url'  => 'kucista',
-            'img'  => '/default_pictures/kucista.png',
-            'title' => 'Kućišta',
-        ],
-        [
-            'url'  => 'napajanja',
-            'img'  => '/default_pictures/napajanja.png',
-            'title' => 'Napajanja',
-        ],
-        [
-            'url'  => 'kuleri',
-            'img'  => '/default_pictures/rashladnaoprema.png',
-            'title' => 'Rashladna oprema',
-        ],
-        [
-            'url'  => 'stampaci',
-            'img'  => '/default_pictures/stampaci.png',
-            'title' => 'Štampači',
-        ],
-        [
-            'url'  => 'skeneri',
-            'img'  => '/default_pictures/skeneri.png',
-            'title' => 'Skeneri',
-        ],
-        [
-            'url'  => 'ruteri',
-            'img'  => '/default_pictures/ruteri.png',
-            'title' => 'Ruteri',
-        ],
-        [
-            'title' => 'Tastature',
-            'url'   => 'tastature',
-            'img'   => '/default_pictures/CategoryPictures/tastature.png',
-        ],
-        [
-            'title' => 'Miševi',
-            'url'   => 'misevi',
-            'img'   => '/default_pictures/CategoryPictures/misevi.png',
+            'url'  => 'oprema',
+            'img'  => '/default_pictures/tableti.png',
+            'title' => 'Dodatna oprema',
         ],
     ];
 

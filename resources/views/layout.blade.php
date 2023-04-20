@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html lang = "sr">
     <head >
-        <title>{{ !empty($seo->title) ? $seo->title : 'Kese za kirby | Exelence d.o.o' }}</title>
+        <title>{{ !empty($seo->title) ? $seo->title : 'Kese za kirby | eXelence d.o.o' }}</title>
 
         <base href="{{ (isset($_SERVER['HTTPS']) ? 'https' : 'http').'://'.$_SERVER['HTTP_HOST']}}">
         <link href="apple-touch-icon-72x72.png" rel="apple-touch-icon" sizes="72x72"/>
@@ -33,8 +33,8 @@
         <meta name="msapplication-TileImage" content="/mstile-144x144.png">
         <meta name="theme-color" content="#0056a9">
         <meta itemprop="name" content="{{ !empty($seo) ? $seo->title : 'Kese za kirby' }}">
-        <meta name= "description" content="{{ !empty($seo->description) ? $seo->description : 'Kese za kirby | Exelence d.o.o' }}">
-        <meta name= "keywords" content="{{ !empty($seo->keywords) ? $seo->keywords : 'Kese za kirby, exelence d.o.o, dodatna oprema, rezervni delovi' }}">
+        <meta name= "description" content="{{ !empty($seo->description) ? $seo->description : 'Kese za kirby | eXelence d.o.o' }}">
+        <meta name= "keywords" content="{{ !empty($seo->keywords) ? $seo->keywords : 'Kese za kirby, eXelence d.o.o, dodatna oprema, rezervni delovi' }}">
 
         @if (!empty($seo))
             @if (!empty($seo->image_open_graph))
@@ -74,8 +74,8 @@
             <meta property="og:url" content="{{ $base_url }}/{{ $seo->url !== 'pocetna' ? $seo->url : '' }}" />
             <meta property="og:site_name" content="Kirby" />
         @else
-            <meta name= "description" content="Kese za kirby | Exelence d.o.o">
-            <meta name= "keywords" content="Kese za kirby, exelence d.o.o, dodatna oprema, rezervni delovi">
+            <meta name= "description" content="Kese za kirby | eXelence d.o.o">
+            <meta name= "keywords" content="Kese za kirby, eXelence d.o.o, dodatna oprema, rezervni delovi">
         @endif
         <meta name="format-detection" content="telephone=no">
 

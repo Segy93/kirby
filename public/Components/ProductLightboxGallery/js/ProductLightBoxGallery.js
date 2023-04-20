@@ -21,7 +21,7 @@
     };
 
     var init = function() {
-        var lightbox = new Lightbox();    
+        var lightbox = new Lightbox();
         lightbox.load(options);
         config.lightbox = lightbox;
         registerElements();

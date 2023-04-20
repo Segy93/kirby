@@ -232,36 +232,18 @@ class ProductService extends BaseService {
      */
     public static function getPictures($artid, $width, $height) {
         try {
-            $pictures_originals = '../../photos/';
             $product            = self::getProductByArtid($artid);
             $product_pictures   = self::getProductPictures($product->id);
             $pictures           = [];
-            $debugger = '';
             $type = self::getPictureTypeByWidthHeight($width, $height);
             if ($type === null) {
-                throw new \Exception('Picture type nije pronadjen sa velcinama ' . $width . 'x' . $height, 14002);
+                throw new \Exception('Picture type nije pronadjen sa velicinama ' . $width . 'x' . $height, 14002);
             }
-            if (is_dir($pictures_originals) && !empty($product_pictures)) {
+            if (!empty($product_pictures)) {
                 foreach ($product_pictures as $picture) {
                     $picture_transfered = self::isPictureTypeTransfered($picture->id, $type->id);
                     if ($picture_transfered === false) {
-                        Log::info($pictures_originals . $artid . '/' . $picture->name);
-                        if (is_file($pictures_originals . $artid . '/' . $picture->name)) {
-                            $new_picture = ImageService::getImageBySize(
-                                $pictures_originals . $artid . '/' . $picture->name,
-                                $width,
-                                $height,
-                                'uploads_static'
-                            );
-                            $pictures[] =  $new_picture;
-                            $picture_type = new ProductPictureImageType();
-                            $picture_type->picture_id = $picture->id;
-                            $picture_type->type_id = $type->id;
-                            self::$entity_manager->persist($picture);
-                            self::$entity_manager->persist($picture_type);
-                        } else {
-                            $pictures [] = "/default_pictures/default_product.png";
-                        }
+                        $pictures [] = "/default_pictures/default_product.png";
                     } else {
                         $pictures [] = 'uploads_static/' . $width . 'x' . $height . '/' . urlencode($picture->name);
                     }
@@ -490,7 +472,7 @@ class ProductService extends BaseService {
         $sort_by                = 'p.' . $sort_by;
         $qb                     = self::$entity_manager->createQueryBuilder();
         $mapping_filter         = false;
-        //var_dump($filter_params);die;
+        // var_dump($filter_params);die;
         if (!empty($filter_params)) {
             // Kreiram orX
             // (grupa) OR (grupa2)
@@ -565,11 +547,7 @@ class ProductService extends BaseService {
 
         $products = $qb
             ->select('p.id')
-            ->from('App\Models\Category', 'c')
-            ->join('c.attributes', 'a')
-            ->join('a.attribute_values', 'av')
-            ->join('av.product_attributes', 'pa')
-            ->join('pa.product', 'p')
+            ->from('App\Models\Product', 'p')
             // ->where('c.id = :category_id')
             // ->setParameter('category_id', $category_id)
         ;
