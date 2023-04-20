@@ -3,7 +3,7 @@
 
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-    <title>Monitor Registracija - Dobrodošli na sajt!</title>
+    <title>Kese za Kirby Registracija - Dobrodošli na sajt!</title>
 </head>
 
 <style type="text/css">
@@ -87,7 +87,7 @@
                                                     	<td class="leftColumnContent" style="padding:20px; font-size:14px;" mc:edit="customize_it">
 
                                                         <h1 style="width:100%; padding-top:0px;  font-size: 22px; font-style: normal; font-weight:normal; font-family:tahoma,Georgia, 'Times New Roman', Times, serif; text-align:left; ">
-														<singleline label='Heading H1 Left Big' style="text-transform:uppercase; text-align:left;"><b>DOBRODOŠLI NA MONITOR!</b></singleline></h1>
+														<singleline label='Heading H1 Left Big' style="text-transform:uppercase; text-align:left;"><b>DOBRODOŠLI NA KESE ZA KIRBY!</b></singleline></h1>
                                                            <br/><br/>
 
                                                            <multiline label='description_left' style="font-family:tahoma,Georgia, 'Times New Roman', Times, serif;">
@@ -100,7 +100,7 @@
                                         	<td align="center" valign="top" class="templateColumnContainer200" style="padding-top:0px; width:200px;">
                                             	<table border="0" cellpadding="0" cellspacing="0" width="100%">
                                                 	<tr>
-                                                    	<td class="rightColumnContent" style="padding:0px;"><a href="http://monitor.rs/" target="_blank" title="Monitor"><img src = ""/></a></td>
+                                                    	<td class="rightColumnContent" style="padding:0px;"><a href="http://kesezakirby.rs/" target="_blank" title="Kese za Kirby"><img src = ""/></a></td>
                                                     </tr>
                                                 </table>
                                             </td>
@@ -142,12 +142,12 @@
                                     <table border="0" cellpadding="0" cellspacing="0" width="100%" id="templateBody">
                                         <tr>
                                             <td valign="top" class="bodyContent" style="padding-top:30px; padding-left:10px; padding-right:10px; padding-bottom:20px; text-align:center; font-style:normal;" mc:edit="Slogan_two">
-											<singleline label="Slogan Two">Dobili ste ovaj e-mail zato što ste registrovani korisnik <a href="http://monitor.rs/" target="_blank" title="Monitor">monitor.rs</a>
+											<singleline label="Slogan Two">Dobili ste ovaj e-mail zato što ste registrovani korisnik <a href="http://kesezakirby.rs/" target="_blank" title="Kese za Kirby">kesezakirby.rs</a>
 											<br/></singleline></td>
                                         </tr>
                                         <tr>
                                        <td valign="top" class="topbar topbar-center" style=" text-align:center;" >
-										<a href="http://monitor.rs/" target="_blank" title="Monitor" style="margin:0 auto;">
+										<a href="http://kesezakirby.rs/" target="_blank" title="Kese za Kirby" style="margin:0 auto;">
                                             <img src = ""/>
                                         </a>
                                         </td>

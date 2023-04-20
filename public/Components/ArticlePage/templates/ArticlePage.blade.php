@@ -30,7 +30,7 @@
                             href    = "/autori/{!! $article->author_id !!}"
                         >
                             @if ($article->author_id === null)
-                                Monitor
+                                Kese za Kirby
                             @else
                                 {{ $article->author->username }}
                             @endif

@@ -1,6 +1,6 @@
 "use strict";
 
-if (Monitor === undefined) window.Monitor = {};
+if (Kirby === undefined) window.Kirby = {};
 
 Kirby.AdminSEO = {
     config: {

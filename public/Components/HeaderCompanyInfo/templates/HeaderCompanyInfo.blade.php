@@ -1,20 +1,17 @@
 <ul class = "header_company_info__list">
     <li class = "header_company_info__element">
-        Monitor System d.o.o.
+        eXelence d.o.o.
     </li>
     <li class = "header_company_info__element">
-        Kumanovska 14, Vračar
+        Kraljice Katarine 55, Čukarica
     </li>
     <li class = "header_company_info__element">
-        PIB:100161920
+        PIB:104298604
     </li>
     <li class = "header_company_info__element">
-        Registarski Br.:17413562
+        Beograd - 11030
     </li>
     <li class = "header_company_info__element">
-        Beograd - 11000
-    </li>
-    <li class = "header_company_info__element">
-        +381113086979
+        +38163223242
     </li>
 </ul>

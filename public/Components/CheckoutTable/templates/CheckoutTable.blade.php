@@ -211,7 +211,7 @@
         </tr>
         <tr>
             <th class = "checkout_table__headers">Naslovljeno na</th>
-            <td class = "checkout_table__cell checkout_table__cell--price" colspan = "2">Monitor System d.o.o.</td>
+            <td class = "checkout_table__cell checkout_table__cell--price" colspan = "2">eXelence d.o.o.</td>
         </tr>
         @if ($order->note !== null)
             <tr class = "checkout_table__row">

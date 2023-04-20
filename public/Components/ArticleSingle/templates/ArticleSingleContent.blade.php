@@ -54,26 +54,26 @@
                         <% if (article.author !== null) { %>
                         <a
                             class   = "article_single__info_author__link"
-                            rel     = "author" 
+                            rel     = "author"
                             href    = "/autori/{!!'<%= article.author.username %>'!!}"
                         >
                             <%= article.author.username %>
                          </a>
                          <% } else { %>
-                            Monitor
+                            Kese za Kirby
                          <% }%>
                     @else
-                        @if ($article->author !== null)                     
+                        @if ($article->author !== null)
                         <a
                             class   = "article_single__info_author__link"
-                            rel     = "author" 
+                            rel     = "author"
                             href    = "/autori/{!! $article->author->username !!}"
                         >
                                 {{ $article->author->username }}
                          </a>
 
-                        @else 
-                            Monitor
+                        @else
+                            Kese za Kirby
                         @endif
                     @endif
                 </address>

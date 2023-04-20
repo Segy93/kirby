@@ -4,7 +4,7 @@
     data-text="{{$name}}"
     itemscope itemtype=“http://schema.org/Organization”
 >
-    <link itemprop="url" href="http://www.monitor.rs">
+    <link itemprop="url" href="http://www.kesezakirby.rs">
     <li tabindex="0" class="ssk ssk-facebook">
         <a tabindex="-1"  itemprop=“sameAs”  href="">
             <span

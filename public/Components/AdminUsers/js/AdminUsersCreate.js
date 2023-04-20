@@ -1,6 +1,6 @@
 "use strict";
 
-if (Monitor            === undefined) var Monitor = {};
+if (Kirby            === undefined) var Kirby = {};
 if (Kirby.AdminUsers === undefined) Kirby.AdminUsers = {};
 
 /**

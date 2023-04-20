@@ -1,6 +1,6 @@
 "use strict"
 
-if(typeof Monitor               === "undefined") var Monitor           = {};
+if(typeof Kirby               === "undefined") var Kirby           = {};
 if(typeof Kirby.AdminArticles === "undefined") Kirby.AdminArticles = {};
 
 /**
@@ -14,7 +14,7 @@ Kirby.AdminArticlesEdit = {
         "editor_excerpt": {},
         "editor_text": {},
     },
-    
+
     elements :{ // Selektori elemenata koje komponenta koristi
         "article_id":   "#admin_articles__edit_id",
         "form":         "#admin_article__edit_form",

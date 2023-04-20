@@ -12,7 +12,7 @@ class HeaderLogo extends BaseComponent {
     private static $image_view = '/Components/HeaderLogo/img/logo.svg';
     private static $image_print_png = '/Components/HeaderLogo/img/logo-inverted.png';
     private static $image_view_png = '/Components/HeaderLogo/img/logo.png';
-    private static $alt   = 'Monitor logo';
+    private static $alt   = 'Kese za kirby logo';
     private $print_only = false;
     protected $css = ['HeaderLogo/css/HeaderLogo.css'];
 

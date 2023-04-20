@@ -1,6 +1,6 @@
 "use strict";
 
-if(typeof Monitor                 === "undefined") var Monitor             = {};
+if(typeof Kirby                 === "undefined") var Kirby             = {};
 if(typeof Kirby.AdminCategoriesStatic === "undefined") Kirby.AdminCategoriesStatic = {};
 
 Kirby.AdminCategoriesStatic.Delete = {

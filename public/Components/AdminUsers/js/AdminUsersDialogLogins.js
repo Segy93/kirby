@@ -1,6 +1,6 @@
 "use strict";
 
-if (typeof Monitor                     === "undefined") var Monitor                   = {};
+if (typeof Kirby                     === "undefined") var Kirby                   = {};
 if (typeof Kirby.AdminUsers          === "undefined") Kirby.AdminUsers            = {};
 if (typeof Kirby.AdminUsers.Dialogs  === "undefined") Kirby.AdminUsers.Dialogs    = {};
 

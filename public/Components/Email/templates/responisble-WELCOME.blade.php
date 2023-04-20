@@ -3,7 +3,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 	<head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
-        <title>Monitor Registracija - Dobrodošli na sajt!</title>
+        <title>Kese za Kirby Registracija - Dobrodošli na sajt!</title>
 
         <style type="text/css">
 			/* /\/\/\/\/\/\/\/\/ CLIENT-SPECIFIC STYLES /\/\/\/\/\/\/\/\/ */
@@ -673,7 +673,7 @@
                                                     	<td class="leftColumnContent" style="padding:20px; font-size:14px;" mc:edit="customize_it">
 
                                                         <h1 style="width:100%; padding-top:0px;  font-size: 22px; font-style: normal; font-weight:normal; font-family:tahoma,Georgia, 'Times New Roman', Times, serif; text-align:left; ">
-														<singleline label='Heading H1 Left Big' style="color:#f95d11; text-transform:uppercase; text-align:left;"><b>DOBRODOŠLI NA MONITOR!</b></singleline></h1>
+														<singleline label='Heading H1 Left Big' style="color:#f95d11; text-transform:uppercase; text-align:left;"><b>DOBRODOŠLI NA KESE ZA KIRBY!</b></singleline></h1>
                                                            <br/><br/>
 
                                                            <multiline label='description_left' style="color:#ffffff; font-family:tahoma,Georgia, 'Times New Roman', Times, serif;">
@@ -686,7 +686,7 @@
                                         	<td align="center" valign="top" class="templateColumnContainer200" style="padding-top:0px; width:200px;">
                                             	<table border="0" cellpadding="0" cellspacing="0" width="100%">
                                                 	<tr>
-                                                    	<td class="rightColumnContent" style="padding:0px;"><a href="http://kesezakirby.rs/" target="_blank" title="Monitor"><img editable width="200" src="images/width200.jpg" style="max-width:200px; border:0px; display:block;" class="columnImage" mc:label="200px_right_picture" mc:edit="200px_right_picture" /></a></td>
+                                                    	<td class="rightColumnContent" style="padding:0px;"><a href="http://kesezakirby.rs/" target="_blank" title="Kese za Kirby"><img editable width="200" src="images/width200.jpg" style="max-width:200px; border:0px; display:block;" class="columnImage" mc:label="200px_right_picture" mc:edit="200px_right_picture" /></a></td>
                                                     </tr>
                                                 </table>
                                             </td>

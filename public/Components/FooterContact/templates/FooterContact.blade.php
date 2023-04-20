@@ -22,7 +22,7 @@
     <meta itemprop="telephone" content="+381114114800">
     <meta itemprop="priceRange" content="$$">
     <meta itemprop = "currenciesAccepted" content = "RSD"/>
-    <meta itemprop="name" content="Monitor">
+    <meta itemprop="name" content="Kese za Kirby">
     <link itemprop="image" href="/favicon-1024x1024.png" />
 
     <div

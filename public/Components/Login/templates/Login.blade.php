@@ -333,7 +333,7 @@
     {{-- Poslat mejl za reset lozinke --}}
     @if ($view === 'forgot_success')
         <p class="login_form__forgot_success">
-            Na E-mail koji ste uneli prilikom registracije biće vam poslati podaciza prijavu na sajtu <a href="/">monitor.rs</a>. Ako niste mogli vratiti profil na ovaj način, obratite se administraciji sajta. Da biste to uradili, kliknite <a href="mailto:{{ $contact_email }}">ovde</a>.
+            Na E-mail koji ste uneli prilikom registracije biće vam poslati podaciza prijavu na sajtu <a href="/">kesezakirby.rs</a>. Ako niste mogli vratiti profil na ovaj način, obratite se administraciji sajta. Da biste to uradili, kliknite <a href="mailto:{{ $contact_email }}">ovde</a>.
         </p>
     @endif
 </section>

@@ -38,7 +38,7 @@ class UserService extends BaseService {
      *
      * @var string
      */
-    private static $cookie_name_default = 'Monitor';
+    private static $cookie_name_default = 'Exelence';
 
     /**
      * Minimalna dužina lozinke

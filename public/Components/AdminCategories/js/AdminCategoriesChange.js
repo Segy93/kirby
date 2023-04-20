@@ -1,6 +1,6 @@
 "use strict";
 
-if (typeof Monitor           === "undefined") var  Monitor      = {};
+if (typeof Kirby           === "undefined") var  Kirby      = {};
 if (typeof Kirby.AdminCategories === "undefined") Kirby.AdminCategories = {};
 
 
@@ -8,7 +8,7 @@ Kirby.AdminCategories.Change = {
 
     config: {
         callback_submit: null,
-        processing_name: false,    
+        processing_name: false,
     },
 
     elements: { // Elementi u komponenti

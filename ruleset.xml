@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<ruleset name="Monitor">
+<ruleset name="Exelence">
     <rule ref="PSR12">
         <exclude name="Squiz.Functions.MultiLineFunctionDeclaration.BraceOnSameLine" />
         <exclude name="PSR2.Classes.ClassDeclaration.OpenBraceNewLine" />

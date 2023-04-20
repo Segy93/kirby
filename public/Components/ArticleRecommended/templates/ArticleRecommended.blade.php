@@ -45,7 +45,7 @@
                     <svg class="article_recommended__icon article_recommended__user_icon">
                         <use xlink:href="#article_recommended__user_icon"></use>
                     </svg>
-                            Monitor
+                    Kese za Kirby
                 </span>
                 <span
                     class       = "article_recommended__info_date"

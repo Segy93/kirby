@@ -1,6 +1,6 @@
 "use strict";
 
-if (Monitor === undefined) window.Monitor = {};
+if (Kirby === undefined) window.Kirby = {};
 if (Kirby.AdminRoles === undefined) window.Kirby.AdminRoles = {};
 
 Kirby.AdminRoles.Create = {

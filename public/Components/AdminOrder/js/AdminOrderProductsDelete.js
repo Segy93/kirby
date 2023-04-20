@@ -1,6 +1,6 @@
 "use strict";
 
-if (typeof Monitor                     === "undefined") var Monitor                   = {};
+if (typeof Kirby                     === "undefined") var Kirby                   = {};
 if (typeof Kirby.AdminOrders          === "undefined") Kirby.AdminOrders            = {};
 if (typeof Kirby.AdminOrders.Products  === "undefined") Kirby.AdminOrders.Products    = {};
 
