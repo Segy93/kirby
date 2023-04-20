@@ -32,27 +32,27 @@ class CategoryService extends BaseService {
     private static $categories_promoted = [
         [
             'url'  => 'kirby-sistem',
-            'img'  => '/default_pictures/maticne.png',
+            'img'  => '/default_pictures/a2-ultimate-cleaning.jpg',
             'title' => 'Kirby sistem',
         ],
         [
             'url'  => 'kese',
-            'img'  => '/default_pictures/procesori.png',
+            'img'  => '/default_pictures/crvene.jpeg',
             'title' => 'Kese',
         ],
         [
             'url'  => 'sredstva-za-ciscenje',
-            'img'  => '/default_pictures/racunari.png',
+            'img'  => '/default_pictures/shampoo.jpeg',
             'title' => 'Sredstva za čišćenje',
         ],
         [
             'url'  => 'delovi',
-            'img'  => '/default_pictures/tableti.png',
+            'img'  => '/default_pictures/remen.jpg',
             'title' => 'Rezervni delovi',
         ],
         [
             'url'  => 'oprema',
-            'img'  => '/default_pictures/tableti.png',
+            'img'  => '/default_pictures/zipp-brush.jpg',
             'title' => 'Dodatna oprema',
         ],
     ];

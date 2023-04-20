@@ -3,12 +3,12 @@
         Koji je pravi proizvod za vas?
     </h3>
     <p class = "info_help_desk__content">
-        Pitajte naše eksperte! 
-        <a 
+        Pozovite nas!
+        <a
             class = "info_help_desk__phone"
             href  = "tel:+381113086979"
         >
-            011-3086-979
+            063/22-32-42
         </a>
     </p>
 </div>
