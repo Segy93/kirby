@@ -11,7 +11,7 @@ class MainHeader extends BaseComponent {
     protected $css  = ['MainHeader/css/MainHeader.css'];
     protected $js   = ['MainHeader/js/MainHeader.js'];
 
-    private $heading = 'Online prodaja Kirby kesa, delova, dodatne opreme kao i kompletnog sistema | Kese za kirby - eXelence d.o.o!';
+    private $heading = 'Online prodaja Kirby kesa, delova, dodatne opreme kao i kompletnog sistema | Kese za Kirby - eXelence d.o.o!';
 
     public function __construct($heading = null) {
         if ($heading !== null) {
