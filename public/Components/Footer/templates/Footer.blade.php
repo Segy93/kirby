@@ -8,12 +8,12 @@
         @endforeach
 
         <section class = "footer_item">
-            <h3 class = "footer_heading footer_news__headline">It vesti</h3>
+            <h3 class = "footer_heading footer_news__headline">Novosti</h3>
             {!! $news->renderHTML() !!}
         </section>
 
         <section class = "footer_item">
-            <h3 class = "footer_heading footer_contact__headline" >Kontakt informacije</h3>
+            <h3 class = "footer_heading footer_contact__headline" >Kontakt</h3>
             {!! $contact->renderHTML() !!}
         </section>
 

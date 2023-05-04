@@ -38,7 +38,7 @@
         for     = "atom_wishlist_toggle__in_wishlist--{!!$js_template? '<%= product.id %>' : $product_id!!}"
     >
         <span class = "atom_wishlist_toggle__in_wishlist__text">
-            Dodato u listu želja
+            U listi želja
         </span>
         <span class = "atom_wishlist_toggle__not_in__wishlist_text">
             Dodaj u listu želja
@@ -59,7 +59,7 @@
             <use xlink:href="#atom_wishlist__toggle_minus"></use>
         </svg>
         <span class = "atom_wishlist__toggle_text atom_wishlist__toggle_text--{{ $button_mode }}">
-            Dodato u listu želja
+            U listi želja
         </span>
     </button>
 </form>

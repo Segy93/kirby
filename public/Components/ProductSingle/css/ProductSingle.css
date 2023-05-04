@@ -8,11 +8,6 @@
     vertical-align: top;
 }
 
-.product_single__wrapper {
-    border-bottom: 2px solid #f2f3ee;
-    /* width: 75%; */
-}
-
 .product_single__wrapper_category {
     padding: 0.5em;
 }
@@ -21,11 +16,13 @@
     color: #fff;
     font-size: 0.8em;
     margin: 0;
+    margin-bottom: 2rem;
     padding: 0;
 }
 
 .product_single__image {
     margin: 1.25em 2% 1.25em 0;
+    margin-bottom: 0;
     position: relative;
     text-align: center;
     text-decoration: none;
@@ -113,7 +110,7 @@
 }
 
 .product_single__price_old {
-    color: #b1003f;
+    color: #fff;
     display: block;
     font-size: 1.2em;
     margin: 0;

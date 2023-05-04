@@ -54,7 +54,7 @@
         for     = "atom_cart_toggle__in_cart--{!!$js_template? '<%= product.id %>' : $product_id!!}"
     >
         <span class = "atom_cart_toggle__in_cart__text">
-            Dodato u korpu
+            U korpi
         </span>
         <span class = "atom_cart_toggle__not_in__cart_text">
             Dodaj u korpu
@@ -80,7 +80,7 @@
             <use xlink:href="#atom_cart__toggle_remove"></use>
         </svg>
         <span class="atom_cart__toggle_text atom_cart__toggle_text--{{ $button_mode }}">
-            Dodato u korpu
+            U korpi
         </span>
     </button>
 </form>

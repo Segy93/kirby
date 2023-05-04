@@ -1,6 +1,7 @@
 .header_logo {
-    display: block;
+    display: flex;
     max-width: 100%;
+    padding: 1rem 0;
     transition: transform 0.3s;
     width: 10rem;
 }
@@ -23,12 +24,6 @@
 
 .header_logo__link--print {
     display: none;
-}
-
-@media (max-width: 480px) {
-    .header_logo__link {
-        margin-bottom: 1em;
-    }
 }
 
 @media print {

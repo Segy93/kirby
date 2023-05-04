@@ -186,6 +186,7 @@
                 </p>
             @endif
         @endif
+        {{--
         <p class = "product_single__artid">
             @if ($js_template)
                 Šifra proizvoda: <%= product.artid %>
@@ -193,7 +194,6 @@
                 Šifra proizvoda: {{$product->artid}}
             @endif
         </p>
-        {{--
         @if ($js_template)
             <% if (product.in_stock === true) { %>
                 <p class = "product_single__in_stock">
