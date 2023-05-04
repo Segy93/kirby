@@ -1,4 +1,4 @@
-<section class = "product_page__wrapper product_page__wrapper--{{$product->id}}" data-id = "{{$product->id}}">
+e<section class = "product_page__wrapper product_page__wrapper--{{$product->id}}" data-id = "{{$product->id}}">
     {!! $productSingle->renderHTML($product) !!}
     {!! $gallery->renderHTML($product, $product->name) !!}
     {!! $infoShippingCost->renderHTML($product->price_discount) !!}

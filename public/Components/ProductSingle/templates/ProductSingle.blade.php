@@ -223,7 +223,5 @@
         @endif
 
         {!! $wishListToggle->renderHTML($js_template ? null : $product->id) !!}
-
-        {!! $productCompare->renderHTML($js_template ? null : $product->id) !!}
     </div>
 </section>

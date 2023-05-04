@@ -44,6 +44,9 @@
 }
 
 .footer_contact__row {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
     height: 35px;
 }
 

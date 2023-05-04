@@ -5,7 +5,6 @@ namespace App\Components;
 use App\Components\AtomProductDescription;
 use App\Components\AtomProductDetails;
 use App\Components\AtomProductName;
-use App\Components\CompareProductButton;
 use App\Components\InfoHelpDesk;
 use App\Components\ProductLightboxGallery;
 use App\Components\ProductSingle;
@@ -61,7 +60,6 @@ class ProductPage extends BaseComponent {
         $category_id = $this->product->category_id;
         $price = $this->product->price_discount;
 
-        $this->compareButton    = new CompareProductButton();
         $this->contact_experts  = new InfoHelpDesk();
         $this->description      = new AtomProductDescription();
         $this->details          = new AtomProductDetails();

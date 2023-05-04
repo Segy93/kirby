@@ -4,10 +4,10 @@
     padding: 1em 0;
 }
 
-.breadcrumbs_single {display: inline-block;}
+.breadcrumbs_single {color: #fff;display: inline-block;}
 
 .breadcrumbs_item {
-    color: #313131;
+    color: #fff;
     display: inline-block;
     margin: 0;
     text-decoration: none;

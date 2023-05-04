@@ -8,9 +8,9 @@ namespace App\Components;
 class HeaderLogo extends BaseComponent {
     // Koristi se za stampu, posto nema crne pozadine,
     // treba nam logotip sa crnim slovimaa
-    private static $image_print = '/Components/HeaderLogo/img/logo-inverted.svg';
-    private static $image_view = '/Components/HeaderLogo/img/logo.svg';
-    private static $image_print_png = '/Components/HeaderLogo/img/logo-inverted.png';
+    private static $image_print = '/Components/HeaderLogo/img/logo.png';
+    private static $image_view = '/Components/HeaderLogo/img/logo.png';
+    private static $image_print_png = '/Components/HeaderLogo/img/logo.png';
     private static $image_view_png = '/Components/HeaderLogo/img/logo.png';
     private static $alt   = 'Kese za Kirby logo';
     private $print_only = false;

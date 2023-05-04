@@ -1,6 +1,5 @@
 .menu_slider__box {
     background-color: #000;
-    background-color: rgba(40, 40, 46, 1);
     width: 100%;
 }
 
@@ -13,8 +12,7 @@
 }
 
 .menu_slider__box_menu {
-    background-color: #0950aa;
-    vertical-align: top;
+    background-color: #002f6d;
     width: 100%;
 }
 

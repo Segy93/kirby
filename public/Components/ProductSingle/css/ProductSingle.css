@@ -18,6 +18,7 @@
 }
 
 .product_single__text_note {
+    color: #fff;
     font-size: 0.8em;
     margin: 0;
     padding: 0;
@@ -85,7 +86,7 @@
 }
 
 .product_single__product_name_link {
-    color: #303030;
+    color: #fff;
     font-size: 1.25em;
     font-weight: bold;
     text-decoration: none;
@@ -105,7 +106,7 @@
 }
 
 .product_single__price {
-    color: #0454a8;
+    color: #fff;
     display: block;
     font-size: 2em;
     margin: 0;

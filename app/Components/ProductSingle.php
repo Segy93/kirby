@@ -4,10 +4,7 @@ namespace App\Components;
 
 use App\Components\AtomCartToggle;
 use App\Components\AtomWishListToggle;
-use App\Components\CompareProductsToggle;
-
 use App\Providers\BaseService;
-use App\Providers\ConfigurationService;
 use App\Providers\ProductService;
 use App\Providers\UserService;
 
@@ -43,7 +40,6 @@ class ProductSingle extends BaseComponent {
     public function __construct(bool $show_link = true) {
         $button_mode = 'full';
         $this->cartToggle               = new AtomCartToggle($button_mode);
-        $this->productCompare           = new CompareProductsToggle();
         $this->productRating            = new ProductRating();
         $this->wishListToggle           = new AtomWishListToggle($button_mode);
         $this->show_link                = $show_link;
@@ -51,7 +47,6 @@ class ProductSingle extends BaseComponent {
             $this->wishListToggle,
             $this->cartToggle,
             $this->productRating,
-            $this->productCompare,
         ]);
         ProductService::enableImageFormatThumbnail();
     }
