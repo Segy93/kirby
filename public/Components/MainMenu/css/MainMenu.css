@@ -1,10 +1,15 @@
 .main_menu__list {
+    display: flex;
+    justify-content: center;
     margin: 0;
+    margin: auto;
     padding-left: 0;
+    width: 90%;
 }
 
 .main_menu__item {
     display: block;
+    white-space: nowrap;
 }
 
 .main_menu__item:focus {
@@ -103,39 +108,27 @@
 .main_menu__submenu_label {
     box-sizing: border-box;
 }
+
 .main_menu__submenu_checkbox--focused {
     border: solid 1px #fff;
     border-radius: 8px;
 }
+
 .main_menu__submenu_checkbox:focus ~ .main_menu__submenu_label {
     top: -10px;
 }
+
 .main_menu__submenu_checkbox:focus ~ .main_menu__submenu_label::before {
     transform: rotate(90deg);
 }
+
 .main_menu__submenu_checkbox:checked ~ .main_menu__sub {
     display: block;
-}
-
-@media (min-width: 1441px) and (max-width: 1680px) {
-    .main_menu__item_link {
-        font-size: 1.1rem;
-    }
 }
 
 @media (min-width: 1025px) and (max-width: 1440px) {
     .main_menu__sub {
         width: 82%;
-    }
-
-    .main_menu__item_link {
-        font-size: 1rem;
-    }
-}
-
-@media (min-width: 801px) and (max-width: 1440px) {
-    .main_menu__item_link {
-        font-size: 0.875rem;
     }
 }
 
@@ -179,14 +172,6 @@
 }
 
 @media (max-width: 800px) {
-    .main_menu__list {
-        display: flex;
-        gap: 1rem;
-        justify-content: center;
-        margin: auto;
-        width: 90%;
-    }
-
     .main_menu__item_link {
         font-size: 0.875rem;
         white-space: nowrap;
@@ -218,7 +203,7 @@
         width: 35%;
     }
     .main_menu__item_link_text {
-        padding: 1em 0;
+        padding: 1rem 0.5rem;
     }
 
     .main_menu__submenu_label {
