@@ -211,7 +211,7 @@
                     required            = "required"
                     type                = "checkbox"
                 />
-                <a href = "/opšti-uslovi">Prihvatam uslove korišćenja</a>
+                <a class = "login_form__terms" href = "/opšti-uslovi">Prihvatam uslove korišćenja</a>
             </label>
             <div
                 class        = "g-recaptcha login_form__captcha"
