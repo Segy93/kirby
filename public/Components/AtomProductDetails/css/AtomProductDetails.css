@@ -5,7 +5,7 @@
 }
 
 .atom_product_details__table_row:nth-child(odd) {
-    background-color: rgb(236, 236, 237);
+    background-color: #000;
 }
 
 .atom_product_details__table,
@@ -20,13 +20,14 @@
 
 .atom_product_details__table_header,
 .atom_product_details__table_cell {
-    color: #4d4d4d;
+    color: #fff;
     font-weight: normal;
     padding: 0.5rem;
     text-align: left;
 }
 
 .atom_product_details__product_link {
+    color: #fff;
     word-break: break-all;
 }
 
