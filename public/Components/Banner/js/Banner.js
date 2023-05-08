@@ -36,13 +36,19 @@
      *
      */
     var initListeners = function() {
-        var dots = getElement("dot", true);
+        const dots = getElement("dot", true);
+        const prev = getElement("prev");
+        const next = getElement("next");
         dots.forEach(function(dot) {
             dot.addEventListener("click", dotClicked, false);
         });
         window.addEventListener("click", clickWithin, false);
-        getElement("prev").addEventListener("click", prevClicked, false);
-        getElement("next").addEventListener("click", nextClicked, false);
+        if (prev) {
+            prev.addEventListener("click", prevClicked, false);
+        }
+        if (next) {
+            next.addEventListener("click", nextClicked, false);
+        }
         window.addEventListener("load", autoSlider, false);
     };
 
@@ -67,32 +73,35 @@
     };
 
     var initSlideObserver = function() {
-        config.nr_banners = parseInt(getElement("slider").dataset.count, 10);
-        var slides = getElement("slides", true);
-        var slider = getElement("slider");
-        if ("IntersectionObserver" in window) {
-            var end = new IntersectionObserver(
-                onScrollObserver, {
-                    threshold: 0.9
-            });
+        const wrapper = getElement("slider");
+        if (wrapper) {
+            config.nr_banners = parseInt(getElement("slider").dataset.count, 10);
+            var slides = getElement("slides", true);
+            var slider = getElement("slider");
+            if ("IntersectionObserver" in window) {
+                var end = new IntersectionObserver(
+                    onScrollObserver, {
+                        threshold: 0.9
+                });
 
-            var start = new IntersectionObserver(
-                onSlideObserver, {
-                    threshold: 0.9
-            });
-            var obs = new IntersectionObserver(
-                onIntersectSlide, {
-                    root: slider,
-                    threshold: 0.9
-            });
+                var start = new IntersectionObserver(
+                    onSlideObserver, {
+                        threshold: 0.9
+                });
+                var obs = new IntersectionObserver(
+                    onIntersectSlide, {
+                        root: slider,
+                        threshold: 0.9
+                });
 
-            slides.forEach(function(slide) {
-                obs.observe(slide);
-            });
+                slides.forEach(function(slide) {
+                    obs.observe(slide);
+                });
 
-            start.observe(slider);
+                start.observe(slider);
 
-            end.observe(slider);
+                end.observe(slider);
+            }
         }
     };
 

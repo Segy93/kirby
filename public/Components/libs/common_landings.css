@@ -5,7 +5,6 @@ body {
     font-family: 'Source Sans Pro', sans-serif;
     margin: 0;
     min-height: 100vh;
-    min-width: 360px;
 }
 
 .common_landings__visually_hidden {
