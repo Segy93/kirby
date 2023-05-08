@@ -42,6 +42,7 @@
 }
 
 .atom_cart_toggle__in_cart_already {
+    background-color: #bcbcbc;
     box-shadow: 0 0 0 1pt #0454a8;
     display: none;
 }

@@ -31,7 +31,6 @@ class ProductPage extends BaseComponent {
 
     private $breadcrumbs = null;
     private $comment_list = null;
-    private $compareButton = null;
     private $contact_experts = null;
     private $description = null;
     private $details = null;
@@ -123,7 +122,6 @@ class ProductPage extends BaseComponent {
             $this->description,
             $this->name,
             $this->related,
-            $this->compareButton,
             $this->stock,
             $this->productSingle,
             $this->contact_experts,
@@ -169,7 +167,6 @@ class ProductPage extends BaseComponent {
 
             'breadcrumbs'       => $this->breadcrumbs,
             'comment_list'      => $this->comment_list,
-            'compareButton'     => $this->compareButton,
             'contact_experts'   => $this->contact_experts,
             'description'       => $this->description,
             'details'           => $this->details,

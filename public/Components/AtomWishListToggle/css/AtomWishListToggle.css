@@ -73,6 +73,7 @@
 }
 
 .atom_wishlist_toggle__in_wishlist_already {
+    background-color: #bcbcbc;
     box-shadow: 0 0 0 1pt #b1003f;
     font-weight: bolder;
     display: none;

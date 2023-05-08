@@ -187,11 +187,13 @@
      */
     var showSlide = function(index) {
         var elem = getElement("slider");
-        var width = elem.getBoundingClientRect().width;
-        if ("scrollTo" in elem) {
-            elem.scrollTo({ left: width * index, behavior: 'smooth'});
-        } else {
-            elem.scrollLeft = width * index;
+        if (elem) {
+            var width = elem.getBoundingClientRect().width;
+            if ("scrollTo" in elem) {
+                elem.scrollTo({ left: width * index, behavior: 'smooth'});
+            } else {
+                elem.scrollLeft = width * index;
+            }
         }
     };
 
