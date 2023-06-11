@@ -83,12 +83,6 @@ class InsertStaticPages extends Migration {
                 'text' => view('pages/migrated-09-zastita-privatnosti'),
             ],
             [
-                'title' => 'Hosting',
-                'category_id' => $service->id,
-                'order_page' => 1,
-                'text' => view('pages/migrated-10-hosting'),
-            ],
-            [
                 'title' =>  'Kontakt',
                 'category_id' => $service->id,
                 'order_page' => 2,
@@ -180,14 +174,6 @@ class InsertStaticPages extends Migration {
             'url' => 'zastita-privatnosti',
         ]);
 
-        $page_hosting = DB::table('StaticPages__Main')->where('title', 'Hosting')->first();
-        DB::table('SEO')->insert([
-            'machine_name' => "static_" . $page_hosting->id,
-            'title' => 'Hosting',
-            'description' => 'Naši serveri se nalaze u Nemačkoj što u kombinacji sa 100Mbit/s portovima daje izvrsnu i brzu komunikaciju sa serverom u svim smerovima.',
-            'url' => 'hosting',
-        ]);
-
         $page_contact = DB::table('StaticPages__Main')->where('title', 'Kontakt')->first();
         DB::table('SEO')->insert([
             'machine_name' => "static_" . $page_contact->id,
@@ -247,9 +233,6 @@ class InsertStaticPages extends Migration {
         $page_privacy = DB::table('StaticPages__Main')->where('title', 'Zaštita privatnosti')->first();
         DB::table('SEO')->where('machine_name', "static_" . $page_privacy->id)->delete();
 
-        $page_hosting = DB::table('StaticPages__Main')->where('title', 'Hosting')->first();
-        DB::table('SEO')->where('machine_name', "static_" . $page_hosting->id)->delete();
-
         $page_contact = DB::table('StaticPages__Main')->where('title', 'Kontakt')->first();
         DB::table('SEO')->where('machine_name', "static_" . $page_contact->id)->delete();
 
@@ -268,7 +251,6 @@ class InsertStaticPages extends Migration {
         DB::table('StaticPages__Main')->where('title', 'Ugovor o prodaji')->delete();
         DB::table('StaticPages__Main')->where('title', 'Uslovi garancije')->delete();
         DB::table('StaticPages__Main')->where('title', 'Zaštita privatnosti')->delete();
-        DB::table('StaticPages__Main')->where('title', 'Hosting')->delete();
         DB::table('StaticPages__Main')->where('title', 'Kontakt')->delete();
         DB::table('StaticPages__Main')->where('title', 'Servis')->delete();
         DB::table('StaticPages__Main')->where('title', 'Web programiranje')->delete();
