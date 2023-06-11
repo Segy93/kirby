@@ -192,7 +192,7 @@ class InsertStaticPages extends Migration {
         DB::table('SEO')->insert([
             'machine_name' => "static_" . $page_contact->id,
             'title' => 'Kontakt',
-            'description' => 'Monitor System d.o.o Kumanovska 14 11000 Beograd, Vračar Tel: +381 11 3086 979 Tel: +381 11 3086 979 Mob: +381 65 3086 979 Email: prodaja@kesezakirby.rs ; nabavka@kesezakirby.rs Web: www.kesezakirby.rs',
+            'description' => 'Exelence d.o.o Kraljice Katarine 55 11030 Beograd, Vračar Tel: +381 63 22 32 42 Tel: +381 63 22 32 42 Email: prodaja@kesezakirby.rs ; nabavka@kesezakirby.rs Web: www.kesezakirby.rs',
             'url' => 'kontakt',
         ]);
 

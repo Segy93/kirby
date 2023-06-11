@@ -13,21 +13,21 @@ class AddAddressForShop extends Migration {
     {
 
         $shop = DB::table('Shops')
-            ->where('name', '=', 'Kumanovska 14, Vračar')
+            ->where('name', '=', 'Kraljice Katarine 55, Čukarica')
             ->first()
         ;
 
         DB::table('Addresses__Main')->insert(
             [
                 'city'          =>  'Beograd',
-                'address'       =>  'Kumanovska 14, Vračar',
-                'postal_code'   =>  '11000',
+                'address'       =>  'Kraljice Katarine 55, Čukarica',
+                'postal_code'   =>  '11030',
                 'discr'         =>  'shop',
             ]
         );
 
         $address = DB::table('Addresses__Main')
-            ->where('address', '=', 'Kumanovska 14, Vračar')
+            ->where('address', '=', 'Kraljice Katarine 55, Čukarica')
             ->first()
         ;
 
@@ -37,7 +37,7 @@ class AddAddressForShop extends Migration {
                 'shop_id'       =>  $shop->id,
                 'email'         =>  'prodaja@kesezakirby.rs',
                 'open_hours'    =>  'Radnim danima od 09-20 časova \nSubotom od 10-15 časova',
-                'fax'           =>  '011/41-14-800',
+                'fax'           =>  '011/2544-660',
             ]
         );
     }
@@ -49,12 +49,12 @@ class AddAddressForShop extends Migration {
      */
     public function down() {
         $address = DB::table('Addresses__Main')
-            ->where('address', '=', 'Kumanovska 14, Vračar')
+            ->where('address', '=', 'Kraljice Katarine 55, Čukarica')
             ->first()
         ;
 
         DB::table('Orders')->where('billing_address_id', $address->id)->delete();
         DB::table('Addresses__Shop')->where('email', 'prodaja@kesezakirby.rs')->delete();
-        DB::table('Addresses__Main')->where('address', 'Kumanovska 14, Vračar')->delete();
+        DB::table('Addresses__Main')->where('address', 'Kraljice Katarine 55, Čukarica')->delete();
     }
 }

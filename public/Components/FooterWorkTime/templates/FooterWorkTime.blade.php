@@ -21,9 +21,9 @@
     @endforeach
 
     <div class = "common_landings__visually_hidden" itemprop="address" itemscope itemtype="http://schema.org/PostalAddress">
-        <meta itemprop="streetAddress"      content="Kumanovska 14 Vračar">
+        <meta itemprop="streetAddress"      content="Kraljice Katarine 55 Čukarica">
         <meta itemprop="addressLocality"    content="Belgrade">
-        <meta itemprop="postalCode"         content="11000">
+        <meta itemprop="postalCode"         content="11030">
         <meta itemprop="addressCountry"     content="RS">
     </div>
 </div>

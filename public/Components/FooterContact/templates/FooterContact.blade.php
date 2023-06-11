@@ -19,7 +19,7 @@
     </defs>
 </svg>
 <div itemscope itemtype = "http://schema.org/LocalBusiness">
-    <meta itemprop="telephone" content="+381114114800">
+    <meta itemprop="telephone" content="+38163223242">
     <meta itemprop="priceRange" content="$$">
     <meta itemprop = "currenciesAccepted" content = "RSD"/>
     <meta itemprop="name" content="Kese za Kirby">
@@ -31,9 +31,9 @@
         itemscope
         itemtype="http://schema.org/PostalAddress"
     >
-        <meta itemprop="streetAddress"      content="Kumanovska 14 Vračar">
+        <meta itemprop="streetAddress"      content="Kraljice Katarine 55 Čukarica">
         <meta itemprop="addressLocality"    content="Belgrade">
-        <meta itemprop="postalCode"         content="11000">
+        <meta itemprop="postalCode"         content="11030">
         <meta itemprop="addressCountry"     content="RS">
     </div>
 </div>

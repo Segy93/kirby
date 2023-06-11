@@ -15,7 +15,7 @@ class InsertShop extends Migration
     {
         DB::table('Shops')->insert(
             [
-                'name'          =>  'Kumanovska 14, Vračar',
+                'name'          =>  'Kraljice Katarine 55, Čukarica',
             ]
         );
     }
@@ -28,6 +28,6 @@ class InsertShop extends Migration
     public function down()
     {
 
-        DB::table('Shops')->where('name', 'Kumanovska 14, Vračar')->delete();
+        DB::table('Shops')->where('name', 'Kraljice Katarine 55, Čukarica')->delete();
     }
 }

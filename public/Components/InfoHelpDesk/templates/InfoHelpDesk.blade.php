@@ -6,7 +6,7 @@
         Pozovite nas!
         <a
             class = "info_help_desk__phone"
-            href  = "tel:+381113086979"
+            href  = "tel:+38163223242"
         >
             063/22-32-42
         </a>
