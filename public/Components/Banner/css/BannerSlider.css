@@ -113,12 +113,6 @@
     right: 0;
 }
 
-@media (min-width: 801px) and (max-width: 1680px) {
-    .slider_slide__container img {
-        height: 350px;
-    }
-}
-
 @media (max-width: 800px) {
     .slider_nav__prev,
     .slider_nav__next {
