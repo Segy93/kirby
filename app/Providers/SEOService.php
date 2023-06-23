@@ -164,10 +164,12 @@ class SEOService extends BaseService{
             ->select('p.updated_at', 's.url')
             ->from('App\Models\StaticPages\Page', 'p')
             ->join('App\Models\SEO', 's', 'WITH', 's.machine_name = CONCAT(?1, p.id)')
-            ->setParameter(1, "static_")
+            ->setParameter(1, 'static_')
             ->getQuery()
             ->getResult()
         ;
+
+        return $result;
     }
 
     /**
