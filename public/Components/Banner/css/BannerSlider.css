@@ -98,7 +98,8 @@
     position: absolute;
     text-align: center;
     text-shadow: 0 0 15px rgb(119, 119, 119);
-    top: calc(50% - 0.5em);
+    top: 50%;
+    transform: translateY(-50%);
     transition: opacity 0.2s;
     width: 100px;
     z-index: 1;
