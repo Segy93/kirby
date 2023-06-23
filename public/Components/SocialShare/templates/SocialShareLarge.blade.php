@@ -1,4 +1,4 @@
-<ul
+{{--<ul
     class="ssk-group ssk-lg social_share social_share__xl"
     data-url=""
     data-text=""
@@ -13,6 +13,6 @@
                     Podeli na {{$network['label']}}-u
                 </span>
             </a>
-        </li>        
+        </li>
     @endforeach
-</ul>
+</ul>--}}
