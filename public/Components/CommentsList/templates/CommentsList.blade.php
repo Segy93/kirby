@@ -1,4 +1,4 @@
-<script src='https://www.google.com/recaptcha/api.js?hl=sr' nonce="{{$_SESSION['token']}}" ></script>
+<script src='https://www.google.com/enterprise/api.js?hl=sr' nonce="{{$_SESSION['token']}}" ></script>
 <section class="comments" id="comments">
     <div class="comments__display" id="comments__display">
 

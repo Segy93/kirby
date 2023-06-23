@@ -1,4 +1,4 @@
-<script src='https://www.google.com/recaptcha/api.js?hl=sr' nonce="{{$_SESSION['token']}}" ></script>
+<script src='https://www.google.com/recaptcha/enterprise.js?hl=sr' nonce="{{$_SESSION['token']}}" ></script>
 <div class = "checkout_page">
     <h1 class = "checkout_page__title">
         Kasa
