@@ -1,4 +1,4 @@
-@foreach ($social_items as $social_item)
+{{--@foreach ($social_items as $social_item)
     <div class = "social_list__item_container">
         <label
             for     = "social_list__{{ $social_item['name'] }}"
@@ -18,4 +18,4 @@
             >
         </a>
     </div>
-@endforeach
+@endforeach--}}
