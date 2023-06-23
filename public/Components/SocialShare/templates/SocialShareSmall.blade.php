@@ -1,4 +1,4 @@
-<ul
+{{--<ul
     class="ssk-group ssk-xs  social_share social_share__xs"
     data-url="{{$url}}"
     data-text="{{$name}}"
@@ -32,4 +32,4 @@
             </span>
         </a>
     </li>
-</ul>
+</ul>--}}
