@@ -10,8 +10,6 @@ class HeaderLogo extends BaseComponent {
     // treba nam logotip sa crnim slovimaa
     private static $image_print = '/Components/HeaderLogo/img/logo.png';
     private static $image_view = '/Components/HeaderLogo/img/logo.png';
-    private static $image_print_png = '/Components/HeaderLogo/img/logo.png';
-    private static $image_view_png = '/Components/HeaderLogo/img/logo.png';
     private static $alt   = 'Kese za Kirby logo';
     private $print_only = false;
     protected $css = ['HeaderLogo/css/HeaderLogo.css'];
@@ -21,12 +19,10 @@ class HeaderLogo extends BaseComponent {
     }
 
     public function renderHTML() {
-        $is_ie = strpos($_SERVER['HTTP_USER_AGENT'], 'Trident/7.0; rv:11.0') !== false;
-
         $args = [
             'alt'               => self::$alt,
-            'image_view'        => $is_ie ? self::$image_view_png : self::$image_view,
-            'image_print'       => $is_ie ? self::$image_print_png : self::$image_print,
+            'image_view'        => self::$image_view,
+            'image_print'       => self::$image_print,
             'print_only'        => $this->print_only,
         ];
         return view('HeaderLogo/templates/HeaderLogo', $args);
