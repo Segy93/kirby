@@ -24,6 +24,7 @@
         </a>
     @else
         <a class = "user_menu__item" href = "/prijava" role = "menuitem">Prijavi se</a>
+        <a class = "user_menu__item" href = "/registracija" role = "menuitem">Registruj se</a>
     @endif
 
     <a class = "user_menu__item user_menu__cart" href = "/korpa" role = "menuitem">
