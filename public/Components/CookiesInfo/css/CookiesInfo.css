@@ -1,7 +1,9 @@
 .cookies_info {
+    align-items: center;
     background-color: #0950aa;
     bottom: 0;
     box-sizing: border-box;
+    display: flex;
     padding: 0 2vw;
     position: fixed;
     text-align: center;
