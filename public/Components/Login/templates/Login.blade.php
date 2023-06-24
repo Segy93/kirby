@@ -11,7 +11,7 @@
 
     <a class = "login_form__link login_form__link--register" href = "{{ route('register') }}">
         <label class="login_form__radio_label login_form__tab login_form__tab--register" for="login_form__radio--register">
-            Registruj se
+            Registracija
         </label>
     </a>
 
