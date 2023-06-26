@@ -57,42 +57,42 @@
 
    <url>
       <loc>{{$base_url}}/prijava</loc>
-      <lastmod>2018-11-30</lastmod>
+      <lastmod>2023-04-19</lastmod>
       <changefreq>yearly</changefreq>
       <priority>0.8</priority>
    </url>
 
    <url>
       <loc>{{$base_url}}/registracija</loc>
-      <lastmod>2018-11-30</lastmod>
+      <lastmod>2023-04-19</lastmod>
       <changefreq>yearly</changefreq>
       <priority>0.8</priority>
    </url>
 
    <url>
       <loc>{{ route('forgot_password') }}</loc>
-      <lastmod>2018-11-30</lastmod>
+      <lastmod>2023-04-19</lastmod>
       <changefreq>yearly</changefreq>
       <priority>0.8</priority>
    </url>
 
    <url>
       <loc>{{$base_url}}/korpa</loc>
-      <lastmod>2018-11-30</lastmod>
+      <lastmod>2023-04-19</lastmod>
       <changefreq>daily</changefreq>
       <priority>0.8</priority>
    </url>
 
    <url>
       <loc>{{$base_url}}/lista-zelja</loc>
-      <lastmod>2018-11-30</lastmod>
+      <lastmod>2023-04-19</lastmod>
       <changefreq>yearly</changefreq>
       <priority>0.8</priority>
    </url>
 
    <url>
       <loc>{{$base_url}}/uporedi-proizvode</loc>
-      <lastmod>2018-11-30</lastmod>
+      <lastmod>2023-04-19</lastmod>
       <changefreq>yearly</changefreq>
       <priority>0.8</priority>
    </url>
