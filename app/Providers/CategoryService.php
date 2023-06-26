@@ -62,7 +62,7 @@ class CategoryService extends BaseService {
         [
             'url'  => 'servis',
             'img'  => '/default_pictures/g6.webp',
-            'title' => 'servis',
+            'title' => 'Servis',
         ],
     ];
 
