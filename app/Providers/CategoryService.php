@@ -28,8 +28,8 @@ class CategoryService extends BaseService {
             'url'   => 'oprema',
         ],
         [
-            'title' => 'Rebuild',
-            'url'   => 'rebuild',
+            'title' => 'Servis',
+            'url'   => 'servis',
         ],
     ];
 
@@ -60,9 +60,9 @@ class CategoryService extends BaseService {
             'title' => 'Dodatna oprema',
         ],
         [
-            'url'  => 'rebuild',
+            'url'  => 'servis',
             'img'  => '/default_pictures/g6.webp',
-            'title' => 'Rebuild',
+            'title' => 'servis',
         ],
     ];
 
