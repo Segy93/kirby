@@ -32,7 +32,7 @@
     Redirect 301 /autor.html /kontakt
     Redirect 301 /delovi.html /delovi
     Redirect 301 /caddy.html /delovi
-    Redirect 301 /oprema.html /delovi
+    Redirect 301 /oprema.html /oprema
     Redirect 301 /kese.html /kese
     Redirect 301 /istorija.html /kontakt
     Redirect 301 /kontakt.html /kontakt
