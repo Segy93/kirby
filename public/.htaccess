@@ -28,6 +28,19 @@
     Redirect 301 /nač-plaćanja /nacin-placanja
     Redirect 301 /kako-naručiti /kako-naruciti
     Redirect 301 /zaštita-privatnosti /zastita-privatnosti
+
+    Redirect 301 /autor.html /kontakt
+    Redirect 301 /delovi.html /delovi
+    Redirect 301 /caddy.html /delovi
+    Redirect 301 /oprema.html /delovi
+    Redirect 301 /kese.html /kese
+    Redirect 301 /istorija.html /kontakt
+    Redirect 301 /kontakt.html /kontakt
+    Redirect 301 /formular.html /kontakt
+    Redirect 301 /servis.html /servis
+    Redirect 301 /pretraga.html /pretraga
+    Redirect 301 /modeli.html /kirby-sistem
+    Redirect 301 /rss.xml /registracija
 </IfModule>
 
 <IfModule mod_expires.c>
