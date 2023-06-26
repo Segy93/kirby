@@ -3,7 +3,7 @@
 
     </section>
     <section class = "sale_categories__body">
-        @foreach($categories as $category)
+        @foreach ($categories as $category)
             <section class = "sale_categories__body_single">
                 <a href = "{{$category['url']}}" class = "sale_categories__body_link">
                 <img class = "sale_categories__body_image" src = "{{$category['img']}}" alt = "{{$category['title']}}" />

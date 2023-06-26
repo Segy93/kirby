@@ -23,6 +23,7 @@
 }
 
 .sale_categories__name_heading_element {
+    font-size: 1rem;
     font-weight: normal;
     margin: 0;
     padding: 5px 0;
@@ -41,24 +42,7 @@
     transform: rotate(3deg) scale(1.07);
 }
 
-
-
-
-
-@media (min-width: 1025px) {
-    .sale_categories__body_single:nth-of-type(4n+4) {
-        margin-right: 0;
-    }
-}
-
 @media (min-width: 769px) {
-    .sale_categories__body_single {
-        display: inline-block;
-        width: 23.9%;
-    }
-}
-
-@media (min-width: 769px) and (max-width: 1024px) {
     .sale_categories__body_single {
         box-sizing: border-box;
         display: inline-block;

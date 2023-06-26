@@ -8,7 +8,7 @@ use App\Models\Category;
 class CategoryService extends BaseService {
     private static $category_tree = [
         [
-            'title' => 'Kirby sistem',
+            'title' => 'Kirby',
             'url'   => 'kirby-sistem',
         ],
         [
@@ -26,6 +26,10 @@ class CategoryService extends BaseService {
         [
             'title' => 'Oprema',
             'url'   => 'oprema',
+        ],
+        [
+            'title' => 'Rebuild',
+            'url'   => 'rebuild',
         ],
     ];
 
@@ -54,6 +58,11 @@ class CategoryService extends BaseService {
             'url'  => 'oprema',
             'img'  => '/default_pictures/zipp-brush.jpg',
             'title' => 'Dodatna oprema',
+        ],
+        [
+            'url'  => 'rebuild',
+            'img'  => '/default_pictures/g6.webp',
+            'title' => 'Rebuild',
         ],
     ];
 
