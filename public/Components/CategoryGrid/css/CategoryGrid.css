@@ -23,7 +23,6 @@
 }
 
 .sale_categories__name_heading_element {
-    font-size: 1rem;
     font-weight: normal;
     margin: 0;
     padding: 5px 0;
@@ -62,6 +61,10 @@
 }
 
 @media (min-width: 321px) and (max-width: 768px) {
+    .sale_categories__name_heading_element {
+        font-size: 1rem;
+    }
+
     .sale_categories__body_single {
         box-sizing: border-box;
         display: inline-block;
