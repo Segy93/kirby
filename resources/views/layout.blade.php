@@ -33,8 +33,8 @@
         <meta name="msapplication-TileImage" content="/mstile-144x144.png">
         <meta name="theme-color" content="#0056a9">
         <meta itemprop="name" content="{{ !empty($seo) ? $seo->title : 'Kese za Kirby' }}">
-        <meta name= "description" content="{{ !empty($seo->description) ? $seo->description : 'Kese za Kirby | eXelence d.o.o | Banovo brdo, Čukarica' }}">
-        <meta name= "keywords" content="{{ !empty($seo->keywords) ? $seo->keywords : 'Kese za Kirby, eXelence d.o.o, dodatna oprema, rezervni delovi, Banovo brdo, Čukarica, jeftino, povoljno' }}">
+        <meta name= "description" content="{{ !empty($seo->description) ? $seo->description : 'Kese za Kirby | Servis | Banovo brdo, Čukarica' }}">
+        <meta name= "keywords" content="{{ !empty($seo->keywords) ? $seo->keywords : 'Kese za Kirby, servis, dodatna oprema, rezervni delovi, Banovo brdo, Čukarica, jeftino, povoljno' }}">
 
         @if (!empty($seo))
             @if (!empty($seo->image_open_graph))
@@ -74,8 +74,8 @@
             <meta property="og:url" content="{{ $base_url }}/{{ $seo->url !== 'pocetna' ? $seo->url : '' }}" />
             <meta property="og:site_name" content="Kirby" />
         @else
-            <meta name= "description" content="Kese za Kirby | eXelence d.o.o | Banovo brdo, Čukarica">
-            <meta name= "keywords" content="Kese za Kirby, eXelence d.o.o, dodatna oprema, rezervni delovi, Banovo brdo, Čukarica, jeftino, povoljno">
+            <meta name= "description" content="Kese za Kirby | Servis | Banovo brdo, Čukarica">
+            <meta name= "keywords" content="Kese za Kirby, servis, dodatna oprema, rezervni delovi, Banovo brdo, Čukarica, jeftino, povoljno">
         @endif
         <meta name="format-detection" content="telephone=no">
 
