@@ -73,9 +73,6 @@
             <meta property="og:description" content="{{ $seo->description }}" />
             <meta property="og:url" content="{{ $base_url }}/{{ $seo->url !== 'pocetna' ? $seo->url : '' }}" />
             <meta property="og:site_name" content="Kirby" />
-        @else
-            <meta name= "description" content="Kese za Kirby | Servis | Banovo brdo, Čukarica">
-            <meta name= "keywords" content="Kese za Kirby, servis, dodatna oprema, rezervni delovi, Banovo brdo, Čukarica, jeftino, povoljno">
         @endif
         <meta name="format-detection" content="telephone=no">
 
