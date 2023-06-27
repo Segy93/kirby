@@ -5,7 +5,7 @@
 <!DOCTYPE html>
 <html lang = "sr">
     <head >
-        <title>{{ !empty($seo->title) ? $seo->title : 'Kese za Kirby | eXelence d.o.o | Banovo brdo, Čukarica' }}</title>
+        <title>{{ !empty($seo->title) ? $seo->title : 'Kese za Kirby | Servis | Banovo brdo, Čukarica' }}</title>
 
         <base href="{{ (isset($_SERVER['HTTPS']) ? 'https' : 'http').'://'.$_SERVER['HTTP_HOST']}}">
         <link href="apple-touch-icon-72x72.png" rel="apple-touch-icon" sizes="72x72"/>
