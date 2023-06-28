@@ -22,9 +22,9 @@ class CommentArticle extends Comment {
 
     /**
      * json Serilizacija
-     * @return void
+     * @return mixed
      */
-    public function jsonSerialize() {
+    public function jsonSerialize(): mixed {
         $json = [
             'article_id'    =>  $this->article_id,
             'article'       =>  $this->article,

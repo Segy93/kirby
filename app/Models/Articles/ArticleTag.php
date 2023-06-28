@@ -28,9 +28,9 @@ class ArticleTag implements \JsonSerializable {
 
     /**
      * json Serilizacija
-     * @return void
+     * @return mixed
      */
-    public function jsonSerialize() {
+    public function jsonSerialize(): mixed {
         return [
             'id'            =>  $this->id,
             'article_id'    =>  $this->article_id,

@@ -66,9 +66,9 @@ class UserLocal extends User {
 
     /**
      * json Serilizacija
-     * @return void
+     * @return mixed
      */
-    public function jsonSerialize() {
+    public function jsonSerialize(): mixed {
         $json = [
             'username'                  =>  $this->username,
             'email'                     =>  $this->email,

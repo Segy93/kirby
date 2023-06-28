@@ -49,9 +49,9 @@ class Admin implements \JsonSerializable {
 
     /**
      * json Serilizacija
-     * @return void
+     * @return mixed
      */
-    public function jsonSerialize() {
+    public function jsonSerialize(): mixed {
         return [
             'id'                =>  $this->id,
             'username'          =>  $this->username,

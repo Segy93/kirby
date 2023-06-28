@@ -32,7 +32,7 @@ class Role implements \JsonSerializable {
      */
     private $permissions;
 
-    public function jsonSerialize() {
+    public function jsonSerialize(): mixed {
         $permissions = $this->permissions === null ? [] : $this->permissions->getValues();
         return [
             'id'                =>  $this->id,

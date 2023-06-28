@@ -85,7 +85,7 @@ abstract class User implements \JsonSerializable {
      * json Serilizacija
      * @return  array
      */
-    public function jsonSerialize() {
+    public function jsonSerialize(): mixed {
         return [
             'id'                =>  $this->id,
             'name'              =>  $this->name,

@@ -35,7 +35,7 @@ class PhoneNumber implements \JsonSerializable {
     /**
      * json Serilizacija
      */
-    public function jsonSerialize() {
+    public function jsonSerialize(): mixed {
         $json = [
             'phone_nr'       =>  $this->phone_nr,
             'phone_nr_link'  =>  $this->phone_nr_link,
