@@ -2,10 +2,10 @@
 
 namespace LaravelDoctrine\ORM\Console;
 
-use Doctrine\Common\Persistence\ManagerRegistry;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\Tools\Console\MetadataFilter;
 use Doctrine\ORM\Tools\EntityRepositoryGenerator;
+use Doctrine\Persistence\ManagerRegistry;
 use InvalidArgumentException;
 
 class GenerateRepositoriesCommand extends Command
@@ -56,15 +56,19 @@ class GenerateRepositoriesCommand extends Command
 
             if (!file_exists($destPath)) {
                 throw new InvalidArgumentException(
-                    sprintf("Repositories destination directory '<info>%s</info>' does not exist.",
-                        $em->getConfiguration()->getProxyDir())
+                    sprintf(
+                        "Repositories destination directory '<info>%s</info>' does not exist.",
+                        $em->getConfiguration()->getProxyDir()
+                    )
                 );
             }
 
             if (!is_writable($destPath)) {
                 throw new InvalidArgumentException(
-                    sprintf("Repositories destination directory '<info>%s</info>' does not have write permissions.",
-                        $destPath)
+                    sprintf(
+                        "Repositories destination directory '<info>%s</info>' does not have write permissions.",
+                        $destPath
+                    )
                 );
             }
 

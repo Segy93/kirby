@@ -1,17 +1,19 @@
 <?php
 
-use Illuminate\Support\Str;
 use Illuminate\Container\Container;
-use Laravel\Lumen\Bus\PendingDispatch;
+use Illuminate\Contracts\Auth\Factory as AuthFactory;
+use Illuminate\Contracts\Broadcasting\Factory as BroadcastFactory;
 use Illuminate\Contracts\Bus\Dispatcher;
+use Illuminate\Contracts\Debug\ExceptionHandler;
+use Laravel\Lumen\Bus\PendingDispatch;
 
 if (! function_exists('abort')) {
     /**
      * Throw an HttpException with the given data.
      *
-     * @param  int     $code
+     * @param  int  $code
      * @param  string  $message
-     * @param  array   $headers
+     * @param  array  $headers
      * @return void
      *
      * @throws \Symfony\Component\HttpKernel\Exception\HttpException
@@ -19,7 +21,7 @@ if (! function_exists('abort')) {
      */
     function abort($code, $message = '', array $headers = [])
     {
-        return app()->abort($code, $message, $headers);
+        app()->abort($code, $message, $headers);
     }
 }
 
@@ -41,6 +43,23 @@ if (! function_exists('app')) {
     }
 }
 
+if (! function_exists('auth')) {
+    /**
+     * Get the available auth instance.
+     *
+     * @param  string|null  $guard
+     * @return \Illuminate\Contracts\Auth\Factory|\Illuminate\Contracts\Auth\Guard|\Illuminate\Contracts\Auth\StatefulGuard
+     */
+    function auth($guard = null)
+    {
+        if (is_null($guard)) {
+            return app(AuthFactory::class);
+        }
+
+        return app(AuthFactory::class)->guard($guard);
+    }
+}
+
 if (! function_exists('base_path')) {
     /**
      * Get the path to the base of the install.
@@ -51,6 +70,19 @@ if (! function_exists('base_path')) {
     function base_path($path = '')
     {
         return app()->basePath().($path ? '/'.$path : $path);
+    }
+}
+
+if (! function_exists('broadcast')) {
+    /**
+     * Begin broadcasting an event.
+     *
+     * @param  mixed|null  $event
+     * @return \Illuminate\Broadcasting\PendingBroadcast
+     */
+    function broadcast($event = null)
+    {
+        return app(BroadcastFactory::class)->event($event);
     }
 }
 
@@ -144,85 +176,18 @@ if (! function_exists('encrypt')) {
     }
 }
 
-if (! function_exists('env')) {
-    /**
-     * Gets the value of an environment variable. Supports boolean, empty and null.
-     *
-     * @param  string|null  $key
-     * @param  mixed  $default
-     * @return mixed
-     */
-    function env($key, $default = null)
-    {
-        $value = getenv($key);
-
-        if ($value === false) {
-            return value($default);
-        }
-
-        switch (strtolower($value)) {
-            case 'true':
-            case '(true)':
-                return true;
-
-            case 'false':
-            case '(false)':
-                return false;
-
-            case 'empty':
-            case '(empty)':
-                return '';
-
-            case 'null':
-            case '(null)':
-                return;
-        }
-
-        if (Str::startsWith($value, '"') && Str::endsWith($value, '"')) {
-            return substr($value, 1, -1);
-        }
-
-        return $value;
-    }
-}
-
 if (! function_exists('event')) {
     /**
-     * Fire an event and call the listeners.
+     * Dispatch an event and call the listeners.
      *
      * @param  object|string  $event
-     * @param  mixed   $payload
-     * @param  bool    $halt
+     * @param  mixed  $payload
+     * @param  bool  $halt
      * @return array|null
      */
     function event($event, $payload = [], $halt = false)
     {
-        return app('events')->fire($event, $payload, $halt);
-    }
-}
-
-if (! function_exists('factory')) {
-    /**
-     * Create a model factory builder for a given class, name, and amount.
-     *
-     * @param  dynamic  class|class,name|class,amount|class,name,amount
-     * @return \Illuminate\Database\Eloquent\FactoryBuilder
-     */
-    function factory()
-    {
-        app('db');
-
-        $factory = app('Illuminate\Database\Eloquent\Factory');
-
-        $arguments = func_get_args();
-
-        if (isset($arguments[1]) && is_string($arguments[1])) {
-            return $factory->of($arguments[0], $arguments[1])->times($arguments[2] ?? null);
-        } elseif (isset($arguments[1])) {
-            return $factory->of($arguments[0])->times($arguments[1]);
-        } else {
-            return $factory->of($arguments[0]);
-        }
+        return app('events')->dispatch($event, $payload, $halt);
     }
 }
 
@@ -231,7 +196,7 @@ if (! function_exists('info')) {
      * Write some information to the log.
      *
      * @param  string  $message
-     * @param  array   $context
+     * @param  array  $context
      * @return void
      */
     function info($message, $context = [])
@@ -262,6 +227,43 @@ if (! function_exists('redirect')) {
     }
 }
 
+if (! function_exists('report')) {
+    /**
+     * Report an exception.
+     *
+     * @param  \Throwable  $exception
+     * @return void
+     */
+    function report(Throwable $exception)
+    {
+        app(ExceptionHandler::class)->report($exception);
+    }
+}
+
+if (! function_exists('request')) {
+    /**
+     * Get an instance of the current request or an input item from the request.
+     *
+     * @param  array|string|null  $key
+     * @param  mixed  $default
+     * @return \Illuminate\Http\Request|string|array
+     */
+    function request($key = null, $default = null)
+    {
+        if (is_null($key)) {
+            return app('request');
+        }
+
+        if (is_array($key)) {
+            return app('request')->only($key);
+        }
+
+        $value = app('request')->__get($key);
+
+        return is_null($value) ? value($default) : $value;
+    }
+}
+
 if (! function_exists('resource_path')) {
     /**
      * Get the path to the resources folder.
@@ -280,8 +282,8 @@ if (! function_exists('response')) {
      * Return a new response from the application.
      *
      * @param  string  $content
-     * @param  int     $status
-     * @param  array   $headers
+     * @param  int  $status
+     * @param  array  $headers
      * @return \Illuminate\Http\Response|\Laravel\Lumen\Http\ResponseFactory
      */
     function response($content = '', $status = 200, array $headers = [])
@@ -329,7 +331,7 @@ if (! function_exists('trans')) {
      * Translate the given message.
      *
      * @param  string|null  $id
-     * @param  array   $replace
+     * @param  array  $replace
      * @param  string|null  $locale
      * @return \Illuminate\Contracts\Translation\Translator|string|array|null
      */
@@ -339,7 +341,7 @@ if (! function_exists('trans')) {
             return app('translator');
         }
 
-        return app('translator')->trans($id, $replace, $locale);
+        return app('translator')->get($id, $replace, $locale);
     }
 }
 
@@ -354,7 +356,7 @@ if (! function_exists('__')) {
      */
     function __($key, $replace = [], $locale = null)
     {
-        return app('translator')->getFromJson($key, $replace, $locale);
+        return app('translator')->get($key, $replace, $locale);
     }
 }
 
@@ -370,7 +372,7 @@ if (! function_exists('trans_choice')) {
      */
     function trans_choice($id, $number, array $replace = [], $locale = null)
     {
-        return app('translator')->transChoice($id, $number, $replace, $locale);
+        return app('translator')->choice($id, $number, $replace, $locale);
     }
 }
 

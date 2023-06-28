@@ -1772,11 +1772,11 @@
     url: 'https://www.grapeshot.com'
 
 - regex: 'www\.monitor\.us'
-  name: 'Kirby.Us'
+  name: 'Monitor.Us'
   category: 'Site Monitor'
   url: 'http://www.monitor.us'
   producer:
-    name: 'Kirby.Us'
+    name: 'Monitor.Us'
     url: 'http://www.monitor.us'
 
 - regex: 'Catchpoint( bot)?'
