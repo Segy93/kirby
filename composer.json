@@ -10,12 +10,12 @@
         "laravel/lumen-framework": "9.*",
         "doctrine/dbal": "^2.5",
         "intervention/image": "^2.4",
-        "picqer/php-barcode-generator": "^0.2.2",
         "piwik/device-detector": "^3.11",
         "vlucas/phpdotenv": "^5.5",
         "laravel-doctrine/orm": "1.8.*",
         "mattketmo/email-checker": "^2.1",
-        "minishlink/web-push": "^8.0"
+        "minishlink/web-push": "^8.0",
+        "picqer/php-barcode-generator": "^2.2"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

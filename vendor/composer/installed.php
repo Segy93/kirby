@@ -710,12 +710,12 @@
             'dev_requirement' => true,
         ),
         'picqer/php-barcode-generator' => array(
-            'pretty_version' => 'v0.2.2',
-            'version' => '0.2.2.0',
+            'pretty_version' => 'v2.2.4',
+            'version' => '2.2.4.0',
             'type' => 'library',
             'install_path' => __DIR__ . '/../picqer/php-barcode-generator',
             'aliases' => array(),
-            'reference' => 'f754cbd592f3131af144dfcc6a3090fd0f6d1793',
+            'reference' => 'b98f110cc5a79f723688fb17fd90b9325300d844',
             'dev_requirement' => false,
         ),
         'piwik/device-detector' => array(
@@ -823,8 +823,8 @@
         'psr/log-implementation' => array(
             'dev_requirement' => false,
             'provided' => array(
-                0 => '1.0|2.0|3.0',
-                1 => '1.0.0 || 2.0.0 || 3.0.0',
+                0 => '1.0.0 || 2.0.0 || 3.0.0',
+                1 => '1.0|2.0|3.0',
             ),
         ),
         'psr/simple-cache' => array(
