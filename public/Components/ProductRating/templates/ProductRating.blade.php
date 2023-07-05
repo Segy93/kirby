@@ -6,9 +6,9 @@
             itemprop="aggregateRating" itemscope itemtype="https://schema.org/AggregateRating"
         >
             <span itemprop = "ratingValue">{!!$js_template ? '<%= product.rating %>': $rating!!}</span>
-            <span itemprop = "reviewCount">{!!$js_template ? 
-                '<%= product.rating_count === 0 ? 1 : product.rating_count %>': 
-                $rating_count === 0 ? 1 : $rating_count!!}
+            <span itemprop = "reviewCount">{!!($js_template ? 
+                '<%= product.rating_count === 0 ? 1 : product.rating_count %>'): 
+                ($rating_count === 0 ? 1 : $rating_count)!!}
             </span>
         </section>
         <section
