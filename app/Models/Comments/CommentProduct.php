@@ -25,9 +25,9 @@ class CommentProduct extends Comment {
 
     /**
      * json Serilizacija
-     * @return void
+     * @return mixed
      */
-    public function jsonSerialize() {
+    public function jsonSerialize(): mixed {
         $json = [
             'product_id'    =>  $this->product_id,
             'product'       =>  $this->product,

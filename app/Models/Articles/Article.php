@@ -126,9 +126,9 @@ class Article implements \JsonSerializable {
 
     /**
      * json Serilizacija
-     * @return void
+     * @return mixed
      */
-    public function jsonSerialize() {
+    public function jsonSerialize(): mixed {
         return [
             'id'                =>  $this->id,
             'category_id'       =>  $this->category_id,

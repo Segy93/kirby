@@ -2,12 +2,12 @@
 
 namespace LaravelDoctrine\ORM\Validation;
 
-use Doctrine\Common\Persistence\ManagerRegistry;
 use Doctrine\ORM\QueryBuilder;
-use Illuminate\Validation\PresenceVerifierInterface;
+use Doctrine\Persistence\ManagerRegistry;
+use Illuminate\Validation\DatabasePresenceVerifierInterface;
 use InvalidArgumentException;
 
-class DoctrinePresenceVerifier implements PresenceVerifierInterface
+class DoctrinePresenceVerifier implements DatabasePresenceVerifierInterface
 {
     /**
      * @var ManagerRegistry
@@ -122,7 +122,7 @@ class DoctrinePresenceVerifier implements PresenceVerifierInterface
     /**
      * @param string $entity
      *
-     * @return \Doctrine\Common\Persistence\ObjectManager|null
+     * @return \Doctrine\Persistence\ObjectManager|null
      */
     protected function getEntityManager($entity)
     {

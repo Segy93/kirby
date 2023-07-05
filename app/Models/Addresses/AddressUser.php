@@ -85,9 +85,9 @@ class AddressUser extends Address {
 
     /**
      * json Serilizacija
-     * @return void
+     * @return mixed
      */
-    public function jsonSerialize() {
+    public function jsonSerialize(): mixed {
         $json = [
             'user_id'                       =>  $this->user_id,
             'contact_name'                  =>  $this->contact_name,

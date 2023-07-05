@@ -40,9 +40,9 @@ class WishList implements \JsonSerializable {
 
     /**
      * json Serilizacija
-     * @return void
+     * @return mixed
      */
-    public function jsonSerialize() {
+    public function jsonSerialize(): mixed {
         return [
             'id'            =>  $this->id,
             'product_id'    =>  $this->product_id,

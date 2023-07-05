@@ -2,15 +2,16 @@
 
 namespace Laravel\Lumen\Console;
 
-use Exception;
-use Throwable;
-use RuntimeException;
+use Illuminate\Console\Application as Artisan;
+use Illuminate\Console\Scheduling\Schedule;
+use Illuminate\Console\Scheduling\ScheduleRunCommand;
+use Illuminate\Contracts\Console\Kernel as KernelContract;
+use Illuminate\Contracts\Debug\ExceptionHandler;
 use Illuminate\Http\Request;
 use Laravel\Lumen\Application;
-use Illuminate\Console\Scheduling\Schedule;
-use Illuminate\Console\Application as Artisan;
-use Illuminate\Contracts\Console\Kernel as KernelContract;
-use Symfony\Component\Debug\Exception\FatalThrowableError;
+use Laravel\Lumen\Exceptions\Handler;
+use RuntimeException;
+use Throwable;
 
 class Kernel implements KernelContract
 {
@@ -68,7 +69,7 @@ class Kernel implements KernelContract
      */
     protected function setRequestForConsole(Application $app)
     {
-        $uri = $app->make('config')->get('app.url', env('APP_URL', 'http://localhost'));
+        $uri = $app->make('config')->get('app.url', 'http://localhost');
 
         $components = parse_url($uri);
 
@@ -94,7 +95,7 @@ class Kernel implements KernelContract
     protected function defineConsoleSchedule()
     {
         $this->app->instance(
-            'Illuminate\Console\Scheduling\Schedule', $schedule = new Schedule
+            Schedule::class, $schedule = new Schedule
         );
 
         $this->schedule($schedule);
@@ -112,22 +113,40 @@ class Kernel implements KernelContract
         try {
             $this->app->boot();
 
-            return $this->getArtisan()->run($input, $output);
-        } catch (Exception $e) {
-            $this->reportException($e);
-
-            $this->renderException($output, $e);
-
-            return 1;
+            $status = $this->getArtisan()->run($input, $output);
         } catch (Throwable $e) {
-            $e = new FatalThrowableError($e);
-
             $this->reportException($e);
 
             $this->renderException($output, $e);
 
-            return 1;
+            $status = 1;
         }
+
+        $this->terminate($input, $status);
+
+        return $status;
+    }
+
+    /**
+     * Bootstrap the application for artisan commands.
+     *
+     * @return void
+     */
+    public function bootstrap()
+    {
+        //
+    }
+
+    /**
+     * Terminate the application.
+     *
+     * @param  \Symfony\Component\Console\Input\InputInterface  $input
+     * @param  int  $status
+     * @return void
+     */
+    public function terminate($input, $status)
+    {
+        $this->app->terminate();
     }
 
     /**
@@ -157,7 +176,7 @@ class Kernel implements KernelContract
      * Queue the given console command.
      *
      * @param  string  $command
-     * @param  array   $parameters
+     * @param  array  $parameters
      * @return void
      */
     public function queue($command, array $parameters = [])
@@ -194,7 +213,8 @@ class Kernel implements KernelContract
     {
         if (is_null($this->artisan)) {
             return $this->artisan = (new Artisan($this->app, $this->app->make('events'), $this->app->version()))
-                                ->resolveCommands($this->getCommands());
+                                ->resolveCommands($this->getCommands())
+                                ->setContainerCommandLoader();
         }
 
         return $this->artisan;
@@ -208,30 +228,44 @@ class Kernel implements KernelContract
     protected function getCommands()
     {
         return array_merge($this->commands, [
-            'Illuminate\Console\Scheduling\ScheduleRunCommand',
+            ScheduleRunCommand::class,
         ]);
     }
 
     /**
      * Report the exception to the exception handler.
      *
-     * @param  \Exception  $e
+     * @param  \Throwable  $e
      * @return void
      */
-    protected function reportException(Exception $e)
+    protected function reportException(Throwable $e)
     {
-        $this->app['Illuminate\Contracts\Debug\ExceptionHandler']->report($e);
+        $this->resolveExceptionHandler()->report($e);
     }
 
     /**
      * Report the exception to the exception handler.
      *
      * @param  \Symfony\Component\Console\Output\OutputInterface  $output
-     * @param  \Exception  $e
+     * @param  \Throwable  $e
      * @return void
      */
-    protected function renderException($output, Exception $e)
+    protected function renderException($output, Throwable $e)
     {
-        $this->app['Illuminate\Contracts\Debug\ExceptionHandler']->renderForConsole($output, $e);
+        $this->resolveExceptionHandler()->renderForConsole($output, $e);
+    }
+
+    /**
+     * Get the exception handler from the container.
+     *
+     * @return \Illuminate\Contracts\Debug\ExceptionHandler
+     */
+    protected function resolveExceptionHandler()
+    {
+        if ($this->app->bound(ExceptionHandler::class)) {
+            return $this->app->make(ExceptionHandler::class);
+        } else {
+            return $this->app->make(Handler::class);
+        }
     }
 }

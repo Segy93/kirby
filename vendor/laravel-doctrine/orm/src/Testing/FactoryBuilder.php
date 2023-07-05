@@ -3,8 +3,8 @@
 namespace LaravelDoctrine\ORM\Testing;
 
 use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Persistence\ManagerRegistry;
 use Doctrine\ORM\Mapping\ClassMetadata;
+use Doctrine\Persistence\ManagerRegistry;
 use Faker\Generator as Faker;
 use Illuminate\Support\Collection;
 use InvalidArgumentException;
@@ -66,6 +66,20 @@ class FactoryBuilder
     protected $activeStates = [];
 
     /**
+     * The registered after making callbacks.
+     *
+     * @var array
+     */
+    public $afterMaking = [];
+
+    /**
+     * The registered after creating callbacks.
+     *
+     * @var array
+     */
+    public $afterCreating = [];
+
+    /**
      * Create an new builder instance.
      *
      * @param ManagerRegistry  $registry
@@ -115,7 +129,7 @@ class FactoryBuilder
 
         if ($this->amount === 1) {
             $manager->persist($results);
-            $this->callAfterCreating(collect($results));
+            $this->callAfterCreating(collect([$results]));
         } else {
             foreach ($results as $result) {
                 $manager->persist($result);
@@ -140,9 +154,16 @@ class FactoryBuilder
      *
      * @return FactoryBuilder
      */
-    public static function construct(ManagerRegistry $registry, $class, $name, array $definitions,
-                                     Faker $faker, array $states, array $afterMaking = [], array $afterCreating = [])
-    {
+    public static function construct(
+        ManagerRegistry $registry,
+        $class,
+        $name,
+        array $definitions,
+        Faker $faker,
+        array $states,
+        array $afterMaking = [],
+        array $afterCreating = []
+    ) {
         $instance         = new static($registry, $class, $name, $definitions, $faker, $afterMaking, $afterCreating);
         $instance->states = $states;
 
@@ -250,6 +271,14 @@ class FactoryBuilder
     }
 
     /**
+     * @return array
+     */
+    public function getStates(): array
+    {
+        return $this->states;
+    }
+
+    /**
      * Set the states to be applied to the model.
      *
      * @param  array|mixed $states
@@ -306,7 +335,8 @@ class FactoryBuilder
 
         return call_user_func(
             $stateAttributes,
-            $this->faker, $attributes
+            $this->faker,
+            $attributes
         );
     }
 

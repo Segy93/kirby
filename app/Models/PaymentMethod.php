@@ -40,7 +40,7 @@ class PaymentMethod implements \JsonSerializable {
         $this->{$fieldName} = $value;
     }
 
-    public function jsonSerialize() {
+    public function jsonSerialize(): mixed {
         return [
             'id'            =>  $this->id,
             'method'        =>  $this->method,

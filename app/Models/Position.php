@@ -49,9 +49,9 @@ class Position implements \JsonSerializable {
 
     /**
      * json Serilizacija
-     * @return void
+     * @return mixed
      */
-    public function jsonSerialize() {
+    public function jsonSerialize(): mixed {
         return [
             'id'                =>  $this->id,
             'page_type_id'      =>  $this->page_type_id,

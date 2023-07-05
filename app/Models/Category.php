@@ -59,7 +59,7 @@ class Category implements \JsonSerializable {
         $this->attributes = new ArrayCollection();
     }
 
-    public function jsonSerialize() {
+    public function jsonSerialize(): mixed {
         return [
             'id' => $this->id,
             'name' => $this->name,

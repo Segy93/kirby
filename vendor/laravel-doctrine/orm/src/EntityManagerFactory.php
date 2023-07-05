@@ -4,6 +4,7 @@ namespace LaravelDoctrine\ORM;
 
 use Doctrine\Common\Cache\Cache;
 use Doctrine\Common\EventManager;
+use Doctrine\DBAL\Connections\PrimaryReadReplicaConnection as DocrinePrimaryReadReplicaConnection;
 use Doctrine\ORM\Cache\DefaultCacheFactory;
 use Doctrine\ORM\Configuration;
 use Doctrine\ORM\EntityManager;
@@ -17,6 +18,7 @@ use InvalidArgumentException;
 use LaravelDoctrine\ORM\Configuration\Cache\CacheManager;
 use LaravelDoctrine\ORM\Configuration\Connections\ConnectionManager;
 use LaravelDoctrine\ORM\Configuration\Connections\MasterSlaveConnection;
+use LaravelDoctrine\ORM\Configuration\Connections\PrimaryReadReplicaConnection;
 use LaravelDoctrine\ORM\Configuration\LaravelNamingStrategy;
 use LaravelDoctrine\ORM\Configuration\MetaData\MetaData;
 use LaravelDoctrine\ORM\Configuration\MetaData\MetaDataManager;
@@ -116,10 +118,15 @@ class EntityManagerFactory
 
         if ($this->isMasterSlaveConfigured($driver)) {
             $this->hasValidMasterSlaveConfig($driver);
-            $connection = (new MasterSlaveConnection($this->config, $connection))->resolve($driver);
+            if (class_exists(DocrinePrimaryReadReplicaConnection::class)) {
+                $connection = (new PrimaryReadReplicaConnection($this->config, $connection))->resolve($driver);
+            } else {
+                $connection = (new MasterSlaveConnection($this->config, $connection))->resolve($driver);
+            }
         }
 
         $this->setNamingStrategy($settings, $configuration);
+        $this->setQuoteStrategy($settings, $configuration);
         $this->setCustomFunctions($configuration);
         $this->setCustomHydrationModes($configuration);
         $this->setCacheSettings($configuration);
@@ -175,7 +182,7 @@ class EntityManagerFactory
      * @param array                  $settings
      * @param EntityManagerInterface $manager
      */
-    protected function registerListeners(array $settings = [], EntityManagerInterface $manager)
+    protected function registerListeners(array $settings, EntityManagerInterface $manager)
     {
         if (isset($settings['events']['listeners'])) {
             foreach ($settings['events']['listeners'] as $event => $listener) {
@@ -216,7 +223,7 @@ class EntityManagerFactory
      * @param array                  $settings
      * @param EntityManagerInterface $manager
      */
-    protected function registerSubscribers(array $settings = [], EntityManagerInterface $manager)
+    protected function registerSubscribers(array $settings, EntityManagerInterface $manager)
     {
         if (isset($settings['events']['subscribers'])) {
             foreach ($settings['events']['subscribers'] as $subscriber) {
@@ -237,7 +244,7 @@ class EntityManagerFactory
      * @param EntityManagerInterface $manager
      */
     protected function registerFilters(
-        array $settings = [],
+        array $settings,
         Configuration $configuration,
         EntityManagerInterface $manager
     ) {
@@ -253,7 +260,7 @@ class EntityManagerFactory
      * @param array         $settings
      * @param Configuration $configuration
      */
-    protected function registerPaths(array $settings = [], Configuration $configuration)
+    protected function registerPaths(array $settings, Configuration $configuration)
     {
         $configuration->getMetadataDriverImpl()->addPaths(
             Arr::get($settings, 'paths', [])
@@ -277,7 +284,7 @@ class EntityManagerFactory
      * @param array         $settings
      * @param Configuration $configuration
      */
-    protected function configureProxies(array $settings = [], Configuration $configuration)
+    protected function configureProxies(array $settings, Configuration $configuration)
     {
         $configuration->setProxyDir(
             Arr::get($settings, 'proxies.path')
@@ -309,11 +316,26 @@ class EntityManagerFactory
      * @param array         $settings
      * @param Configuration $configuration
      */
-    protected function setNamingStrategy(array $settings = [], Configuration $configuration)
+    protected function setNamingStrategy(array $settings, Configuration $configuration)
     {
         $strategy = Arr::get($settings, 'naming_strategy', LaravelNamingStrategy::class);
 
         $configuration->setNamingStrategy(
+            $this->container->make($strategy)
+        );
+    }
+
+    /**
+     * @param array         $settings
+     * @param Configuration $configuration
+     */
+    protected function setQuoteStrategy(array $settings, Configuration $configuration)
+    {
+        $strategy = Arr::get($settings, 'quote_strategy', null);
+        if ($strategy === null) {
+            return;
+        }
+        $configuration->setQuoteStrategy(
             $this->container->make($strategy)
         );
     }
@@ -394,7 +416,7 @@ class EntityManagerFactory
      * @param array         $settings
      * @param Configuration $configuration
      */
-    protected function setCustomMappingDriverChain(array $settings = [], Configuration $configuration)
+    protected function setCustomMappingDriverChain(array $settings, Configuration $configuration)
     {
         $chain = new MappingDriverChain(
             $configuration->getMetadataDriverImpl(),
@@ -421,7 +443,7 @@ class EntityManagerFactory
      *
      * @return mixed
      */
-    protected function decorateManager(array $settings = [], EntityManagerInterface $manager)
+    protected function decorateManager(array $settings, EntityManagerInterface $manager)
     {
         if ($decorator = Arr::get($settings, 'decorator', false)) {
             if (!class_exists($decorator)) {
@@ -457,7 +479,7 @@ class EntityManagerFactory
      *
      * @throws \Doctrine\DBAL\DBALException If Database Type or Doctrine Type is not found.
      */
-    protected function registerMappingTypes(array $settings = [], EntityManagerInterface $manager)
+    protected function registerMappingTypes(array $settings, EntityManagerInterface $manager)
     {
         foreach (Arr::get($settings, 'mapping_types', []) as $dbType => $doctrineType) {
             // Throw DBALException if Doctrine Type is not found.
