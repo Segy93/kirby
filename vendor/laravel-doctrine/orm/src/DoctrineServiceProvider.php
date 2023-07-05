@@ -2,14 +2,15 @@
 
 namespace LaravelDoctrine\ORM;
 
-use Doctrine\Common\Persistence\ManagerRegistry;
 use Doctrine\Common\Proxy\Autoloader;
 use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\Mapping\ClassMetadataFactory;
+use Doctrine\Persistence\ManagerRegistry;
 use Faker\Factory as FakerFactory;
 use Faker\Generator as FakerGenerator;
 use Illuminate\Contracts\Container\Container;
+use Illuminate\Contracts\Validation\Factory as ValidationFactory;
 use Illuminate\Notifications\ChannelManager;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Str;
@@ -95,7 +96,7 @@ class DoctrineServiceProvider extends ServiceProvider
             // due to weirdness the default presence verifier overrides one set by a service provider
             // so remove them so we can re add our implementation later
             unset($this->app->availableBindings['validator']);
-            unset($this->app->availableBindings['Illuminate\Contracts\Validation\Factory']);
+            unset($this->app->availableBindings[ValidationFactory::class]);
         } else {
             // resolve the db,
             // this makes `isset($this->app['db']) == true`
@@ -111,7 +112,8 @@ class DoctrineServiceProvider extends ServiceProvider
     protected function mergeConfig()
     {
         $this->mergeConfigFrom(
-            $this->getConfigPath(), 'doctrine'
+            $this->getConfigPath(),
+            'doctrine'
         );
 
         if ($this->isLumen()) {
@@ -161,8 +163,10 @@ class DoctrineServiceProvider extends ServiceProvider
         $this->app->alias('registry', ManagerRegistry::class);
         $this->app->alias('registry', IlluminateRegistry::class);
 
-        // This alias is required for compatibility with doctrine/persistence 1.3+
-        $this->app->alias(ManagerRegistry::class, \Doctrine\Persistence\ManagerRegistry::class);
+        // This namespace has been deprecated in doctrine/persistence and we have
+        // stopped referring to it. Alias is necessary to let other use it until
+        // its removed.
+        $this->app->alias('registry', \Doctrine\Common\Persistence\ManagerRegistry::class);
     }
 
     /**

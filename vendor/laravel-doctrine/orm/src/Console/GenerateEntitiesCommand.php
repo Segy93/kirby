@@ -2,10 +2,10 @@
 
 namespace LaravelDoctrine\ORM\Console;
 
-use Doctrine\Common\Persistence\ManagerRegistry;
 use Doctrine\ORM\Tools\Console\MetadataFilter;
 use Doctrine\ORM\Tools\DisconnectedClassMetadataFactory;
 use Doctrine\ORM\Tools\EntityGenerator;
+use Doctrine\Persistence\ManagerRegistry;
 
 class GenerateEntitiesCommand extends Command
 {
@@ -62,8 +62,10 @@ class GenerateEntitiesCommand extends Command
 
             if (!file_exists($destPath)) {
                 throw new \InvalidArgumentException(
-                    sprintf("Proxies destination directory ' < info>%s </info > ' does not exist.",
-                        $em->getConfiguration()->getProxyDir())
+                    sprintf(
+                        "Proxies destination directory ' < info>%s </info > ' does not exist.",
+                        $em->getConfiguration()->getProxyDir()
+                    )
                 );
             }
 
@@ -76,7 +78,7 @@ class GenerateEntitiesCommand extends Command
                 $entityGenerator->setGenerateStubMethods($this->option('generate-methods'));
                 $entityGenerator->setRegenerateEntityIfExists($this->option('regenerate-entities'));
                 $entityGenerator->setUpdateEntityIfExists($this->option('update-entities'));
-                $entityGenerator->setNumSpaces($this->option('num-spaces'));
+                $entityGenerator->setNumSpaces((int) $this->option('num-spaces'));
                 $entityGenerator->setBackupExisting(!$this->option('no-backup'));
 
                 if (($extend = $this->option('extend')) !== null) {

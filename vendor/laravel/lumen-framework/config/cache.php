@@ -1,5 +1,7 @@
 <?php
 
+use Illuminate\Support\Str;
+
 return [
 
     /*
@@ -41,7 +43,7 @@ return [
         'database' => [
             'driver' => 'database',
             'table' => env('CACHE_DATABASE_TABLE', 'cache'),
-            'connection' => env('CACHE_DATABASE_CONNECTION', null),
+            'connection' => env('CACHE_DATABASE_CONNECTION'),
         ],
 
         'file' => [
@@ -57,7 +59,7 @@ return [
                 env('MEMCACHED_PASSWORD'),
             ],
             'options' => [
-                // Memcached::OPT_CONNECT_TIMEOUT  => 2000,
+                // Memcached::OPT_CONNECT_TIMEOUT => 2000,
             ],
             'servers' => [
                 [
@@ -70,7 +72,7 @@ return [
 
         'redis' => [
             'driver' => 'redis',
-            'connection' => env('CACHE_REDIS_CONNECTION', 'default'),
+            'connection' => env('CACHE_REDIS_CONNECTION', 'cache'),
         ],
 
     ],
@@ -88,7 +90,7 @@ return [
 
     'prefix' => env(
         'CACHE_PREFIX',
-        str_slug(env('APP_NAME', 'lumen'), '_').'_cache'
+        Str::slug(env('APP_NAME', 'lumen'), '_').'_cache'
     ),
 
 ];

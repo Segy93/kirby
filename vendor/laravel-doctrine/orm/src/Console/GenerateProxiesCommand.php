@@ -2,8 +2,8 @@
 
 namespace LaravelDoctrine\ORM\Console;
 
-use Doctrine\Common\Persistence\ManagerRegistry;
 use Doctrine\ORM\Tools\Console\MetadataFilter;
+use Doctrine\Persistence\ManagerRegistry;
 use InvalidArgumentException;
 
 class GenerateProxiesCommand extends Command
@@ -54,15 +54,19 @@ class GenerateProxiesCommand extends Command
 
             if (!file_exists($destPath)) {
                 throw new InvalidArgumentException(
-                    sprintf("Proxies destination directory '<info>%s</info>' does not exist.",
-                        $em->getConfiguration()->getProxyDir())
+                    sprintf(
+                        "Proxies destination directory '<info>%s</info>' does not exist.",
+                        $em->getConfiguration()->getProxyDir()
+                    )
                 );
             }
 
             if (!is_writable($destPath)) {
                 throw new InvalidArgumentException(
-                    sprintf("Proxies destination directory '<info>%s</info>' does not have write permissions.",
-                        $destPath)
+                    sprintf(
+                        "Proxies destination directory '<info>%s</info>' does not have write permissions.",
+                        $destPath
+                    )
                 );
             }
 
@@ -77,7 +81,7 @@ class GenerateProxiesCommand extends Command
                 $em->getProxyFactory()->generateProxyClasses($metadatas, $destPath);
 
                 // Outputting information message
-                $this->comment(sprintf('Proxy classes generated to "<info>%s</INFO>"', $destPath));
+                $this->comment(sprintf('Proxy classes generated to "<info>%s</info>"', $destPath));
             } else {
                 $this->error('No Metadata Classes to process.');
             }

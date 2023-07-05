@@ -39,9 +39,9 @@ class AddressShop extends Address {
     protected $address_type = 'shop';
     /**
      * json Serilizacija
-     * @return void
+     * @return mixed
      */
-    public function jsonSerialize() {
+    public function jsonSerialize(): mixed {
         $json = [
             'shop_id'       =>  $this->shop_id,
             'email'         =>  $this->email,

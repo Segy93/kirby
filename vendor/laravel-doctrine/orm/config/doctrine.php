@@ -17,6 +17,10 @@ return [
     | Available connections: mysql|oracle|pgsql|sqlite|sqlsrv
     | (Connections can be configured in the database config)
     |
+    | Depending on the chosen database connection, various other settings are
+    | available. Check the available settings for your connection type in
+    | the LaravelDoctrine\ORM\Configuration\Connections namespace.
+    |
     | --> Warning: Proxy auto generation should only be enabled in dev!
     |
     */
@@ -64,11 +68,11 @@ return [
             | });
             |
             | References:
-            | http://doctrine-orm.readthedocs.org/en/latest/cookbook/custom-mapping-types.html
-            | http://doctrine-dbal.readthedocs.org/en/latest/reference/types.html#custom-mapping-types
-            | http://doctrine-orm.readthedocs.org/en/latest/cookbook/advanced-field-value-conversion-using-custom-mapping-types.html
-            | http://doctrine-orm.readthedocs.org/en/latest/reference/basic-mapping.html#reference-mapping-types
-            | http://symfony.com/doc/current/cookbook/doctrine/dbal.html#registering-custom-mapping-types-in-the-schematool
+            | https://www.doctrine-project.org/projects/doctrine-orm/en/current/cookbook/custom-mapping-types.html
+            | https://www.doctrine-project.org/projects/doctrine-dbal/en/latest/reference/types.html#custom-mapping-types
+            | https://www.doctrine-project.org/projects/doctrine-orm/en/current/cookbook/advanced-field-value-conversion-using-custom-mapping-types.html
+            | https://www.doctrine-project.org/projects/doctrine-orm/en/current/reference/basic-mapping.html
+            | https://symfony.com/doc/current/doctrine/dbal.html#registering-custom-mapping-types-in-the-schematool
             |--------------------------------------------------------------------------
             */
             'mapping_types' => [
@@ -108,7 +112,6 @@ return [
     |--------------------------------------------------------------------------
     */
     'custom_types'               => [
-        'json' => LaravelDoctrine\ORM\Types\Json::class
     ],
     /*
     |--------------------------------------------------------------------------
