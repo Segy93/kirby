@@ -87,6 +87,7 @@
 
         <meta itemprop = "paymentAccepted" content = "Cash, Credit Card"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="google-site-verification" content="pHH0fem4wZbhMqNmwbz0zgq4WtNwNIVErM089iNFP3o" />
         {!!$csrf_meta!!}
 
         <?php $paths = []; ?>
